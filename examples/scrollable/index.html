@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+
+<link href="../../css/basics.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/960.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" charset="utf-8" src="../../jquery/1.6.1.js"></script> 
+
+<title>jquery.ajp.scrollable - examples</title>
+
+<link href="./scrollable.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.mousewheel.js"></script> 
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.scrollable.js"></script> 
+
+<style>
+
+body { margin: 1em; }
+
+#ex1 {
+	border: 1px solid #eee;
+	width: 660px;
+}
+
+#ex2 {
+	border: 1px solid #eee;
+	width: 660px;
+	margin-top: 20px;
+}
+
+
+</style>
+
+<script>
+
+$(document).ready(function () {
+
+	$('#ex1').scrollable({
+		prev: '#ex1 > .prev',
+		next: '#ex1 > .next',
+		mousewheel: true,
+	})
+
+	$('#ex2').scrollable({
+		prev: '#ex2 > .prev',
+		next: '#ex2 > .next',
+		mousewheel: true,
+		extensible: {
+			critical: 3,
+			getUrl: function (offset) { return { url: './ex2-data-' + offset + '.js', params: { 'offset': offset } } },
+		}
+	})
+
+
+})
+
+</script>
+
+</head>
+
+<body>
+
+	<div id="ex1">
+		<div class="prev"></div>
+		<div class="scrollable-screen">
+			<ul>
+				<li><div>
+					<h1>Paragraph 1</h1>
+					<p>Lorem dolor sit amet, vel et mazim affert tincidunt, in iisque contentiones vis,
+					has an ridens vulputate reformidans.Voluptatum no discere utroque, posse corpora
+					adipiscing qui. Autem putent est at. Eum ei insolens intellegebat, sonet forensibus
+					disputando eam ea. At nobis utroque his, cu usu novum cetero appetere.</p>
+				</div></li>
+				<li><div>
+					<h1>Paragraph 2</h1>
+					<p>Vis falli scriptorem in, habemus platonem referrentur cum. Nam melius recusabo
+					constituam cu, cu pri admodum erroribus, et vix simul maluisset. Sit in decore
+					nullam salutatus. Cu eam ludus nobis graece, graeco option an his, dolore putant
+					saperet est eu. Meis omnesque has ea. Eum noster laoreet interesset ad, porro
+					evertitur incorrupte pri ea.</p>
+				</div></li>
+				<li><div>
+					<h1>Paragraph 3</h1>
+					<p>Intellegat intellegebat ad per, eu usu soluta insolens facilisis, cu vel magna
+					imperdiet. Quodsi gubergren no eam, viris verear his cu. Ipsum sed aliquip offendit,
+					utinam nonumes ei ius. Ei debet cetero suscipiantur nam, eam graeco gubergren et.
+					Eam assum intellegebat cu, at vis omnis essent.</p>
+				</div></li>
+			</ul>
+		</div>
+		<div class="next"></div>
+		<div class="clear"></div>
+	</div>
+
+	<div id="ex2">
+		<div class="prev"></div>
+		<div class="scrollable-screen">
+			<ul>
+				<li><div>
+					<h1>Paragraph 1</h1>
+					<p>Lorem dolor sit amet, vel et mazim affert tincidunt, in iisque contentiones vis,
+					has an ridens vulputate reformidans.Voluptatum no discere utroque, posse corpora
+					adipiscing qui. Autem putent est at. Eum ei insolens intellegebat, sonet forensibus
+					disputando eam ea. At nobis utroque his, cu usu novum cetero appetere.</p>
+				</div></li>
+				<li><div>
+					<h1>Paragraph 2</h1>
+					<p>Vis falli scriptorem in, habemus platonem referrentur cum. Nam melius recusabo
+					constituam cu, cu pri admodum erroribus, et vix simul maluisset. Sit in decore
+					nullam salutatus. Cu eam ludus nobis graece, graeco option an his, dolore putant
+					saperet est eu. Meis omnesque has ea. Eum noster laoreet interesset ad, porro
+					evertitur incorrupte pri ea.</p>
+				</div></li>
+				<li><div>
+					<h1>Paragraph 3</h1>
+					<p>Intellegat intellegebat ad per, eu usu soluta insolens facilisis, cu vel magna
+					imperdiet. Quodsi gubergren no eam, viris verear his cu. Ipsum sed aliquip offendit,
+					utinam nonumes ei ius. Ei debet cetero suscipiantur nam, eam graeco gubergren et.
+					Eam assum intellegebat cu, at vis omnis essent.</p>
+				</div></li>
+			</ul>
+		</div>
+		<div class="next"></div>
+		<div class="clear"></div>
+	</div>
+
+
+</body>

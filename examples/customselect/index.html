@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+
+<link href="../../css/basics.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/960.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" charset="utf-8" src="../../jquery/1.6.1.js"></script> 
+
+<title>jquery.ajp.customselect - examples</title>
+
+<link href="./customselect.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.customselect.js"></script> 
+
+<style>
+
+body { margin: 1em; }
+
+</style>
+
+<script>
+
+$(document).ready(function () {
+
+	$('#sel').change(function () {
+
+		if (console && console.log)
+			console.log('#sel changed to ', $(this).val())
+
+	}).customSelect()
+
+	$('#sel').append($('<option></option>').attr('value', 40).text('opt 40').attr('selected', 'selected'))
+	$('#sel').customSelectContext().sync()
+
+})
+
+</script>
+
+</head>
+
+<body>
+
+<select id="sel">
+	<option value="10">opt 10</option>
+	<option value="20">opt 20</option>
+	<option value="30">opt 30</option>
+</select>
+
+</body>

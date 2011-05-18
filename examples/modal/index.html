@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+
+<link href="../../css/basics.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/960.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" charset="utf-8" src="../../jquery/1.6.1.js"></script> 
+
+<title>jquery.ajp.modal - examples</title>
+
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.modal.js"></script> 
+
+<style>
+
+body { margin: 1em; }
+
+.ex1 {
+	width: 600px;
+	height: 150px;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-top: -75px;
+	margin-left: -300px;
+	visibility: hidden;
+	background: #eee;
+	border: 1px solid #ccc;
+}
+
+.ex1 > div {
+	padding: 1em;
+}
+
+.ex2 {
+	width: 500px;
+	height: 150px;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-top: -75px;
+	margin-left: -250px;
+	visibility: hidden;
+	background: #eee;
+	border: 1px solid #ccc;
+}
+
+.ex2 > div {
+	padding: 1em;
+}
+
+
+</style>
+
+<script>
+
+$(document).ready(function () {
+
+	$('#ex1').click(function () {
+		$('.ex1').showModal({
+			background: '#000',
+			yes: function () {
+				$('.ex2').showModal({
+					background: '#000',
+					no: function () {
+						$('.ex1').closeModal()
+					}
+				})
+			}
+		})
+	})
+
+	function show(shade, dialog) {
+		$(shade).css({ opacity: 0, visibility: 'visible' })
+			.animate({ opacity: 0.5 }, 'fast', 'linear', function () {
+				$(dialog).css({ opacity: 0, visibility: 'visible' })
+					.animate({ opacity: 1 }, 'fast', 'linear')
+			})
+	}
+
+	function hide(shade, dialog) {
+		if (shade) $(shade).animate({ opacity: 0 }, 'fast', 'linear', function () {
+			$(shade).css({ visibility: 'hidden' })
+		})
+		$(dialog).animate({ opacity: 0 }, 'fast', 'linear', function () {
+			$(dialog).css({ opacity: 1, visibility: 'hidden' })
+		})
+	}
+
+	$('#ex2').click(function () {
+		$('.ex1').showModal({
+			background: '#000',
+			'show': show,
+			'hide': hide,
+			yes: function () {
+				$('.ex2').showModal({
+					background: '#000',
+					'show': show,
+					'hide': hide,
+					no: function () {
+						$('.ex1').closeModal({ 'hide': hide })
+					}
+				})
+			}
+		})
+	})
+
+})
+
+</script>
+
+</head>
+
+<body>
+	<button id="ex1">Show modal dialog</button>
+	<div class="ex1">
+		<div>
+			<h1>I am modal dialog</h1>
+			<p>Press button &laquo;Show next dialog&raquo; to open second modal dialog.</p>
+			<button class="yes">Show next dialog</button>
+			<button class="no">Close</button>
+		</div>
+	</div>
+	<div class="ex2">
+		<div>
+			<h1>I am second dialog</h1>
+			<p>Press button &laquo;Close&raquo; to close this dialog.</p>
+			<button class="no">Close</button>
+		</div>
+	</div>
+
+	<button id="ex2">Blur modal dialog</button>
+</body>

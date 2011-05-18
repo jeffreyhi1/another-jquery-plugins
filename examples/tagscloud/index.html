@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+
+<link href="../../css/basics.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/960.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" charset="utf-8" src="../../jquery/1.6.1.js"></script> 
+
+<title>jquery.ajp.tagscloud - examples</title>
+
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.tagscloud.js"></script> 
+
+<style>
+
+body { margin: 1em; }
+
+</style>
+
+<script>
+
+$(document).ready(function () {
+
+	$('#tags').tagscloud({
+		tags: function (container) {
+			var tags = []
+			$(container).children('a').each(function (i, el) {
+				var e = $(el)
+				tags.push({
+					tag: e.text(),
+					weight: parseFloat(e.attr('title').replace(/\D/g, '')),
+					href: e.attr('href'),
+					title: e.attr('title')
+				})
+			})
+			return tags
+		},
+	})
+
+})
+
+</script>
+
+</head>
+
+<body>
+
+	<div id="tags">
+		<a href="#another" title="Objects: 213">another</a>
+		<a href="#jquery" title="Objects: 2342">jQuery</a>
+		<a href="#plugins" title="Objects: 1342">plugins</a>
+		<a href="#examples" title="Objects: 132">examples</a>
+		<a href="#tags" title="Objects: 33">tags</a>
+		<a href="#cloud" title="Objects: 5">cloud</a>
+	</div>
+
+</body>
