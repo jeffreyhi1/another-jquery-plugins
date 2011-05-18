@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+
+<link href="../../css/basics.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/960.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" charset="utf-8" src="../../jquery/1.6.1.js"></script> 
+
+<title>jquery.ajp.customselect - examples</title>
+
+<link href="./customcheckbox.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.customcheckbox.js"></script> 
+
+<style>
+
+body { margin: 1em; }
+
+.ex1 td { padding: 5px !important; }
+
+</style>
+
+<script>
+
+$(document).ready(function () {
+	$('input[type=checkbox]').customCheckbox()
+})
+
+</script>
+
+</head>
+
+<body>
+
+	<table class="layout ex1">
+		<tr>
+			<td><input type="checkbox" checked="true" id="c1"/></td>
+			<td><label for="c1">checkbox 1</label></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" checked="true" id="c2"/></td>
+			<td><label for="c2">checkbox 2</label></td>
+		</tr>
+	</table>
+
+</body>

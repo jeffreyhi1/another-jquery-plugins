@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+
+<link href="../../css/basics.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/960.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" charset="utf-8" src="../../jquery/1.6.1.js"></script> 
+
+<title>jquery.ajp.bindkeys - examples</title>
+
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.bindkeys.js"></script> 
+
+<style>
+
+body { margin: 1em; }
+
+</style>
+
+<script>
+
+$(document).ready(function () {
+
+	$('textarea').focus().bindkeys({
+		hotkeys: {
+			'Ctrl+Y': function (evt, ctx) { alert('Ctrl+Y pressed') },
+			'Esc': function (evt, ctx) { alert('ESC pressed') },
+			'Enter': function (evt, ctx) { alert('Enter pressed')  },
+		}
+	})
+
+})
+
+</script>
+
+</head>
+
+<body>
+
+	<textarea>Press Ctrl+Y, Esc, Enter</textarea>
+
+</body>

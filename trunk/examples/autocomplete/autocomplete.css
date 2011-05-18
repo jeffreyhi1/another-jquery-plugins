@@ -1,0 +1,11 @@
+﻿.autocomplete-list {
+	position: absolute;
+	border: 1px outset #e0e0e0;
+	margin: 0;
+	padding: 0;
+	z-index: 256000;
+}
+
+.autocomplete-list .autocomplete-item { cursor: pointer; background: #ffffff; padding: 2px 4px; }
+.autocomplete-list .autocomplete-item-odd { background: #f0f0f0; }
+.autocomplete-list .autocomplete-item-selected { background: #333; color: #fff; }

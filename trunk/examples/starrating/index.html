@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+
+<link href="../../css/basics.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/960.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" charset="utf-8" src="../../jquery/1.6.1.js"></script> 
+
+<title>jquery.ajp.scrollable - examples</title>
+
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.starrating.js"></script> 
+
+<style>
+
+body { margin: 1em; }
+
+</style>
+
+<script>
+
+$(document).ready(function () {
+
+	function getRating(el) {
+		return parseFloat( $(el).parents('tr:eq(0)').children('td:eq(2)').text() )
+	}
+
+	$('.rating').starRating({
+		rating: getRating,
+		image: function (el) {
+			var rate = getRating(el)
+			return './rating-' + (rate >= 4 ? 'green' : (rate < 3 ? 'red' : 'yellow')) + '.png'
+		}
+	})
+
+	$('.vote').starRating({
+		image: './rating-yellow.png',
+		voteHandler: function (vote, star) {
+			$(star).parent().starRatingSet(vote)
+		}
+	})
+})
+
+</script>
+
+</head>
+
+<body>
+
+	<table class="soft">
+		<tr>
+			<th>plugin</th>
+			<th colspan="2">rating</th>
+		</tr>
+		<tr>
+			<td>jquery.ajp.autocomplete</td>
+			<td><div class="rating"></div></td>
+			<td>5.0</td>
+		</tr>
+		<tr>
+			<td>jquery.ajp.scrollable</td>
+			<td><div class="rating"></div></td>
+			<td>4.8</td>
+		</tr>
+		<tr>
+			<td>jquery.ajp.paginator</td>
+			<td><div class="rating"></div></td>
+			<td>4.4</td>
+		</tr>
+		<tr>
+			<td>jquery.ajp.starrating</td>
+			<td><div class="rating"></div></td>
+			<td>3.9</td>
+		</tr>
+		<tr>
+			<td>jquery.ajp.hint</td>
+			<td><div class="rating"></div></td>
+			<td>3.0</td>
+		</tr>
+		<tr>
+			<td>jquery.ajp.customcheckbox</td>
+			<td><div class="rating"></div></td>
+			<td>2.5</td>
+		</tr>
+		<tr>
+			<td>jquery.ajp.resizable</td>
+			<td><div class="rating"></div></td>
+			<td>2.0</td>
+		</tr>
+	</table>
+
+	<br/>
+	<span class="left float">Your vote:</span> <div class="vote left float"></div>
+
+</body>

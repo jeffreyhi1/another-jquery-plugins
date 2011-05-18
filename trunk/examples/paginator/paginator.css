@@ -1,0 +1,45 @@
+.paginator {
+	height: 20px;
+	border: 1px dotted #ccc;
+	padding: 4px;
+}
+.paginator .scrollable-screen {
+	width: 200px;
+	height: 20px;
+	float: left;
+}
+.paginator li a {
+	text-decoration: none;
+	border: 0;
+	display: block;
+	width: 40px;
+	text-align: center;
+	float: left;
+	color: orange;
+}
+.paginator li a.selected, .paginator li a:active {
+	text-decoration: none;
+	background: orange;
+	color: #fff;
+}
+.paginator .prev, .paginator .next {
+	display: block;
+	margin-left: 6px;
+	margin-right: 6px;
+	text-align: center;
+	float: left;
+	color: orange;
+}
+.paginator .disabled {
+	color: #ccc;
+}
+
+
+
+.paginator ul {
+	margin-top: 0px;
+}
+.paginator ul li {
+	position: relative;
+	left: -40px;
+}

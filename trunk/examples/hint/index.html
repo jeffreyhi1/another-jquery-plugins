@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+
+<link href="../../css/basics.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/960.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" charset="utf-8" src="../../jquery/1.6.1.js"></script> 
+
+<title>jquery.ajp.autocomplete - examples</title>
+
+<link href="./hint.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.hint.js"></script> 
+
+<style>
+
+body { margin: 1em; }
+
+</style>
+
+<script>
+
+$(document).ready(function () {
+
+	$('.hint').hint()
+
+	$('.show-email-val').click(function () { alert($('#email').val()) })
+	$('.show-email-hval').click(function () { alert($('#email').hintVal()) })
+	$('.show-name-val').click(function () { alert($('#name').val()) })
+	$('.show-name-hval').click(function () { alert($('#name').hintVal()) })
+
+})
+
+</script>
+
+</head>
+
+<body>
+	<input id="email" type="text" class="field hint" value="your email here..."/>
+	<input id="name" type="text" class="field hint" value="and your name here..."/>
+	<button class="show-email-val">Show email (val)</button>
+	<button class="show-email-hval">Show email (hintVal)</button>
+	<button class="show-name-val">Show name (val)</button>
+	<button class="show-name-hval">Show name (hintVal)</button>
+</body>

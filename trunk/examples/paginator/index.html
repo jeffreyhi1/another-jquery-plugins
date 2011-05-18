@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+
+<link href="../../css/basics.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/960.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" charset="utf-8" src="../../jquery/1.6.1.js"></script> 
+
+<title>jquery.ajp.paginator - examples</title>
+
+<link href="./paginator.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.mousewheel.js"></script> 
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.scrollable.js"></script> 
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.paginator.js"></script> 
+
+<style>
+
+body { margin: 1em; }
+
+#ex1 { width: 360px; }
+#ex2 { width: 440px; }
+
+</style>
+
+<script>
+
+$(document).ready(function () {
+
+	var m;
+	var currentPage = ((m = location.href.match(/page=(\d+)$/)) ? parseInt(m[1]) : 1)
+	if (console && console.log)
+		console.log(currentPage)
+
+	$('#ex1').paginator({
+		total: 1000,
+		baseUrl: '?page=%page%',
+		current: currentPage,
+		duration: 'slow',
+		mousewheel: true,
+		prev: '&larr; Previous',
+		next: 'Next &rarr;'
+	})
+
+	$('#ex2').paginator({
+		total: 1000,
+		baseUrl: '?page=%page%',
+		current: currentPage,
+		duration: 'slow',
+		mousewheel: true,
+		prev: '&larr; Предыдущая',
+		next: 'Следующая &rarr;'
+	})
+})
+
+</script>
+
+</head>
+
+<body>
+	<div id="ex1" class="paginator"></div>
+	<br/>
+	<div id="ex2" class="paginator"></div>
+</body>
