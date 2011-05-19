@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<!-- $Id$ -->
+
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
@@ -19,7 +21,39 @@
 
 <style>
 
-body { margin: 1em; }
+body {
+	margin: 1em;
+}
+
+.layout td { padding: 10px !important; }
+
+.ex2 {
+	border: 0;
+	width: 178px;
+}
+.ex2 .selected {
+	display: none;
+}
+.ex2 .current {
+	font-size: 1.32em;
+	font-style: italic;
+	color: #FF0498;
+	border-bottom: 1px dashed #FF0498;
+	width: 150px;
+}
+.ex2 .control {
+	background: url('./customselect-menu.png');
+}
+.ex2 .item, .ex2 .item * {
+	color: #FF0498 !important;
+}
+.ex2 .item:hover {
+	background: #fff;
+}
+.ex2 .list {
+	width: 168px;
+	margin-top: -1px;
+}
 
 </style>
 
@@ -27,15 +61,25 @@ body { margin: 1em; }
 
 $(document).ready(function () {
 
-	$('#sel').change(function () {
+	$('#ex1').change(function () {
 
 		if (console && console.log)
-			console.log('#sel changed to ', $(this).val())
+			console.log('#ex1 changed to ', $(this).val())
 
 	}).customSelect()
 
-	$('#sel').append($('<option></option>').attr('value', 40).text('opt 40').attr('selected', 'selected'))
-	$('#sel').customSelectContext().sync()
+	$('#ex1').append($('<option></option>').attr('value', 40).text('opt 40').attr('selected', 'selected'))
+	$('#ex1').customSelectContext().sync()
+
+
+	$('#ex2').change(function () {
+		$(this).children('option[value=1]').attr('selected', 'selected')
+		try { $(this).customSelectContext().sync() } catch(ex) { }
+	})
+	$('#ex2').customSelect({
+		openEvt: 'mouseover',
+		hideTimeout: 200
+	})
 
 })
 
@@ -45,10 +89,26 @@ $(document).ready(function () {
 
 <body>
 
-<select id="sel">
-	<option value="10">opt 10</option>
-	<option value="20">opt 20</option>
-	<option value="30">opt 30</option>
-</select>
+	<table class="layout"><tr>
+
+	<td>Use selects like control:</td>
+	<td>
+		<select id="ex1">
+			<option value="10">opt 10</option>
+			<option value="20">opt 20</option>
+			<option value="30">opt 30</option>
+		</select>
+	</td>
+	<td>or like menu:</td>
+	<td>
+		<select id="ex2" class="ex2">
+			<option value="1">Other examples</option>
+			<option value="2" label="&raquo; <a href='../autocomplete/'>autocomplete</a>"></option>
+			<option value="3" label="&raquo; <a href='../scrollable/'>scrollable</a>"></option>
+			<option value="4" label="&raquo; <a href='../starrating/'>starrating</a>"></option>
+			<option value="5" label="&raquo; <a href='../hint/'>hint</a>"></option>
+		</select>
+	</td>
+	</tr></table>
 
 </body>

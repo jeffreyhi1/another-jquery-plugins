@@ -17,7 +17,8 @@
 		customSelect: function (options) {
 
 			var defaults = {
-				openEvt: 'click'
+				openEvt: 'click',
+				hideTimeout: 0
 			}
 
 			options = $.extend(defaults, options);
