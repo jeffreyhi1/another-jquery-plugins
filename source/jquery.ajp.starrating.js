@@ -1,4 +1,11 @@
-﻿(function ($) {
+/*
+	Copyright (c) 2011 Andrey O. Zbitnev (azbitnev@gmail.com)
+	Licensed under the MIT License (LICENSE.txt).
+
+	$Id$
+*/
+
+(function ($) {
 
 	if (!$.ajp) $.ajp = { }
 	$.ajp.starRating = { version: '0.3pa' }
@@ -14,9 +21,7 @@
 				height: 16,
 				nStars: 5,
 				image: 'star-ratings.png',
-				/*voteHandler: function (vote, star) {
-					$(star).parent().starRatingSet(vote)
-				}*/
+				voteHandler: undefined //function (vote, star) { $(star).parent().starRatingSet(vote) }
 			}
 
 			options = $.extend(defaults, options);
@@ -68,7 +73,7 @@
 
 			if (options.voteHandler) {
 
-				this.find(starSelector).mouseover(function (){
+				this.find(starSelector).mouseover(function () {
 					var star = $(this).index() + 1
 					$(this).parent().css('background-position', '0 -' + (options.height * 2 * star) + 'px')
 				}).click(function () {
@@ -94,4 +99,4 @@
 
 	})
 
-})(jQuery);
+})(jQuery)

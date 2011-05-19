@@ -1,3 +1,10 @@
+/*
+	Copyright (c) 2011 Andrey O. Zbitnev (azbitnev@gmail.com)
+	Licensed under the MIT License (LICENSE.txt).
+
+	$Id$
+*/
+
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
