@@ -14,23 +14,31 @@
 
 <script type="text/javascript" charset="utf-8" src="../../jquery/1.6.1.js"></script> 
 
-<title>jquery.ajp.customselect - examples</title>
+<title>jquery.ajp.editable - examples</title>
 
-<link href="./customcheckbox.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.customcheckbox.js"></script> 
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.bindkeys.js"></script> 
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.editable.js"></script> 
 
 <style>
 
 body { margin: 1em; }
 
-.ex1 td { padding: 5px !important; }
+#ex1 {
+	background: #eee;
+	border: 1px dashed #ccc;
+	width: 660px;
+	height: 200px;
+	overflow: auto;
+}
 
 </style>
 
 <script>
 
 $(document).ready(function () {
-	$('input[type=checkbox]').customCheckbox()
+
+	$('#ex1').editable({
+	})
 })
 
 </script>
@@ -39,15 +47,10 @@ $(document).ready(function () {
 
 <body>
 
-	<table class="layout ex1">
-		<tr>
-			<td><input type="checkbox" checked="true" id="c1"/></td>
-			<td><label for="c1">checkbox 1</label></td>
-		</tr>
-		<tr>
-			<td><input type="checkbox" checked="true" id="c2"/></td>
-			<td><label for="c2">checkbox 2</label></td>
-		</tr>
-	</table>
+	<div id="ex1">
+		This is editable area. You can use Ctrl+b, Ctrl+i, Ctrl+u, Ctrl+s, Ctrl+r, Ctrl+l shortcuts.
+	</div>
+
+	<div id="dropped"></div>
 
 </body>

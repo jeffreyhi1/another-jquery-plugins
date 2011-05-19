@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<!-- $Id$ -->
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+
+<link href="../../css/basics.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/960.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" charset="utf-8" src="../../jquery/1.6.1.js"></script> 
+
+<title>jquery.ajp.dragndrop - examples</title>
+
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.dragndrop.js"></script> 
+
+<style>
+
+body { margin: 1em; }
+
+#ex1 {
+	background: #eee;
+	border: 1px dashed #ccc;
+	width: 660px;
+	text-align: center;
+}
+
+#dropped {
+	width: 660px;
+	padding-top: 1em;
+}
+
+#ex1 h1 {
+	color: #ccc;
+	margin: 60px 0;
+}
+
+</style>
+
+<script>
+
+$(document).ready(function () {
+
+	$('#ex1').dragndrop({
+		getUploadUrl: function (file, el) { return './backend/?name=' + encodeURIComponent(file.fileName) },
+		onload: function (file, el, xhr) {
+			if ($('#dropped b').length <= 0)
+				$('#dropped').html('<b>List of uploaded files:</b><br/>')
+			$('#dropped').append(xhr.responseText)
+		}
+	})
+})
+
+</script>
+
+</head>
+
+<body>
+
+	<div id="ex1">
+		<h1>Drag and drop files here...</h1>
+	</div>
+
+	<div id="dropped"></div>
+
+</body>

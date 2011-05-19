@@ -1,4 +1,11 @@
 /*
+	Copyright (c) 2011 Andrey O. Zbitnev (azbitnev@gmail.com)
+	Licensed under the MIT License (LICENSE.txt).
+
+	$Id$
+*/
+
+/*
 ----------------------------------------------------------------
 	Reset all
 ----------------------------------------------------------------
@@ -117,30 +124,17 @@ select {
 ----------------------------------------------------------------
 */
 
-* { font-size: 14px; line-height: 20px; }
+body { font-size: 14px; line-height: 20px; }
 
 h1 { font-size: 1.85em; line-height: 40px; }
-h1 * { font-size: 1em; }
-
 h2 { font-size: 1.43em; line-height: 40px; }
-h2 * { font-size: 1em; }
-
 h3 { font-size: 1.28em; }
-h3 * { font-size: 1em; }
-
 h4 { font-size: 1.14em; }
-h4 * { font-size: 1em; }
-
 h5 { font-size: 1.07em; }
-h5 * { font-size: 1em; }
-
 h6 { font-size: 1em; }
-h6 * { font-size: 1em; }
 
 small { font-size: 0.85em; }
-small * { font-size: 1em; }
 q { font-size: 0.85em; }
-q * { font-size: 1em; }
 
 input.field { height: 24px; width: 200px; }
 select { height: 30px; }

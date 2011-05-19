@@ -1,4 +1,6 @@
-﻿.autocomplete-list {
+﻿/* $Id$ */
+
+.autocomplete-list {
 	position: absolute;
 	border: 1px outset #e0e0e0;
 	margin: 0;
