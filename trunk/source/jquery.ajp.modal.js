@@ -1,3 +1,11 @@
+/*
+	Copyright (c) 2011 Andrey O. Zbitnev (azbitnev@gmail.com)
+	Licensed under the MIT License (LICENSE.txt).
+
+
+	$Id$
+*/
+
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
@@ -20,7 +28,7 @@
 					$(dialog).css({ visibility: 'hidden' })
 				},
 				yes: function (button, dialog) {},
-				no: function (button, dialog) {},
+				no: function (button, dialog) {}
 			}
 
 			options = $.extend(defaults, options);
