@@ -17,26 +17,10 @@
 			var defaults = {
 			}
 
-			options = $.extend(defaults, options);
+			opts = $.extend(defaults, options);
 
 			return this.each(function(i, el) {
 
-				var api = {
-
-					cancelEvent: function (evt) {
-						if (!evt) return;
-						evt.cancelBubble = true;
-						if (evt.stopPropagation) {
-							evt.stopPropagation();
-							evt.preventDefault();
-						}
-					},
-
-					init: function () {
-					}
-				}
-
-				api.init()
 			})
 		}
 	})

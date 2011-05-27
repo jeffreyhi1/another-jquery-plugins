@@ -8,9 +8,25 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.dragndrop = { version: '0.9pa' }
+	$.ajp.dragndrop = { version: '0.10pa' }
 
 	$.fn.extend({
+
+		dragout: function (options) {
+
+			var defaults = {
+				downloadurl: 'downloadurl'
+			}
+
+			options = $.extend(defaults, options)
+
+			this.each(function (i, el) {
+				el.addEventListener('dragstart', function(evt) {
+					var url = (typeof options.downloadurl == 'function' ? options.downloadurl(el) : $(el).data(options.downloadurl))
+					evt.dataTransfer.setData('DownloadURL', url);
+				}, false)
+			})
+		},
 
 		dragndrop: function (options) {
 

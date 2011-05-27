@@ -22,7 +22,7 @@
 			}
 		},
 
-		enableTextSelect: function () {
+		enableTextSelection: function () {
 
 			if ($.browser.mozilla) {
 				return this.each(function () {

@@ -10,7 +10,7 @@
 	if (!$.ajp) $.ajp = { }
 
 	$.ajp.resizable = {
-		version: '0.3pa',
+		version: '0.4pa',
 		installed: false,
 		current: undefined,
 		elements: {},
@@ -31,7 +31,9 @@
 		resizable: function (options) {
 
 			var defaults = {
-				proportional: false
+				proportional: false,
+				minWidth: 40,
+				minHeight: 40
 			}
 
 			options = $.extend(defaults, options);
@@ -62,11 +64,18 @@
 						$.ajp.resizable.mouse.y = evt.clientY;
 						$.ajp.resizable.current.width = $.ajp.resizable.current.target.outerWidth()
 						$.ajp.resizable.current.height = $.ajp.resizable.current.target.outerHeight()
+
+						//document.selectionStart = 0;
+						//document.selectionEnd = 0;
 					}
 				}).mouseup(function (evt) {
 					cancelEvent(evt)
 					$.ajp.resizable.mouse.down = false;
 					$.ajp.resizable.current = undefined;
+					//if ($.ajp.resizable.current) {
+						//document.selectionStart = 0;
+						//document.selectionEnd = 0;
+					//}
 
 				}).mousemove(function (evt) {
 					cancelEvent(evt)
@@ -76,7 +85,8 @@
 						if ($.ajp.resizable.current) {
 							$.ajp.resizable.current.scale(dx, dy)
 						}
-
+						//document.selectionStart = 0;
+						//document.selectionEnd = 0;
 					}
 				})
 				$.ajp.resizable.installed = true;
@@ -131,6 +141,7 @@
 					enable: function () { this.enabled = true },
 
 					hide: function () {
+						this.target.removeClass('resizable-active')
 						this.control.css({ display: 'none' })
 					},
 
@@ -139,6 +150,7 @@
 						var c = this.control;
 						var o = t.offset();
 						$('.resizable-control').css({ display: 'none' })
+						t.addClass('resizable-active')
 						c.css({
 							display: 'block',
 							left: '' + (o.left + t.outerWidth() - c.outerWidth()) + 'px',
@@ -161,12 +173,17 @@
 							}
 						}
 
-						this.target
-							.width('' + parseInt(this.width + dx) + 'px')
-							.height('' + parseInt(this.height + dy) + 'px')
+						var newWidth = parseInt(this.width + dx)
+						var newHeight = parseInt(this.height + dy)
 
-						document.selectionStart = 0;
-						document.selectionEnd = 0;
+						if (newWidth >= options.minWidth && newHeight >= options.minHeight) {
+							this.target
+								.width('' + newWidth + 'px')
+								.height('' + newHeight + 'px')
+						}
+
+						//document.selectionStart = 0;
+						//document.selectionEnd = 0;
 						this.show()
 					}
 				}
