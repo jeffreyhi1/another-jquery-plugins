@@ -1,2 +1,5 @@
 - move css-classes to one namespace "ajp"
 - resizable: disable selection
+- tooltips
+- datepicker
+- swappable
