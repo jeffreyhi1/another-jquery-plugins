@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.editable = { version: '0.11pa', required: ['bindkeys'], editors: { } }
+	$.ajp.editable = { version: '0.12pa', required: ['bindkeys'], editors: { } }
 
 	$.fn.extend({
 
@@ -39,6 +39,13 @@
 					'Ctrl+s': 'strike',
 					'Ctrl+i': 'italic',
 					'Ctrl+u': 'underline',
+
+					'Ctrl+1': 'h1',
+					'Ctrl+2': 'h2',
+					'Ctrl+3': 'h3',
+					'Ctrl+4': 'h4',
+					'Ctrl+5': 'h5',
+					'Ctrl+6': 'h6',
 
 					'Ctrl+r': 'text',
 					'Ctrl+l': 'anchor'
@@ -131,6 +138,20 @@
 						selection.addRange(range);
 					},
 
+					replaceSelection: function (html) {
+						if (/explorer/i.test(navigator.appName)) {
+							var range = document.selection.createRange()
+							range.pasteHTML(html)
+						} else {
+							var node = $(html)[0]
+							var selection = window.getSelection();
+							var range = selection.getRangeAt(0);
+							range.deleteContents();
+							range.insertNode(node);
+							api.selectNode(node);
+						}
+					},
+
 					createAnchor: function (url, html) {
 						if (!url) return;
 						if (!html) html = url;
@@ -174,24 +195,54 @@
 
 				var defaultCommands = {
 
+					h1: function (evt, ctx) {
+						ctx.cancelEvent(evt)
+						evt.returnValue = false
+						ctx.replaceSelection('<h1>' + ctx.getSelectedHtml() + '</h1>')
+						return false
+					},
+
+					h2: function (evt, ctx) {
+						ctx.cancelEvent(evt)
+						evt.returnValue = false
+						ctx.replaceSelection('<h2>' + ctx.getSelectedHtml() + '</h2>')
+						return false
+					},
+
+					h3: function (evt, ctx) {
+						ctx.cancelEvent(evt)
+						evt.returnValue = false
+						ctx.replaceSelection('<h3>' + ctx.getSelectedHtml() + '</h3>')
+						return false
+					},
+
+					h4: function (evt, ctx) {
+						ctx.cancelEvent(evt)
+						evt.returnValue = false
+						ctx.replaceSelection('<h4>' + ctx.getSelectedHtml() + '</h4>')
+						return false
+					},
+
+					h5: function (evt, ctx) {
+						ctx.cancelEvent(evt)
+						evt.returnValue = false
+						ctx.replaceSelection('<h5>' + ctx.getSelectedHtml() + '</h5>')
+						return false
+					},
+
+					h6: function (evt, ctx) {
+						ctx.cancelEvent(evt)
+						evt.returnValue = false
+						ctx.replaceSelection('<h6>' + ctx.getSelectedHtml() + '</h6>')
+						return false
+					},
+
 					bold: function (evt, api) {
 
 						api.cancelEvent(evt);
 						evt.returnValue = false;
-				
-						var html = api.getSelectedHtml();
-						if (/explorer/i.test(navigator.appName)) {
-							var range = document.selection.createRange()
-							range.pasteHTML('<b>' + html + '</b>');
-						} else {
-							var node = document.createElement('b');
-							node.innerHTML = html;
-							var selection = window.getSelection();
-							var range = selection.getRangeAt(0);
-							range.deleteContents();
-							range.insertNode(node);
-							api.selectNode(node);
-						}
+
+						api.replaceSelection('<b>' + api.getSelectedHtml() + '</b>')			
 
 						return false;
 					},
@@ -201,19 +252,7 @@
 						api.cancelEvent(evt);
 						evt.returnValue = false;
 				
-						var html = api.getSelectedHtml();
-						if (/explorer/i.test(navigator.appName)) {
-							var range = document.selection.createRange()
-							range.pasteHTML('<i>' + html + '</i>');
-						} else {
-							var node = document.createElement('i');
-							node.innerHTML = html;
-							var selection = window.getSelection();
-							var range = selection.getRangeAt(0);
-							range.deleteContents();
-							range.insertNode(node);
-							api.selectNode(node);
-						}
+						api.replaceSelection('<i>' + api.getSelectedHtml() + '</i>')
 
 						return false;
 					},
@@ -223,19 +262,7 @@
 						api.cancelEvent(evt);
 						evt.returnValue = false;
 				
-						var html = api.getSelectedHtml();
-						if (/explorer/i.test(navigator.appName)) {
-							var range = document.selection.createRange()
-							range.pasteHTML('<u>' + html + '</u>');
-						} else {
-							var node = document.createElement('u');
-							node.innerHTML = html;
-							var selection = window.getSelection();
-							var range = selection.getRangeAt(0);
-							range.deleteContents();
-							range.insertNode(node);
-							api.selectNode(node);
-						}
+						api.replaceSelection('<u>' + api.getSelectedHtml() + '</u>')
 
 						return false;
 					},
@@ -245,20 +272,7 @@
 						api.cancelEvent(evt);
 						evt.returnValue = false;
 				
-						var html = api.getSelectedHtml();
-						if (/explorer/i.test(navigator.appName)) {
-							var range = document.selection.createRange()
-							range.pasteHTML('<font style="text-decoration: line-through;">' + html + '</font>');
-						} else {
-							var node = document.createElement('font');
-							node.setAttribute('style', 'text-decoration: line-through;');
-							node.innerHTML = html;
-							var selection = window.getSelection();
-							var range = selection.getRangeAt(0);
-							range.deleteContents();
-							range.insertNode(node);
-							api.selectNode(node);
-						}
+						api.replaceSelection('<span style="text-decoration: line-through;">' + api.getSelectedHtml() + '</span>')
 
 						return false;
 
@@ -274,7 +288,7 @@
 							range.pasteHTML(range.text.replace(/\&/g, '&amp;').replace(/\</g, '&lt;').replace(/\>/g, '&gt;'));
 						} else {			
 							var selection = window.getSelection();
-							var node = document.createElement('font');
+							var node = document.createElement('span');
 							node.textContent = selection.toString();
 							var range = selection.getRangeAt(0);
 							range.deleteContents();
