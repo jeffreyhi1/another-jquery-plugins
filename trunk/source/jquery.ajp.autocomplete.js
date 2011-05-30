@@ -239,4 +239,4 @@ this.selectCurrent()
 			});
 		}
 	})
-})(jQuery)
+})(jQuery);
