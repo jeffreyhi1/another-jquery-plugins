@@ -112,8 +112,7 @@ body {
 $(document).ready(function () {
 
 	$('#ex1').change(function () {
-
-		if (console && console.log)
+		if (window.console && window.console.log)
 			console.log('#ex1 changed to ', $(this).val())
 
 	}).customSelect()
@@ -124,7 +123,6 @@ $(document).ready(function () {
 
 	$('#ex2').change(function () {
 		$(this).children('option[value=1]').attr('selected', 'selected')
-		try { $(this).customSelectContext().sync() } catch(ex) { }
 	})
 	$('#ex2').customSelect({
 		openEvt: 'mouseover',
@@ -133,7 +131,6 @@ $(document).ready(function () {
 
 	$('#ex3').change(function () {
 		$(this).children('option[value=1]').attr('selected', 'selected')
-		try { $(this).customSelectContext().sync() } catch(ex) { }
 	})
 	$('#ex3').customSelect({
 		openEvt: 'mouseover',
