@@ -10,7 +10,7 @@
 	if (!$.ajp) $.ajp = { }
 	if ($.ajp.customSelect)
 		return
-	$.ajp.customSelect = { version: '0.8pa', initialized: false, contexts: {}, serial: 0 }
+	$.ajp.customSelect = { version: '0.9pa', initialized: false, contexts: {}, serial: 0 }
 
 	$.fn.extend({
 
@@ -123,7 +123,7 @@
 						ths.indexToValue = []
 
 						var selOpt = null
-						var html = '';
+						var html = '<div class="top"></div>';
 						this.element.find('option').each(function (i) {
 							var opt = $(this)
 							if (!selOpt || opt.attr('selected')) selOpt = opt
@@ -135,7 +135,7 @@
 							ths.indexToValue[i] = val
 						})
 						html += '</div>'
-						html += '</div>'
+						html += '<div class="bottom"></div></div>'
 						this.custom.children('.list:eq(0)').html(html)
 
 						if (selOpt) this.selectItem(selOpt.attr('value'))
