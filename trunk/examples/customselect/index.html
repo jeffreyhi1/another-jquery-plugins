@@ -55,6 +55,56 @@ body {
 	margin-top: -1px;
 }
 
+
+.ex3 {
+	border: 0;
+	width: 178px;
+}
+.ex3 .selected {
+	display: none;
+}
+.ex3 .current {
+	font-size: 1.32em;
+	font-style: italic;
+	color: #FF0498;
+	border-bottom: 1px dashed #FF0498;
+	width: 150px;
+}
+.ex3 .top {
+	height: 4px;
+	background: #FF0498;
+}
+.ex3 .bottom {
+	height: 10px;
+	background: url('./ex3-bottom.png');
+}
+.ex3 .control {
+	background: url('./customselect-menu.png');
+}
+.ex3 .list {
+	border: 0;
+	width: 170px;
+}
+.ex3 .item {
+	padding-left: 10px;
+	border: 0;
+	background: #eee;
+}
+.ex3 .item, .ex3 .item * {
+	color: #FF0498 !important;
+}
+.ex3 .item:hover {
+	background: #eee;
+}
+.ex3 .item:hover a {
+	color: #dF0478 !important;
+}
+.ex3 .list {
+	width: 168px;
+	margin-top: -1px;
+}
+
+
 </style>
 
 <script>
@@ -81,6 +131,16 @@ $(document).ready(function () {
 		hideTimeout: 200
 	})
 
+	$('#ex3').change(function () {
+		$(this).children('option[value=1]').attr('selected', 'selected')
+		try { $(this).customSelectContext().sync() } catch(ex) { }
+	})
+	$('#ex3').customSelect({
+		openEvt: 'mouseover',
+		hideTimeout: 200
+	})
+
+
 })
 
 </script>
@@ -102,6 +162,16 @@ $(document).ready(function () {
 	<td>or like menu:</td>
 	<td>
 		<select id="ex2" class="ex2">
+			<option value="1">Other examples</option>
+			<option value="2" label="&raquo; <a href='../autocomplete/'>autocomplete</a>"></option>
+			<option value="3" label="&raquo; <a href='../scrollable/'>scrollable</a>"></option>
+			<option value="4" label="&raquo; <a href='../starrating/'>starrating</a>"></option>
+			<option value="5" label="&raquo; <a href='../hint/'>hint</a>"></option>
+		</select>
+	</td>
+	<td>another menu:</td>
+	<td>
+		<select id="ex3" class="ex3">
 			<option value="1">Other examples</option>
 			<option value="2" label="&raquo; <a href='../autocomplete/'>autocomplete</a>"></option>
 			<option value="3" label="&raquo; <a href='../scrollable/'>scrollable</a>"></option>

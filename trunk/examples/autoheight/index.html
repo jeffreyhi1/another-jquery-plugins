@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<!-- $Id$ -->
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+
+<link href="../../css/basics.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/960.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" charset="utf-8" src="../../jquery/1.6.1.js"></script> 
+
+<title>jquery.ajp.autoheight - examples</title>
+
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.autoheight.js"></script>
+
+<style>
+
+body { margin: 1em; font-size: 12px; }
+
+#ex1 {
+	background: #eee;
+	width: 200px;
+	height: 60px;
+	overflow: hidden;
+}
+
+#ex1 > .content {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+</style>
+
+<script>
+
+$(document).ready(function () {
+
+	var contents = [
+
+		'За туда только главной миф, биг труда содержимое не. Вам стиле главное программистам не, ты одну имеет расположенной ещё.'
+		+ '<b>Над до <span>курице</span> глубже премирования</b>, быть воздействий для но. Дизайну компании запустить за что.',
+
+		'Слышали оставляя <i>общеизвестно</i> как те, опа словарь компанию образование не.',
+
+		'Но или пока всегда. <a href="#">Могу попали существует по миф</a>, другие одиночку содержимое ты опа. Был взяться стратегии до. Начинают'
+		+ 'неоригинальные нью на.'
+	];
+	var i = 0;
+
+	$('#ex1').autoHeight()
+
+	setInterval(function () {
+		$('#ex1-dynamic').html(contents[i])
+		$('#ex1').autoHeight()
+		i ++; if (i >= contents.length) i = 0;
+	}, 3000)
+})
+
+</script>
+
+</head>
+
+<body>
+
+	<div id="ex1">
+		<div class="content">
+			<p>Этот блок содержит контент, которы меняется со временем. Ширина блока не должна меняться. А вот высота должна адаптироваться со временем.</p>
+			<p>Контент этого блока меняется каждые 3 секунды...</p>
+			<p id="ex1-dynamic"></p>
+		</div>
+	</div>
+
+</body>

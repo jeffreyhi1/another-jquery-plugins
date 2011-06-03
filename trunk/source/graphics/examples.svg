@@ -207,19 +207,6 @@
          offset="1"
          id="stop3759-0-4" />
     </linearGradient>
-    <filter
-       color-interpolation-filters="sRGB"
-       inkscape:collect="always"
-       id="filter3866-8"
-       x="-0.192"
-       width="1.3839999"
-       y="-0.192"
-       height="1.3839999">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="1.28"
-         id="feGaussianBlur3868-82" />
-    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -228,9 +215,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.12"
+     inkscape:zoom="4.24"
      inkscape:cx="228.44631"
-     inkscape:cy="293.88296"
+     inkscape:cy="161.80749"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -5816,5 +5803,13 @@
        width="20"
        id="rect3862-7"
        style="opacity:0;fill:#000000;fill-opacity:1;stroke:none" />
+    <path
+       style="fill:#eeeeee;fill-opacity:1;stroke:none"
+       d="m 99.53125,872.09375 c 0.05164,5.54702 4.49233,10 10,10 l 150,0 c 5.50767,0 9.94836,-4.45298 10,-10 l -170,0 z"
+       id="rect3314"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\customselect\ex3-bottom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>
