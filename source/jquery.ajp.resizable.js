@@ -36,7 +36,7 @@
 				minHeight: 40
 			}
 
-			options = $.extend(defaults, options);
+			var options = $.extend(defaults, options);
 
 			var cancelEvent = function (evt) {
 				if (!evt) return;

@@ -18,7 +18,7 @@
 				uneditable: function (api) {}
 			}
 
-			options = $.extend(defaults, options);
+			var options = $.extend(defaults, options);
 
 			$(this).each(function (i, el) {
 				var id = $(el).attr('id');
@@ -54,7 +54,7 @@
 				init: function (el, api) {}
 			}
 
-			options = $.extend(defaults, options);
+			var options = $.extend(defaults, options);
 
 			var randomId = function (prefix, n) {
 				var a = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890'

@@ -217,7 +217,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="4.24"
      inkscape:cx="228.44631"
-     inkscape:cy="161.80749"
+     inkscape:cy="133.5056"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -5809,6 +5809,22 @@
        id="rect3314"
        inkscape:connector-curvature="0"
        inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\customselect\ex3-bottom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#eeeeee;fill-opacity:1;stroke:none"
+       d="m 103.4375,957.71875 c 0.0516,5.55667 4.49233,10.01739 10,10.01739 l 66.375,0 6.03125,7.98261 6.03125,-7.98261 71.5625,0 c 5.50767,0 9.94836,-4.46072 10,-10.01739 l -170,0 z"
+       id="rect3314-1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\tooltip\ex1-bottom.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#eeeeee;fill-opacity:1;stroke:none"
+       d="m 103.91509,930.6169 c 0.0516,-5.54702 4.49233,-10 10,-10 l 150,0 c 5.50767,0 9.94836,4.45298 10,10 l -170,0 z"
+       id="rect3314-7"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\tooltip\ex1-top.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
   </g>

@@ -19,7 +19,7 @@
 				radioHeight: 25
 			}
 
-			opts = $.extend(defaults, options);
+			var opts = $.extend(defaults, options);
 
 			return this.each(function(i, el) {
 

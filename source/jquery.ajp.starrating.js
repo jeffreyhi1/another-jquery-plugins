@@ -24,7 +24,7 @@
 				voteHandler: undefined //function (vote, star) { $(star).parent().starRatingSet(vote) }
 			}
 
-			options = $.extend(defaults, options);
+			var options = $.extend(defaults, options);
 
 			this.css({
 				width: '' + (options.width * options.nStars) + 'px',

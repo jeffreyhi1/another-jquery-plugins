@@ -17,7 +17,7 @@
 			var defaults = {
 			}
 
-			options = $.extend(defaults, options);
+			var options = $.extend(defaults, options);
 
 			return this.focusin(function () {
 				var $fld = $(this)
@@ -46,7 +46,7 @@
 				ignoreHint: true
 			}
 
-			options = $.extend(defaults, options);
+			var options = $.extend(defaults, options);
 
 			var $fld = $(this).eq(0)
 			var val = $fld.val()

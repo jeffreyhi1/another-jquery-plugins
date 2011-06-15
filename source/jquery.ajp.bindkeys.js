@@ -19,7 +19,7 @@
 				}
 			}
 
-			options = $.extend(defaults, options);
+			var options = $.extend(defaults, options);
 
 			return this.each(function(i, el) {
 

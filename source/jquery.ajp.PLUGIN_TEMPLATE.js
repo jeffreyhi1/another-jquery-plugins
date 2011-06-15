@@ -17,7 +17,7 @@
 			var defaults = {
 			}
 
-			opts = $.extend(defaults, options);
+			var opts = $.extend(defaults, options);
 
 			return this.each(function(i, el) {
 
