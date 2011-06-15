@@ -1,0 +1,24 @@
+/* $Id$ */
+
+.tooltip {
+	width: 170px;
+	z-index: 2;
+}
+.tooltip .top {
+	background: url(ex1-top.png);
+	height: 10px;
+}
+.tooltip .middle {
+	background: #eee;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 11px;
+}
+.tooltip .middle img {
+	margin-right: 10px;
+	float: left;
+}
+.tooltip .bottom {
+	background: url(ex1-bottom.png);
+	height: 18px;
+}
