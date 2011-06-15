@@ -20,7 +20,7 @@
 				}
 			}
 
-			opts = $.extend(defaults, options);
+			var opts = $.extend(defaults, options);
 
 			function reviewHeight() {
 				return this.each(function(i, el) {

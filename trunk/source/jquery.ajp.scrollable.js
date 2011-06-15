@@ -31,7 +31,7 @@
 				getItem: function (response, i) { return response.items[i] }
 			}
 
-			options = $.extend(defaults, options);
+			var options = $.extend(defaults, options);
 
 			if (options.extensible) {
 				if (typeof options.extensible !== 'object')

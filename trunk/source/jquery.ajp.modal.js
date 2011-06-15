@@ -31,7 +31,7 @@
 				no: function (button, dialog) {}
 			}
 
-			options = $.extend(defaults, options);
+			var options = $.extend(defaults, options);
 
 			var $shade = $('<div class="shade"></div>').css({
 				background: options.background,
@@ -72,7 +72,7 @@
 				}
 			}
 
-			options = $.extend(defaults, options);
+			var options = $.extend(defaults, options);
 
 			return this.each(function (i, dialog) {
 				var s
