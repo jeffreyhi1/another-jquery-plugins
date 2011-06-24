@@ -8,9 +8,17 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.scrollable = { version: '0.5pa' }
+	$.ajp.scrollable = { version: '0.6pa', serial: 0, contexts: [] }
 
 	$.fn.extend({
+
+		scrollableContext: function () {
+			if (this.length) {
+				var serial = $(this[0]).data('ajp-scrollable-index')
+				return $.ajp.scrollable.contexts[serial]
+			}
+			return null
+		},
 
 		scrollable: function (options) {
 
@@ -59,7 +67,9 @@
 
 					init: function () {
 
-						$(this.element).find('.scrollable-screen').css({ overflow: 'hidden' })
+						var serial = ($.ajp.scrollable.serial ++)
+						$.ajp.scrollable.contexts[serial] = this
+						$(this.element).data('ajp-scrollable-index', serial).find('.scrollable-screen').css({ overflow: 'hidden' })
 
 						if ($(this.element).find('.scrollable-screen > ul').length <= 0)
 							$(this.element).find('.scrollable-screen').append('<ul></ul>')

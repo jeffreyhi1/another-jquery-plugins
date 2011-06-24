@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.bindkeys = { version: '0.11pa' }
+	$.ajp.bindkeys = { version: '0.12pa' }
 
 	$.fn.extend({
 
@@ -116,11 +116,7 @@
 
 				var defaultCommands = { }
 
-				if (/opera/i.test(navigator.userAgent)) {
-					$(el).keypress(function (evt) { api.onkeydown(evt) });
-				} else {
-					$(el).keydown(function (evt) { api.onkeydown(evt) });
-				}
+				$(el).keydown(function (evt) { api.onkeydown(evt) });
 
 				for (var key in options.hotkeys) {
 					var cmd = options.hotkeys[key];
