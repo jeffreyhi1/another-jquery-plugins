@@ -1,5 +1,4 @@
 - move css-classes to one namespace "ajp"
-- editable: hotkeys in opera, opera inserts <em> instead of <i>
 - resizable: disable selection
-- datepicker
+- datepicker: close on click other elements
 - swappable
