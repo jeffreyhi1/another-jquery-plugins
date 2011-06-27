@@ -1,11 +1,11 @@
 (function($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.disableTextSelection = { version: '0.1pa' }
+	$.ajp.disableTextSelect = { version: '0.1pa' }
 
 	$.fn.extend({
 
-        	disableTextSelection: function () {
+        	disableTextSelect: function () {
 
 			if ($.browser.mozilla) {
 				return this.each(function () {
@@ -22,7 +22,7 @@
 			}
 		},
 
-		enableTextSelection: function () {
+		enableTextSelect: function () {
 
 			if ($.browser.mozilla) {
 				return this.each(function () {
@@ -41,4 +41,4 @@
 
 	})
 
-})(jQuery)
+})(jQuery);

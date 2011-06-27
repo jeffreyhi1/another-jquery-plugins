@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.scrollable = { version: '0.6pa', serial: 0, contexts: [] }
+	$.ajp.scrollable = { version: '0.7pa', serial: 0, contexts: [] }
 
 	$.fn.extend({
 
@@ -55,6 +55,8 @@
 					container: null,
 					nItems: 0,
 					canSelect: false,
+					scrollLeft: 0,
+					scrollTop: 0,
 
 					cancelEvent: function (evt) {
 						if (!evt) return;
@@ -80,6 +82,20 @@
 						var ctx = this;
 						$(options.prev).click(function () { ctx.prev() });  
 						$(options.next).click(function () { ctx.next() });
+
+						$(document).bind('mousedown', function (evt) {
+							ctx.scrollLeft = ctx.container.scrollLeft()
+							ctx.scrollTop = ctx.container.scrollTop()
+						})
+						$(document).bind('mouseup', function (evt) {
+							ctx.container.scrollLeft(ctx.scrollLeft)
+							ctx.container.scrollTop(ctx.scrollTop)
+						})
+						$(this.element).find('.scrollable-screen').scroll(function (evt) {
+							$(this).scrollLeft(ctx.scrollLeft)
+							$(this).scrollTop(ctx.scrollTop)
+							return false
+						})
 
 						if (options.mousewheel) {
 							try {
