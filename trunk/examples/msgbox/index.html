@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<!-- $Id$ -->
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+
+<link href="../../css/basics.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/960.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" charset="utf-8" src="../../jquery/1.6.1.js"></script> 
+
+<title>jquery.ajp.msgbox - examples</title>
+
+<link href="msgbox.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.msgbox.js"></script> 
+
+<style>
+
+body { margin: 1em; }
+
+.ajp-msgbox > .middle > .text { font: 12px Trebuchet MS; }
+
+</style>
+
+<script>
+
+$(document).ready(function () {
+	$('#ex1').click(function () {
+		$().msgbox(new Date().toString())
+	})
+	$('#ex2').click(function () {
+		$().msgbox('Input something:', { type: 'prompt', buttons: [ { value: 'OK' }, { value: 'Cancel' } ] })
+	})
+	$('#ex3').click(function () {
+		$().msgbox('<p>Please enter your login and password or <a href="#">register</a>.</p>', {
+			type: 'prompt',
+			buttons: [
+				{ value: 'OK' },
+				{ value: 'Cancel', type: 'cancel' }
+			],
+			inputs: [
+				{ label: 'Login:', required: true },
+				{ label: 'Password:', required: true, type: 'password' }
+			]
+		})
+	})
+})
+
+</script>
+
+</head>
+
+<body>
+	<button id="ex1">Current date and time</button>
+	<button id="ex2">Prompt</button>
+	<button id="ex3">Login</button>
+</body>

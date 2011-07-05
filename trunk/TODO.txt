@@ -1,4 +1,6 @@
 - move css-classes to one namespace "ajp"
 - resizable: disable selection
 - datepicker: close on click other elements
-- swappable
+- add swappable
+- add easing functions
+- remove modal
