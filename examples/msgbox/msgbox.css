@@ -1,0 +1,25 @@
+/* $Id$ */
+
+.ajp-msgbox { width: 500px; }
+.ajp-msgbox > .top { height: 24px; background: url(msgbox-bg.png) 0 0 no-repeat; }
+.ajp-msgbox > .middle { min-height: 80px; background: url(msgbox-fill.png) 0 0 repeat-y; }
+.ajp-msgbox > .bottom { height: 77px; background: url(msgbox-bg.png) 0 -115px no-repeat; }
+
+.ajp-msgbox > .middle > .icon { width: 64px; height: 64px; float: left; margin-left: 40px; margin-top: 10px; margin-bottom: 15px; }
+.ajp-msgbox > .middle > .text { float: left; width: 341px; margin-top: 20px; margin-left: 15px; margin-bottom: 15px; }
+.ajp-msgbox > .middle > .clear { clear: both; }
+
+.ajp-msgbox > .middle > .alert { background: white url(alert.png) 0 0 no-repeat; }
+.ajp-msgbox > .middle > .confirm { background: white url(confirm.png) 0 0 no-repeat; }
+.ajp-msgbox > .middle > .info { background: white url(info.png) 0 0 no-repeat; }
+.ajp-msgbox > .middle > .error { background: white url(error.png) 0 0 no-repeat; }
+.ajp-msgbox > .middle > .prompt { background: white url(prompt.png) 0 0 no-repeat; }
+
+.ajp-msgbox > .bottom > .buttons { float: right; margin-right: 40px; margin-top: 5px; }
+.ajp-msgbox > .bottom > .buttons > button { margin: 10px; }
+
+.ajp-msgbox > .middle > .text > .label { font-weight: bold; }
+.ajp-msgbox > .middle > .text > .input > input { width: 330px; }
+
+.ajp-msgbox-shade { z-index: 500; }
+.ajp-msgbox { z-index: 501; }

@@ -207,6 +207,36 @@
          offset="1"
          id="stop3759-0-4" />
     </linearGradient>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:collect="always"
+       id="filter4826">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="5.6"
+         id="feGaussianBlur4828" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3779-7"
+       id="linearGradient4850"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.76740271,0,0,1.0999531,827.56804,-1542.2627)"
+       x1="95.714287"
+       y1="153.28572"
+       x2="95.714287"
+       y2="298.83661" />
+    <linearGradient
+       id="linearGradient3779-7">
+      <stop
+         style="stop-color:#efefef;stop-opacity:1;"
+         offset="0"
+         id="stop3781-4" />
+      <stop
+         style="stop-color:#dee0e1;stop-opacity:1;"
+         offset="1"
+         id="stop3783-0" />
+    </linearGradient>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -215,11 +245,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="4.24"
-     inkscape:cx="228.44631"
-     inkscape:cy="133.5056"
+     inkscape:zoom="1.06"
+     inkscape:cx="322.50359"
+     inkscape:cy="197.25427"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g4837"
      showgrid="false"
      inkscape:window-width="1440"
      inkscape:window-height="851"
@@ -5827,5 +5857,54 @@
        inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\tooltip\ex1-top.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
+    <rect
+       ry="0"
+       y="688.19525"
+       x="307.32635"
+       height="192"
+       width="500"
+       id="rect4810"
+       style="opacity:0;fill:#f2f2f2;fill-opacity:1;stroke:none"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\msgbox\msgbox.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <g
+       transform="matrix(1.1520737,0,0,1,-690.60661,2077.1399)"
+       id="g4837"
+       inkscape:export-filename="C:\work\htdocs\rugps.ru\tests\msgbox.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\msgbox\msgbox.png"
+         ry="6.3043494"
+         y="-1373.6953"
+         x="883.38202"
+         height="160"
+         width="400"
+         id="rect4818"
+         style="opacity:0.6;fill:#000000;fill-opacity:1;stroke:none;filter:url(#filter4826)" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none"
+         id="rect4814"
+         width="400"
+         height="160"
+         x="883.38202"
+         y="-1373.6953"
+         ry="4.889255"
+         inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\msgbox\msgbox.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90" />
+      <path
+         id="rect4830"
+         d="m 883.375,-1273.6383 0,55.1263 c 0,3.4927 1.22757,4.8117 4.72018,4.8117 l 390.12542,0 c 3.4926,0 5.1544,-1.8193 5.1544,-5.312 l 0,-54.626 z"
+         style="fill:url(#linearGradient4850);fill-opacity:1;stroke:none"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="csssscc"
+         inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\msgbox\msgbox.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90" />
+    </g>
   </g>
 </svg>
