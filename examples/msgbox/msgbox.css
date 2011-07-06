@@ -5,8 +5,8 @@
 .ajp-msgbox > .middle { min-height: 80px; background: url(msgbox-fill.png) 0 0 repeat-y; }
 .ajp-msgbox > .bottom { height: 77px; background: url(msgbox-bg.png) 0 -115px no-repeat; }
 
-.ajp-msgbox > .middle > .icon { width: 64px; height: 64px; float: left; margin-left: 40px; margin-top: 10px; margin-bottom: 15px; }
-.ajp-msgbox > .middle > .text { float: left; width: 341px; margin-top: 20px; margin-left: 15px; margin-bottom: 15px; }
+.ajp-msgbox > .middle > .icon { width: 70px; height: 66px; float: left; margin-left: 40px; margin-top: 10px; margin-bottom: 15px; }
+.ajp-msgbox > .middle > .text { float: left; width: 335px; margin-top: 20px; margin-left: 15px; margin-bottom: 15px; }
 .ajp-msgbox > .middle > .clear { clear: both; }
 
 .ajp-msgbox > .middle > .alert { background: white url(alert.png) 0 0 no-repeat; }

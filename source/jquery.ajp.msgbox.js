@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.msgbox = { version: '0.1pa', queue: [] }
+	$.ajp.msgbox = { version: '0.2pa', queue: [] }
 
 	$.fn.extend({
 
@@ -59,11 +59,11 @@
 						'margin-left': '-' + parseInt($msgbox.outerWidth() / 2 - d).toString() + 'px',
 						visibility: 'visible'
 					}).animate({
-						'margin-left': '-' + parseInt($msgbox.outerWidth() / 2 + d).toString() + 'px',
+						'margin-left': '-' + parseInt($msgbox.outerWidth() / 2 + d).toString() + 'px'
 					}, 'fast', 'swing').animate({
-						'margin-left': '-' + parseInt($msgbox.outerWidth() / 2 - d).toString() + 'px',
+						'margin-left': '-' + parseInt($msgbox.outerWidth() / 2 - d).toString() + 'px'
 					}, 'fast', 'swing').animate({
-						'margin-left': '-' + parseInt($msgbox.outerWidth() / 2).toString() + 'px',
+						'margin-left': '-' + parseInt($msgbox.outerWidth() / 2).toString() + 'px'
 					}, 'fast', 'swing')
 				},
 				hide: function ($msgbox, $shade) {
@@ -74,8 +74,7 @@
 
 			var buttonDefaults = {
 				type: 'submit', // submit | cancel
-				value: 'OK',
-				callback: function () { }
+				value: 'OK'
 			}
 
 			var inputDefaults = {
@@ -115,6 +114,7 @@
 			$.each(opts.buttons, function () {
 				var btn = $.extend(buttonDefaults, this)
 				var $btn = $('<button data-ajp-msgbox-type="' + btn.type + '"></button>').text(btn.value).click(function () {
+					var res = []
 					var $t = $.ajp.msgbox.queue.pop()
 					var canceled = false
 					var ready = true
@@ -122,10 +122,13 @@
 						var $empty = null
 						$tmpl.find('.text > .input > input').each(function () {
 							var $inp = $(this)
-							if (/^true$/i.test($inp.data('ajp-msgbox-required')) && $inp.val() == '') {
+							var val = $inp.val()
+							if (/^true$/i.test($inp.data('ajp-msgbox-required')) && val == '') {
 								ready = false
 								if (!$empty)
 									$empty = $inp
+							} else {
+								res.push(val)
 							}
 						})
 						if (/^cancel$/i.test($(this).data('ajp-msgbox-type'))) {
@@ -139,8 +142,12 @@
 					if (ready) {
 						opts.hide($tmpl, $.ajp.msgbox.shade)
 						if (!canceled) {
-							btn.callback()
-							// TODO handler
+							if (handler) {
+								res.unshift($btn.text())
+								handler.apply(handler, res)
+							}
+						} else {
+							handler.apply(handler, [ false ])
 						}
 						if ($.ajp.msgbox.queue.length >= 1)
 							opts.show($.ajp.msgbox.queue[$.ajp.msgbox.queue.length - 1], $.ajp.msgbox.shade)

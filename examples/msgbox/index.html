@@ -30,11 +30,21 @@ body { margin: 1em; }
 <script>
 
 $(document).ready(function () {
+
 	$('#ex1').click(function () {
 		$().msgbox(new Date().toString())
 	})
 	$('#ex2').click(function () {
-		$().msgbox('Input something:', { type: 'prompt', buttons: [ { value: 'OK' }, { value: 'Cancel' } ] })
+		$().msgbox('Input something:', {
+				type: 'prompt',
+				buttons: [
+					{ value: 'OK' },
+					{ value: 'Cancel', type: 'cancel' }
+				]
+			}, function (btn, value) {
+				$().msgbox((btn === false ? 'Canceled.' : 'Your text: ' + value))
+			}
+		)
 	})
 	$('#ex3').click(function () {
 		$().msgbox('<p>Please enter your login and password or <a href="#">register</a>.</p>', {
@@ -47,7 +57,23 @@ $(document).ready(function () {
 				{ label: 'Login:', required: true },
 				{ label: 'Password:', required: true, type: 'password' }
 			]
+		}, function (btn, username, password) {
+			console.log(btn, username, password)
 		})
+	})
+
+	$('#ex4').click(function () { $().msgbox('Alert', { type: 'alert' }) })
+	$('#ex5').click(function () { $().msgbox('Error', { type: 'error' }) })
+	$('#ex6').click(function () { $().msgbox('Info (default)', { type: 'info' }) })
+
+	$('#ex7').click(function () {
+		$().msgbox('Do you like this plugin?',
+			{
+				type: 'confirm',
+				buttons: [ { value: 'Yes' }, { value: 'No' } ]
+			}, function (res) {
+				$().msgbox('Your answer: ' + res)
+			})
 	})
 })
 
@@ -57,6 +83,12 @@ $(document).ready(function () {
 
 <body>
 	<button id="ex1">Current date and time</button>
+
+	<button id="ex6">Info</button>
+	<button id="ex4">Alert</button>
+	<button id="ex5">Error</button>
 	<button id="ex2">Prompt</button>
+	<button id="ex7">Confirm</button>
+
 	<button id="ex3">Login</button>
 </body>

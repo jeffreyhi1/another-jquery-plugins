@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<!-- $Id$ -->
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+
+<link href="../../css/basics.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/960.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" charset="utf-8" src="../../jquery/1.6.1.js"></script> 
+
+<title>jquery.ajp.msgbox - examples</title>
+
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.easing.js"></script> 
+
+<style>
+
+body { margin: 1em; }
+
+button { display: block; margin: 10px; position: relative; top: 0; left: 0; }
+
+</style>
+
+<script>
+
+$(document).ready(function () {
+
+	$('button').click(function () {
+		$(this).css({ left: 0 }).animate({ left: '200px' }, 'slow', $(this).text())
+	})
+
+})
+
+</script>
+
+</head>
+
+<body>
+	<button>linear</button>
+	<button>swing</button>
+	<button>easing</button>
+	<button>elastic</button>
+	<button>bounce</button>
+</body>
