@@ -2,5 +2,4 @@
 - resizable: disable selection
 - datepicker: close on click other elements
 - add swappable
-- add easing functions
 - remove modal
