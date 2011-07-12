@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<!-- $Id$ -->
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+
+<link href="../../css/basics.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/960.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" charset="utf-8" src="../../jquery/1.6.2.js"></script> 
+
+<title>jquery.ajp.slider - examples</title>
+
+<link href="./slider.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.slider.js"></script> 
+
+<style>
+
+body { margin: 1em; }
+
+.form > tbody > tr > th { font-weight: normal; padding-right: 10px !important; padding-bottom: 10px !important; text-align: right; }
+.form > tbody > tr > td { padding-bottom: 10px !important; }
+
+</style>
+
+<script>
+
+$(document).ready(function () {
+
+	$('.ex1').slider({
+		value: 0.5,
+		onchange: function (val, $slider) {
+			$('#ex1').text(val.toFixed(2))
+		}
+	})
+
+	$('.ex2').slider({
+		min: 100,
+		max: 500,
+		value: 250,
+		onchange: function (val, $slider) {
+			$('#ex2').text(val.toFixed(2))
+		}
+	})
+})
+
+</script>
+
+</head>
+
+<body>
+
+
+	<table class="layout form">
+		<tr>
+			<th>Slider #1: minimal value is 0, maximal is 1, initial is 0.5, current is <span id="ex1"></span>:</th>
+			<td><div class="ex1 slider"></div></td>
+		</tr>
+		<tr>
+			<th>Slider #2: minimal value is 100, maximal is 500, initial is 250, current is <span id="ex2"></span>:</th>
+			<td><div class="ex2 slider"></div></td>
+		</tr>
+
+	</table>
+
+
+</body>

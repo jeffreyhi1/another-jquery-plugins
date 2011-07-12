@@ -5,13 +5,13 @@
 	$Id$
 */
 
-if (!$.ajp) $.ajp = { }
-$.ajp.easing = { version: '0.1pa' }
+if (!$.ajp) $.ajp = { };
+$.ajp.easing = { version: '0.1pa' };
 
 $.easing.easing = function(x, t, b, c, d) {
 	x = 1 - x
 	return c * Math.sqrt(1 - x * x) + b
-}
+};
 
 $.easing.elastic = function(x, t, b, c, d) {
 
@@ -55,7 +55,7 @@ $.easing.elastic = function(x, t, b, c, d) {
 	}
 
 	return c
-}
+};
 
 $.easing.bounce = function(x, t, b, c, d) {
 
@@ -94,4 +94,4 @@ $.easing.bounce = function(x, t, b, c, d) {
 	}
 
 	return c
-}
+};

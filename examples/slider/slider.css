@@ -1,0 +1,23 @@
+/* $Id$ */
+
+.slider {
+	width: 300px;
+	overflow: visible;
+}
+
+.slider > .line {
+	height: 0px;
+	border-top: 1px solid #ccc;
+	margin-top: 10px;
+}
+
+.slider > .control {
+	cursor: pointer;
+	width: 70px;
+	height: 20px;
+	background: url(slider.png) 0 0 no-repeat;
+	position: relative;
+	top: 0;
+	left: 0;
+	margin-top: -10px;
+}

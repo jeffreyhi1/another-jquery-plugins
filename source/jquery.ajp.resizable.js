@@ -10,7 +10,7 @@
 	if (!$.ajp) $.ajp = { }
 
 	$.ajp.resizable = {
-		version: '0.4pa',
+		version: '0.5pa',
 		installed: false,
 		current: undefined,
 		elements: {},
@@ -55,6 +55,8 @@
 				return id;
 			}
 
+			var root = $('html')[0]
+
 			if (!$.ajp.resizable.installed) {
 				$(document).mousedown(function (evt) {
 					//cancelEvent(evt)
@@ -64,19 +66,14 @@
 						$.ajp.resizable.mouse.y = evt.clientY;
 						$.ajp.resizable.current.width = $.ajp.resizable.current.target.outerWidth()
 						$.ajp.resizable.current.height = $.ajp.resizable.current.target.outerHeight()
-
-						//document.selectionStart = 0;
-						//document.selectionEnd = 0;
+						$.ajp.resizable.mouse.sel = root.onselectstart
+						root.onselectstart = function () { return false }
 					}
 				}).mouseup(function (evt) {
 					cancelEvent(evt)
 					$.ajp.resizable.mouse.down = false;
 					$.ajp.resizable.current = undefined;
-					//if ($.ajp.resizable.current) {
-						//document.selectionStart = 0;
-						//document.selectionEnd = 0;
-					//}
-
+					root.onselectstart = $.ajp.resizable.mouse.sel
 				}).mousemove(function (evt) {
 					cancelEvent(evt)
 					if ($.ajp.resizable.mouse.down) {
@@ -85,12 +82,11 @@
 						if ($.ajp.resizable.current) {
 							$.ajp.resizable.current.scale(dx, dy)
 						}
-						//document.selectionStart = 0;
-						//document.selectionEnd = 0;
 					}
 				})
 				$.ajp.resizable.installed = true;
 			}
+
 
 			return this.each(function(i, el) {
 
@@ -182,8 +178,6 @@
 								.height('' + newHeight + 'px')
 						}
 
-						//document.selectionStart = 0;
-						//document.selectionEnd = 0;
 						this.show()
 					}
 				}
