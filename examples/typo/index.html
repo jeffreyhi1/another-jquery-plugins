@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+
+<!-- $Id$ -->
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="Content-Language" content="ru"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+
+<link href="../../css/basics.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/960.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" charset="utf-8" src="../../jquery/1.6.2.js"></script> 
+
+<title>jquery.ajp.typo - examples</title>
+
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.typo.js"></script> 
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.resizable.js"></script> 
+
+<link href="resizable.css" rel="stylesheet" type="text/css"/>
+<link href="typo.css" rel="stylesheet" type="text/css"/>
+
+<style>
+
+body { margin: 1em; font-size: 11px; line-height: 18px;}
+
+.ex1, .ex2 { width: 672px; background: #eee; }
+
+
+
+
+
+
+
+
+span.sbrace {
+    margin-right: 0.5em;
+}
+span.hbrace {
+    margin-left: -0.5em;
+}
+span.slaquo {
+    margin-right: 0.44em;
+}
+span.hlaquo {
+    margin-left: -0.44em;
+}
+span.slaquo-s {
+    margin-right: 0.7em;
+}
+span.hlaquo-s {
+    margin-left: -0.7em;
+}
+span.slaquo-b {
+    margin-left: 0.85em;
+}
+span.hlaquo-b {
+    margin-left: -0.85em;
+}
+span.sbdquo {
+    margin-right: 0.4em;
+}
+span.hbdquo {
+    margin-left: -0.4em;
+}
+span.sbdquo-s {
+    margin-right: 0.35em;
+}
+span.sbdquo-s {
+    margin-left: -0.35em;
+}
+span.squot {
+    margin-right: 0.32em;
+}
+span.hquot {
+    margin-left: -0.32em;
+}
+span.sowc {
+    margin-right: 0.04em;
+}
+span.howc {
+    margin-left: -0.04em;
+}
+span.sowcr {
+    margin-right: 0.05em;
+}
+span.howcr {
+    margin-left: -0.05em;
+}
+
+
+
+</style>
+
+<script>
+
+$(document).ready(function () {
+
+	console.log('RES', $('.ex1 > p').html())
+
+	$('.ex1, .ex2').resizable()
+
+	$('.ex2 > p').typo()
+})
+
+</script>
+
+</head>
+
+<body>
+
+	<div class="ex1">
+		<p>За&nbsp;основу решили взять <a href="http://trac.edgewall.org/query">интерфейс выборки тикетов</a> из&nbsp;системы управления проектамиtrac&nbsp;— нам он кажется удобным и&nbsp;понятным, хотя, возможно, мы просто к&nbsp;нему привыкли за&nbsp;месяцы использования.
+		Однако этот интерфейс не&nbsp;в&nbsp;состоянии полностью решить стоящую задачу<wbr class="typo"><span class="sbrace typo"> </span> <span class="hbrace typo">(</span>также, как&nbsp;и&nbsp;аналоги, которые нам известны, например <a href="http://market.yandex.ru/guru.xml?CMD=-RR=9,0,0,0-VIS=160-CAT_ID=160043-EXC=1-PG=10&amp;view=&amp;num=&amp;sort=&amp;hid=91491&amp;filter=&amp;grhow=">Яндекс.Маркет</a>). А&nbsp;именно: поля в&nbsp;фильтре объединяются логическим оператором ИЛИ<wbr class="typo"><span class="sbrace typo"> </span> <span class="hbrace typo">(</span>повседневным<wbr class="typo"><span class="slaquo-s typo"> </span> <span class="hlaquo-s typo">«</span>и»), т.&nbsp;е.&nbsp;каждый добавленный фильтр сужает выборку. А&nbsp;в&nbsp;нашей системе возможны ситуации, когда, скажем, нужно выбрать<wbr class="typo"><span class="slaquo-s typo"> </span> <span class="hlaquo-s typo">«</span>все телефоны nokia, а&nbsp;также все телефоны в&nbsp;корпусе синего цвета»<wbr class="typo"><span class="sbrace typo"> </span> <span class="hbrace typo">(</span>телефоны, естественно, просто как&nbsp;пример). В&nbsp;траке или&nbsp;у&nbsp;Яндекса это решается только последовательным созданием двух выборок. Единственная идея, которая пока у&nbsp;нас есть&nbsp;—&nbsp;дать пользователю возможность продублировать фильтр целиком и&nbsp;объединить результат двух выборок<wbr class="typo"><span class="sbrace typo"> </span> <span class="hbrace typo">(</span>вариант запроса, когда потребуется объединять больше двух выборок, попадает в&nbsp;0,1% и&nbsp;не&nbsp;считается).</p>
+	</div>
+
+	<hr/>
+
+	<div class="ex2">
+		<p>За основу решили взять интерфейс выборки тикетов из системы управления проектами trac - нам он кажется удобным и понятным, хотя, возможно, мы просто к
+		нему привыкли за месяцы использования. Однако этот интерфейс не в состоянии полностью решить стоящую задачу (также, как и аналоги, которые нам известны,
+		например Яндекс.Маркет). А именно: поля в фильтре объединяются логическим оператором ИЛИ (повседневным "и"), т. е. каждый добавленный фильтр сужает выборку.
+		А в нашей системе возможны ситуации, когда, скажем, нужно выбрать "все телефоны nokia, а также все телефоны в корпусе синего цвета" (телефоны, естественно,
+		просто как пример). В траке или у Яндекса это решается только последовательным созданием двух выборок. Единственная идея, которая пока у нас есть — дать
+		пользователю возможность продублировать фильтр целиком и объединить результат двух выборок (вариант запроса, когда потребуется объединять больше двух
+		выборок, попадает в 0,1% и не считается). Вопрос на 1-2 руб. Сегодня +32.44oC, а вчера было +80oF</p>
+	</div>
+
+
+</body>
+
+
