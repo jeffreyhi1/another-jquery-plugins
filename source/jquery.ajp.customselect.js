@@ -10,7 +10,7 @@
 	if (!$.ajp) $.ajp = { }
 	if ($.ajp.customSelect)
 		return
-	$.ajp.customSelect = { version: '0.9pa', initialized: false, contexts: {}, serial: 0 }
+	$.ajp.customSelect = { version: '0.10pa', initialized: false, contexts: {}, serial: 0 }
 
 	$.fn.extend({
 
@@ -53,8 +53,8 @@
 								if (evt.keyCode == 27)
 									$('.custom-select > .list').css({ visibility: 'hidden' })
 							})
-							$(document).find('body:eq(0)').mouseup(function () {
-								$('.custom-select > .list').each(function () {
+							$(document).find('body:eq(0)').mouseup(function (evt) {
+								if (evt.button == 0) $('.custom-select > .list').each(function () {
 									var $list = $(this)
 									var vis = $list.css('visibility')
 									$list.data('custom-select-visible', (vis == 'hidden' ? 'no' : 'yes'))
@@ -128,7 +128,7 @@
 							var opt = $(this)
 							if (!selOpt || opt.attr('selected')) selOpt = opt
 							html += '<div class="item' + (opt.attr('selected') ? ' selected' : '') + '"' + (opt.attr('style') ? ' style="' + opt.attr('style') + '"' : '') + '>'
-							html += (opt.attr('label') ? opt.attr('label') : opt.text())
+							html += (opt.data('ajp-customselect-html') ? opt.data('ajp-customselect-html') : (opt.attr('label') ? opt.attr('label') : opt.text()))
 							html += '</div>'
 							var val = opt.attr('value')
 							ths.valueToIndex[val] = i
@@ -141,7 +141,8 @@
 						if (selOpt) this.selectItem(selOpt.attr('value'))
 
 						this.custom.find('.list:eq(0) > .item').each(function (i) {
-							$(this).click(function () {
+							$(this).click(function (evt) {
+//console.log(evt)
 								ths.selectItem(ths.indexToValue[i])
 							})
 						})
