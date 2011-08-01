@@ -13,7 +13,7 @@
 
 * {
 	font-family: "Verdana", "Sans-Serif";
-	font-weight: normal;
+	font-weight: inherit;
 }
 
 code {
@@ -26,11 +26,6 @@ code {
 b, h4, h5, th {
 	font-weight: bold;
 }
-
-b *, h4 *, h5 *, th * {
-	font-weight: bold;
-}
-
 
 h1, h2, h3, h4, h5, h6 { margin: 0; }
 
@@ -157,7 +152,7 @@ div.spacer { clear: both; height: 20px; }
 
 table.soft > tbody > tr > th, table.soft > tbody > tr > td {
 	border: 0;
-	padding: 5px;/*padding: 5px 20px;*/
+	padding: 5px;
 }
 table.soft > tbody > tr > th { border-bottom: 2px solid; }
 table.soft > tbody > tr > td { border-bottom: 1px solid; }
@@ -218,26 +213,24 @@ div.shaded > div.shaded {
 ----------------------------------------------------------------
 */
 
-* { color: #333; }
+* { color: inherit; }
 
-html { background: #fff; }
+html { background: #fff; color: #333; }
 
 h4, h5 { color: #666; }
 h6 { color: #999; }
 
-a { color: #05c !important; }
-em { color: #ff0498 !important; }
+a { color: #05c; }
+em { color: #ff0498; }
 b { color: #666; }
 
 small { color: #999; }
-small * { color: #999; }
 
 q { border-left-color: #ccc; }
 
 dt { color: #666; }
 
 dfn { color: #00a800; }
-dfn * { color: #00a800; }
 
 hr { border-top-color: #ccc; }
 
