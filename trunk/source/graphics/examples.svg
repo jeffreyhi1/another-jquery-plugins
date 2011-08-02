@@ -19,6 +19,28 @@
   <defs
      id="defs4">
     <linearGradient
+       id="linearGradient7669">
+      <stop
+         style="stop-color:#393939;stop-opacity:1;"
+         offset="0"
+         id="stop7671" />
+      <stop
+         style="stop-color:#181818;stop-opacity:1;"
+         offset="1"
+         id="stop7673" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient7659">
+      <stop
+         id="stop7661"
+         offset="0"
+         style="stop-color:#f0f0f0;stop-opacity:1;" />
+      <stop
+         id="stop7663"
+         offset="1"
+         style="stop-color:#e7e7e7;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
        id="linearGradient9383">
       <stop
          id="stop9385"
@@ -567,26 +589,6 @@
        x2="112.4033"
        y2="414.96609"
        gradientTransform="translate(0,-80)" />
-    <filter
-       inkscape:collect="always"
-       id="filter9290"
-       x="-0.05089625"
-       width="1.1017925"
-       y="-0.12300176"
-       height="1.2460035">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.5127636"
-         id="feGaussianBlur9292" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       id="filter9308">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.6"
-         id="feGaussianBlur9310" />
-    </filter>
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient3779-7"
@@ -635,6 +637,42 @@
        y1="394.28653"
        x2="112.4033"
        y2="414.96609" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7659"
+       id="linearGradient7651"
+       x1="70.710678"
+       y1="1252.5116"
+       x2="70.710678"
+       y2="1292.5889"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.00666667,0,0,1,69.57219,-6.0286237)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7669"
+       id="linearGradient7667"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.00666667,0,0,1,81.57219,-6.0286237)"
+       x1="70.710678"
+       y1="1252.5116"
+       x2="70.710678"
+       y2="1292.5889" />
+    <filter
+       inkscape:collect="always"
+       id="filter7683">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="4.05"
+         id="feGaussianBlur7685" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter7689">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="4.035056"
+         id="feGaussianBlur7691" />
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -643,9 +681,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.53"
-     inkscape:cx="22.386322"
-     inkscape:cy="457.83933"
+     inkscape:zoom="1"
+     inkscape:cx="307.13086"
+     inkscape:cy="-504.42385"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -655,7 +693,20 @@
      inkscape:window-y="-4"
      inkscape:window-maximized="1"
      showguides="true"
-     inkscape:guide-bbox="true" />
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       orientation="0,1"
+       position="193.45374,-194.12082"
+       id="guide7653" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="70.043596,-152.09467"
+       id="guide7655" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="98.349057,-234.19811"
+       id="guide7657" />
+  </sodipodi:namedview>
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -6729,5 +6780,41 @@
          style="fill:url(#linearGradient9397);fill-opacity:1;stroke:none"
          sodipodi:nodetypes="ssssssscccccccc" />
     </g>
+    <rect
+       style="fill:url(#linearGradient7651);fill-opacity:1;stroke:none"
+       id="rect7135"
+       width="1"
+       height="40"
+       x="70.043594"
+       y="1246.483"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\thinks\menu\top-menu.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       y="1246.483"
+       x="82.043594"
+       height="40"
+       width="1"
+       id="rect7665"
+       style="fill:url(#linearGradient7667);fill-opacity:1;stroke:none"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\thinks\menu\selected.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       ry="4.2311854"
+       y="1391.5583"
+       x="136.3656"
+       height="299.00372"
+       width="239.00374"
+       id="rect7687"
+       style="opacity:0.3;fill:#000000;fill-opacity:1;stroke:none;filter:url(#filter7689)" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#cccccc;stroke-width:0.99626392"
+       id="rect7675"
+       width="239.00374"
+       height="299.00372"
+       x="136.3656"
+       y="1387.5583"
+       ry="4.2311854" />
   </g>
 </svg>

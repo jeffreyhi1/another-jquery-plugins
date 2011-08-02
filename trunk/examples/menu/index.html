@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+
+<!-- $Id$ -->
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="Content-Language" content="ru"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+
+<link href="../../css/basics.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/960.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" charset="utf-8" src="../../jquery/1.6.2.js"></script> 
+
+<title>jquery.ajp.menu - examples</title>
+
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.menu.js"></script> 
+
+<link href="menu.css" rel="stylesheet" type="text/css"/>
+
+<style>
+
+body { margin: 1em; }
+
+</style>
+
+<script>
+
+$(document).ready(function () {
+	$('.menu').menu({ event: 'click' })
+})
+
+</script>
+
+</head>
+
+<body>
+
+	<ul class="menu">
+		<li>
+			<a href="#">LEVEL1ITEM1</a>
+			<ul>
+				<li><a href="#">Level2Item1</a></li>
+				<li><a href="#">Level2Item2</a></li>
+				<li><a href="#">Level2Item3</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">LEVEL1ITEM2</a>
+			<ul>
+				<li><a href="#">Level2Item1</a></li>
+				<li><a href="#">Level2Item2</a></li>
+				<li>
+					<a href="#">Level2Item3</a>
+					<ul>
+						<li><a href="#">Level3Item1</a></li>
+						<li><a href="#">Level3Item2</a></li>
+						<li><a href="#">Level3Item3</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">LEVEL1ITEM3</a>
+			<ul>
+				<li><a href="#">Level2Item1</a></li>
+				<li><a href="#">Level2Item2</a></li>
+				<li>
+					<a href="#">Level2Item3</a>
+					<ul>
+						<li><a href="#">Level3Item1</a></li>
+						<li><a href="#">Level3Item2</a></li>
+						<li>
+							<a href="#">Level3Item3</a>
+							<ul>
+								<li><a href="#">Level4Item1</a></li>
+								<li><a href="#">Level4Item2</a></li>
+								<li><a href="#">Level4Item3</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">LEVEL1ITEM4</a>
+		</li>
+		<li>
+			<a href="#">LEVEL1ITEM5</a>
+		</li>
+	</ul>
+
+	<p>Lorem ipsum dolor sit amet, mel odio alia verear an. Ad vim reque labores, mel habemus tibique probatus ut. Vel ei oratio accumsan, no mei malis iudico oratio. Fuisset petentium gubergren per cu, id harum eirmod quo. Est cu duis forensibus reprimique, primis nusquam neglegentur ne pri. Quis novum movet an eum. Mei id erat noluisse urbanitas.</p>
+	<p>Vim in facer possit inermis, sea hinc prodesset ad. Et ipsum denique qui, quidam quodsi pericula vis te. Quo melius scripta an. Te vel petentium gubergren, ei his epicurei patrioque. Alia zril at est, qui graeci oblique moderatius ea.</p>
+
+</body>
+
+
