@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.customCheckbox = { version: '0.4pa', installed: false }
+	$.ajp.customCheckbox = { version: '0.5pa', installed: false }
 
 	$.fn.extend({
 
@@ -25,34 +25,19 @@
 
 				var api = {
 					init: function () {
+						var ctx = this
 						if (el.type == 'checkbox' || el.type == 'radio') {
-							el.style.display = 'none';
-							el.className += ' styled';
-							var span = document.createElement('span');
-							var position;
-							span.className = el.type;
-							if (el.checked == true) {
-								if (el.type == 'checkbox') {
-									position = '0 -' + (opts.checkboxHeight*2) + 'px';
-									span.style.backgroundPosition = position;
-								} else {
-									position = '0 -' + (opts.radioHeight*2) + 'px';
-									span.style.backgroundPosition = position;
-								}
-							}
-
-							$(el).before(span).change(function () { api.clear() })
-
+							$(el).css('display', 'none').addClass('ajp-customcheckbox')
+							var $span = $('<span class="ajp-customcheckbox-' + el.type + '"></span>')
+							$(el).before($span).change(function () { api.clear() }).change()
 							if (!el.getAttribute('disabled')) {
-								span.onmousedown = this.pushed;
-								span.onmouseup = this.check;
+								$span[0].onmousedown = this.pushed
+								$span[0].onmouseup = this.check
 							} else {
-								span.className += ' disabled';
+								$span.addClass('ajp-customcheckbox-disabled')
 							}
 						}
-
 						if (!$.ajp.customCheckbox.installed) {
-							var ctx = this;
 							$(document).mouseup(function () {
 								ctx.clear()
 							})
@@ -60,54 +45,42 @@
 						}
 					},
 					pushed: function() {
-						var element = this.nextSibling;
-						if (element.checked == true && element.type == 'checkbox') {
-							this.style.backgroundPosition = '0 -' + opts.checkboxHeight*3 + 'px';
-						} else if (element.checked == true && element.type == "radio") {
-							this.style.backgroundPosition = '0 -' + opts.radioHeight*3 + 'px';
-						} else if (element.checked != true && element.type == "checkbox") {
-							this.style.backgroundPosition = '0 -' + opts.checkboxHeight + 'px';
+						var p, e = this.nextSibling
+						if (e.checked == true && e.type == 'checkbox') {
+							p = '0 -' + (opts.checkboxHeight * 3) + 'px'
+						} else if (e.checked == true && e.type == "radio") {
+							p = '0 -' + (opts.radioHeight * 3) + 'px'
+						} else if (e.checked != true && e.type == "checkbox") {
+							p = '0 -' + opts.checkboxHeight + 'px'
 						} else {
-							this.style.backgroundPosition = '0 -' + opts.radioHeight + 'px';
+							p = '0 -' + opts.radioHeight + 'px'
 						}
+						$(this).css('background-position', p)
 					},
 					check: function() {
-						var element = this.nextSibling;
-						if (element.checked == true && element.type == 'checkbox') {
-							this.style.backgroundPosition = '0 0';
-							element.checked = false;
+						var e = this.nextSibling
+						if (e.checked == true && e.type == 'checkbox') {
+							$(this).css('background-position', '0 0')
+							e.checked = false
 						} else {
-							if (element.type == 'checkbox') {
-								this.style.backgroundPosition = '0 -' + opts.checkboxHeight*2 + 'px';
+							if (e.type == 'checkbox') {
+								$(this).css('background-position', '0 -' + (opts.checkboxHeight * 2) + 'px')
 							} else {
-								this.style.backgroundPosition = '0 -' + opts.radioHeight*2 + 'px';
-								var group = this.nextSibling.name;
-								var inputs = document.getElementsByTagName('input');
-								for (var a = 0; a < inputs.length; a++) {
-									if (inputs[a].name == group && inputs[a] != this.nextSibling) {
-										inputs[a].previousSibling.style.backgroundPosition = '0 0';
-									}
-								}
+								$('input[name=' + e.name + ']').css('background-position', '0 0')
+								$(this).css('background-position', '0 -' + (opts.radioHeight * 2) + 'px')
 							}
-							element.checked = true;
+							e.checked = true
 						}
-						$(element).change()
+						$(e).change()
 					},
 					clear: function() {
-						var inputs = document.getElementsByTagName('input');
-						for(var b = 0; b < inputs.length; b++) {
-							if (!/\bstyled\b/.test(inputs[b].className))
-								continue;
-							if (inputs[b].type == 'checkbox' && inputs[b].checked == true) {
-								inputs[b].previousSibling.style.backgroundPosition = "0 -" + opts.checkboxHeight*2 + "px";
-							} else if(inputs[b].type == "checkbox") {
-								inputs[b].previousSibling.style.backgroundPosition = "0 0";
-							} else if(inputs[b].type == "radio" && inputs[b].checked == true) {
-								inputs[b].previousSibling.style.backgroundPosition = "0 -" + opts.radioHeight*2 + "px";
-							} else if(inputs[b].type == "radio") {
-								inputs[b].previousSibling.style.backgroundPosition = "0 0";
-							}
-						}
+						$('input.ajp-customcheckbox').each(function () {
+							$(this).prev().css('background-position',
+								(this.checked ?
+									'0 -' + ((this.type == 'radio' ? opts.radioHeight : opts.checkboxHeight) * 2) + 'px'
+								: '0 0')
+							)
+						})
 					}
 				}
 

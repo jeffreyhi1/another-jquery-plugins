@@ -30,7 +30,7 @@ body { margin: 1em; }
 <script>
 
 $(document).ready(function () {
-	$('.menu').menu({ event: 'click' })
+	$('.ajp-menu').menu({ event: 'click' })
 })
 
 </script>
@@ -39,7 +39,7 @@ $(document).ready(function () {
 
 <body>
 
-	<ul class="menu">
+	<ul class="ajp-menu ajp-menu-noscript">
 		<li>
 			<a href="#">LEVEL1ITEM1</a>
 			<ul>
@@ -54,7 +54,7 @@ $(document).ready(function () {
 				<li><a href="#">Level2Item1</a></li>
 				<li><a href="#">Level2Item2</a></li>
 				<li>
-					<a href="#">Level2Item3</a>
+					<a href="#">Level2Item3 <span class="arrow">&raquo;</span></a>
 					<ul>
 						<li><a href="#">Level3Item1</a></li>
 						<li><a href="#">Level3Item2</a></li>
@@ -69,12 +69,12 @@ $(document).ready(function () {
 				<li><a href="#">Level2Item1</a></li>
 				<li><a href="#">Level2Item2</a></li>
 				<li>
-					<a href="#">Level2Item3</a>
+					<a href="#">Level2Item3 <span class="arrow">&raquo;</span></a>
 					<ul>
 						<li><a href="#">Level3Item1</a></li>
 						<li><a href="#">Level3Item2</a></li>
 						<li>
-							<a href="#">Level3Item3</a>
+							<a href="#">Level3Item3 <span class="arrow">&raquo;</span></a>
 							<ul>
 								<li><a href="#">Level4Item1</a></li>
 								<li><a href="#">Level4Item2</a></li>
@@ -87,10 +87,14 @@ $(document).ready(function () {
 		</li>
 		<li>
 			<a href="#">LEVEL1ITEM4</a>
+			<ul>
+				<li><a href="#">Level2Item1</a></li>
+			</ul>
 		</li>
 		<li>
 			<a href="#">LEVEL1ITEM5</a>
 		</li>
+		<li class="clear"></li>
 	</ul>
 
 	<p>Lorem ipsum dolor sit amet, mel odio alia verear an. Ad vim reque labores, mel habemus tibique probatus ut. Vel ei oratio accumsan, no mei malis iudico oratio. Fuisset petentium gubergren per cu, id harum eirmod quo. Est cu duis forensibus reprimique, primis nusquam neglegentur ne pri. Quis novum movet an eum. Mei id erat noluisse urbanitas.</p>

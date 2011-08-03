@@ -1,10 +1,10 @@
 /* $Id$ */
 
-.checkbox, .radio {
+.ajp-customcheckbox-checkbox, .ajp-customcheckbox-radio {
 	width: 19px;
 	height: 25px;
 	padding: 0 5px 0 0;
-	background: url(./checkbox.png) no-repeat;
+	background: url(checkbox.png) no-repeat;
 	display: block;
 	clear: left;
 	float: left;
@@ -13,10 +13,10 @@
 	top: 2px;
 }
 
-.radio {
-	background: url(./radio.png) no-repeat;
+.ajp-customcheckbox-radio {
+	background: url(radio.png) no-repeat;
 }
 
-input.styled { display: none; }
+input.ajp-customcheckbox { display: none; }
 
-.disabled { opacity: 0.5; filter: alpha(opacity=50); }
+.ajp-customcheckbox-disabled { opacity: 0.4; filter: alpha(opacity=40); }

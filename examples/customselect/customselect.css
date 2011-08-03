@@ -24,13 +24,13 @@
 	float: right;
 	width: 24px;
 	height: 24px;
-	background: url('./customselect.png') 0 0 no-repeat;
+	background: url(customselect.png) 0 0 no-repeat;
 	margin-top: 5px;
 	cursor: pointer;
 }
 
 .custom-select-disabled .control {
-	background: url('./customselect-disabled.png') 0 0 no-repeat;
+	background: url(customselect-disabled.png) 0 0 no-repeat;
 }
 .custom-select-disabled .current {
 	color: #999;
