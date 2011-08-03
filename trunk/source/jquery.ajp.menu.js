@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.menu = { version: '0.1pa', current: null }
+	$.ajp.menu = { version: '0.2pa', current: null }
 
 	$.fn.extend({
 
@@ -40,8 +40,8 @@
 				var hasSubmenu = ($ul.length ? true : false)
 					
 				if (hasSubmenu) {
-					if (level)
-						$a.append('<span class="arrow">&raquo;</span><span class="clear"></span>')
+					if (level && $a.find('.arrow:eq(0)').length == 0)
+						$a.append('<span class="arrow">&raquo;</span>')
 
 					$li.bind('click', function (evt) {
 						var vis = ($ul.css('display') == 'none' ? true : false)
@@ -72,7 +72,7 @@
 			}
 
 			return this.each(function() {
-				$(this).addClass('ajp-menu').children('li').each(function () {
+				$(this).removeClass('ajp-menu-noscript').addClass('ajp-menu').children('li').each(function () {
 					makeMenu($(this), 0)
 				})
 				$(this).append('<li class="clear"></li>')

@@ -14,7 +14,7 @@
 
 <script type="text/javascript" charset="utf-8" src="../../jquery/1.6.2.js"></script> 
 
-<title>jquery.ajp.customselect - examples</title>
+<title>jquery.ajp.customcheckbox - examples</title>
 
 <link href="./customcheckbox.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.customcheckbox.js"></script> 
@@ -24,6 +24,7 @@
 body { margin: 1em; }
 
 .ex1 td { padding: 5px !important; }
+.ex2 .radio { margin-top: 3px; }
 
 </style>
 
@@ -31,6 +32,7 @@ body { margin: 1em; }
 
 $(document).ready(function () {
 	$('input[type=checkbox]').customCheckbox()
+	$('input[type=radio]').customCheckbox()
 })
 
 </script>
@@ -45,9 +47,27 @@ $(document).ready(function () {
 			<td><label for="c1">checkbox 1</label></td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" checked="true" id="c2"/></td>
+			<td><input type="checkbox" id="c2"/></td>
 			<td><label for="c2">checkbox 2</label></td>
 		</tr>
+		<tr>
+			<td><input type="checkbox" id="c3" disabled="true"/></td>
+			<td><label for="c2">checkbox 3</label></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" id="c4" checked="true" disabled="true"/></td>
+			<td><label for="c2">checkbox 4</label></td>
+		</tr>
+
+
 	</table>
+
+	<fieldset class="ex2">
+		<legend>Choose one option</legend>
+		<input type="radio" name="ex2"> option 1<br/>
+		<input type="radio" name="ex2" checked="true"> option 2<br/>
+		<input type="radio" name="ex2"> option 3<br/>
+		<input type="radio" name="ex2" disabled="true"> option 4<br/>
+	</fieldset>
 
 </body>
