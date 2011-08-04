@@ -84,6 +84,10 @@ body {
 .ex3 .list {
 	border: 0;
 	width: 170px;
+
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
 }
 .ex3 .item {
 	padding-left: 10px;
@@ -117,7 +121,10 @@ $(document).ready(function () {
 
 	}).customSelect()
 
-	$('#ex1').append($('<option></option>').attr('value', 40).text('opt 40').attr('selected', 'selected'))
+	$('#ex1').append($('<option></option>').attr('value', 40).text('opt 40'))
+	$('#ex1').append($('<option></option>').attr('value', 50).text('opt 50').attr('selected', 'selected'))
+	$('#ex1').append($('<option></option>').attr('value', 60).text('opt 60'))
+
 	$('#ex1').customSelectContext().sync()
 
 
@@ -125,7 +132,7 @@ $(document).ready(function () {
 		$(this).children('option[value=1]').attr('selected', 'selected')
 	})
 	$('#ex2').customSelect({
-		openEvt: 'mouseover',
+		event: 'mouseover',
 		hideTimeout: 200
 	})
 
@@ -133,7 +140,7 @@ $(document).ready(function () {
 		$(this).children('option[value=1]').attr('selected', 'selected')
 	})
 	$('#ex3').customSelect({
-		openEvt: 'mouseover',
+		event: 'mouseover',
 		hideTimeout: 200
 	})
 
@@ -160,20 +167,20 @@ $(document).ready(function () {
 	<td>
 		<select id="ex2" class="ex2">
 			<option value="1">Other examples</option>
-			<option value="2" label="&raquo; <a href='../autocomplete/'>autocomplete</a>"></option>
-			<option value="3" label="&raquo; <a href='../scrollable/'>scrollable</a>"></option>
-			<option value="4" label="&raquo; <a href='../starrating/'>starrating</a>"></option>
-			<option value="5" label="&raquo; <a href='../hint/'>hint</a>"></option>
+			<option value="2" data-ajp-customselect-html="&raquo; <a href=&quot;../autocomplete/&quot;>autocomplete</a>">autocomplete</option>
+			<option value="3" data-ajp-customselect-html="&raquo; <a href=&quot;../scrollable/&quot;>scrollable</a>">scrollable</option>
+			<option value="4" data-ajp-customselect-html="&raquo; <a href=&quot;../starrating/&quot;>starrating</a>">starrating</option>
+			<option value="5" data-ajp-customselect-html="&raquo; <a href=&quot;../hint/&quot;>hint</a>">hint</option>
 		</select>
 	</td>
 	<td>another menu:</td>
 	<td>
 		<select id="ex3" class="ex3">
 			<option value="1">Other examples</option>
-			<option value="2" data-ajp-customselect-html="&raquo; <a href='../autocomplete/'>autocomplete</a>"></option>
-			<option value="3" data-ajp-customselect-html="&raquo; <a href='../scrollable/'>scrollable</a>"></option>
-			<option value="4" data-ajp-customselect-html="&raquo; <a href='../starrating/'>starrating</a>"></option>
-			<option value="5" data-ajp-customselect-html="&raquo; <a href='../hint/'>hint</a>"></option>
+			<option value="2" data-ajp-customselect-html="&raquo; <a href=&quot;../autocomplete/&quot;>autocomplete</a>">autocomplete</option>
+			<option value="3" data-ajp-customselect-html="&raquo; <a href=&quot;../scrollable/&quot;>scrollable</a>">scrollable</option>
+			<option value="4" data-ajp-customselect-html="&raquo; <a href=&quot;../starrating/&quot;>starrating</a>">starrating</option>
+			<option value="5" data-ajp-customselect-html="&raquo; <a href=&quot;../hint/&quot;>hint</a>">hint</option>
 		</select>
 	</td>
 	</tr></table>

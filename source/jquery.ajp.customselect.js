@@ -10,14 +10,14 @@
 	if (!$.ajp) $.ajp = { }
 	if ($.ajp.customSelect)
 		return
-	$.ajp.customSelect = { version: '0.10pa', initialized: false, contexts: {}, serial: 0 }
+	$.ajp.customSelect = { version: '0.11pa', initialized: false, contexts: {}, serial: 1 }
 
 	$.fn.extend({
 
 		customSelect: function (options) {
 
 			var defaults = {
-				openEvt: 'click',
+				event: 'click',
 				hideTimeout: 0
 			}
 
@@ -51,20 +51,20 @@
 							$.ajp.customSelect.initialized = true
 							$(document).find('body:eq(0)').keydown(function (evt) {
 								if (evt.keyCode == 27)
-									$('.custom-select > .list').css({ visibility: 'hidden' })
+									$('.ajp-customselect > .list').css({ visibility: 'hidden' })
 							})
 							$(document).find('body:eq(0)').mouseup(function (evt) {
-								if (evt.button == 0) $('.custom-select > .list').each(function () {
+								if (evt.button == 0) $('.ajp-customselect > .list').each(function () {
 									var $list = $(this)
 									var vis = $list.css('visibility')
-									$list.data('custom-select-visible', (vis == 'hidden' ? 'no' : 'yes'))
+									$list.data('ajp-customselect-visible', (vis == 'hidden' ? 'no' : 'yes'))
 									$list.css({ visibility: 'hidden' })
 								})
 							})
 						}
 
 						var html = '';
-						html += '<div class="custom-select">'
+						html += '<div class="ajp-customselect">'
 						html += '<input class="current" readonly="readonly"/>'
 						html += '<div class="control"></div>'
 						html += '<div class="clear"></div>'
@@ -72,19 +72,19 @@
 						html += '</div>'
 
 						this.element.css({ display: 'none' }).after(html)
-						this.custom = this.element.next('.custom-select:eq(0)').attr('class', 'custom-select ' + ths.element.attr('class'))
+						this.custom = this.element.next('.ajp-customselect:eq(0)').attr('class', 'ajp-customselect ' + ths.element.attr('class'))
 
 						function openList() {
-							if (!ths.custom.hasClass('custom-select-disabled')) {
+							if (!ths.custom.hasClass('ajp-customselect-disabled')) {
 								var list = ths.custom.find('.list:eq(0)')
-								var vis = (list.data('custom-select-visible') == 'yes' ? 'hidden' : 'visible')
+								var vis = (list.data('ajp-customselect-visible') == 'yes' ? 'hidden' : 'visible')
 								if (vis == 'visible')
-									$('.custom-select > .list').css({ visibility: 'hidden' })
+									$('.ajp-customselect > .list').css({ visibility: 'hidden' })
 								list.css({ visibility: vis })
 							}
 						}
 
-						this.custom.find('.current:eq(0), .control:eq(0)').bind(options.openEvt, openList)
+						this.custom.find('.current:eq(0), .control:eq(0)').bind(options.event, openList)
 
 						this.custom.attr('title', this.element.attr('title'))
 
@@ -95,8 +95,8 @@
 						})
 						var serial = ($.ajp.customSelect.serial ++)
 						$.ajp.customSelect.contexts[serial] = this
-						this.element.data('customselect', serial)
-						this.custom.children('.list:eq(0)').data('custom-select-visible', 'no')
+						this.element.data('ajp-customselect-id', serial)
+						this.custom.children('.list:eq(0)').data('ajp-customselect-visible', 'no')
 
 						if (options.hideTimeout) {
 							this.custom.mouseover(function () {
@@ -142,15 +142,14 @@
 
 						this.custom.find('.list:eq(0) > .item').each(function (i) {
 							$(this).click(function (evt) {
-//console.log(evt)
 								ths.selectItem(ths.indexToValue[i])
 							})
 						})
 
 						if (this.element.attr('disabled'))
-							this.custom.addClass('custom-select-disabled')
+							this.custom.addClass('ajp-customselect-disabled')
 						else
-							this.custom.removeClass('custom-select-disabled')
+							this.custom.removeClass('ajp-customselect-disabled')
 					},
 
 					setValue: function (val) {
@@ -180,7 +179,7 @@
 
 		customSelectContext: function () {
 			if (this.length) {
-				var serial = $(this[0]).data('customselect')
+				var serial = $(this[0]).data('ajp-customselect-id')
 				return $.ajp.customSelect.contexts[serial]
 			}
 			return null
