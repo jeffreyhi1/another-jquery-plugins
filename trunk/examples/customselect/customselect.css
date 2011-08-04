@@ -1,69 +1,118 @@
 /* $Id$ */
 
-.custom-select {
-	width: 198px;
-	height: 28px;
-	border: 1px solid #efefef;
+/*
+	ajp-customselect: common logic
+*/
+
+.ajp-customselect {
 	display: inline-block;
 }
 
-.custom-select .current {
+.ajp-customselect .current {
 	float: left;
-	width: 164px;
-	height: 26px;
-	line-height: 26px;
-	margin-left: 4px;
 	cursor: pointer;
 	border: 0;
 	outline: 0;
-	background: #fff;
 	text-overflow: ellipsis;
 }
 
-.custom-select .control {
+.ajp-customselect .control {
 	float: right;
-	width: 24px;
-	height: 24px;
-	background: url(customselect.png) 0 0 no-repeat;
-	margin-top: 5px;
 	cursor: pointer;
 }
 
-.custom-select-disabled .control {
-	background: url(customselect-disabled.png) 0 0 no-repeat;
-}
-.custom-select-disabled .current {
-	color: #999;
-}
-
-.custom-select .list {
-	width: 300px;
-	max-height: 150px;
+.ajp-customselect .list {
 	overflow: auto;
 	position: absolute;
 	z-index: 10;
-	background: #fff;
-	border: 1px solid #ddd;
 }
 
-.custom-select .item {
-	padding: 4px;
-	border-bottom: 1px solid #efefef;
-	font-size: 0.85em;
-	background: #fff;
+.ajp-customselect .item {
 	cursor: pointer;
 }
 
-.custom-select .item:hover {
-	background: #efefef;
+/*
+	ajp-customselect: common style
+*/
+
+.ajp-customselect {
+	border-style: solid;
+	border-color: #eee;
+}
+
+.ajp-customselect .current {
+	background: #fff;
+}
+
+.ajp-customselect .control {
+	background: url(customselect.png) 0 0 no-repeat;
+}
+
+.ajp-customselect-disabled .control {
+	background: url(customselect-disabled.png) 0 0 no-repeat;
+}
+.ajp-customselect-disabled .current {
+	color: #999;
+}
+
+.ajp-customselect .list {
+	background: #fff;
+	border-style: solid;
+	border-color: #ddd; /* #eee? */
+	box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+}
+
+.ajp-customselect .item {
+	border-style: solid;
+	border-color: #eee;
+	border-top-color: #fff;
+	font-size: 0.85em;
+	background: #fff;
+}
+
+.ajp-customselect .item:hover {
+	background: #eee;
 	color: #000;
 }
 
-.custom-select .selected {
-	background: #333;
-	color: #fff;
+.ajp-customselect .selected {
+	background: url(customselect-selected.png) 0 0 repeat-x !important;
+	color: #fff !important;
 }
 
-.custom-select .selected:hover {
-	color: #ff0498;
+/*
+	ajp-customselect: sizes
+*/
+
+.ajp-customselect {
+	border-width: 1px;
+	width: 198px; /* real width - border-left-width - border-right-width = 200 - 1 - 1 = 198 */
+	height: 28px; /* real height - botder-top-width - border-bottom-width = 30 - 1 - 1 = 28 */
+}
+
+.ajp-customselect .control {
+	width: 24px;
+	height: 24px;
+	margin-top: 4px; /* make sure that (height + margin-top) <= height of ajp-customselect */
+}
+
+.ajp-customselect .current {
+	margin-left: 4px;
+	width: 170px; /* width of ajp-customselect - width of control - self margin-left = 198 - 24 - 4 = 170 */
+	height: 26px; /* width of ajp-customselect - border-top-width of ajp-customselect - border-bottom-width of ajp-customselect = 28 - 1 - 1 = 26 */
+	line-height: 26px; /* same as height */
+}
+
+.ajp-customselect .list {
+	width: 300px; /* width of popup list */
+	max-height: 150px; /* full height of item * number of visible items = 30 (padding-top + padding-bottom + border-top-width + border-bottom-width + line-height) * 5 = 150 */
+	border-width: 1px;
+}
+
+.ajp-customselect .item {
+	padding: 4px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
 }
