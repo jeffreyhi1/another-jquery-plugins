@@ -24,7 +24,7 @@
 body { margin: 1em; }
 
 .ex1 td { padding: 5px !important; }
-.ex2 .radio { margin-top: 3px; }
+.ex2 .ajp-customcheckbox-radio { margin: 6px 13px 0 10px; }
 
 </style>
 
@@ -43,20 +43,20 @@ $(document).ready(function () {
 
 	<table class="layout ex1">
 		<tr>
-			<td><input type="checkbox" checked="true" id="c1"/></td>
-			<td><label for="c1">checkbox 1</label></td>
+			<td><input type="checkbox" checked="true" id="ex1c1"/></td>
+			<td><label for="ex1c1">checkbox 1</label></td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" id="c2"/></td>
-			<td><label for="c2">checkbox 2</label></td>
+			<td><input type="checkbox" id="ex1c2"/></td>
+			<td><label for="ex1c2">checkbox 2</label></td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" id="c3" disabled="true"/></td>
-			<td><label for="c2">checkbox 3</label></td>
+			<td><input type="checkbox" id="ex1c3" disabled="true"/></td>
+			<td><label for="ex1c3">checkbox 3</label></td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" id="c4" checked="true" disabled="true"/></td>
-			<td><label for="c2">checkbox 4</label></td>
+			<td><input type="checkbox" id="ex1c4" checked="true" disabled="true"/></td>
+			<td><label for="ex1c4">checkbox 4</label></td>
 		</tr>
 
 
@@ -64,10 +64,10 @@ $(document).ready(function () {
 
 	<fieldset class="ex2">
 		<legend>Choose one option</legend>
-		<input type="radio" name="ex2"> option 1<br/>
-		<input type="radio" name="ex2" checked="true"> option 2<br/>
-		<input type="radio" name="ex2"> option 3<br/>
-		<input type="radio" name="ex2" disabled="true"> option 4<br/>
+		<input type="radio" id="ex2o1" name="ex2"> <label for="ex2o1">option 1</label><br/>
+		<input type="radio" id="ex2o2" name="ex2" checked="true"> <label for="ex2o2">option 2</label><br/>
+		<input type="radio" id="ex2o3" name="ex2"> <label for="ex2o3">option 3</label><br/>
+		<input type="radio" id="ex2o4" name="ex2" disabled="true"> <label for="ex2o4">option 4</label><br/>
 	</fieldset>
 
 </body>
