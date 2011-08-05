@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.tooltip = { version: '0.1pa' }
+	$.ajp.tooltip = { version: '0.2pa' }
 
 	$.fn.extend({
 
@@ -16,7 +16,7 @@
 
 			var defaults = {
 				content: function ($e) {
-					return $e.data('tooltip')
+					return $e.data('ajp-tooltip')
 				},
 				show: function ($t, x, y, $e) {
 					$t.css({ display: 'block', left: x, top: y })
@@ -31,7 +31,7 @@
 			return this.each(function(i, el) {
 				var $el = $(el)
 				var c = (typeof opts.content == 'function' ? opts.content($el) : opts.content)
-				var t = $('<div class="tooltip"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>').appendTo('body')
+				var t = $('<div class="ajp-tooltip"><div class="top"></div><div class="middle"></div><div class="bottom"></div></div>').appendTo('body')
 				t.css({
 					position: 'absolute',
 					left: 0,

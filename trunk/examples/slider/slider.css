@@ -1,23 +1,49 @@
 /* $Id$ */
 
-.slider {
-	width: 300px;
+/*
+	ajp-slider: common logic
+*/
+
+.ajp-slider {
 	overflow: visible;
 }
 
-.slider > .line {
-	height: 0px;
-	border-top: 1px solid #ccc;
-	margin-top: 10px;
-}
-
-.slider > .control {
+.ajp-slider > .control {
 	cursor: pointer;
-	width: 70px;
-	height: 20px;
-	background: url(slider.png) 0 0 no-repeat;
 	position: relative;
 	top: 0;
 	left: 0;
-	margin-top: -10px;
+}
+
+/*
+	ajp-slider: common style
+*/
+
+.ajp-slider > .line {
+	border-top-color: #ccc;
+	border-top-style: solid;
+}
+
+.ajp-slider > .control {
+	background: url(slider.png) 0 0 no-repeat;
+}
+
+/*
+	ajp-slider: sizes
+*/
+
+.ajp-slider {
+	width: 300px;
+}
+
+.ajp-slider > .control {
+	width: 70px;
+	height: 20px;
+	margin-top: -10px; /* half of height */
+}
+
+.ajp-slider > .line {
+	height: 0px;
+	border-top-width: 1px;
+	margin-top: 10px; /* half of control height */
 }

@@ -1,24 +1,47 @@
 /* $Id$ */
 
-.tooltip {
-	width: 170px;
+/*
+	ajp-tooltip: common logic
+*/
+
+.ajp-tooltip {
 	z-index: 2;
 }
-.tooltip .top {
+
+/*
+	ajp-tooltip: common style
+*/
+
+.ajp-tooltip > .top {
 	background: url(ex1-top.png);
-	height: 10px;
 }
-.tooltip .middle {
+
+.ajp-tooltip > .middle {
 	background: #eee;
-	padding-left: 10px;
-	padding-right: 10px;
 	font-size: 11px;
 }
-.tooltip .middle img {
-	margin-right: 10px;
-	float: left;
-}
-.tooltip .bottom {
+
+.ajp-tooltip > .bottom {
 	background: url(ex1-bottom.png);
+}
+
+/*
+	ajp-tooltip: sizes
+*/
+
+.ajp-tooltip {
+	width: 170px;
+}
+
+.ajp-tooltip > .top {
+	height: 10px;
+}
+
+.ajp-tooltip > .middle {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.ajp-tooltip > .bottom {
 	height: 18px;
 }

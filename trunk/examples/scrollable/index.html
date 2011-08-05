@@ -43,14 +43,14 @@ body { margin: 1em; }
 $(document).ready(function () {
 
 	$('#ex1').scrollable({
-		prev: '#ex1 > .prev',
-		next: '#ex1 > .next',
+		prev: '#ex1 > .ajp-scrollable-prev',
+		next: '#ex1 > .ajp-scrollable-next',
 		mousewheel: true,
 	})
 
 	$('#ex2').scrollable({
-		prev: '#ex2 > .prev',
-		next: '#ex2 > .next',
+		prev: '#ex2 > .ajp-scrollable-prev',
+		next: '#ex2 > .ajp-scrollable-next',
 		mousewheel: true,
 		extensible: {
 			critical: 3,
@@ -68,8 +68,8 @@ $(document).ready(function () {
 <body>
 
 	<div id="ex1">
-		<div class="prev"></div>
-		<div class="scrollable-screen">
+		<div class="ajp-scrollable-prev"></div>
+		<div class="ajp-scrollable">
 			<ul>
 				<li><div>
 					<h1>Paragraph 1</h1>
@@ -95,13 +95,13 @@ $(document).ready(function () {
 				</div></li>
 			</ul>
 		</div>
-		<div class="next"></div>
+		<div class="ajp-scrollable-next"></div>
 		<div class="clear"></div>
 	</div>
 
 	<div id="ex2">
-		<div class="prev"></div>
-		<div class="scrollable-screen">
+		<div class="ajp-scrollable-prev"></div>
+		<div class="ajp-scrollable">
 			<ul>
 				<li><div>
 					<h1>Paragraph 1</h1>
@@ -127,7 +127,7 @@ $(document).ready(function () {
 				</div></li>
 			</ul>
 		</div>
-		<div class="next"></div>
+		<div class="ajp-scrollable-next"></div>
 		<div class="clear"></div>
 	</div>
 
