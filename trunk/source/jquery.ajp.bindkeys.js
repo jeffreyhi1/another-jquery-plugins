@@ -8,18 +8,16 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.bindkeys = { version: '0.12pa' }
+	$.ajp.bindkeys = { version: '0.13pa' }
 
 	$.fn.extend({
 
-		bindkeys: function (options) {
+		ajp$bindkeys: function (options) {
 
 			var defaults = {
-				hotkeys: {
-				}
 			}
 
-			var options = $.extend(defaults, options);
+			var opts = $.extend(defaults, options);
 
 			return this.each(function(i, el) {
 
@@ -118,8 +116,8 @@
 
 				$(el).keydown(function (evt) { api.onkeydown(evt) });
 
-				for (var key in options.hotkeys) {
-					var cmd = options.hotkeys[key];
+				for (var key in opts) {
+					var cmd = opts[key];
 					if (typeof cmd == 'string')
 						cmd = defaultCommands[cmd];
 					if (cmd)

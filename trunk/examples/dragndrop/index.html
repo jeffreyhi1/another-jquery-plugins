@@ -55,7 +55,7 @@ body { margin: 1em; }
 
 $(document).ready(function () {
 
-	$('#ex1').dragndrop({
+	$('#ex1').ajp$dragndrop({
 		getUploadUrl: function (file, el) { return './backend/?name=' + encodeURIComponent(file.fileName) },
 		onload: function (file, el, xhr) {
 			if ($('#dropped b').length <= 0)
@@ -68,7 +68,7 @@ $(document).ready(function () {
 		$('#ex2').data('downloadurl')
 		+ (/\/$/.test(window.location.href) ? window.location.href : window.location.href + '/')
 		+ $('#ex2').attr('href')
-	).dragout()
+	).ajp$dragout()
 })
 
 </script>

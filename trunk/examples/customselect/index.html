@@ -119,19 +119,19 @@ $(document).ready(function () {
 		if (window.console && window.console.log)
 			console.log('#ex1 changed to ', $(this).val())
 
-	}).customSelect()
+	}).ajp$customSelect()
 
 	$('#ex1').append($('<option></option>').attr('value', 40).text('opt 40'))
 	$('#ex1').append($('<option></option>').attr('value', 50).text('opt 50').attr('selected', 'selected'))
 	$('#ex1').append($('<option></option>').attr('value', 60).text('opt 60'))
 
-	$('#ex1').customSelectContext().sync()
+	$('#ex1').ajp$customSelectContext().sync()
 
 
 	$('#ex2').change(function () {
 		$(this).children('option[value=1]').attr('selected', 'selected')
 	})
-	$('#ex2').customSelect({
+	$('#ex2').ajp$customSelect({
 		event: 'mouseover',
 		hideTimeout: 200
 	})
@@ -139,7 +139,7 @@ $(document).ready(function () {
 	$('#ex3').change(function () {
 		$(this).children('option[value=1]').attr('selected', 'selected')
 	})
-	$('#ex3').customSelect({
+	$('#ex3').ajp$customSelect({
 		event: 'mouseover',
 		hideTimeout: 200
 	})

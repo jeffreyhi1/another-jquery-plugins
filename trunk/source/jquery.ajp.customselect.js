@@ -14,7 +14,7 @@
 
 	$.fn.extend({
 
-		customSelect: function (options) {
+		ajp$customSelect: function (options) {
 
 			var defaults = {
 				event: 'click',
@@ -177,7 +177,7 @@
 			})
 		},
 
-		customSelectContext: function () {
+		ajp$customSelectContext: function () {
 			if (this.length) {
 				var serial = $(this[0]).data('ajp-customselect-id')
 				return $.ajp.customSelect.contexts[serial]

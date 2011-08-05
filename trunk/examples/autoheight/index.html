@@ -52,11 +52,11 @@ $(document).ready(function () {
 	];
 	var i = 0;
 
-	$('#ex1').autoHeight()
+	$('#ex1').ajp$autoheight()
 
 	setInterval(function () {
 		$('#ex1-dynamic').html(contents[i])
-		$('#ex1').autoHeight()
+		$('#ex1').ajp$autoheight()
 		i ++; if (i >= contents.length) i = 0;
 	}, 3000)
 })

@@ -12,7 +12,7 @@
 
 	$.fn.extend({
 
-		menu: function (options) {
+		ajp$menu: function (options) {
 
 			var defaults = {
 				show: function ($ul) {

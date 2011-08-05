@@ -12,7 +12,7 @@
 
 	$.fn.extend({
 
-		dragout: function (options) {
+		ajp$dragout: function (options) {
 
 			var defaults = {
 				downloadurl: 'downloadurl'
@@ -28,7 +28,7 @@
 			})
 		},
 
-		dragndrop: function (options) {
+		ajp$dragndrop: function (options) {
 
 			var defaults = {
 
