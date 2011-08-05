@@ -10,9 +10,9 @@
 	if (!$.ajp) $.ajp = { }
 	$.ajp.autocomplete = { version: '0.13pa', forms: {}, last: false }
 
-	$.fn.extend({   
+	$.fn.extend({
 
-		autocomplete: function(options) {
+		ajp$autocomplete: function(options) {
 
 			var defaults = {  
 

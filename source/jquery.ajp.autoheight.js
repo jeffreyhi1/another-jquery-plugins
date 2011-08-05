@@ -8,11 +8,11 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.autoHeight = { version: '0.1pa' }
+	$.ajp.autoheight = { version: '0.2pa' }
 
 	$.fn.extend({
 
-		autoHeight: function (options) {
+		ajp$autoheight: function (options) {
 
 			var defaults = {
 				effect: function ($el, newHeight, oldHeight) {

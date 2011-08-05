@@ -12,7 +12,7 @@
 
 	$.fn.extend({
 
-		datepicker: function (options) {
+		ajp$datepicker: function (options) {
 
 			var defaults = {
 

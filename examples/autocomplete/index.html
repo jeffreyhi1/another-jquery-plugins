@@ -29,7 +29,7 @@ body { margin: 1em; }
 
 $(document).ready(function () {
 
-	$('#ex1').autocomplete({
+	$('#ex1').ajp$autocomplete({
 		getUrl: function (needle) {
 			if (/[a-z]+/.test(needle))
 				return { url: './ex1-' + needle + '.js', params: { 'needle': needle } }

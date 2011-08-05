@@ -1,3 +1,2 @@
-- move css-classes to one namespace "ajp"
 - datepicker: close on click other elements
 - add swappable

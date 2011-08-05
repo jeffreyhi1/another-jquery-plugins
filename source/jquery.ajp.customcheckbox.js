@@ -12,7 +12,7 @@
 
 	$.fn.extend({
 
-		customCheckbox: function (options) {
+		ajp$customCheckbox: function (options) {
 
 			var defaults = {
 				checkboxHeight: 13,

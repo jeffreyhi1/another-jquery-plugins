@@ -28,14 +28,11 @@ body { margin: 1em; }
 
 $(document).ready(function () {
 
-	$('textarea').focus().bindkeys({
-		hotkeys: {
-			'Ctrl+Y': function (evt, ctx) { alert('Ctrl+Y pressed') },
-			'Esc': function (evt, ctx) { alert('ESC pressed') },
-			'Enter': function (evt, ctx) { alert('Enter pressed')  },
-		}
+	$('textarea').focus().ajp$bindkeys({
+		'Ctrl+Y': function (evt, ctx) { alert('Ctrl+Y pressed') },
+		'Esc': function (evt, ctx) { alert('ESC pressed') },
+		'Enter': function (evt, ctx) { alert('Enter pressed')  }
 	})
-
 })
 
 </script>
