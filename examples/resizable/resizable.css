@@ -1,8 +1,12 @@
 /* $Id$ */
 
-.resizable-control {
+.ajp-resizable-control {
 	width: 16px;
 	height: 16px;
 	cursor: pointer;
 	background: url('./control.png') 0 0 no-repeat;
+}
+
+.ajp-resizable-active {
+	outline: 1px dashed #eee;
 }

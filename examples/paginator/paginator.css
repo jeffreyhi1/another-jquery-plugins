@@ -1,47 +1,86 @@
 /* $Id$ */
 
-.paginator {
-	height: 20px;
-	border: 1px dotted #ccc;
-	padding: 4px;
-}
-.paginator .scrollable-screen {
-	width: 200px;
-	height: 20px;
+/*
+	ajp.paginator: common logic
+*/
+
+.ajp-paginator .ajp-scrollable {
 	float: left;
 }
-.paginator li a {
-	text-decoration: none;
-	border: 0;
+
+.ajp-paginator li a {
 	display: block;
-	width: 40px;
-	text-align: center;
 	float: left;
-	color: orange;
 }
-.paginator li a.selected, .paginator li a:active {
+
+.ajp-paginator .prev, .ajp-paginator .next {
+	display: block;
+	float: left;
+}
+
+.ajp-paginator ul li {
+	position: relative;
+}
+
+/*
+	ajp.paginator: common style
+*/
+
+.ajp-paginator {
+	border-style: dotted;
+	border-color: #ccc;
+}
+
+.ajp-paginator li a {
+	color: #999;
+	font-weight: bold;
+	text-align: center;
+}
+
+.ajp-paginator li a.selected, .ajp-paginator li a:active {
 	text-decoration: none;
-	background: orange;
+	background: #ff0498;
 	color: #fff;
 }
-.paginator .prev, .paginator .next {
-	display: block;
-	margin-left: 6px;
-	margin-right: 6px;
+
+.ajp-paginator .prev, .ajp-paginator .next {
 	text-align: center;
-	float: left;
-	color: orange;
+	color: #ff0498;
 }
-.paginator .disabled {
+
+.ajp-paginator .disabled {
 	color: #ccc;
 }
 
+/*
+	ajp.paginator: sizes
+*/
 
+.ajp-paginator {
+	height: 20px;
+	border-width: 1px;
+	padding: 4px;
+}
 
-.paginator ul {
+.ajp-paginator .ajp-scrollable {
+	width: 200px;
+	height: 20px; /* height of paginator */
+}
+
+.ajp-paginator li a {
+	border: 0;
+	width: 40px;
+}
+
+.ajp-paginator .prev, .ajp-paginator .next {
+	margin-left: 6px;
+	margin-right: 6px;
+}
+
+.ajp-paginator ul {
 	margin-top: 0px;
 }
-.paginator ul li {
-	position: relative;
-	left: -40px;
+
+.ajp-paginator ul li {
+	left: -40px; /* reset default margin of list item */
 }

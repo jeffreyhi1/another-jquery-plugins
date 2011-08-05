@@ -1,39 +1,60 @@
 /* $Id$ */
 
-.scrollable-screen {
-	width: 600px;
-	height: 200px;
+/*
+	ajp-scrollable: common logic
+*/
+
+.ajp-scrollable {
 	float: left;
 }
 
-.scrollable-screen > ul > li {
+.ajp-scrollable > ul > li {
 	list-style: none;
-	margin: 0;
-	padding: 0;
-
 	position: relative;
-	left: -40px;
 }
 
-.scrollable-screen > ul > li > div {
+.ajp-scrollable-next, .ajp-scrollable-prev {
+	cursor: pointer;
+	float: left;
+}
+
+/*
+	ajp-scrollable: common style
+*/
+
+.ajp-scrollable-next {
+	background: url(next.png);
+}
+
+.ajp-scrollable-prev {
+	background: url(prev.png);
+}
+
+/*
+	ajp-scrollable: sizes
+*/
+
+.ajp-scrollable {
+	width: 580px;
+	height: 200px;
+}
+
+.ajp-scrollable > ul > li {
+	margin: 0;
+	padding: 0;
+	left: -40px; /* reset margin of list item */
+}
+
+.ajp-scrollable > ul > li > div {
 	margin: 0 20px;
 }
 
-.next {
-	width: 20px;
-	height: 20px;
-	margin-top: 50px;
-	background: url(./next.png);
-	cursor: pointer;
-	float: left;
+.ajp-scrollable-next, .ajp-scrollable-prev {
+	width: 30px;
+	height: 30px;
+	margin-top: 80px;
 }
 
-.prev {
-	width: 20px;
-	height: 20px;
+.ajp-scrollable-prev {
 	margin-left: 10px;
-	margin-top: 50px;
-	background: url(./prev.png);
-	cursor: pointer;
-	float: left;
 }

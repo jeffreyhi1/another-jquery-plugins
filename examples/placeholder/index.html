@@ -14,10 +14,10 @@
 
 <script type="text/javascript" charset="utf-8" src="../../jquery/1.6.2.js"></script> 
 
-<title>jquery.ajp.autocomplete - examples</title>
+<title>jquery.ajp.placeholder - examples</title>
 
-<link href="./hint.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.hint.js"></script> 
+<link href="./placeholder.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.placeholder.js"></script> 
 
 <style>
 
@@ -29,7 +29,7 @@ body { margin: 1em; }
 
 $(document).ready(function () {
 
-	$('.hint').hint()
+	$('.ajp-placeholder').placeholder()
 
 	$('.show-email-val').click(function () { alert($('#email').val()) })
 	$('.show-email-hval').click(function () { alert($('#email').hintVal()) })
@@ -43,8 +43,8 @@ $(document).ready(function () {
 </head>
 
 <body>
-	<input id="email" type="text" class="field hint" value="your email here..."/>
-	<input id="name" type="text" class="field hint" value="and your name here..."/>
+	<input id="email" type="text" class="field ajp-placeholder" placeholder="your email here..."/>
+	<input id="name" type="text" class="field ajp-placeholder" data-ajp-placeholder="and your name here..."/>
 	<button class="show-email-val">Show email (val)</button>
 	<button class="show-email-hval">Show email (hintVal)</button>
 	<button class="show-name-val">Show name (val)</button>

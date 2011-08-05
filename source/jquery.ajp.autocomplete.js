@@ -8,7 +8,7 @@
 (function($){
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.autocomplete = { version: '0.12pa', forms: {}, last: false }
+	$.ajp.autocomplete = { version: '0.13pa', forms: {}, last: false }
 
 	$.fn.extend({   
 
@@ -30,13 +30,13 @@
 
 				parseResponse: function (ctx, resp) {
 
-					ctx.remoteResponse = resp;
+					ctx.remoteResponse = resp
 
-					var variants = [];
+					var variants = []
 					for (var i = 0; i < resp.variants.length; i ++)
-						variants.push(resp.variants[i]);
+						variants.push(resp.variants[i])
 
-					ctx.setVariants(variants);
+					ctx.setVariants(variants)
 					ctx.show()
 				}
 			}
@@ -59,27 +59,27 @@
 			
 					init: function (target) {
 
-						this.target = target;
-						this.list = document.createElement('div');
-						var objList = $(this.list);
-						objList.css('display', 'none').addClass('autocomplete-list')
-						document.body.appendChild(this.list);
+						this.target = target
+						this.list = document.createElement('div')
+						var objList = $(this.list)
+						objList.css('display', 'none').addClass('ajp-autocomplete-list')
+						document.body.appendChild(this.list)
 
-						var ctx = this;
-						var form = $($(this.target).attr('form'));
+						var ctx = this
+						var form = $($(this.target).attr('form'))
 						if (!$.ajp.autocomplete.forms[form.attr('id')]) {
-							$.ajp.autocomplete.forms[form.attr('id')] = true;
+							$.ajp.autocomplete.forms[form.attr('id')] = true
 							form.submit(function (evt) {
-								var lists = $('.autocomplete-list:visible');
+								var lists = $('.ajp-autocomplete-list:visible')
 								if (lists.length > 0) {
 									if (!/explorer/i.test(navigator.appName))
 										lists.css({ display: 'none' })
-									return false;
+									return false
 								}
-								return true;
+								return true
 							})
 							form.find('button[type=submit], input[type=submit]').focus(function () {
-								if ($('.autocomplete-list:visible').length > 0 && $.ajp.autocomplete.last) {
+								if ($('.ajp-autocomplete-list:visible').length > 0 && $.ajp.autocomplete.last) {
 									$($.ajp.autocomplete.last.target).focus();
 									$.ajp.autocomplete.last.acquire()
 								}
@@ -88,27 +88,27 @@
 					},
 
 					cancelEvent: function (evt) {
-						evt.cancelBubble = true;
+						evt.cancelBubble = true
 						if (evt.stopPropagation) {
-							evt.stopPropagation();
-							evt.preventDefault();
+							evt.stopPropagation()
+							evt.preventDefault()
 						}
 					},
 
 					acquire: function (target) {
-						this.hide();
-						this.setVariants([]);
+						this.hide()
+						this.setVariants([])
 					},
 
 					setVariants: function (variants, req) {
 						if (req === undefined || req >= this.requestId) {
-							this.variants = variants;
-							options.selectItem(this, -1);
+							this.variants = variants
+							options.selectItem(this, -1)
 						}
 					},
 
 					hide: function () {
-						$('.autocomplete-list').css('display', 'none').html('<!-- -->');
+						$('.ajp-autocomplete-list').css('display', 'none').html('<!-- -->')
 					},
 
 					show: function () {
@@ -155,14 +155,14 @@
 
 					refresh: function () {
 
-						var ctx = this;
-						var needle = this.target.value;
+						var ctx = this
+						var needle = this.target.value
 
 						if (options.caching && this.cache[needle]) {
-							var data = this.cache[needle];
+							var data = this.cache[needle]
 							if (data) {
 								options.parseResponse(ctx, data)
-								return;
+								return
 							}
 						}
 
@@ -173,14 +173,14 @@
 						$.getJSON(where.url, where.params, function (data) {
 							if (data && (data.requestId === undefined || data.requestId >= ctx.requestId)) {
 								options.parseResponse(ctx, data)
-								ctx.cache[needle] = data;
+								ctx.cache[needle] = data
 							}
 						});
 					},
 
 					selectCurrent: function (withoutFocus) {
 						if (this.selected >= 0 && this.selected < this.variants.length)
-							this.target.value = this.variants[this.selected];
+							this.target.value = this.variants[this.selected]
 						//this.hide();
 						if (!withoutFocus)
 							this.target.focus();
@@ -189,39 +189,39 @@
 					keyup: function (evt) {
 						switch(evt.keyCode) {
 						case 9: // tab
-							this.hide();
-							return false;
+							this.hide()
+							return false
 						break;
 						case 27: // esc
-							this.hide();
-							return false;
+							this.hide()
+							return false
 						break;
 						case 40: // down
-							var i = this.selected + 1;
+							var i = this.selected + 1
 							if (i >= this.variants.length)
-								i = this.variants.length - 1;
-							options.selectItem(this, i);				
-this.selectCurrent()
-							this.show();
-							return false;
+								i = this.variants.length - 1
+							options.selectItem(this, i)
+							this.selectCurrent()
+							this.show()
+							return false
 						break;
 						case 38: // up
-							var i = this.selected - 1;
+							var i = this.selected - 1
 							if (i < -1)
-								i = -1;
-							options.selectItem(this, i);
-this.selectCurrent()
-							this.show();
-							return false;
+								i = -1
+							options.selectItem(this, i)
+							this.selectCurrent()
+							this.show()
+							return false
 						break;
 						case 13: // enter
-							this.selectCurrent();
-							this.cancelEvent(evt);
-							return false;
+							this.selectCurrent()
+							this.cancelEvent(evt)
+							return false
 						break;
 						}
-						this.refresh();
-						return true;
+						this.refresh()
+						return true
 					}
 				}
 
@@ -232,11 +232,11 @@ this.selectCurrent()
 				}).focusout(function() {
 					api.selectCurrent(true)
 					api.hide()
-					$.ajp.autocomplete.last = api;
+					$.ajp.autocomplete.last = api
 				}).keyup(function(evt) {
 					api.keyup(evt)
-				}).attr('autocomplete', 'off');
-			});
+				}).attr('autocomplete', 'off')
+			})
 		}
 	})
 })(jQuery);

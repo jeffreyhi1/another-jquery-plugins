@@ -8,13 +8,13 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.scrollable = { version: '0.7pa', serial: 0, contexts: [] }
+	$.ajp.scrollable = { version: '0.8pa', serial: 1, contexts: [] }
 
 	$.fn.extend({
 
 		scrollableContext: function () {
 			if (this.length) {
-				var serial = $(this[0]).data('ajp-scrollable-index')
+				var serial = $(this[0]).data('ajp-scrollable-id')
 				return $.ajp.scrollable.contexts[serial]
 			}
 			return null
@@ -27,8 +27,8 @@
 				easing: 'linear',
 				mousewheel: false,
 				orientation: 'horizontal',
-				prev: '.scrollable-prev',
-				next: '.scrollable-next',
+				prev: '.ajp-scrollable-prev',
+				next: '.ajp-scrollable-next',
 				current: null
 			}
 
@@ -71,17 +71,17 @@
 
 						var serial = ($.ajp.scrollable.serial ++)
 						$.ajp.scrollable.contexts[serial] = this
-						$(this.element).data('ajp-scrollable-index', serial).find('.scrollable-screen').css({ overflow: 'hidden' })
+						$(this.element).data('ajp-scrollable-id', serial).find('.ajp-scrollable').css({ overflow: 'hidden' })
 
-						if ($(this.element).find('.scrollable-screen > ul').length <= 0)
-							$(this.element).find('.scrollable-screen').append('<ul></ul>')
+						if ($(this.element).find('.ajp-scrollable > ul').length <= 0)
+							$(this.element).find('.ajp-scrollable').append('<ul></ul>')
 
-						this.container = $(this.element).find('.scrollable-screen > ul:eq(0)')
+						this.container = $(this.element).find('.ajp-scrollable > ul:eq(0)')
 							.css({ position: 'relative', left: 0, top: 0 });
 
-						var ctx = this;
-						$(options.prev).click(function () { ctx.prev() });  
-						$(options.next).click(function () { ctx.next() });
+						var ctx = this
+						$(options.prev).click(function () { ctx.prev() })
+						$(options.next).click(function () { ctx.next() })
 
 						$(document).bind('mousedown', function (evt) {
 							ctx.scrollLeft = ctx.container.scrollLeft()
@@ -91,7 +91,7 @@
 							ctx.container.scrollLeft(ctx.scrollLeft)
 							ctx.container.scrollTop(ctx.scrollTop)
 						})
-						$(this.element).find('.scrollable-screen').scroll(function (evt) {
+						$(this.element).find('.ajp-scrollable').scroll(function (evt) {
 							$(this).scrollLeft(ctx.scrollLeft)
 							$(this).scrollTop(ctx.scrollTop)
 							return false
@@ -99,7 +99,7 @@
 
 						if (options.mousewheel) {
 							try {
-								$(this.element).find('.scrollable-screen').mousewheel(function (evt, delta) {
+								$(this.element).find('.ajp-scrollable').mousewheel(function (evt, delta) {
 									if (delta > 0) ctx.prev(); else ctx.next();
 									ctx.cancelEvent(evt);
 								})
@@ -125,8 +125,8 @@
 						this.paddingRight = parseInt(items.eq(0).css('padding-right'));
 						this.paddingTop = parseInt(items.eq(0).css('padding-top'));
 						this.paddingBottom = parseInt(items.eq(0).css('padding-bottom'));
-						this.width = $(this.element).find('.scrollable-screen').innerWidth();
-						this.height = $(this.element).find('.scrollable-screen').innerHeight();
+						this.width = $(this.element).find('.ajp-scrollable').innerWidth();
+						this.height = $(this.element).find('.ajp-scrollable').innerHeight();
 
 						this.pack()
 						this.toBegin();
@@ -157,7 +157,7 @@
 							 + this.paddingLeft + 'px';
 						var itemFloating = (options.orientation == 'horizontal' ? 'left' : 'none')
 
-						$(this.element).find('.scrollable-screen > ul > li')
+						$(this.element).find('.ajp-scrollable > ul > li')
 							.css({
 								width: itemWidth,
 								height: itemHeight,
