@@ -8,11 +8,11 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.placeholder = { version: '0.4pa', installed: false }
+	$.ajp.placeholder = { version: '0.5pa', installed: false }
 
 	$.fn.extend({
 
-		placeholder: function (options) {
+		ajp$placeholder: function (options) {
 
 			var defaults = {
 			}

@@ -39,7 +39,7 @@ $(document).ready(function () {
 	if (console && console.log)
 		console.log(currentPage)
 
-	$('#ex1').paginator({
+	$('#ex1').ajp$paginator({
 		total: 1000,
 		baseUrl: '?page=%page%',
 		current: currentPage,
@@ -49,7 +49,7 @@ $(document).ready(function () {
 		next: 'Next &rarr;'
 	})
 
-	$('#ex2').paginator({
+	$('#ex2').ajp$paginator({
 		total: 1000,
 		baseUrl: '?page=%page%',
 		current: currentPage,

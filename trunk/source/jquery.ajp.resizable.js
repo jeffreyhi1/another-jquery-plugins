@@ -10,7 +10,7 @@
 	if (!$.ajp) $.ajp = { }
 
 	$.ajp.resizable = {
-		version: '0.6pa',
+		version: '0.7pa',
 		installed: false,
 		serial: 1,
 		current: undefined,
@@ -20,7 +20,7 @@
 
 	$.fn.extend({
 
-		unresizable: function () {
+		ajp$unresizable: function () {
 			return this.each(function(i, el) {
 				var id = $(el).data('ajp-resizable-id');
 				if (id && $.ajp.resizable.elements[id]) {
@@ -29,7 +29,7 @@
 			})
 		},
 
-		resizable: function (options) {
+		ajp$resizable: function (options) {
 
 			var defaults = {
 				proportional: false,

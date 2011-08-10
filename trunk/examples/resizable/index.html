@@ -40,8 +40,16 @@ body { margin: 1em; }
 <script>
 
 $(document).ready(function () {
-	$('#ex1').resizable({ proportional: false })
-	$('#ex2').resizable({ proportional: true })
+
+	$('#mkresizable').click(function () {
+		$('#ex1').ajp$resizable({ proportional: false })
+		$('#ex2').ajp$resizable({ proportional: true })
+	})
+
+	$('#mkunresizable').click(function () {
+		$('#ex1').ajp$unresizable()
+		$('#ex2').ajp$unresizable()
+	})
 })
 
 </script>
@@ -50,6 +58,10 @@ $(document).ready(function () {
 
 <body>
 
+	<button id="mkresizable">Make resizable</button>
+	<button id="mkunresizable">Unresizable</button>
+	<br/>
+	<br/>
 	<div id="ex1" class="resizable"></div>
 	<br/>
 	<div id="ex2" class="resizable"></div>

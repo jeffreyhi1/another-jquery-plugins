@@ -8,11 +8,11 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.tagscloud = { version: '0.1pa' }
+	$.ajp.tagscloud = { version: '0.2pa' }
 
 	$.fn.extend({
 
-		tagscloud: function (options) {
+		ajp$tagscloud: function (options) {
 
 			var defaults = {
 
@@ -22,14 +22,14 @@
 				hiPerc: 150
 			}
 
-			var options = $.extend(defaults, options);
+			var opts = $.extend(defaults, options);
 
 			return this.each(function(i, el) {
 
 				var api = {
 
 					init: function () {
-						var t = (typeof options.tags === 'function' ? options.tags(el) : options.tags)
+						var t = (typeof opts.tags === 'function' ? opts.tags(el) : opts.tags)
 						var _min = 0;
 						var _max = 0;
 						for (var i = 0; i < t.length; i ++) {
@@ -37,12 +37,12 @@
 							_min = (c > _min) ? _min : c;
 							_max = (c < _max) ? _max : c;
 						}
-						var _m = (options.hiPerc - options.loPerc) / (_max - _min);
+						var _m = (opts.hiPerc - opts.loPerc) / (_max - _min);
 						$(el).empty();
 						for (var i = 0; i < t.length; i ++)
 							$(el).append('<a' + (t[i].href ? ' href="' + t[i].href + '"' : '')
 								+ ' title="' + (t[i].title ? t[i].title : t[i].weight) + '" style="font-size: '
-								+ (options.loPerc + ((_max - (_max - (t[i].weight - _min))) * _m))
+								+ (opts.loPerc + ((_max - (_max - (t[i].weight - _min))) * _m))
 								+ '%">' + t[i].tag + '</a> ')
 					}
 				}

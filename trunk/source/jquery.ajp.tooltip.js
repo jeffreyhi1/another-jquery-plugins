@@ -8,11 +8,11 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.tooltip = { version: '0.2pa' }
+	$.ajp.tooltip = { version: '0.3pa' }
 
 	$.fn.extend({
 
-		tooltip: function (options) {
+		ajp$tooltip: function (options) {
 
 			var defaults = {
 				content: function ($e) {

@@ -8,14 +8,14 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.msgbox = { version: '0.2pa', queue: [] }
+	$.ajp.msgbox = { version: '0.3pa', queue: [] }
 
 	$.fn.extend({
 
-		msgbox: function (text, options, handler) {
+		ajp$msgbox: function (text, options, handler) {
 
 			var defaults = {
-				type: 'info', // alert | confirm | info | error | prompt
+				type: 'info', // alert | confirm | info | error | prompt | none
 				buttons: [
 					{ value: 'OK' }
 				],

@@ -14,6 +14,7 @@
 .ajp-msgbox > .middle > .info { background: white url(info.png) 0 0 no-repeat; }
 .ajp-msgbox > .middle > .error { background: white url(error.png) 0 0 no-repeat; }
 .ajp-msgbox > .middle > .prompt { background: white url(prompt.png) 0 0 no-repeat; }
+.ajp-msgbox > .middle > .none { width: 0; }
 
 .ajp-msgbox > .bottom > .buttons { float: right; margin-right: 40px; margin-top: 5px; }
 .ajp-msgbox > .bottom > .buttons > button { margin: 10px; }
