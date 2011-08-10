@@ -1,0 +1,66 @@
+﻿/* $Id: datepicker.css 14 2011-06-24 11:48:30Z azbitnev@gmail.com $ */
+
+/*
+	ajp-datepicker: common style
+*/
+
+.ajp-datepicker {
+	border-style: solid;
+	border-color: #eee;
+}
+
+.ajp-datepicker > .ajp-datepicker-month > tbody > tr > th, .ajp-datepicker > .ajp-datepicker-month > tbody > tr > td {
+	text-align: center;
+	vertical-align: middle;
+	border-style: solid;
+	border-color: #eee;
+}
+
+.ajp-datepicker > .ajp-datepicker-month > tbody > tr > td:hover {
+	background: #eee;
+}
+
+.ajp-datepicker > .ajp-datepicker-header {
+	background: #ccc url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAYAAADtlXTHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAfSURBVAiZY/j37/t/pv///zNACAYGBgasXJwStFAHAIlSPPR0066nAAAAAElFTkSuQmCC') 0 0 repeat-x;
+}
+
+.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-month-name {
+	font-weight: bold;
+}
+
+.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-prev, .ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-next {
+	background: url(images/jquery.ajp.datepicker.prev.png);
+}
+
+.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-next {
+	background: url(images/jquery.ajp.datepicker.next.png);
+}
+
+/*
+	ajp-datepicker: common sizes
+*/
+
+.ajp-datepicker {
+	border-width: 1px;
+}
+
+.ajp-datepicker > .ajp-datepicker-month > tbody > tr > th, .ajp-datepicker > .ajp-datepicker-month > tbody > tr > td {
+	width: 30px;
+	height: 20px;
+	border-width: 1px;
+}
+
+.ajp-datepicker > .ajp-datepicker-header {
+	height: 30px;
+}
+
+.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-month-name {
+	width: 200px;
+	margin: 5px;
+}
+
+.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-prev, .ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-next {
+	width: 20px;
+	height: 20px;
+	margin: 5px;
+}

@@ -16,8 +16,9 @@
 
 <title>jquery.ajp.msgbox - examples</title>
 
-<link href="msgbox.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.msgbox.js"></script> 
+<link href="../../source/css/release/jquery.ajp.css" rel="stylesheet" type="text/css"/>
+<link href="../../source/css/release/theme/jquery.ajp.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="../../source/release/jquery.ajp.js"></script> 
 
 <style>
 
@@ -42,7 +43,7 @@ $(document).ready(function () {
 					{ value: 'Cancel', type: 'cancel' }
 				]
 			}, function (btn, value) {
-				$().msgbox((btn === false ? 'Canceled.' : 'Your text: ' + value))
+				$().ajp$msgbox((btn === false ? 'Canceled.' : 'Your text: ' + value))
 			}
 		)
 	})
@@ -72,7 +73,7 @@ $(document).ready(function () {
 				type: 'confirm',
 				buttons: [ { value: 'Yes' }, { value: 'No' } ]
 			}, function (res) {
-				$().msgbox('Your answer: ' + res)
+				$().ajp$msgbox('Your answer: ' + res)
 			})
 	})
 

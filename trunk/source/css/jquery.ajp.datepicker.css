@@ -1,0 +1,23 @@
+﻿/* $Id: datepicker.css 14 2011-06-24 11:48:30Z azbitnev@gmail.com $ */
+
+/*
+	ajp-datepicker: common logic
+*/
+
+.ajp-datepicker > .ajp-datepicker-month > tbody > tr > td {
+	cursor: pointer;
+}
+
+.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-month-name {
+	float: left;
+}
+
+.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-prev, .ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-next {
+	cursor: pointer;
+	float: left;
+}
+
+.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-next {
+	float: right;
+	clear: right;
+}

@@ -16,7 +16,9 @@
 
 <title>jquery.ajp.starating - examples</title>
 
-<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.starating.js"></script> 
+<link href="../../source/css/release/jquery.ajp.css" rel="stylesheet" type="text/css"/>
+<link href="../../source/css/release/theme/jquery.ajp.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="../../source/release/jquery.ajp.js"></script> 
 
 <style>
 
@@ -35,7 +37,7 @@ $(document).ready(function () {
 	$('.rating').ajp$starating({
 		rating: getRating,
 		image: function (rate, el) {
-			return './rating-' + (rate >= 4 ? 'green' : (rate < 3 ? 'red' : 'yellow')) + '.png'
+			return '../../source/css/release/theme/images/jquery.ajp.starating.' + (rate >= 4 ? 'green' : (rate < 3 ? 'red' : 'yellow')) + '.png'
 		},
 		onchange: function (value, el) {
 			$(el).parents('tr:eq(0)').children('td:eq(2)').text(value.toFixed(1))
@@ -43,7 +45,7 @@ $(document).ready(function () {
 	})
 
 	$('.vote').ajp$starating({
-		image: './rating-yellow.png',
+		image: '../../source/css/release/theme/images/jquery.ajp.starating.yellow.png',
 		voteHandler: function (vote, star) {
 			$(star).parent().ajp$staratingContext().set(vote)
 		}

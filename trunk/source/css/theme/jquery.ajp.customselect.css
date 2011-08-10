@@ -1,35 +1,4 @@
-/* $Id$ */
-
-/*
-	ajp-customselect: common logic
-*/
-
-.ajp-customselect {
-	display: inline-block;
-}
-
-.ajp-customselect .current {
-	float: left;
-	cursor: pointer;
-	border: 0;
-	outline: 0;
-	text-overflow: ellipsis;
-}
-
-.ajp-customselect .control {
-	float: right;
-	cursor: pointer;
-}
-
-.ajp-customselect .list {
-	overflow: auto;
-	position: absolute;
-	z-index: 10;
-}
-
-.ajp-customselect .item {
-	cursor: pointer;
-}
+/* $Id: customselect.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 /*
 	ajp-customselect: common style
@@ -45,11 +14,11 @@
 }
 
 .ajp-customselect .control {
-	background: url(customselect.png) 0 0 no-repeat;
+	background: url(images/jquery.ajp.customselect.png) 0 0 no-repeat;
 }
 
 .ajp-customselect-disabled .control {
-	background: url(customselect-disabled.png) 0 0 no-repeat;
+	background: url(images/jquery.ajp.customselect-disabled.png) 0 0 no-repeat;
 }
 .ajp-customselect-disabled .current {
 	color: #999;
@@ -78,7 +47,7 @@
 }
 
 .ajp-customselect .selected {
-	background: url(customselect-selected.png) 0 0 repeat-x !important;
+	background: url(images/jquery.ajp.customselect-selected.png) 0 0 repeat-x !important;
 	color: #fff !important;
 }
 

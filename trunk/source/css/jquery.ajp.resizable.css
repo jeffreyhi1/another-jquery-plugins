@@ -1,0 +1,9 @@
+/* $Id: resizable.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
+
+/*
+	ajp-resizable: common logic
+*/
+
+.ajp-resizable-control {
+	cursor: pointer;
+}
