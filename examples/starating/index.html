@@ -14,9 +14,9 @@
 
 <script type="text/javascript" charset="utf-8" src="../../jquery/1.6.2.js"></script> 
 
-<title>jquery.ajp.scrollable - examples</title>
+<title>jquery.ajp.starating - examples</title>
 
-<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.starrating.js"></script> 
+<script type="text/javascript" charset="utf-8" src="../../source/jquery.ajp.starating.js"></script> 
 
 <style>
 
@@ -32,18 +32,20 @@ $(document).ready(function () {
 		return parseFloat( $(el).parents('tr:eq(0)').children('td:eq(2)').text() )
 	}
 
-	$('.rating').starRating({
+	$('.rating').ajp$starating({
 		rating: getRating,
-		image: function (el) {
-			var rate = getRating(el)
+		image: function (rate, el) {
 			return './rating-' + (rate >= 4 ? 'green' : (rate < 3 ? 'red' : 'yellow')) + '.png'
+		},
+		onchange: function (value, el) {
+			$(el).parents('tr:eq(0)').children('td:eq(2)').text(value.toFixed(1))
 		}
 	})
 
-	$('.vote').starRating({
+	$('.vote').ajp$starating({
 		image: './rating-yellow.png',
 		voteHandler: function (vote, star) {
-			$(star).parent().starRatingSet(vote)
+			$(star).parent().ajp$staratingContext().set(vote)
 		}
 	})
 })
@@ -75,12 +77,12 @@ $(document).ready(function () {
 			<td>4.4</td>
 		</tr>
 		<tr>
-			<td>jquery.ajp.starrating</td>
+			<td>jquery.ajp.starating</td>
 			<td><div class="rating"></div></td>
 			<td>3.9</td>
 		</tr>
 		<tr>
-			<td>jquery.ajp.hint</td>
+			<td>jquery.ajp.placeholder</td>
 			<td><div class="rating"></div></td>
 			<td>3.0</td>
 		</tr>

@@ -24,6 +24,11 @@
 	border-top-style: solid;
 }
 
+.ajp-slider > .left-line {
+	border-top-color: #cc0;
+	border-top-style: solid;
+}
+
 .ajp-slider > .control {
 	background: url(slider.png) 0 0 no-repeat;
 }
@@ -46,4 +51,10 @@
 	height: 0px;
 	border-top-width: 1px;
 	margin-top: 10px; /* half of control height */
+}
+
+.ajp-slider > .left-line {
+	height: 0px;
+	border-top-width: 1px;
+	margin-top: -11px; /* half of control height */
 }

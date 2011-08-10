@@ -8,11 +8,11 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.scrollable = { version: '0.8pa', serial: 1, contexts: [] }
+	$.ajp.scrollable = { version: '0.9pa', serial: 1, contexts: [] }
 
 	$.fn.extend({
 
-		scrollableContext: function () {
+		ajp$scrollableContext: function () {
 			if (this.length) {
 				var serial = $(this[0]).data('ajp-scrollable-id')
 				return $.ajp.scrollable.contexts[serial]
@@ -20,7 +20,7 @@
 			return null
 		},
 
-		scrollable: function (options) {
+		ajp$scrollable: function (options) {
 
 			var defaults = {
 				duration: 'fast',

@@ -8,11 +8,11 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.paginator = { version: '0.3pa', required: ['scrollable'] }
+	$.ajp.paginator = { version: '0.4pa', required: ['scrollable'] }
 
 	$.fn.extend({
 
-		paginator: function (options) {
+		ajp$paginator: function (options) {
 
 			var defaults = {
 				current: 1,
@@ -49,7 +49,7 @@
 				+ '	</ul>'
 				+ '</div>'
 				+ '<a class="next' + (options.current < options.total ? '" href="' + options.baseUrl.replace(/\%page\%/g, options.current + 1) + '"' : ' disabled"') + '>' + options.next + '</a>'
-				$(el).html(html).scrollable({
+				$(el).html(html).ajp$scrollable({
 					duration: options.duration,
 					easing: options.easing,
 					mousewheel: options.mousewheel,

@@ -58,9 +58,9 @@ body { margin: 1em; }
 
 $(document).ready(function () {
 
-	$('#ex1 > li').tooltip()
+	$('#ex1 > li').ajp$tooltip()
 
-	$('#ex2 > li').tooltip({
+	$('#ex2 > li').ajp$tooltip({
 		show: function ($t, x, y, $e) {
 			if ($.browser.msie) {
 				$t.css({ display: 'block', left: x, top: y - 30 }).animate({ top: y }, 'slow', 'swing')

@@ -1250,9 +1250,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
-     inkscape:cx="564.99785"
-     inkscape:cy="98.311552"
+     inkscape:zoom="1"
+     inkscape:cx="151.62189"
+     inkscape:cy="202.36747"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -8272,5 +8272,21 @@
        inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\next.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\resizable\control.png"
+       id="path3703"
+       d="m 93.5,637.4375 -12,12 2,0 10,-10 0,-2 z"
+       style="fill:#cccccc;stroke:none"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\resizable\control.png"
+       inkscape:connector-curvature="0"
+       id="path3705"
+       d="m 85.485848,649.4273 8,0 0,-8 z"
+       style="fill:#cccccc;stroke:none" />
   </g>
 </svg>

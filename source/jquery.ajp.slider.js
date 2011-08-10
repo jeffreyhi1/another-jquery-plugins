@@ -8,11 +8,11 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.slider = { version: '0.1pa' }
+	$.ajp.slider = { version: '0.2pa', installed: false, controls: [], serial: 1 }
 
 	$.fn.extend({
 
-		slider: function (options) {
+		ajp$slider: function (options) {
 
 			var defaults = {
 				min: 0.0,
@@ -30,23 +30,40 @@
 			if (opts.value < opts.min) opts.value = opts.min
 			if (opts.value > opts.max) opts.value = opts.max
 
+			if (!$.ajp.slider.installed) {
+				var savedVal = $.fn.val
+				$.fn.val = function (value) {
+					if (typeof $(this).data('ajp-slider-value') != 'undefined') {
+						var ctx = $(this).ajp$sliderContext()
+						return (typeof value == 'undefined' ? ctx.get() : ctx.set(value))
+					}
+					return savedVal.call(this, value)
+				}
+				$.ajp.slider.installed = true
+			}
+
 			return this.each(function(i, el) {
 
 				var $el = $(el)
 				var $sl = $('<div class="control"></div>')
+				var $lln = $('<div class="left-line"></div>')
 				var $ln = $('<div class="line"></div>')
 
 				$el.append($ln)
 				$el.append($sl)
+				$el.append($lln)
 
-				function shift(dx) {
+				function shift(dx, raiseEvent) {
 					var w = $ln.outerWidth() - $sl.outerWidth()
 					var l = parseInt($sl.css('left')) + dx
 					if (l < 0) l = 0
 					if (l > w) l = w
+					$lln.css('width', l.toString() + 'px')
 					$sl.css('left', l.toString() + 'px')
 					var val = opts.min + (l/w) * (opts.max - opts.min)
-					opts.onchange(val, $el)
+					$el.data('ajp-slider-value', val)
+					if (typeof raiseEvent == 'undefined' || raiseEvent)
+						opts.onchange(val, $el)
 				}
 
 				var mouse = { x: 0, y: 0, down: false }
@@ -74,10 +91,34 @@
 					}
 				})
 
-				var w = $ln.outerWidth() - $sl.outerWidth()
-				var dx = ((opts.value - opts.min) * w) / (opts.max - opts.min)
-				shift(dx)
+				function setValue(value, raiseEvent) {
+					var w = $ln.outerWidth() - $sl.outerWidth()
+					var dx = ((value - opts.min) * w) / (opts.max - opts.min)
+					$sl.css('left', 0)
+					shift(dx, raiseEvent)
+				}
+
+				var id = $.ajp.slider.serial ++
+				$.ajp.slider.controls[id] = setValue
+				$el.data('ajp-slider-id', id)
+
+				setValue(opts.value)
 			})
+		},
+
+		ajp$sliderContext: function () {
+			var ctx = this
+			return {
+				set: function (value, raiseEvent) {
+					ctx.each(function () {
+						var f = $.ajp.slider.controls[$(this).data('ajp-slider-id')]
+						if (f) f(value, raiseEvent)
+					})
+				},
+				get: function () {
+					return ctx.data('ajp-slider-value')
+				}
+			}
 		}
 	})
 

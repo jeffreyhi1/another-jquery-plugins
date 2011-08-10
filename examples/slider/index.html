@@ -32,14 +32,14 @@ body { margin: 1em; }
 
 $(document).ready(function () {
 
-	$('.ex1').slider({
+	$('.ex1').ajp$slider({
 		value: 0.5,
 		onchange: function (val, $slider) {
 			$('#ex1').text(val.toFixed(2))
 		}
 	})
 
-	$('.ex2').slider({
+	$('.ex2').ajp$slider({
 		min: 100,
 		max: 500,
 		value: 250,
@@ -65,7 +65,6 @@ $(document).ready(function () {
 			<th>Slider #2: minimal value is 100, maximal is 500, initial is 250, current is <span id="ex2"></span>:</th>
 			<td><div class="ex2 ajp-slider"></div></td>
 		</tr>
-
 	</table>
 
 
