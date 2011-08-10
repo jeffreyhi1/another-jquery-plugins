@@ -1,0 +1,57 @@
+/* $Id: menu.css 25 2011-08-04 13:05:23Z azbitnev@gmail.com $ */
+
+/*
+	ajp-menu: common logic
+*/
+
+.ajp-menu li {
+	list-style: none;
+}
+
+.ajp-menu > li {
+	display: block;
+	float: left;
+}
+
+.ajp-menu ul {
+	display: none;
+	position: absolute;
+}
+
+.ajp-menu .arrow {
+	display: block;
+	float: right;
+}
+
+.ajp-menu .clear {
+	float: none;
+	display: block;
+	clear: both;
+	padding: 0;
+	margin: 0;
+	height: 0;
+}
+
+.ajp-menu {
+	padding: 0;
+}
+
+.ajp-menu li > a {
+	outline: 0;
+}
+
+/*
+	ajp-menu-noscript: common logic
+*/
+
+.ajp-menu-noscript li:hover > ul {
+	display: block;
+	margin-left: 220px;
+	margin-top: -30px;
+}
+
+.ajp-menu-noscript > li:hover > ul {
+	margin-left: -20px;
+	margin-top: 10px;
+}
+

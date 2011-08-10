@@ -1,0 +1,14 @@
+/* $Id: msgbox.css 28 2011-08-10 10:33:17Z azbitnev@gmail.com $ */
+
+/*
+	ajp-msgbox: common logic
+*/
+
+.ajp-msgbox > .middle > .icon { float: left;}
+.ajp-msgbox > .middle > .text { float: left; }
+.ajp-msgbox > .middle > .clear { clear: both; }
+
+.ajp-msgbox > .bottom > .buttons { float: right; }
+
+.ajp-msgbox-shade { z-index: 500; }
+.ajp-msgbox { z-index: 501; }

@@ -1,0 +1,227 @@
+﻿/* $Id: autocomplete.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
+
+/*
+	ajp-autocomplete: common logic
+*/
+
+.ajp-autocomplete-list {
+	position: absolute;
+	z-index: 256000;
+}
+
+.ajp-autocomplete-list > .autocomplete-item { cursor: pointer; }
+/* $Id: customcheckbox.css 24 2011-08-04 07:07:51Z azbitnev@gmail.com $ */
+
+/*
+	ajp-customcheckbox: common logic
+*/
+
+.ajp-customcheckbox-checkbox, .ajp-customcheckbox-radio {
+	display: block;
+	clear: left;
+	float: left;
+	position: relative;
+}
+
+input.ajp-customcheckbox { display: none; }
+/* $Id: customselect.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
+
+/*
+	ajp-customselect: common logic
+*/
+
+.ajp-customselect {
+	display: inline-block;
+}
+
+.ajp-customselect .current {
+	float: left;
+	cursor: pointer;
+	border: 0;
+	outline: 0;
+	text-overflow: ellipsis;
+}
+
+.ajp-customselect .control {
+	float: right;
+	cursor: pointer;
+}
+
+.ajp-customselect .list {
+	overflow: auto;
+	position: absolute;
+	z-index: 10;
+}
+
+.ajp-customselect .item {
+	cursor: pointer;
+}
+﻿/* $Id: datepicker.css 14 2011-06-24 11:48:30Z azbitnev@gmail.com $ */
+
+/*
+	ajp-datepicker: common logic
+*/
+
+.ajp-datepicker > .ajp-datepicker-month > tbody > tr > td {
+	cursor: pointer;
+}
+
+.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-month-name {
+	float: left;
+}
+
+.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-prev, .ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-next {
+	cursor: pointer;
+	float: left;
+}
+
+.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-next {
+	float: right;
+	clear: right;
+}/* $Id: menu.css 25 2011-08-04 13:05:23Z azbitnev@gmail.com $ */
+
+/*
+	ajp-menu: common logic
+*/
+
+.ajp-menu li {
+	list-style: none;
+}
+
+.ajp-menu > li {
+	display: block;
+	float: left;
+}
+
+.ajp-menu ul {
+	display: none;
+	position: absolute;
+}
+
+.ajp-menu .arrow {
+	display: block;
+	float: right;
+}
+
+.ajp-menu .clear {
+	float: none;
+	display: block;
+	clear: both;
+	padding: 0;
+	margin: 0;
+	height: 0;
+}
+
+.ajp-menu {
+	padding: 0;
+}
+
+.ajp-menu li > a {
+	outline: 0;
+}
+
+/*
+	ajp-menu-noscript: common logic
+*/
+
+.ajp-menu-noscript li:hover > ul {
+	display: block;
+	margin-left: 220px;
+	margin-top: -30px;
+}
+
+.ajp-menu-noscript > li:hover > ul {
+	margin-left: -20px;
+	margin-top: 10px;
+}
+
+/* $Id: msgbox.css 28 2011-08-10 10:33:17Z azbitnev@gmail.com $ */
+
+/*
+	ajp-msgbox: common logic
+*/
+
+.ajp-msgbox > .middle > .icon { float: left;}
+.ajp-msgbox > .middle > .text { float: left; }
+.ajp-msgbox > .middle > .clear { clear: both; }
+
+.ajp-msgbox > .bottom > .buttons { float: right; }
+
+.ajp-msgbox-shade { z-index: 500; }
+.ajp-msgbox { z-index: 501; }
+/* $Id: paginator.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
+
+/*
+	ajp.paginator: common logic
+*/
+
+.ajp-paginator .ajp-scrollable {
+	float: left;
+}
+
+.ajp-paginator li a {
+	display: block;
+	float: left;
+}
+
+.ajp-paginator .prev, .ajp-paginator .next {
+	display: block;
+	float: left;
+}
+
+.ajp-paginator ul li {
+	position: relative;
+}
+/* $Id: resizable.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
+
+/*
+	ajp-resizable: common logic
+*/
+
+.ajp-resizable-control {
+	cursor: pointer;
+}
+/* $Id: scrollable.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
+
+/*
+	ajp-scrollable: common logic
+*/
+
+.ajp-scrollable {
+	float: left;
+}
+
+.ajp-scrollable > ul > li {
+	list-style: none;
+	position: relative;
+}
+
+.ajp-scrollable-next, .ajp-scrollable-prev {
+	cursor: pointer;
+	float: left;
+}
+/* $Id: slider.css 28 2011-08-10 10:33:17Z azbitnev@gmail.com $ */
+
+/*
+	ajp-slider: common logic
+*/
+
+.ajp-slider {
+	overflow: visible;
+}
+
+.ajp-slider > .control {
+	cursor: pointer;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+/* $Id: tooltip.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
+
+/*
+	ajp-tooltip: common logic
+*/
+
+.ajp-tooltip {
+	z-index: 2;
+}

@@ -1,0 +1,31 @@
+﻿/* $Id: autocomplete.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
+
+/*
+	ajp-autocomplete: common style
+*/
+
+.ajp-autocomplete-list {
+	border-style: outset;
+	border-color: #eee;
+
+	box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+}
+
+.ajp-autocomplete-list > .autocomplete-item { cursor: pointer; background: #fff; }
+.ajp-autocomplete-list > .autocomplete-item-odd { background: #f0f0f0; }
+.ajp-autocomplete-list > .autocomplete-item-selected { background: #333; color: #fff; }
+
+
+/*
+	ajp-autocomplete: sizes
+*/
+
+.ajp-autocomplete-list {
+	border-width: 1px;
+	margin: 0;
+	padding: 0;
+}
+
+.ajp-autocomplete-list > .autocomplete-item { padding: 2px 4px; }

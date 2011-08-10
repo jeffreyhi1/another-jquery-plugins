@@ -1,0 +1,26 @@
+/* $Id: customcheckbox.css 24 2011-08-04 07:07:51Z azbitnev@gmail.com $ */
+
+/*
+	ajp-customcheckbox: common style
+*/
+
+.ajp-customcheckbox-checkbox, .ajp-customcheckbox-radio {
+	background: url(images/jquery.ajp.customcheckbox.checkbox.png) no-repeat;
+}
+
+.ajp-customcheckbox-radio {
+	background: url(images/jquery.ajp.customcheckbox.radio.png) no-repeat;
+}
+
+.ajp-customcheckbox-disabled { opacity: 0.4; filter: alpha(opacity=40); }
+
+/*
+	ajp-customcheckbox: common sizes
+*/
+
+.ajp-customcheckbox-checkbox, .ajp-customcheckbox-radio {
+	width: 13px;
+	height: 13px;
+	margin: 0 5px 0 0;
+	top: 2px;
+}
