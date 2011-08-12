@@ -114,6 +114,9 @@ input.ajp-customcheckbox { display: none; }
 
 .ajp-menu {
 	padding: 0;
+	position: absolute;
+	z-index: 1;
+	width: 100%;
 }
 
 .ajp-menu li > a {
@@ -126,15 +129,7 @@ input.ajp-customcheckbox { display: none; }
 
 .ajp-menu-noscript li:hover > ul {
 	display: block;
-	margin-left: 220px;
-	margin-top: -30px;
 }
-
-.ajp-menu-noscript > li:hover > ul {
-	margin-left: -20px;
-	margin-top: 10px;
-}
-
 /* $Id: msgbox.css 28 2011-08-10 10:33:17Z azbitnev@gmail.com $ */
 
 /*

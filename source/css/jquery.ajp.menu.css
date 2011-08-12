@@ -34,6 +34,9 @@
 
 .ajp-menu {
 	padding: 0;
+	position: absolute;
+	z-index: 1;
+	width: 100%;
 }
 
 .ajp-menu li > a {
@@ -46,12 +49,4 @@
 
 .ajp-menu-noscript li:hover > ul {
 	display: block;
-	margin-left: 220px;
-	margin-top: -30px;
 }
-
-.ajp-menu-noscript > li:hover > ul {
-	margin-left: -20px;
-	margin-top: 10px;
-}
-

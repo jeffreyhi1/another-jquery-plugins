@@ -35,7 +35,7 @@ $(document).ready(function () {
 
 	var m;
 	var currentPage = ((m = location.href.match(/page=(\d+)$/)) ? parseInt(m[1]) : 1)
-	if (console && console.log)
+	if (window.console && console.log)
 		console.log(currentPage)
 
 	$('#ex1').ajp$paginator({
