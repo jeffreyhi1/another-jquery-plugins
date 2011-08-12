@@ -10,7 +10,7 @@
 	if (!$.ajp) $.ajp = { }
 	if ($.ajp.customSelect)
 		return
-	$.ajp.customSelect = { version: '0.11pa', initialized: false, contexts: {}, serial: 1 }
+	$.ajp.customSelect = { version: '0.12pa', initialized: false, contexts: {}, serial: 1 }
 
 	$.fn.extend({
 
@@ -54,9 +54,11 @@
 									$('.ajp-customselect > .list').css({ visibility: 'hidden' })
 							})
 							$(document).find('body:eq(0)').mouseup(function (evt) {
-								if (evt.button == 0) $('.ajp-customselect > .list').each(function () {
+//alert('mouseup [' + evt.button + ']')
+								if (evt.button == ($.browser.msie ? 1 : 0)) $('.ajp-customselect > .list').each(function () {
 									var $list = $(this)
 									var vis = $list.css('visibility')
+//alert('set to ' + (vis == 'hidden' ? 'no' : 'yes'))
 									$list.data('ajp-customselect-visible', (vis == 'hidden' ? 'no' : 'yes'))
 									$list.css({ visibility: 'hidden' })
 								})

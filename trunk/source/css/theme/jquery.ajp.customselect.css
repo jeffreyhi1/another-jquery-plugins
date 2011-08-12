@@ -69,7 +69,7 @@
 
 .ajp-customselect .current {
 	margin-left: 4px;
-	width: 170px; /* width of ajp-customselect - width of control - self margin-left = 198 - 24 - 4 = 170 */
+	width: 168px; /* width of ajp-customselect - width of control - self margin-left = 198 - 24 - 4 - 2 (msie) = 168 */
 	height: 26px; /* width of ajp-customselect - border-top-width of ajp-customselect - border-bottom-width of ajp-customselect = 28 - 1 - 1 = 26 */
 	line-height: 26px; /* same as height */
 }

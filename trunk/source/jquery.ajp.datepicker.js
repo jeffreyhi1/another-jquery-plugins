@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.datepicker = { version: '0.1pa' }
+	$.ajp.datepicker = { version: '0.2pa' }
 
 	$.fn.extend({
 
@@ -69,6 +69,7 @@
 			return this.each(function(i, el) {
 
 				var $el = $(el)
+				var yearShift = ($.browser.msie ? 0 : 1900)
 
 				var $control = $( ''
 					+ '<div class="ajp-datepicker">'
@@ -94,15 +95,15 @@
 				$('body').append($control)
 
 				function visualize(date) {
-					$control.find('.ajp-datepicker-month-name').text('' + opts.months[date.getMonth()] + ', ' + (date.getYear() + 1900))
+					$control.find('.ajp-datepicker-month-name').text('' + opts.months[date.getMonth()] + ', ' + (date.getYear() + yearShift))
 					$control.find('.ajp-datepicker-month > tbody > tr').each(function (tr) { if (tr) $(this).remove() })
 					var wdays = [ 6, 0, 1, 2, 3, 4, 5 ]
-					var lastDay = new Date(date.getYear() + 1900, date.getMonth() + 1, 0).getDate()
+					var lastDay = new Date(date.getYear() + yearShift, date.getMonth() + 1, 0).getDate()
 					var $tr = false
 					for (var day = 1; day <= lastDay; day ++) {
-						var wday = wdays[new Date(date.getYear() + 1900, date.getMonth(), day).getDay()]
+						var wday = wdays[new Date(date.getYear() + yearShift, date.getMonth(), day).getDay()]
 						if (!$tr) $tr = $('<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>')
-						$tr.find('td:eq(' + wday + ')').text(day).data('date', new Date(date.getYear() + 1900, date.getMonth(), day))
+						$tr.find('td:eq(' + wday + ')').text(day).data('date', new Date(date.getYear() + yearShift, date.getMonth(), day))
 						if (wday == 6) {
 							$control.find('.ajp-datepicker-month > tbody > tr:last').after($tr)
 							$tr = false
@@ -120,19 +121,22 @@
 
 				$control.find('.ajp-datepicker-prev').click(function () {
 					var date = new Date($control.data('visualized-date'))
-					date = new Date(date.getYear() + 1900, date.getMonth() - 1, 1)
+					date = new Date(date.getYear() + yearShift, date.getMonth() - 1, 1)
 					visualize(date)
 				})
 
 				$control.find('.ajp-datepicker-next').click(function () {
 					var date = new Date($control.data('visualized-date'))
-					date = new Date(date.getYear() + 1900, date.getMonth() + 1, 1)
+					date = new Date(date.getYear() + yearShift, date.getMonth() + 1, 1)
 					visualize(date)
 				})
 
 				$el.attr('readonly', true).click(function () {
 					if ($control.css('visibility') == 'hidden') {
-						visualize(new Date(typeof opts.value == 'function' ? opts.value($el) : opts.value))
+						var d = (typeof opts.value == 'function' ? opts.value($el) : opts.value)
+						if ($.browser.msie && /^\d+-\d+-\d+$/.test(d))
+							d = d.replace(/-/g, '/')
+						visualize(new Date(d))
 						opts.show($el, $control)
 					} else {
 						opts.hide($el, $control)

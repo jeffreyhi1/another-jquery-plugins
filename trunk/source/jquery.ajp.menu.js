@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.menu = { version: '0.2pa', current: null }
+	$.ajp.menu = { version: '0.3pa', current: null }
 
 	$.fn.extend({
 
@@ -17,18 +17,27 @@
 			var defaults = {
 				show: function ($ul) {
 					$ul.parents('li:eq(0)').addClass('selected')
-					$ul.css({ opacity: 0, display: 'block' })
+					if ($.browser.msie) {
+						$ul.css({ display: 'block' })
+					} else {
+						$ul.css({ opacity: 0, display: 'block' })
+					}
 					if (!$ul.data('initial-width'))
 						$ul.data('initial-width', $ul.width())
-					$ul.css({ width: 0 })
-					$ul.animate({ opacity: 1, width: $ul.data('initial-width') }, 'fast', 'swing')
+					if (!$.browser.msie) {
+						$ul.css({ width: 0 }).animate({ opacity: 1, width: $ul.data('initial-width') }, 'fast', 'swing')
+					}
 				},
 				hide: function ($ul) {
 					$ul.find('li').removeClass('selected')
 					$ul.parents('li:eq(0)').removeClass('selected')
-					$ul.animate({ opacity: 0 }, 'fast', 'swing', function () {
+					if ($.browser.msie) {
 						$ul.css('display', 'none')
-					})
+					} else {
+						$ul.animate({ opacity: 0 }, 'fast', 'swing', function () {
+							$ul.css('display', 'none')
+						})
+					}
 				}
 			}
 
@@ -75,7 +84,8 @@
 				$(this).removeClass('ajp-menu-noscript').addClass('ajp-menu').children('li').each(function () {
 					makeMenu($(this), 0)
 				})
-				$(this).append('<li class="clear"></li>')
+				if (!$(this).children('li.clear').length)
+					$(this).append('<li class="clear"></li>')
 			})
 		}
 	})
