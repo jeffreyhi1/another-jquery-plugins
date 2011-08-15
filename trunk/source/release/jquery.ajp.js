@@ -669,7 +669,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.datepicker = { version: '0.2pa' }
+	$.ajp.datepicker = { version: '0.3pa', initialized: false }
 
 	$.fn.extend({
 
@@ -678,7 +678,7 @@
 			var defaults = {
 
 				dateFormat: 'yyyy-mm-dd',
-				value: function ($el) { return $el.val() },
+				value: function ($el) { var d = $el.val(); if (!d) d = new Date(); return d },
 				show: function ($el, $ctl) {
 					$ctl.css({
 						visibility: 'visible',
@@ -755,6 +755,22 @@
 
 				$('body').append($control)
 
+				if (!$.ajp.datepicker.initialized) {
+					$.ajp.datepicker.initialized = true
+					$(document).find('body:eq(0)').keydown(function (evt) {
+						if (evt.keyCode == 27)
+							$('.ajp-datepicker').css({ visibility: 'hidden' })
+					})
+					$(document).find('body:eq(0)').mouseup(function (evt) {
+						if (evt.button == ($.browser.msie ? 1 : 0)) $('.ajp-datepicker').each(function () {
+							var $c = $(this)
+							var vis = $c.css('visibility')
+							$c.data('ajp-datepicker-visible', (vis == 'hidden' ? 'no' : 'yes'))
+							$c.css({ visibility: 'hidden' })
+						})
+					})
+				}
+
 				function visualize(date) {
 					$control.find('.ajp-datepicker-month-name').text('' + opts.months[date.getMonth()] + ', ' + (date.getYear() + yearShift))
 					$control.find('.ajp-datepicker-month > tbody > tr').each(function (tr) { if (tr) $(this).remove() })
@@ -793,7 +809,8 @@
 				})
 
 				$el.attr('readonly', true).click(function () {
-					if ($control.css('visibility') == 'hidden') {
+					var vis = ($control.data('ajp-datepicker-visible') == 'yes' ? 'hidden' : 'visible')
+					if (vis == 'visible') {
 						var d = (typeof opts.value == 'function' ? opts.value($el) : opts.value)
 						if ($.browser.msie && /^\d+-\d+-\d+$/.test(d))
 							d = d.replace(/-/g, '/')
@@ -802,11 +819,6 @@
 					} else {
 						opts.hide($el, $control)
 					}
-				})
-
-				$(document).find('body:eq(0)').keydown(function (evt) {
-					if (evt.keyCode == 27 && $control.css('visibility') == 'visible')
-						opts.hide($el, $control)
 				})
 			})
 		}
