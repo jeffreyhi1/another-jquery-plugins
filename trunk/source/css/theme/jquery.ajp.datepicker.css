@@ -22,6 +22,10 @@
 	border-color: #eee;
 }
 
+.ajp-datepicker > .ajp-datepicker-month > tbody > tr > td {
+	background: #fff;
+}
+
 .ajp-datepicker > .ajp-datepicker-month > tbody > tr > td:hover {
 	background: #eee;
 }
