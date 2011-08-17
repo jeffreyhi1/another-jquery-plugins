@@ -41,6 +41,7 @@
 
 .ajp-menu li > a {
 	outline: 0;
+	cursor: pointer;
 }
 
 /*
@@ -50,3 +51,4 @@
 .ajp-menu-noscript li:hover > ul {
 	display: block;
 }
+

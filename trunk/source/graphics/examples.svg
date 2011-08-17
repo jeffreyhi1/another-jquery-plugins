@@ -19,6 +19,25 @@
   <defs
      id="defs4">
     <linearGradient
+       id="linearGradient4404">
+      <stop
+         id="stop4406"
+         offset="0"
+         style="stop-color:#f8f8f8;stop-opacity:1;" />
+      <stop
+         style="stop-color:#f4f4f4;stop-opacity:1;"
+         offset="0.43824744"
+         id="stop4408" />
+      <stop
+         id="stop4410"
+         offset="0.66178203"
+         style="stop-color:#eaeaea;stop-opacity:1;" />
+      <stop
+         id="stop4412"
+         offset="1"
+         style="stop-color:#e1e1e1;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
        id="linearGradient4289">
       <stop
          id="stop4291"
@@ -708,7 +727,7 @@
        xlink:href="#linearGradient4241"
        id="linearGradient3471"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.00666667,0,0,1,128.61561,34.04862)"
+       gradientTransform="matrix(2.0714196,0,0,1,-17.386324,34.04862)"
        x1="70.710678"
        y1="1252.5116"
        x2="70.710678"
@@ -1242,6 +1261,66 @@
        y1="1814.8224"
        x2="197.46202"
        y2="1829.0529" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4404"
+       id="linearGradient3634"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.00666667,0,0,1,128.61561,84.04862)"
+       x1="70.710678"
+       y1="1252.5116"
+       x2="70.710678"
+       y2="1292.5889" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7271"
+       id="linearGradient4442"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1520737,0,0,1,-690.60661,2077.1399)"
+       x1="930.94391"
+       y1="-790.56903"
+       x2="931.21021"
+       y2="-836.93121" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7271"
+       id="linearGradient4452"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1520737,0,0,1,-690.60661,2077.1399)"
+       x1="930.94391"
+       y1="-790.56903"
+       x2="931.21021"
+       y2="-836.93121" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7271"
+       id="linearGradient4460"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1520737,0,0,1,-690.60661,2077.1399)"
+       x1="930.94391"
+       y1="-790.56903"
+       x2="931.21021"
+       y2="-836.93121" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7271"
+       id="linearGradient4463"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.1974883,0,0,0.17142,98.941419,813.90396)"
+       x1="930.94391"
+       y1="-790.56903"
+       x2="931.21021"
+       y2="-836.93121" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3755-7-7"
+       id="linearGradient4472"
+       x1="265.66998"
+       y1="674.26019"
+       x2="273.66998"
+       y2="674.26019"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0,0.08838835)" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -1250,9 +1329,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="151.62189"
-     inkscape:cy="202.36747"
+     inkscape:zoom="11.313708"
+     inkscape:cx="270.77883"
+     inkscape:cy="377.65967"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -7412,7 +7491,7 @@
        y="1286.5603"
        x="129.08702"
        height="40"
-       width="1"
+       width="310.71277"
        id="rect3469"
        style="fill:url(#linearGradient3471);fill-opacity:1;stroke:none" />
     <rect
@@ -8288,5 +8367,56 @@
        id="path3705"
        d="m 85.485848,649.4273 8,0 0,-8 z"
        style="fill:#cccccc;stroke:none" />
+    <rect
+       style="fill:url(#linearGradient3634);fill-opacity:1;stroke:none"
+       id="rect3632"
+       width="1"
+       height="40"
+       x="129.08702"
+       y="1336.5603"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.menu.top.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0.8;fill:#000000;fill-opacity:1;stroke:#000000;filter:url(#filter3866-4)"
+       id="rect4414"
+       width="16"
+       height="16"
+       x="187"
+       y="552.30554"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.datepicker.clear.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="matrix(0.86415486,0,0,0.86415486,101.11841,190.23187)"
+       ry="8" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.datepicker.clear.png"
+       y="667.50934"
+       x="262.71539"
+       height="13.826478"
+       width="13.826478"
+       id="rect4416"
+       style="fill:#4d4d4d;fill-opacity:1;stroke:none"
+       ry="6.913239" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.datepicker.clear.png"
+       y="665.83405"
+       x="260.94846"
+       height="17.283098"
+       width="17.283098"
+       id="rect4420"
+       style="opacity:0;fill:#000000;fill-opacity:1;stroke:none" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4438"
+       d="m 265.66998,672.28796 2.06061,2.0606 -2.06061,2.06061 1.9394,1.93939 2.06061,-2.0606 2.0606,2.0606 1.93939,-1.93939 -2.0606,-2.06061 2.0606,-2.0606 -1.93939,-1.9394 -2.0606,2.06061 -2.06061,-2.06061 -1.9394,1.9394 z"
+       style="fill:url(#linearGradient4472);fill-opacity:1;stroke:none"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.datepicker.clear.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>
