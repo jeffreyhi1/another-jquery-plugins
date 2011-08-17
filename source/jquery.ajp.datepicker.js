@@ -49,8 +49,8 @@
 					'mm': function (d) { var r = d.getMonth() + 1; return (r < 10 ? '0' + r : r) },
 					'mmm': function (d) { return opts.monthsShort[d.getMonth()] },
 					'mmmm': function (d) { return opts.months[d.getMonth()] },
-					'yy': function (d) { var r = d.getYear() - 100; return (r < 10 ? '0' + r : r) },
-					'yyyy': function (d) { return d.getYear() + 1900 }
+					'yy': function (d) { var r = d.getYear() - ($.browser.msie ? 2000 : 100); return (r < 10 ? '0' + r : r) },
+					'yyyy': function (d) { return d.getYear() + ($.browser.msie ? 0 : 1900) }
 				}
 				var res = ''
 				while (fmt.length > 0) {
