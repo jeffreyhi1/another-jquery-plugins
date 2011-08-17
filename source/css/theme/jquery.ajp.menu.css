@@ -45,11 +45,16 @@
 }
 
 .ajp-menu > li {
-	border-left: 1px solid #ccc;
+	border-right-color: #ccc;
+	border-right-style: solid;
 }
 
 .ajp-menu {
 	background: url(images/jquery.ajp.menu.top.png) 0 0 repeat-x;
+	border-style: solid;
+	border-color: #ccc;
+	border-top-color: #eee;
+	border-left-color: #eee;
 }
 
 .ajp-menu ul > li:hover {
@@ -72,6 +77,10 @@
 	ajp-menu: sizes
 */
 
+.ajp-menu {
+	border-width: 1px;
+}
+
 .ajp-menu li {
 	margin-left: -40px; /* default margin of list item */
 	padding: 10px 20px; /* padding of items */
@@ -80,6 +89,7 @@
 
 .ajp-menu > li {
 	margin-left: 0; /* remove margin of root items */
+	border-right-width: 1px;
 }
 
 .ajp-menu ul {
@@ -101,3 +111,4 @@
 	margin-left: -20px; /* use padding-left of items */
 	margin-top: 10px; /* use padding-top of items */
 }
+

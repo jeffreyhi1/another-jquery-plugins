@@ -669,7 +669,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.datepicker = { version: '0.3pa', initialized: false }
+	$.ajp.datepicker = { version: '0.4pa', initialized: false }
 
 	$.fn.extend({
 
@@ -742,7 +742,9 @@
 						+ '<table class="ajp-datepicker-month">'
 							+ '<tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>'
 						+ '</table>'
-						+ '<div class="ajp-datepicker-footer"></div>'
+						+ '<div class="ajp-datepicker-footer">'
+							+ '<div class="ajp-datepicker-clear"></div>'
+						+ '</div>'
 					+ '</div>'
 				).css({
 					visibility: 'hidden',
@@ -771,16 +773,31 @@
 					})
 				}
 
+				function getSelectedDate() {
+					var d = (typeof opts.value == 'function' ? opts.value($el) : opts.value)
+					if ($.browser.msie && /^\d+-\d+-\d+$/.test(d))
+						d = d.replace(/-/g, '/')
+					return new Date(d)
+				}
+
 				function visualize(date) {
+					var sdate = getSelectedDate()
 					$control.find('.ajp-datepicker-month-name').text('' + opts.months[date.getMonth()] + ', ' + (date.getYear() + yearShift))
 					$control.find('.ajp-datepicker-month > tbody > tr').each(function (tr) { if (tr) $(this).remove() })
+					var now = new Date()
+					now = new Date(now.getYear() + yearShift, now.getMonth(), now.getDate())
 					var wdays = [ 6, 0, 1, 2, 3, 4, 5 ]
 					var lastDay = new Date(date.getYear() + yearShift, date.getMonth() + 1, 0).getDate()
 					var $tr = false
 					for (var day = 1; day <= lastDay; day ++) {
 						var wday = wdays[new Date(date.getYear() + yearShift, date.getMonth(), day).getDay()]
 						if (!$tr) $tr = $('<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>')
-						$tr.find('td:eq(' + wday + ')').text(day).data('date', new Date(date.getYear() + yearShift, date.getMonth(), day))
+						var cdate = new Date(date.getYear() + yearShift, date.getMonth(), day)
+						var $td = $tr.find('td:eq(' + wday + ')').text(day).data('date', cdate)
+						if (cdate.getTime() == sdate.getTime())
+							$td.addClass('selected')
+						if (cdate.getTime() == now.getTime())
+							$td.addClass('now')
 						if (wday == 6) {
 							$control.find('.ajp-datepicker-month > tbody > tr:last').after($tr)
 							$tr = false
@@ -796,25 +813,34 @@
 					})
 				}
 
-				$control.find('.ajp-datepicker-prev').click(function () {
+				$control.find('.ajp-datepicker-prev').mouseup(function (evt) {
 					var date = new Date($control.data('visualized-date'))
 					date = new Date(date.getYear() + yearShift, date.getMonth() - 1, 1)
 					visualize(date)
+					evt.preventDefault()
+					return false
 				})
 
-				$control.find('.ajp-datepicker-next').click(function () {
+				$control.find('.ajp-datepicker-next').mouseup(function (evt) {
 					var date = new Date($control.data('visualized-date'))
 					date = new Date(date.getYear() + yearShift, date.getMonth() + 1, 1)
 					visualize(date)
+					evt.preventDefault()
+					return false
+				})
+
+				$control.find('.ajp-datepicker-clear').mouseup(function (evt) {
+					$el.val('')
 				})
 
 				$el.attr('readonly', true).click(function () {
 					var vis = ($control.data('ajp-datepicker-visible') == 'yes' ? 'hidden' : 'visible')
 					if (vis == 'visible') {
-						var d = (typeof opts.value == 'function' ? opts.value($el) : opts.value)
+						/*var d = (typeof opts.value == 'function' ? opts.value($el) : opts.value)
 						if ($.browser.msie && /^\d+-\d+-\d+$/.test(d))
 							d = d.replace(/-/g, '/')
-						visualize(new Date(d))
+						visualize(new Date(d))*/
+						visualize(getSelectedDate())
 						opts.show($el, $control)
 					} else {
 						opts.hide($el, $control)
@@ -1377,7 +1403,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.menu = { version: '0.3pa', current: null }
+	$.ajp.menu = { version: '0.4pa', current: null }
 
 	$.fn.extend({
 
@@ -1436,11 +1462,11 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 						}
 						if (vis) {
 							opts.show($ul)
+							evt.preventDefault()
+							return false
 						} else {
 							opts.hide($ul)
 						}
-						evt.preventDefault()
-						return false
 					})
 
 					$ul.children('li').each(function () {

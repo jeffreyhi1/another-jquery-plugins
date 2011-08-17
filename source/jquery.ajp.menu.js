@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.menu = { version: '0.3pa', current: null }
+	$.ajp.menu = { version: '0.4pa', current: null }
 
 	$.fn.extend({
 
@@ -67,11 +67,11 @@
 						}
 						if (vis) {
 							opts.show($ul)
+							evt.preventDefault()
+							return false
 						} else {
 							opts.hide($ul)
 						}
-						evt.preventDefault()
-						return false
 					})
 
 					$ul.children('li').each(function () {

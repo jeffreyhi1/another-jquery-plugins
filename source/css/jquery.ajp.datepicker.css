@@ -1,4 +1,4 @@
-﻿/* $Id: datepicker.css 14 2011-06-24 11:48:30Z azbitnev@gmail.com $ */
+/* $Id: datepicker.css 14 2011-06-24 11:48:30Z azbitnev@gmail.com $ */
 
 /*
 	ajp-datepicker: common logic
@@ -21,3 +21,10 @@
 	float: right;
 	clear: right;
 }
+
+.ajp-datepicker > .ajp-datepicker-footer > .ajp-datepicker-clear {
+	cursor: pointer;
+	float: right;
+	clear: right;
+}
+

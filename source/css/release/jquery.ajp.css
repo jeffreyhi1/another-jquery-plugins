@@ -10,6 +10,7 @@
 }
 
 .ajp-autocomplete-list > .autocomplete-item { cursor: pointer; }
+
 /* $Id: customcheckbox.css 24 2011-08-04 07:07:51Z azbitnev@gmail.com $ */
 
 /*
@@ -24,6 +25,7 @@
 }
 
 input.ajp-customcheckbox { display: none; }
+
 /* $Id: customselect.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 /*
@@ -56,7 +58,8 @@ input.ajp-customcheckbox { display: none; }
 .ajp-customselect .item {
 	cursor: pointer;
 }
-﻿/* $Id: datepicker.css 14 2011-06-24 11:48:30Z azbitnev@gmail.com $ */
+
+/* $Id: datepicker.css 14 2011-06-24 11:48:30Z azbitnev@gmail.com $ */
 
 /*
 	ajp-datepicker: common logic
@@ -78,7 +81,15 @@ input.ajp-customcheckbox { display: none; }
 .ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-next {
 	float: right;
 	clear: right;
-}/* $Id: menu.css 25 2011-08-04 13:05:23Z azbitnev@gmail.com $ */
+}
+
+.ajp-datepicker > .ajp-datepicker-footer > .ajp-datepicker-clear {
+	cursor: pointer;
+	float: right;
+	clear: right;
+}
+
+/* $Id: menu.css 25 2011-08-04 13:05:23Z azbitnev@gmail.com $ */
 
 /*
 	ajp-menu: common logic
@@ -121,6 +132,7 @@ input.ajp-customcheckbox { display: none; }
 
 .ajp-menu li > a {
 	outline: 0;
+	cursor: pointer;
 }
 
 /*
@@ -130,6 +142,7 @@ input.ajp-customcheckbox { display: none; }
 .ajp-menu-noscript li:hover > ul {
 	display: block;
 }
+
 /* $Id: msgbox.css 28 2011-08-10 10:33:17Z azbitnev@gmail.com $ */
 
 /*
@@ -144,6 +157,7 @@ input.ajp-customcheckbox { display: none; }
 
 .ajp-msgbox-shade { z-index: 500; }
 .ajp-msgbox { z-index: 501; }
+
 /* $Id: paginator.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 /*
@@ -167,6 +181,7 @@ input.ajp-customcheckbox { display: none; }
 .ajp-paginator ul li {
 	position: relative;
 }
+
 /* $Id: resizable.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 /*
@@ -176,6 +191,7 @@ input.ajp-customcheckbox { display: none; }
 .ajp-resizable-control {
 	cursor: pointer;
 }
+
 /* $Id: scrollable.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 /*
@@ -195,6 +211,7 @@ input.ajp-customcheckbox { display: none; }
 	cursor: pointer;
 	float: left;
 }
+
 /* $Id: slider.css 28 2011-08-10 10:33:17Z azbitnev@gmail.com $ */
 
 /*
@@ -211,6 +228,7 @@ input.ajp-customcheckbox { display: none; }
 	top: 0;
 	left: 0;
 }
+
 /* $Id: tooltip.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 /*
@@ -220,3 +238,4 @@ input.ajp-customcheckbox { display: none; }
 .ajp-tooltip {
 	z-index: 2;
 }
+

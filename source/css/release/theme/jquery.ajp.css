@@ -29,6 +29,7 @@
 }
 
 .ajp-autocomplete-list > .autocomplete-item { padding: 2px 4px; }
+
 /* $Id: customcheckbox.css 24 2011-08-04 07:07:51Z azbitnev@gmail.com $ */
 
 /*
@@ -55,6 +56,7 @@
 	margin: 0 5px 0 0;
 	top: 2px;
 }
+
 /* $Id: customselect.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 /*
@@ -146,7 +148,8 @@
 	border-top-width: 1px;
 	border-bottom-width: 1px;
 }
-﻿/* $Id: datepicker.css 14 2011-06-24 11:48:30Z azbitnev@gmail.com $ */
+
+/* $Id: datepicker.css 14 2011-06-24 11:48:30Z azbitnev@gmail.com $ */
 
 /*
 	ajp-datepicker: common style
@@ -174,8 +177,12 @@
 	background: #fff;
 }
 
-.ajp-datepicker > .ajp-datepicker-month > tbody > tr > td:hover {
+.ajp-datepicker > .ajp-datepicker-month > tbody > tr > td:hover, .ajp-datepicker > .ajp-datepicker-month > tbody > tr > td.selected {
 	background: #eee;
+}
+
+.ajp-datepicker > .ajp-datepicker-month > tbody > tr > td.now {
+	background: #d7e3f4;
 }
 
 .ajp-datepicker > .ajp-datepicker-header {
@@ -199,6 +206,18 @@
 
 .ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-next {
 	background: url(images/jquery.ajp.datepicker.next.png);
+}
+
+.ajp-datepicker > .ajp-datepicker-footer {
+	background: #ccc url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAYAAADtlXTHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAfSURBVAiZY/j37/t/pv///zNACAYGBgasXJwStFAHAIlSPPR0066nAAAAAElFTkSuQmCC') 0 0 repeat-x;
+	box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+	height: 30px;
+}
+
+.ajp-datepicker > .ajp-datepicker-footer > .ajp-datepicker-clear {
+	background: url(images/jquery.ajp.datepicker.clear.png);
 }
 
 /*
@@ -225,11 +244,14 @@
 	margin: 5px;
 }
 
-.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-prev, .ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-next {
+.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-prev,
+.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-next,
+.ajp-datepicker > .ajp-datepicker-footer > .ajp-datepicker-clear {
 	width: 20px;
 	height: 20px;
 	margin: 5px;
 }
+
 /* $Id: menu.css 25 2011-08-04 13:05:23Z azbitnev@gmail.com $ */
 
 /*
@@ -277,11 +299,16 @@
 }
 
 .ajp-menu > li {
-	border-left: 1px solid #ccc;
+	border-right-color: #ccc;
+	border-right-style: solid;
 }
 
 .ajp-menu {
 	background: url(images/jquery.ajp.menu.top.png) 0 0 repeat-x;
+	border-style: solid;
+	border-color: #ccc;
+	border-top-color: #eee;
+	border-left-color: #eee;
 }
 
 .ajp-menu ul > li:hover {
@@ -304,6 +331,10 @@
 	ajp-menu: sizes
 */
 
+.ajp-menu {
+	border-width: 1px;
+}
+
 .ajp-menu li {
 	margin-left: -40px; /* default margin of list item */
 	padding: 10px 20px; /* padding of items */
@@ -312,6 +343,7 @@
 
 .ajp-menu > li {
 	margin-left: 0; /* remove margin of root items */
+	border-right-width: 1px;
 }
 
 .ajp-menu ul {
@@ -333,6 +365,7 @@
 	margin-left: -20px; /* use padding-left of items */
 	margin-top: 10px; /* use padding-top of items */
 }
+
 /* $Id: msgbox.css 28 2011-08-10 10:33:17Z azbitnev@gmail.com $ */
 
 /*
@@ -369,6 +402,7 @@
 .ajp-msgbox > .bottom > .buttons > button { margin: 10px; }
 
 .ajp-msgbox > .middle > .text > .input > input { width: 330px; }
+
 /* $Id: paginator.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 /*
@@ -433,12 +467,15 @@
 .ajp-paginator ul li {
 	left: -40px; /* reset default margin of list item */
 }
+
 /* $Id: placeholder.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 .ajp-placeholder {
 	font-style: italic;
 	color: #ccc !important;
-}/* $Id: resizable.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
+}
+
+/* $Id: resizable.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 /*
 	ajp-resizable: common style
@@ -465,6 +502,8 @@
 .ajp-resizable-active {
 	outline-width: 1px;
 }
+
+
 /* $Id: scrollable.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 /*
@@ -507,6 +546,7 @@
 .ajp-scrollable-prev {
 	margin-left: 10px;
 }
+
 /* $Id: slider.css 28 2011-08-10 10:33:17Z azbitnev@gmail.com $ */
 
 /*
@@ -552,6 +592,7 @@
 	border-top-width: 1px;
 	margin-top: -11px; /* half of control height */
 }
+
 /* $Id: tooltip.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 /*
@@ -591,3 +632,5 @@
 .ajp-tooltip > .bottom {
 	height: 18px;
 }
+
+
