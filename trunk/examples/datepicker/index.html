@@ -30,8 +30,17 @@ body { margin: 1em; }
 
 $(document).ready(function () {
 
+	$('#ex1').change(function () { console.log('#ex1 changed to:', $(this).val()) })
+	$('#ex2').change(function () { console.log('#ex2 changed to:', $(this).val()) })
+	$('#ex3').change(function () { console.log('#ex3 changed to:', $(this).val()) })
+
 	$('#ex1').ajp$datepicker()
-	$('#ex2').ajp$datepicker()
+	$('#ex2').ajp$datepicker({ displayFormat: 'd mmmm, yyyy года' })
+	$('#ex3').ajp$datepicker({ displayFormat: 'd mmm yyг.', valueFormat: 'dd.mm.yyyy' })
+
+	$('#ex1val').click(function () { alert($('#ex1').val()) })
+	$('#ex2val').click(function () { alert($('#ex2').val()) })
+	$('#ex3val').click(function () { alert($('#ex3').val()) })
 })
 
 </script>
@@ -39,6 +48,7 @@ $(document).ready(function () {
 </head>
 
 <body>
-	<input type="text" class="field" id="ex1" value="2011-06-23"/> 
-	<input type="text" class="field" id="ex2" value=""/> 
+	<input type="text" class="field" id="ex1" value="2011-06-23"/> <button id="ex1val">Show</button> 
+	<input type="text" class="field" id="ex2" value=""/> <button id="ex2val">Show</button> 
+	<input type="text" class="field" id="ex3" value=""/> <button id="ex3val">Show</button> 
 </body>
