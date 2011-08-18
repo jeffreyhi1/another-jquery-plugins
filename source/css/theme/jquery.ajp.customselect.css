@@ -51,7 +51,7 @@
 }
 
 .ajp-customselect .selected {
-	background: url(images/jquery.ajp.customselect-selected.png) 0 0 repeat-x !important;
+	background: #181818 url(images/jquery.ajp.customselect-selected.png) 0 0 repeat-x !important;
 	color: #fff !important;
 }
 

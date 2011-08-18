@@ -30,7 +30,7 @@ body { margin: 1em; }
 
 $(document).ready(function () {
 
-	$('.ajp-placeholder').ajp$placeholder()
+	$('.ex').ajp$placeholder()
 
 	$('.show-email-val').click(function () { alert($('#email').val()) })
 	$('.show-name-val').click(function () { alert($('#name').val()) })
@@ -42,8 +42,8 @@ $(document).ready(function () {
 </head>
 
 <body>
-	<input id="email" type="text" class="field ajp-placeholder" placeholder="your email here..."/>
-	<input id="name" type="text" class="field ajp-placeholder" data-ajp-placeholder="and your name here..."/>
+	<input id="email" type="text" class="field ex" placeholder="your email here..."/>
+	<input id="name" type="text" class="field ex" data-ajp-placeholder="and your name here..."/>
 	<button class="show-email-val">Show email (val)</button>
 	<button class="show-name-val">Show name (val)</button>
 </body>

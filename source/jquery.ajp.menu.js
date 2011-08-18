@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.menu = { version: '0.4pa', current: null }
+	$.ajp.menu = { version: '0.5pa', current: null }
 
 	$.fn.extend({
 
@@ -49,6 +49,19 @@
 				var hasSubmenu = ($ul.length ? true : false)
 					
 				if (hasSubmenu) {
+
+					function closeSubmenu() {
+						if ($ul.css('display') != 'none')
+							opts.hide($ul)
+					}
+
+					$('body').click(function () {
+						closeSubmenu()
+					}).keydown(function (evt) {
+						if (evt.keyCode == 27)
+							closeSubmenu()
+					})
+
 					if (level && $a.find('.arrow:eq(0)').length == 0)
 						$a.append('<span class="arrow">&raquo;</span>')
 

@@ -480,7 +480,7 @@
 	if (!$.ajp) $.ajp = { }
 	if ($.ajp.customSelect)
 		return
-	$.ajp.customSelect = { version: '0.12pa', initialized: false, contexts: {}, serial: 1 }
+	$.ajp.customSelect = { version: '0.13pa', initialized: false, contexts: {}, serial: 1 }
 
 	$.fn.extend({
 
@@ -524,11 +524,9 @@
 									$('.ajp-customselect > .list').css({ visibility: 'hidden' })
 							})
 							$(document).find('body:eq(0)').mouseup(function (evt) {
-//alert('mouseup [' + evt.button + ']')
 								if (evt.button == ($.browser.msie ? 1 : 0)) $('.ajp-customselect > .list').each(function () {
 									var $list = $(this)
 									var vis = $list.css('visibility')
-//alert('set to ' + (vis == 'hidden' ? 'no' : 'yes'))
 									$list.data('ajp-customselect-visible', (vis == 'hidden' ? 'no' : 'yes'))
 									$list.css({ visibility: 'hidden' })
 								})
@@ -550,8 +548,16 @@
 							if (!ths.custom.hasClass('ajp-customselect-disabled')) {
 								var list = ths.custom.find('.list:eq(0)')
 								var vis = (list.data('ajp-customselect-visible') == 'yes' ? 'hidden' : 'visible')
-								if (vis == 'visible')
+								if (vis == 'visible') {
 									$('.ajp-customselect > .list').css({ visibility: 'hidden' })
+									var top = 0
+									var item = list.find('.selected')
+									do {
+										item = item.prev()
+										top += item.outerHeight()
+									} while (!item.hasClass('top'))
+									list.scrollTop(top)
+								}
 								list.css({ visibility: vis })
 							}
 						}
@@ -1458,7 +1464,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.menu = { version: '0.4pa', current: null }
+	$.ajp.menu = { version: '0.5pa', current: null }
 
 	$.fn.extend({
 
@@ -1499,6 +1505,19 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 				var hasSubmenu = ($ul.length ? true : false)
 					
 				if (hasSubmenu) {
+
+					function closeSubmenu() {
+						if ($ul.css('display') != 'none')
+							opts.hide($ul)
+					}
+
+					$('body').click(function () {
+						closeSubmenu()
+					}).keydown(function (evt) {
+						if (evt.keyCode == 27)
+							closeSubmenu()
+					})
+
 					if (level && $a.find('.arrow:eq(0)').length == 0)
 						$a.append('<span class="arrow">&raquo;</span>')
 
