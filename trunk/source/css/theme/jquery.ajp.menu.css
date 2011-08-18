@@ -21,7 +21,7 @@
 }
 
 .ajp-menu .selected, .ajp-menu ul > li.selected:hover {
-	background: url(images/jquery.ajp.menu.selected.png) 0 0 repeat-x;
+	background: #181818 url(images/jquery.ajp.menu.selected.png) 0 0 repeat-x;
 }
 
 .ajp-menu .selected > a {
