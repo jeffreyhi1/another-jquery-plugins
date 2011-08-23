@@ -13,6 +13,8 @@ $hdr =
 	Copyright (c) 2011 Andrey O. Zbitnev (azbitnev@gmail.com)
 	Licensed under the MIT License (LICENSE.txt).
 
+	Project home: http://code.google.com/p/another-jquery-plugins/
+
 	Version: ' . file_get_contents($ver) . '
 */
 ';

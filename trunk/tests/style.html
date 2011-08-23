@@ -14,9 +14,20 @@
 <link href="../css/960.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 
+<script src="../jquery/1.6.2.js"></script>
+<script>
+
+$(document).ready(function () {
+	$('input,select,button,textarea').dblclick(function () {
+		alert($(this).outerHeight())
+	})
+})
+
+</script>
+
 <style>
 
-body { margin: 1em; }
+body { margin: 1em; margin-top: 0; }
 
 #note { width: 300px; background: #fff6d5; }
 #note div { margin: 1em; }
@@ -101,6 +112,20 @@ body { margin: 1em; }
 Цитата без указания языка: <q>Едва ли возможно и преклоняться перед авторами и превзойти их</q>.
 </p>
 
+<h4>div.spacer</h4>
+
+<p style="margin-bottom: 0"></p>
+<div>Формат графических файлов, широко применяемый при создании сайтов. 
+	GIF использует 8-битовый цвет и эффективно сжимает сплошные цветные области, 
+	при этом сохраняя детали изображения.</div>
+<div class="spacer"></div>
+<div>Популярный формат графических файлов, широко применямый при создании 
+	сайтов и хранения изображений. JPEG поддерживает 24-битовый цвет и сохраняет 
+	яркость и оттенки цветов в фотографиях. Данный формат называют сжатием с потерями, 
+	поскольку алгоритм JPEG выборочно отвергает данные. Метод сжатия может исказить 
+	деталь в рисунке, особенно содержащий текст или изображение с четкими краями. 
+	Формат JPEG не поддерживает прозрачность, когда вы сохраняете фотографию в формате 
+	JPEG, прозрачные пиксели заполняются определенным цветом.</div>
 
 <h1>Списки определений</h1>
 
@@ -437,8 +462,12 @@ dd { margin: 1em 0; }
 			<td><input type="password" class="field" value="Пароль"/></td>
 		</tr>
 		<tr>
+			<th>Сообщение:</th>
+			<td><textarea>Текст сообщения...</textarea></td>
+		</tr>
+		<tr>
 			<th></th>
-			<td><button>Войти</button></td>
+			<td><button>Отправить</button></td>
 		</tr>
 	</table>
 </p>
