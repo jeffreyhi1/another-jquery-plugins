@@ -6,7 +6,7 @@
 
 .ajp-autocomplete-list {
 	position: absolute;
-	z-index: 256000;
+	z-index: 2;
 }
 
 .ajp-autocomplete-list > .autocomplete-item { cursor: pointer; }

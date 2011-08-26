@@ -23,7 +23,7 @@ code {
 	overflow: auto;
 }
 
-b, h4, h5, th {
+b, h3, h4, h5, th {
 	font-weight: bold;
 }
 
@@ -124,7 +124,7 @@ fieldset {
 ----------------------------------------------------------------
 */
 
-body { font-size: 14px; line-height: 1.43em; }
+body { font-size: 14px; line-height: 1.53em; }
 
 h1 { font-size: 1.85em; line-height: 1.8em; }
 h2 { font-size: 1.43em; line-height: 1.6em; }
@@ -133,8 +133,8 @@ h4 { font-size: 1.14em; }
 h5 { font-size: 1.07em; }
 h6 { font-size: 1em; }
 
-small { font-size: 0.85em; }
-blockquote { font-size: 0.85em; padding: 0.5em 0 0.5em 1em; }
+small { font-size: 0.85em; line-height: 1.3em; }
+blockquote { font-size: 0.85em; line-height: 1.3em; padding: 0.5em 0 0.5em 1em; }
 
 input.field { height: 1.82em; width: 200px; font-size: 1em; padding: 0.18em 0.6em; }
 select { height: 2.25em; padding: 0.18em 0.18em 0.18em 0.6em; font-size: 1em; }
@@ -226,7 +226,7 @@ div.shaded > div.shaded {
 
 html { background: #fff; color: #333; }
 
-h4, h5 { color: #666; }
+h3, h4, h5 { color: #666; }
 h6 { color: #999; }
 
 a { color: #05c; }

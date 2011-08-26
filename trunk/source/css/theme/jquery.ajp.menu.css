@@ -98,6 +98,15 @@
 	margin-left: -20px; /* use padding-left of items */
 }
 
+.ajp-menu .arrow {
+	height: 20px;
+	width: 10px;
+	margin-top: -20px;
+	margin-left: 190px; /* width of item - width of arrow = 200 - 10 = 190 */
+}
+
+
+
 /*
 	ajp-menu-noscript: sizes
 */

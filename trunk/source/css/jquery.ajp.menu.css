@@ -6,6 +6,8 @@
 
 .ajp-menu li {
 	list-style: none;
+	white-space: nowrap;
+	word-wrap: normal;
 }
 
 .ajp-menu > li {
@@ -20,7 +22,6 @@
 
 .ajp-menu .arrow {
 	display: block;
-	float: right;
 }
 
 .ajp-menu .clear {

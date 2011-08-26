@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.menu = { version: '0.5pa', current: null }
+	$.ajp.menu = { version: '0.6pa', current: null }
 
 	$.fn.extend({
 
@@ -20,12 +20,15 @@
 					if ($.browser.msie) {
 						$ul.css({ display: 'block' })
 					} else {
+						$ul.find('.arrow').css({ display: 'none' })
 						$ul.css({ opacity: 0, display: 'block' })
 					}
 					if (!$ul.data('initial-width'))
 						$ul.data('initial-width', $ul.width())
 					if (!$.browser.msie) {
-						$ul.css({ width: 0 }).animate({ opacity: 1, width: $ul.data('initial-width') }, 'fast', 'swing')
+						$ul.css({ width: 0 }).animate({ opacity: 1, width: $ul.data('initial-width') }, 'fast', 'swing', function () {
+							$ul.find('.arrow').css({ opacity: 0, display: 'block' }).animate({ opacity: 1 }, 'fast', 'swing')
+						})
 					}
 				},
 				hide: function ($ul) {
