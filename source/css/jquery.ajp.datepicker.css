@@ -4,6 +4,10 @@
 	ajp-datepicker: common logic
 */
 
+.ajp-datepicker > .ajp-datepicker-month {
+	clear: both;
+}
+
 .ajp-datepicker > .ajp-datepicker-month > tbody > tr > td {
 	cursor: pointer;
 }

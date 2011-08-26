@@ -6,7 +6,7 @@
 
 .ajp-autocomplete-list {
 	position: absolute;
-	z-index: 256000;
+	z-index: 2;
 }
 
 .ajp-autocomplete-list > .autocomplete-item { cursor: pointer; }
@@ -65,6 +65,10 @@ input.ajp-customcheckbox { display: none; }
 	ajp-datepicker: common logic
 */
 
+.ajp-datepicker > .ajp-datepicker-month {
+	clear: both;
+}
+
 .ajp-datepicker > .ajp-datepicker-month > tbody > tr > td {
 	cursor: pointer;
 }
@@ -97,6 +101,8 @@ input.ajp-customcheckbox { display: none; }
 
 .ajp-menu li {
 	list-style: none;
+	white-space: nowrap;
+	word-wrap: normal;
 }
 
 .ajp-menu > li {
@@ -111,7 +117,6 @@ input.ajp-customcheckbox { display: none; }
 
 .ajp-menu .arrow {
 	display: block;
-	float: right;
 }
 
 .ajp-menu .clear {
@@ -269,7 +274,18 @@ input.ajp-customcheckbox { display: none; }
 	padding: 0;
 }
 
-.ajp-autocomplete-list > .autocomplete-item { padding: 2px 4px; }
+.ajp-autocomplete-list > .autocomplete-item { /*padding: 2px 4px;*/
+	height: 1.82em;
+	line-height: 1.82em;
+	font-size: 1em;
+	padding: 0.18em 0.6em;
+}
+
+/*
+	ajp-autocomplete: MSIE fixes
+*/
+
+.ajp-autocomplete-list { margin-top: 0.6em\9 }
 
 /* $Id: customcheckbox.css 24 2011-08-04 07:07:51Z azbitnev@gmail.com $ */
 
@@ -405,6 +421,8 @@ input.ajp-customcheckbox { display: none; }
 	box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
 	-webkit-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
 	-moz-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+	position: relative;
+	top: -2px;
 }
 
 .ajp-datepicker > .ajp-datepicker-month > tbody > tr > th, .ajp-datepicker > .ajp-datepicker-month > tbody > tr > td {
@@ -455,6 +473,8 @@ input.ajp-customcheckbox { display: none; }
 	-webkit-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
 	-moz-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
 	height: 30px;
+	position: relative;
+	top: -2px;
 }
 
 .ajp-datepicker > .ajp-datepicker-footer > .ajp-datepicker-clear {
@@ -470,9 +490,10 @@ input.ajp-customcheckbox { display: none; }
 }
 
 .ajp-datepicker > .ajp-datepicker-month > tbody > tr > th, .ajp-datepicker > .ajp-datepicker-month > tbody > tr > td {
-	width: 30px;
-	height: 20px;
+	width: 40px;
+	height: 24px;
 	border-width: 1px;
+	padding: 0;
 }
 
 .ajp-datepicker > .ajp-datepicker-header {
@@ -592,6 +613,15 @@ input.ajp-customcheckbox { display: none; }
 	margin-top: 10px; /* use padding-top of items */
 	margin-left: -20px; /* use padding-left of items */
 }
+
+.ajp-menu .arrow {
+	height: 20px;
+	width: 10px;
+	margin-top: -20px;
+	margin-left: 190px; /* width of item - width of arrow = 200 - 10 = 190 */
+}
+
+
 
 /*
 	ajp-menu-noscript: sizes

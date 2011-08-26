@@ -6,7 +6,7 @@
 
 .ajp-autocomplete-list {
 	position: absolute;
-	z-index: 256000;
+	z-index: 2;
 }
 
 .ajp-autocomplete-list > .autocomplete-item { cursor: pointer; }
@@ -65,6 +65,10 @@ input.ajp-customcheckbox { display: none; }
 	ajp-datepicker: common logic
 */
 
+.ajp-datepicker > .ajp-datepicker-month {
+	clear: both;
+}
+
 .ajp-datepicker > .ajp-datepicker-month > tbody > tr > td {
 	cursor: pointer;
 }
@@ -97,6 +101,8 @@ input.ajp-customcheckbox { display: none; }
 
 .ajp-menu li {
 	list-style: none;
+	white-space: nowrap;
+	word-wrap: normal;
 }
 
 .ajp-menu > li {
@@ -111,7 +117,6 @@ input.ajp-customcheckbox { display: none; }
 
 .ajp-menu .arrow {
 	display: block;
-	float: right;
 }
 
 .ajp-menu .clear {

@@ -28,5 +28,16 @@
 	padding: 0;
 }
 
-.ajp-autocomplete-list > .autocomplete-item { padding: 2px 4px; }
+.ajp-autocomplete-list > .autocomplete-item { /*padding: 2px 4px;*/
+	height: 1.82em;
+	line-height: 1.82em;
+	font-size: 1em;
+	padding: 0.18em 0.6em;
+}
+
+/*
+	ajp-autocomplete: MSIE fixes
+*/
+
+.ajp-autocomplete-list { margin-top: 0.6em\9 }
 
