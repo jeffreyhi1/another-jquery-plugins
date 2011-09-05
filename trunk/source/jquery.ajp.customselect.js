@@ -10,7 +10,7 @@
 	if (!$.ajp) $.ajp = { }
 	if ($.ajp.customSelect)
 		return
-	$.ajp.customSelect = { version: '0.13pa', initialized: false, contexts: {}, serial: 1 }
+	$.ajp.customSelect = { version: '0.14pa', initialized: false, contexts: {}, serial: 1 }
 
 	$.fn.extend({
 
@@ -161,9 +161,10 @@
 					},
 
 					setValue: function (val) {
-						if (this.currentValue != val)
+						if (this.currentValue != val) {
 							this.currentValue = val
-						this.invalidate()
+							this.invalidate()
+						}
 					},
 
 					selectItem: function (val) {
@@ -177,7 +178,7 @@
 						var item = list.find('.item:eq(' + this.valueToIndex[this.currentValue] + ')').addClass('selected')
 						this.custom.find('.current:eq(0)').val(item.text())
 						list.css({ visibility: 'hidden' })
-						this.element.find('option[value=' + this.currentValue + ']:eq(0)').attr('selected', 'selected')
+						this.element.val(this.currentValue)
 					}
 				}
 

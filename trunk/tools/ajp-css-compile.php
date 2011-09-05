@@ -26,7 +26,7 @@ function mkdataurl($m) {
 foreach($files as $f) {
 	$path = dirname($f);
 	$css = file_get_contents($f);
-	$result_css .= preg_replace_callback('/url\(([^)]+)\)/', mkdataurl, $css);
+	$result_css .= preg_replace_callback('/url\(([^)]+)\)/', 'mkdataurl', $css);
 }
 
 file_put_contents($result, $result_css);

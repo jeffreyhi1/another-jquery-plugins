@@ -78,6 +78,12 @@ $(document).ready(function () {
 	})
 
 	$('#ex8').click(function () { $().ajp$msgbox('Just a message (without any icon).', { type: 'none' }) })
+
+	$('#ex9').click(function () { $().ajp$msgbox(''
+		+ '<p>Lorem ipsum dolor sit amet, mel odio alia verear an. Ad vim reque labores, mel habemus tibique probatus ut. Vel ei oratio accumsan, no mei malis iudico oratio. Fuisset petentium gubergren per cu, id harum eirmod quo. Est cu duis forensibus reprimique, primis nusquam neglegentur ne pri. Quis novum movet an eum. Mei id erat noluisse urbanitas.</p>'
+		+ '<p>Vim in facer possit inermis, sea hinc prodesset ad. Et ipsum denique qui, quidam quodsi pericula vis te. Quo melius scripta an. Te vel petentium gubergren, ei his epicurei patrioque. Alia zril at est, qui graeci oblique moderatius ea.</p>'
+		+ '<p>Te graeci gubergren euripidis his, ea sit quas melius praesent. Dicat nihil maiorum ut eos. In sed putent prompta, dolor interpretaris conclusionemque mel ei, eius partem soluta sed at. Oblique platonem ad duo, sed an autem fugit. Mel omnesque probatus adipisci at. Eu fabulas senserit eum, eos no possim nusquam honestatis.</p>'
+		, { type: 'none', classes: 'ajp-msgbox-wide' }) })
 })
 
 </script>
@@ -93,6 +99,7 @@ $(document).ready(function () {
 	<button id="ex2">Prompt</button>
 	<button id="ex7">Confirm</button>
 	<button id="ex8">None</button>
+	<button id="ex9">Wide</button>
 
 	<button id="ex3">Login</button>
 </body>

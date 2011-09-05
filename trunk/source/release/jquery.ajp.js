@@ -480,7 +480,7 @@
 	if (!$.ajp) $.ajp = { }
 	if ($.ajp.customSelect)
 		return
-	$.ajp.customSelect = { version: '0.13pa', initialized: false, contexts: {}, serial: 1 }
+	$.ajp.customSelect = { version: '0.14pa', initialized: false, contexts: {}, serial: 1 }
 
 	$.fn.extend({
 
@@ -631,9 +631,10 @@
 					},
 
 					setValue: function (val) {
-						if (this.currentValue != val)
+						if (this.currentValue != val) {
 							this.currentValue = val
-						this.invalidate()
+							this.invalidate()
+						}
 					},
 
 					selectItem: function (val) {
@@ -647,7 +648,7 @@
 						var item = list.find('.item:eq(' + this.valueToIndex[this.currentValue] + ')').addClass('selected')
 						this.custom.find('.current:eq(0)').val(item.text())
 						list.css({ visibility: 'hidden' })
-						this.element.find('option[value=' + this.currentValue + ']:eq(0)').attr('selected', 'selected')
+						this.element.val(this.currentValue)
 					}
 				}
 
@@ -1658,7 +1659,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.msgbox = { version: '0.3pa', queue: [] }
+	$.ajp.msgbox = { version: '0.4pa', queue: [] }
 
 	$.fn.extend({
 
@@ -1677,8 +1678,9 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 				setIcon: function ($msgbox, icon) { $msgbox.find('.icon').addClass(icon) },
 				setText: function ($msgbox, html) { $msgbox.find('.text').html(html) },
 				addButton: function ($msgbox, $btn) { $msgbox.find('.buttons').append($btn) },
-				template: function () { return $(''
-					+ '<div class="ajp-msgbox">'
+				classes: '',
+				template: function (opts) { return $(''
+					+ '<div class="ajp-msgbox ' + opts.classes + '">'
 						+ '<div class="top"></div>'
 						+ '<div class="middle">'
 							+ '<div class="icon"></div>'
@@ -1750,14 +1752,14 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 				$.ajp.msgbox.shade.appendTo('body')
 			}
 
-			var $tmpl = (typeof opts.template == 'function' ? opts.template() : $(opts.template))
+			var $tmpl = (typeof opts.template == 'function' ? opts.template(opts) : $(opts.template))
 			$tmpl.data('ajp-msgbox-type', opts.type)
 			opts.setIcon($tmpl, opts.type)
 			if (opts.type == 'prompt') {
 				$.each(opts.inputs, function () {
 					var inp = $.extend(inputDefaults, this)
 					text += (inp.label ? '<div class="label">' + inp.label + '</div>' : '')
-						+ '<div class="input"><input type="' + inp.type + '" data-ajp-msgbox-required="' + (inp.required ? 'true' : 'false') + '"/></div>'
+						+ '<div class="input"><input type="' + inp.type + '" data-ajp-msgbox-required="' + (inp.required ? 'true' : 'false') + '" value="' + (inp.value.replace(/"/g, '&quot;')) + '"/></div>'
 				})
 			}
 			opts.setText($tmpl, text)

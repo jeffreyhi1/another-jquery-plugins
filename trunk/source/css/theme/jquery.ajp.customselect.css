@@ -55,6 +55,10 @@
 	color: #fff !important;
 }
 
+.ajp-customselect { background: #fff; }
+
+.ajp-customselect > .list { background: #fff; }
+
 /*
 	ajp-customselect: sizes
 */

@@ -441,7 +441,7 @@
        xlink:href="#linearGradient3779-7"
        id="linearGradient7357"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.88410448,0,0,1.0999531,262.81276,534.8772)"
+       gradientTransform="matrix(1.4145672,0,0,1.0999531,236.1046,534.8772)"
        x1="95.714287"
        y1="153.28572"
        x2="95.714287"
@@ -1329,9 +1329,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="11.313708"
+     inkscape:zoom="0.70710675"
      inkscape:cx="270.77883"
-     inkscape:cy="377.65967"
+     inkscape:cy="94.816946"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -6969,10 +6969,10 @@
        y="688.19525"
        x="307.32635"
        height="192"
-       width="500"
+       width="800"
        id="rect4810"
        style="opacity:0;fill:#f2f2f2;fill-opacity:1;stroke:none"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\msgbox\msgbox.png"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.msgbox.background.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -6983,29 +6983,29 @@
        x="883.38202"
        y="-1373.6953"
        ry="6.3043494"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\msgbox\msgbox.png"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.msgbox.background.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
-       transform="matrix(1.1520737,0,0,1,-690.60661,2077.1399)" />
+       transform="matrix(1.8433179,0,0,1,-1289.3664,2077.1399)" />
     <rect
        inkscape:export-ydpi="90"
        inkscape:export-xdpi="90"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\msgbox\msgbox.png"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.msgbox.background.png"
        ry="4.889255"
        y="703.44458"
-       x="327.11459"
+       x="338.98755"
        height="160"
-       width="460.82947"
+       width="737.32715"
        id="rect4814"
        style="fill:#ffffff;fill-opacity:1;stroke:none" />
     <path
        inkscape:export-ydpi="90"
        inkscape:export-xdpi="90"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\msgbox\msgbox.png"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.msgbox.background.png"
        sodipodi:nodetypes="csssscc"
        inkscape:connector-curvature="0"
        style="fill:url(#linearGradient7357);fill-opacity:1;stroke:none"
-       d="m 327.10649,803.5016 0,55.1263 c 0,3.4927 1.41426,4.8117 5.438,4.8117 l 449.45324,0 c 4.02373,0 5.93824,-1.8193 5.93824,-5.312 l 0,-54.626 z"
+       d="m 338.97457,803.5016 0,55.1263 c 0,3.4927 2.26282,4.8117 8.7008,4.8117 l 719.12523,0 c 6.4379,0 9.5011,-1.8193 9.5011,-5.312 l 0,-54.626 z"
        id="rect4830" />
     <g
        id="g7623"
@@ -7979,56 +7979,80 @@
        height="6"
        width="6"
        id="rect3629"
-       style="fill:#e6e6e6;fill-opacity:1;stroke:none" />
+       style="fill:#e6e6e6;fill-opacity:1;stroke:none"
+       inkscape:export-filename="C:\msgbox.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="fill:#e6e6e6;fill-opacity:1;stroke:none"
        id="rect3627"
        width="6"
        height="6"
        x="364.75"
-       y="936.86218" />
+       y="936.86218"
+       inkscape:export-filename="C:\msgbox.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="fill:#cccccc;fill-opacity:1;stroke:none"
        id="rect3591"
        width="6"
        height="6"
        x="361.75"
-       y="933.86218" />
+       y="933.86218"
+       inkscape:export-filename="C:\msgbox.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="fill:#e6e6e6;fill-opacity:1;stroke:none"
        id="rect3619"
        width="6"
        height="6"
        x="370.75"
-       y="924.86218" />
+       y="924.86218"
+       inkscape:export-filename="C:\msgbox.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        y="927.86218"
        x="367.75"
        height="6"
        width="6"
        id="rect3597"
-       style="fill:#cccccc;fill-opacity:1;stroke:none" />
+       style="fill:#cccccc;fill-opacity:1;stroke:none"
+       inkscape:export-filename="C:\msgbox.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        y="942.86218"
        x="370.75"
        height="6"
        width="6"
        id="rect3623"
-       style="fill:#e6e6e6;fill-opacity:1;stroke:none" />
+       style="fill:#e6e6e6;fill-opacity:1;stroke:none"
+       inkscape:export-filename="C:\msgbox.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="fill:#cccccc;fill-opacity:1;stroke:none"
        id="rect3599"
        width="6"
        height="6"
        x="367.75"
-       y="939.86218" />
+       y="939.86218"
+       inkscape:export-filename="C:\msgbox.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        y="921.86218"
        x="373.75"
        height="6"
        width="6"
        id="rect3601"
-       style="fill:#cccccc;fill-opacity:1;stroke:none" />
+       style="fill:#cccccc;fill-opacity:1;stroke:none"
+       inkscape:export-filename="C:\msgbox.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="fill:#cccccc;fill-opacity:1;stroke:none"
        id="rect3603"
@@ -8043,7 +8067,7 @@
        width="6"
        id="rect3635"
        style="fill:#cccccc;fill-opacity:1;stroke:none"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\prev.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8053,7 +8077,7 @@
        height="6"
        x="417.75"
        y="927.86218"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\prev.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8063,7 +8087,7 @@
        width="6"
        id="rect3643"
        style="fill:#cccccc;fill-opacity:1;stroke:none"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\prev.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8073,7 +8097,7 @@
        height="6"
        x="423.75"
        y="921.86218"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\prev.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8093,7 +8117,7 @@
        height="6"
        x="417.75"
        y="933.86218"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\prev.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8103,7 +8127,7 @@
        width="6"
        id="rect3651"
        style="fill:#e6e6e6;fill-opacity:1;stroke:none"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\prev.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8113,7 +8137,7 @@
        height="6"
        x="423.75"
        y="939.86218"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\prev.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8123,7 +8147,7 @@
        width="6"
        id="rect3655"
        style="fill:#e6e6e6;fill-opacity:1;stroke:none"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\prev.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8143,7 +8167,7 @@
        width="6"
        id="rect3659"
        style="fill:#f2f2f2;fill-opacity:1;stroke:none"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\prev.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8153,7 +8177,7 @@
        height="6"
        x="429.75"
        y="927.86218"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\prev.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8163,7 +8187,7 @@
        width="6"
        id="rect3663"
        style="fill:#f2f2f2;fill-opacity:1;stroke:none"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\prev.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8173,7 +8197,7 @@
        height="6"
        x="435.75"
        y="921.86218"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\prev.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8194,7 +8218,7 @@
        x="-503.75"
        y="933.86218"
        transform="scale(-1,1)"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\next.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8205,7 +8229,7 @@
        id="rect3671"
        style="fill:#cccccc;fill-opacity:1;stroke:none"
        transform="scale(-1,1)"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\next.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8216,7 +8240,7 @@
        x="-497.75"
        y="939.86218"
        transform="scale(-1,1)"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\next.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8227,7 +8251,7 @@
        id="rect3675"
        style="fill:#cccccc;fill-opacity:1;stroke:none"
        transform="scale(-1,1)"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\next.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8249,7 +8273,7 @@
        id="rect3679"
        style="fill:#e6e6e6;fill-opacity:1;stroke:none"
        transform="scale(-1,1)"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\next.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8260,7 +8284,7 @@
        x="-491.75"
        y="927.86218"
        transform="scale(-1,1)"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\next.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8271,7 +8295,7 @@
        id="rect3683"
        style="fill:#e6e6e6;fill-opacity:1;stroke:none"
        transform="scale(-1,1)"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\next.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8282,7 +8306,7 @@
        x="-485.75"
        y="921.86218"
        transform="scale(-1,1)"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\next.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8304,7 +8328,7 @@
        x="-491.75"
        y="933.86218"
        transform="scale(-1,1)"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\next.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8315,7 +8339,7 @@
        id="rect3691"
        style="fill:#f2f2f2;fill-opacity:1;stroke:none"
        transform="scale(-1,1)"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\next.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8326,7 +8350,7 @@
        x="-485.75"
        y="939.86218"
        transform="scale(-1,1)"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\next.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
@@ -8337,7 +8361,7 @@
        id="rect3695"
        style="fill:#f2f2f2;fill-opacity:1;stroke:none"
        transform="scale(-1,1)"
-       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\scrollable\next.png"
+       inkscape:export-filename="C:\msgbox.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <rect
