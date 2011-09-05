@@ -35,3 +35,14 @@
 
 .ajp-msgbox > .middle > .text > .input > input { width: 330px; }
 
+/*
+	ajp-msgbox: wide version
+*/
+
+.ajp-msgbox-wide > .top { background: url(images/jquery.ajp.msgbox.wide.background.png) 0 0 no-repeat; }
+.ajp-msgbox-wide > .middle { background: url(images/jquery.ajp.msgbox.wide.fill.png) 0 0 repeat-y; }
+.ajp-msgbox-wide > .bottom { background: url(images/jquery.ajp.msgbox.wide.background.png) 0 -115px no-repeat; }
+.ajp-msgbox-wide { width: 800px; }
+.ajp-msgbox-wide > .middle > .text { width: 635px; margin-top: 20px; margin-left: 15px; margin-bottom: 15px; }
+.ajp-msgbox-wide > .middle > .text > .input > input { width: 625px; }
+
