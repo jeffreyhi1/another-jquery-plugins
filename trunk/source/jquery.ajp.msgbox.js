@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.msgbox = { version: '0.4pa', queue: [] }
+	$.ajp.msgbox = { version: '0.5pa', queue: [] }
 
 	$.fn.extend({
 
@@ -155,6 +155,7 @@
 					} else {
 						opts.notReady($tmpl)
 					}
+					$tmpl.remove()
 				})
 				opts.addButton($tmpl, $btn)
 			})
