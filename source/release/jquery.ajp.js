@@ -1659,7 +1659,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.msgbox = { version: '0.4pa', queue: [] }
+	$.ajp.msgbox = { version: '0.5pa', queue: [] }
 
 	$.fn.extend({
 
@@ -1806,6 +1806,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 					} else {
 						opts.notReady($tmpl)
 					}
+					$tmpl.remove()
 				})
 				opts.addButton($tmpl, $btn)
 			})

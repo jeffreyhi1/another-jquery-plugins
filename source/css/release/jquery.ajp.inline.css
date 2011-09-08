@@ -323,6 +323,7 @@ input.ajp-customcheckbox { display: none; }
 .ajp-customselect {
 	border-style: solid;
 	border-color: #eee;
+	background: #fff;
 }
 
 .ajp-customselect:hover {
@@ -330,7 +331,7 @@ input.ajp-customcheckbox { display: none; }
 }
 
 .ajp-customselect .current {
-	background: #fff;
+	background: transparent;
 }
 
 .ajp-customselect .control {
