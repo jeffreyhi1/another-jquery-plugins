@@ -11,7 +11,21 @@ $files = array(
 );
 
 $result = '../source/css/release/jquery.ajp.inline.css';
-$result_css = '';
+
+$ver = '../VERSION.txt';
+
+$hdr = 
+'/*
+	Copyright (c) 2011 Andrey O. Zbitnev (azbitnev@gmail.com)
+	Licensed under the MIT License (LICENSE.txt).
+
+	Project home: http://code.google.com/p/another-jquery-plugins/
+
+	Version: ' . file_get_contents($ver) . '
+*/
+';
+
+$result_css = $hdr;
 
 global $path;
 

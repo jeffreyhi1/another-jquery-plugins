@@ -1465,7 +1465,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.menu = { version: '0.6pa', current: null }
+	$.ajp.menu = { version: '0.7pa', current: null }
 
 	$.fn.extend({
 
@@ -1550,6 +1550,11 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 					$ul.children('li').each(function () {
 						makeMenu($(this), level + 1)
 					})
+
+				} else {
+
+					if (!$a.hasClass('final-node'))
+						$a.addClass('final-node')
 				}
 			}
 

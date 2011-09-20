@@ -83,7 +83,6 @@
 
 .ajp-menu li {
 	margin-left: -40px; /* default margin of list item */
-	padding: 10px 20px; /* padding of items */
 	line-height: 20px;
 }
 
@@ -94,8 +93,6 @@
 
 .ajp-menu ul {
 	width: 200px; /* width of submenus */
-	margin-top: 10px; /* use padding-top of items */
-	margin-left: -20px; /* use padding-left of items */
 }
 
 .ajp-menu .arrow {
@@ -105,7 +102,23 @@
 	margin-left: 190px; /* width of item - width of arrow = 200 - 10 = 190 */
 }
 
+.ajp-menu li > a {
+	height: 40px;
+	line-height: 40px;
+	padding: 0 20px;
+}
 
+.ajp-menu ul > li > a {
+	width: 160px;
+}
+
+.ajp-menu ul > li > a.final-node {
+	width: 200px;
+}
+
+.ajp-menu .arrow {
+	margin-top: -40px;
+}
 
 /*
 	ajp-menu-noscript: sizes

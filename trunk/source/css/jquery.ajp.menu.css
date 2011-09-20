@@ -43,6 +43,7 @@
 .ajp-menu li > a {
 	outline: 0;
 	cursor: pointer;
+	display: block;
 }
 
 /*
