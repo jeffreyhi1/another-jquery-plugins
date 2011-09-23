@@ -400,15 +400,14 @@
 */
 
 .ajp-menu-noscript li:hover > ul {
-	margin-left: 220px; /* width of submenus + padding-left of items */
-	margin-top: -30px; /* line height inside items + padding-top of items */
+	margin-left: 240px;
+	margin-top: -40px;
 }
 
 .ajp-menu-noscript > li:hover > ul {
-	margin-left: -20px; /* use padding-left of items */
-	margin-top: 10px; /* use padding-top of items */
+	margin-left: 0;
+	margin-top: 0;
 }
-
 /* $Id: msgbox.css 28 2011-08-10 10:33:17Z azbitnev@gmail.com $ */
 
 /*
