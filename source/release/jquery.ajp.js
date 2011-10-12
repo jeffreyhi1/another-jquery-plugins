@@ -1899,7 +1899,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.placeholder = { version: '0.5pa', installed: false }
+	$.ajp.placeholder = { version: '0.6pa', installed: false }
 
 	$.fn.extend({
 
@@ -1913,7 +1913,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 			if (!$.ajp.placeholder.installed) {
 				var savedVal = $.fn.val
 				$.fn.val = function (value) {
-					if (typeof value == 'undefined')
+					if (typeof value === undefined)
 						return ($(this).hasClass('ajp-placeholder') ? '' : savedVal.apply(this))
 					if ($(this).hasClass('ajp-placeholder') && value != $(this).data('ajp-placeholder'))
 						$(this).removeClass('ajp-placeholder')
@@ -1962,6 +1962,100 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 					}
 				}
 			})
+		}
+	})
+
+})(jQuery);
+/*
+	Copyright (c) 2011 Andrey O. Zbitnev (azbitnev@gmail.com)
+	Licensed under the MIT License (LICENSE.txt).
+
+	$Id$
+*/
+
+(function ($) {
+
+	if (!$.ajp) $.ajp = { }
+	$.ajp.progressbar = { version: '0.1pa', installed: false, controls: [], serial: 1 }
+
+	$.fn.extend({
+
+		ajp$progressbar: function (options) {
+
+			var defaults = {
+				min: 0,
+				max: 100,
+				value: 0.0,
+				text: true,
+				duration: 'fast',
+				easing: 'swing',
+				onchange: function (val, $el) { }
+			}
+
+			var opts = $.extend(defaults, options);
+			if (opts.min > opts.max) {
+				var m = opts.min
+				opts.min = opts.max
+				opts.max = m
+			}
+			if (opts.value < opts.min) opts.value = opts.min
+			if (opts.value > opts.max) opts.value = opts.max
+
+			if (!$.ajp.progressbar.installed) {
+				var savedVal = $.fn.val
+				$.fn.val = function (value) {
+					if (typeof $(this).data('ajp-progressbar-value') !== undefined) {
+						var ctx = $(this).ajp$progressbarContext()
+						return (typeof value === undefined ? ctx.get() : ctx.set(value))
+					}
+					return savedVal.call(this, value)
+				}
+				$.ajp.progressbar.installed = true
+			}
+
+			return this.each(function(i, el) {
+
+				var $el = $(el)
+				var $fill = $('<div class="fill"></div>').css({
+					width: '0px',
+					height: '' + $el.outerHeight() + 'px'
+				})
+
+				$el.append($fill)
+
+				function setValue(value, raiseEvent) {
+					var w = $el.outerWidth()
+					var fw = ((value - opts.min) * w) / (opts.max - opts.min)
+					$fill.stop(true, true).animate({
+						width: '' + fw + 'px'
+					}, opts.duration, opts.easing)
+					$el.data('ajp-progressbar-value', value)
+					if (raiseEvent === undefined || raiseEvent)
+						opts.onchange(value, $el)
+				}
+
+				var id = $.ajp.progressbar.serial ++
+				$.ajp.progressbar.controls[id] = setValue
+				$el.data('ajp-progressbar-id', id)
+
+				var dataVal = $el.data('ajp-progressbar-value')
+				setValue(dataVal !== undefined ? dataVal : opts.value)
+			})
+		},
+
+		ajp$progressbarContext: function () {
+			var ctx = this
+			return {
+				set: function (value, raiseEvent) {
+					ctx.each(function () {
+						var f = $.ajp.progressbar.controls[$(this).data('ajp-progressbar-id')]
+						if (f) f(value, raiseEvent)
+					})
+				},
+				get: function () {
+					return ctx.data('ajp-progressbar-value')
+				}
+			}
 		}
 	})
 
@@ -2417,7 +2511,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.slider = { version: '0.2pa', installed: false, controls: [], serial: 1 }
+	$.ajp.slider = { version: '0.3pa', installed: false, controls: [], serial: 1 }
 
 	$.fn.extend({
 
@@ -2442,9 +2536,9 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 			if (!$.ajp.slider.installed) {
 				var savedVal = $.fn.val
 				$.fn.val = function (value) {
-					if (typeof $(this).data('ajp-slider-value') != 'undefined') {
+					if (typeof $(this).data('ajp-slider-value') !== undefined) {
 						var ctx = $(this).ajp$sliderContext()
-						return (typeof value == 'undefined' ? ctx.get() : ctx.set(value))
+						return (typeof value === undefined ? ctx.get() : ctx.set(value))
 					}
 					return savedVal.call(this, value)
 				}
@@ -2471,7 +2565,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 					$sl.css('left', l.toString() + 'px')
 					var val = opts.min + (l/w) * (opts.max - opts.min)
 					$el.data('ajp-slider-value', val)
-					if (typeof raiseEvent == 'undefined' || raiseEvent)
+					if (raiseEvent === undefined || raiseEvent)
 						opts.onchange(val, $el)
 				}
 
@@ -2542,7 +2636,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.starating = { version: '0.4pa', installed: false, opts: [], serial: 1 }
+	$.ajp.starating = { version: '0.5pa', installed: false, opts: [], serial: 1 }
 
 	$.fn.extend({
 
@@ -2564,9 +2658,9 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 			if (!$.ajp.starating.installed) {
 				var savedVal = $.fn.val
 				$.fn.val = function (value) {
-					if (typeof $(this).data('ajp-starating-value') != 'undefined') {
+					if (typeof $(this).data('ajp-starating-value') !== undefined) {
 						var ctx = $(this).ajp$staratingContext()
-						return (typeof value == 'undefined' ? ctx.get() : ctx.set(value))
+						return (typeof value === undefined ? ctx.get() : ctx.set(value))
 					}
 					return savedVal.call(this, value)
 				}

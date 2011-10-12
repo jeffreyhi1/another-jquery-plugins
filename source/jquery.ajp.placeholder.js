@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.placeholder = { version: '0.5pa', installed: false }
+	$.ajp.placeholder = { version: '0.6pa', installed: false }
 
 	$.fn.extend({
 
@@ -22,7 +22,7 @@
 			if (!$.ajp.placeholder.installed) {
 				var savedVal = $.fn.val
 				$.fn.val = function (value) {
-					if (typeof value == 'undefined')
+					if (typeof value === undefined)
 						return ($(this).hasClass('ajp-placeholder') ? '' : savedVal.apply(this))
 					if ($(this).hasClass('ajp-placeholder') && value != $(this).data('ajp-placeholder'))
 						$(this).removeClass('ajp-placeholder')

@@ -1,0 +1,24 @@
+/* $Id$ */
+
+/*
+	ajp-progressbar: common sizes
+*/
+
+.ajp-progressbar {
+	width: 200px;
+	height: 30px;
+}
+
+/*
+	ajp-progressbar: common style
+*/
+
+.ajp-progressbar {
+	background: #ccc url(images/jquery.ajp.progressbar.png);
+	border-radius: 6px;
+}
+
+.ajp-progressbar > .fill {
+	background: #0c0 url(images/jquery.ajp.progressbar.fill.png);
+}
+

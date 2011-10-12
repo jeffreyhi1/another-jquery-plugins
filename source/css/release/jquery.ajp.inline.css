@@ -4,7 +4,7 @@
 
 	Project home: http://code.google.com/p/another-jquery-plugins/
 
-	Version: 0.5.11
+	Version: 0.5.12
 */
 /* $Id: autocomplete.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
@@ -194,6 +194,17 @@ input.ajp-customcheckbox { display: none; }
 
 .ajp-paginator ul li {
 	position: relative;
+}
+
+/* $Id$ */
+
+/*
+	ajp-progressbar: common logic
+*/
+
+.ajp-progressbar {
+	overflow: hidden;
+
 }
 
 /* $Id: resizable.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
@@ -791,6 +802,30 @@ input::-webkit-input-placeholder {
 input:-moz-placeholder {
 	font-style: italic;
 	color: #ccc !important;
+}
+
+/* $Id$ */
+
+/*
+	ajp-progressbar: common sizes
+*/
+
+.ajp-progressbar {
+	width: 200px;
+	height: 30px;
+}
+
+/*
+	ajp-progressbar: common style
+*/
+
+.ajp-progressbar {
+	background: #ccc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAYAAADtlXTHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAvSURBVAiZY8jMTP/PxMDAwIBCMDJgimEjUNT9//+fgen3798MTH/+/IGy0LhEsgDrni6yPS62+AAAAABJRU5ErkJggg==);
+	border-radius: 6px;
+}
+
+.ajp-progressbar > .fill {
+	background: #0c0 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAYAAADtlXTHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA+SURBVAiZfYrBCQAhEMTidCDYf1/Xyfpwx8fhwsHhLyShP8PCINLICcJGvPQN6XIVamGBCFCLQ0T7cddlwgYnbCes1WM6SAAAAABJRU5ErkJggg==);
 }
 
 /* $Id: resizable.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */

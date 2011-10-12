@@ -1,0 +1,11 @@
+/* $Id$ */
+
+/*
+	ajp-progressbar: common logic
+*/
+
+.ajp-progressbar {
+	overflow: hidden;
+
+}
+
