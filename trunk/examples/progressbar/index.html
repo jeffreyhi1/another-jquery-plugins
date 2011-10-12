@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<!-- $Id$ -->
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+
+<link href="../../css/basics.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/960c12.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" charset="utf-8" src="../../jquery/1.6.2.js"></script> 
+
+<title>jquery.ajp.progress - examples</title>
+
+<link href="../../source/css/release/jquery.ajp.css" rel="stylesheet" type="text/css"/>
+<link href="../../source/css/release/theme/jquery.ajp.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="../../source/release/jquery.ajp.js"></script> 
+
+<style>
+
+body { margin: 1em; }
+
+.form > tbody > tr > th { font-weight: normal; padding-right: 10px !important; padding-bottom: 10px !important; text-align: right; }
+.form > tbody > tr > td { padding-bottom: 10px !important; }
+
+.ex2 { height: 20px; width: 175px; border-radius: 4px; }
+.ex3 { height: 2px; width: 150px; border-radius: 0; margin-top: 10px; }
+
+</style>
+
+<script>
+
+$(document).ready(function () {
+
+	$('.ex1, .ex2').ajp$progressbar({ value: 25, duration: 'slow', easing: 'ajp-bounce' })
+
+	$('.ex3').ajp$progressbar({
+		onchange: function (val, $ex3) {
+			$ex3.parent().children('span:eq(0)').text('' + parseInt(val) + '%')
+		}
+	})
+
+	var value = 0.0
+	var interval = setInterval(function () {
+		value += 2.35
+		if (value > 100) {
+			value = 100;
+			clearInterval(interval)
+		}
+		$('.ex3').val(value)
+	}, 150)
+})
+
+</script>
+
+</head>
+
+<body>
+
+
+	<table class="layout form">
+		<tr>
+			<th>static progressbar (25 percents)</th>
+			<td><div class="ex1 ajp-progressbar"></div></td>
+		</tr>
+		<tr>
+			<th>static progressbar (50 percents)</th>
+			<td><div class="ex2 ajp-progressbar" data-ajp-progressbar-value="50"></div></td>
+		</tr>
+		<tr>
+			<th>dynamic progressbar</th>
+			<td>
+				<div class="ex3 ajp-progressbar left"></div>
+				<span class="right"></span>
+			</td>
+		</tr>
+	</table>
+
+
+</body>

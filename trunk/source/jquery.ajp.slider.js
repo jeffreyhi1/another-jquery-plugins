@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.slider = { version: '0.2pa', installed: false, controls: [], serial: 1 }
+	$.ajp.slider = { version: '0.3pa', installed: false, controls: [], serial: 1 }
 
 	$.fn.extend({
 
@@ -33,9 +33,9 @@
 			if (!$.ajp.slider.installed) {
 				var savedVal = $.fn.val
 				$.fn.val = function (value) {
-					if (typeof $(this).data('ajp-slider-value') != 'undefined') {
+					if (typeof $(this).data('ajp-slider-value') !== undefined) {
 						var ctx = $(this).ajp$sliderContext()
-						return (typeof value == 'undefined' ? ctx.get() : ctx.set(value))
+						return (typeof value === undefined ? ctx.get() : ctx.set(value))
 					}
 					return savedVal.call(this, value)
 				}
@@ -62,7 +62,7 @@
 					$sl.css('left', l.toString() + 'px')
 					var val = opts.min + (l/w) * (opts.max - opts.min)
 					$el.data('ajp-slider-value', val)
-					if (typeof raiseEvent == 'undefined' || raiseEvent)
+					if (raiseEvent === undefined || raiseEvent)
 						opts.onchange(val, $el)
 				}
 
