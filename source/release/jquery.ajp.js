@@ -1128,7 +1128,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.editable = { version: '0.13pa', required: ['bindkeys'], editors: { } }
+	$.ajp.editable = { version: '0.14pa', required: ['bindkeys'], editors: { } }
 
 	$.fn.extend({
 
@@ -1147,6 +1147,13 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 					options.uneditable($.ajp.editable.editors[id])
 				}
 			})
+		},
+
+		ajp$editableContext: function () {
+			var id = this.attr('id');
+			if (id)
+				return $.ajp.editable.editors[id]
+			return null
 		},
 
 		ajp$editable: function (options) {
@@ -1169,6 +1176,19 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 
 					'Ctrl+r': 'text',
 					'Ctrl+l': 'anchor'
+				},
+
+				anchorDialog: function (callback) {
+					var url = prompt('URL', 'http://')
+					if (url) {
+						callback({
+							'url': url,
+							'attrs': {
+								'rel': 'nofollow',
+								'target': '_blank'
+							}
+						})
+					}
 				},
 
 				init: function (el, api) {}
@@ -1403,18 +1423,9 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 						api.cancelEvent(evt);
 						evt.returnValue = false;
 
-						if (/explorer/i.test(navigator.appName)) {
-							var range = document.selection.createRange();
-							range.pasteHTML(range.text.replace(/\&/g, '&amp;').replace(/\</g, '&lt;').replace(/\>/g, '&gt;'));
-						} else {			
-							var selection = window.getSelection();
-							var node = document.createElement('span');
-							node.textContent = selection.toString();
-							var range = selection.getRangeAt(0);
-							range.deleteContents();
-							range.insertNode(node);
-							selection.selectAllChildren(node);
-						}
+						var html = api.getSelectedHtml()
+						var text = html.replace(/\<[^\>]*\>/g, '')
+						api.replaceSelection('<span>' + text + '</span>')
 
 						return false;
 					},
@@ -1424,10 +1435,16 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 						api.cancelEvent(evt);
 						evt.returnValue = false;
 
-						api.createAnchor(prompt('URL', 'http://'), api.getSelectedHtml());
+						options.anchorDialog(function (params) {
+							api.createAnchor(params.url, api.getSelectedHtml());
+						})
 
 						return false;
 					}
+				}
+
+				api.execCommand = function (name) {
+					return defaultCommands[name]({ }, this)
 				}
 
 				$(el).attr('contentEditable', true)
