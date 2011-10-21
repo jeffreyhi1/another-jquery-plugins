@@ -25,12 +25,43 @@
 body { margin: 1em; }
 
 #ex1 {
-	background: #eee;
+	background: #fff;
 	border: 1px dashed #ccc;
 	width: 660px;
 	height: 200px;
 	overflow: auto;
+	padding: 6px;
+	margin-bottom: 1em;
 }
+
+.toolbar {
+	background: #eee;
+	width: 674px;
+	visibility: hidden;
+}
+
+.toolbar button {
+	min-width: 3em;
+	border: 0;
+	float: left;
+	margin: 0;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+}
+
+.toolbar button:hover {
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+.toolbar button:active {
+	background: #ccc;
+}
+
+.toolbar .bold { font-weight: bold; }
+.toolbar .italic { font-style: italic; }
+.toolbar .underline { text-decoration: underline; }
+.toolbar .strike { text-decoration: line-through; }
 
 </style>
 
@@ -38,7 +69,26 @@ body { margin: 1em; }
 
 $(document).ready(function () {
 
-	$('#ex1').ajp$editable()
+	$('.toolbar button').each(function () {
+		var $btn = $(this)
+		var cmd = $btn.data('cmd')
+		$btn.addClass(cmd).click(function () {
+			var ctx = $('#ex1').ajp$editableContext()
+			ctx.execCommand(cmd)
+		})
+	})
+
+	$('.make-editable').click(function () {
+		$('#ex1').ajp$editable()
+		$('.toolbar').css({ visibility: 'visible', opacity: 0 }).animate({ opacity: 1 }, 'fast', 'swing')
+	})
+
+	$('.make-uneditable').click(function () {
+		$('#ex1').ajp$uneditable()
+		$('.toolbar').animate({ opacity: 0 }, 'fast', 'swing', function () { $(this).css({ visibility: 'visible', opacity: 0 }) })
+	})
+
+	$('.make-uneditable').click()
 })
 
 </script>
@@ -47,8 +97,27 @@ $(document).ready(function () {
 
 <body>
 
+	<div class="toolbar">
+		<button data-cmd="bold">B</button>
+		<button data-cmd="italic">I</button>
+		<button data-cmd="underline">U</button>
+		<button data-cmd="strike">S</button>
+		<button data-cmd="h1">H1</button>
+		<button data-cmd="h2">H2</button>
+		<button data-cmd="h3">H3</button>
+		<button data-cmd="h4">H4</button>
+		<button data-cmd="h5">H5</button>
+		<button data-cmd="h6">H6</button>
+		<button data-cmd="anchor">link</button>
+		<button data-cmd="text">clear</button>
+		<div class="clear"></div>
+	</div>
+
 	<div id="ex1">
 		This is editable area. You can use Ctrl+b, Ctrl+i, Ctrl+u, Ctrl+s, Ctrl+r, Ctrl+l, Ctrl+[1-6] shortcuts.
 	</div>
+
+	<button class="make-editable">Make editable</button>
+	<button class="make-uneditable">Make uneditable</button>
 
 </body>
