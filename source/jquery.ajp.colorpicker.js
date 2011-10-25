@@ -52,6 +52,8 @@
 
 				$el.click(function () {
 					var vis = ($cp.css('visibility') == 'visible' ? 'hidden' : 'visible')
+					if (vis == 'visible')
+						$('.ajp-colorpicker').css({ visibility: 'hidden' })
 					$cp.css({ visibility: vis })
 				})
 			})
