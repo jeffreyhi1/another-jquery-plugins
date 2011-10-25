@@ -41,6 +41,50 @@
 
 .ajp-autocomplete-list { margin-top: 0.6em\9 }
 
+/* $Id$ */
+
+/*
+	ajp-colorpicker: common style
+*/
+
+.ajp-colorpicker {
+	background: #eee;
+	box-shadow: 0px 4px 16px #ccc;
+}
+
+.ajp-colorpicker > .pallete > .color {
+	outline-style: solid;
+	outline-color: transparent;
+}
+
+.ajp-colorpicker > .pallete > .color:hover {
+	outline-color: #000;
+}
+
+/*
+	ajp-colorpicker: common sizes
+*/
+
+.ajp-colorpicker {
+	width: 188px;
+	height: 170px;
+	padding-left: 8px;
+	padding-top: 8px;
+	margin-left: -8px;
+	margin-top: 4px;
+}
+
+.ajp-colorpicker > .pallete > .color {
+	height: 16px;
+	width: 16px;
+	margin: 1px;
+	outline-width: 1px;
+}
+
+.ajp-colorpicker > .pallete > .delimiter {
+	height: 8px;
+}
+
 /* $Id: customcheckbox.css 24 2011-08-04 07:07:51Z azbitnev@gmail.com $ */
 
 /*

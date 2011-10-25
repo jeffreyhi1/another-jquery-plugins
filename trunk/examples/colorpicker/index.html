@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<!-- $Id$ -->
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+
+<link href="../../css/basics.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/960c12.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" charset="utf-8" src="../../jquery/1.6.2.js"></script> 
+
+<title>jquery.ajp.colorpicker - examples</title>
+
+<link href="../../source/css/release/jquery.ajp.css" rel="stylesheet" type="text/css"/>
+<link href="../../source/css/release/theme/jquery.ajp.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="../../source/release/jquery.ajp.js"></script> 
+
+<style>
+
+body { margin: 1em; }
+
+.ajp-colorpicker {
+	visibility: hidden;
+	background: #eee;
+	width: 188px;
+	height: 170px;
+	padding-left: 8px;
+	padding-top: 8px;
+	box-shadow: 0px 4px 16px #ccc;
+
+	margin-left: -8px;
+	margin-top: 4px;
+}
+
+.ajp-colorpicker > .pallete {
+}
+
+.ajp-colorpicker > .pallete > .color {
+	float: left;
+	height: 16px;
+	width: 16px;
+	margin: 1px;
+	outline: 1px solid transparent;
+	cursor: pointer;
+}
+
+.ajp-colorpicker > .pallete > .color:hover {
+	outline: 1px solid #000;
+}
+
+.ajp-colorpicker > .pallete > .delimiter {
+	float: none;
+	clear: both;
+	height: 8px;
+}
+
+
+
+
+.foreground-colorpicker, .background-colorpicker {
+	width: 2em;
+	line-height: 2.2em;
+}
+
+.foreground-colorpicker > .letter {
+	font-weight: bold;
+	border-bottom: 2px solid red;
+	margin-right: 0.4em;
+}
+
+.background-colorpicker {
+	line-height: 2.4em;
+}
+
+.background-colorpicker > .letter {
+	background-color: red;
+	color: white;
+	font-weight: bold;
+	margin-right: 0.4em;
+	padding: 4px;
+	margin-left: -4px;
+}
+
+
+
+
+
+
+
+
+#ex1 { padding: 2em; margin-bottom: 1em; width: 9em; }
+
+.toolbar > .button {
+	float: left;
+}
+
+
+</style>
+
+
+<script>
+
+$(document).ready(function () {
+
+	$('.toolbar .foreground-colorpicker').ajp$colorpicker({
+		onchange: function (val, $button) {
+			$('#ex1').css({ color: val })
+		}
+	})
+
+	$('.toolbar .background-colorpicker').ajp$colorpicker({
+		onchange: function (val, $button) {
+			$('#ex1').css({ 'background-color': val })
+		}
+	})
+
+
+})
+
+</script>
+
+</head>
+
+<body>
+
+	<div id="ex1">Select colors!</div>
+
+	<div class="toolbar">
+		<div class="button foreground-colorpicker"><span class="letter">A</span><span>&#x25BE;</span></div>
+		<div class="button background-colorpicker"><span class="letter">B</span><span>&#x25BE;</span></div>
+		<div class="clear"></div>
+	</div>
+
+</body>

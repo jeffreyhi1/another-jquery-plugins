@@ -216,6 +216,28 @@ div.shaded > div.shaded {
 
 .red { color: #a80000; }
 
+
+.button {
+	border: 1px solid;
+	border-color: #CCC;
+	border-top-color: #EEE;
+	border-left-color: #EEE;
+	color: #666;
+	text-shadow: #999 0 0 1px;
+	background: #EBEBE4 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAYAAADtlXTHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAfSURBVAiZY/j37/t/pv///zNACAYGBgasXJwStFAHAIlSPPR0066nAAAAAElFTkSuQmCC) 0 0 repeat-x;
+	cursor: pointer;
+	font-size: 0.85em;
+	height: 2.6em;
+	padding: 0.07em 0.75em;
+}
+
+.button:hover {
+	border-color: #bbb;
+	border-top-color: #ddd;
+	border-left-color: #ddd;
+
+}
+
 /*
 ----------------------------------------------------------------
 	Colors

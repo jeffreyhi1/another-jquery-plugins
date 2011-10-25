@@ -4,7 +4,7 @@
 
 	Project home: http://code.google.com/p/another-jquery-plugins/
 
-	Version: 0.5.13
+	Version: 0.5.14
 */
 /* $Id: autocomplete.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
@@ -18,6 +18,26 @@
 }
 
 .ajp-autocomplete-list > .autocomplete-item { cursor: pointer; }
+
+/* $Id$ */
+
+/*
+	ajp-colorpicker: common logic
+*/
+
+.ajp-colorpicker {
+	visibility: hidden;
+}
+
+.ajp-colorpicker > .pallete > .color {
+	float: left;
+	cursor: pointer;
+}
+
+.ajp-colorpicker > .pallete > .delimiter {
+	float: none;
+	clear: both;
+}
 
 /* $Id: customcheckbox.css 24 2011-08-04 07:07:51Z azbitnev@gmail.com $ */
 
@@ -306,6 +326,50 @@ input.ajp-customcheckbox { display: none; }
 */
 
 .ajp-autocomplete-list { margin-top: 0.6em\9 }
+
+/* $Id$ */
+
+/*
+	ajp-colorpicker: common style
+*/
+
+.ajp-colorpicker {
+	background: #eee;
+	box-shadow: 0px 4px 16px #ccc;
+}
+
+.ajp-colorpicker > .pallete > .color {
+	outline-style: solid;
+	outline-color: transparent;
+}
+
+.ajp-colorpicker > .pallete > .color:hover {
+	outline-color: #000;
+}
+
+/*
+	ajp-colorpicker: common sizes
+*/
+
+.ajp-colorpicker {
+	width: 188px;
+	height: 170px;
+	padding-left: 8px;
+	padding-top: 8px;
+	margin-left: -8px;
+	margin-top: 4px;
+}
+
+.ajp-colorpicker > .pallete > .color {
+	height: 16px;
+	width: 16px;
+	margin: 1px;
+	outline-width: 1px;
+}
+
+.ajp-colorpicker > .pallete > .delimiter {
+	height: 8px;
+}
 
 /* $Id: customcheckbox.css 24 2011-08-04 07:07:51Z azbitnev@gmail.com $ */
 

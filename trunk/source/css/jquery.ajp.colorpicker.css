@@ -1,0 +1,20 @@
+/* $Id$ */
+
+/*
+	ajp-colorpicker: common logic
+*/
+
+.ajp-colorpicker {
+	visibility: hidden;
+}
+
+.ajp-colorpicker > .pallete > .color {
+	float: left;
+	cursor: pointer;
+}
+
+.ajp-colorpicker > .pallete > .delimiter {
+	float: none;
+	clear: both;
+}
+
