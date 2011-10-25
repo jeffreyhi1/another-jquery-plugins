@@ -11,6 +11,26 @@
 
 .ajp-autocomplete-list > .autocomplete-item { cursor: pointer; }
 
+/* $Id$ */
+
+/*
+	ajp-colorpicker: common logic
+*/
+
+.ajp-colorpicker {
+	visibility: hidden;
+}
+
+.ajp-colorpicker > .pallete > .color {
+	float: left;
+	cursor: pointer;
+}
+
+.ajp-colorpicker > .pallete > .delimiter {
+	float: none;
+	clear: both;
+}
+
 /* $Id: customcheckbox.css 24 2011-08-04 07:07:51Z azbitnev@gmail.com $ */
 
 /*
