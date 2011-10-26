@@ -4,7 +4,7 @@
 
 	Project home: http://code.google.com/p/another-jquery-plugins/
 
-	Version: 0.5.14
+	Version: 0.5.16
 */
 /* $Id: autocomplete.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
@@ -19,7 +19,7 @@
 
 .ajp-autocomplete-list > .autocomplete-item { cursor: pointer; }
 
-/* $Id$ */
+/* $Id: jquery.ajp.colorpicker.css 46 2011-10-25 12:58:23Z azbitnev@gmail.com $ */
 
 /*
 	ajp-colorpicker: common logic
@@ -327,15 +327,17 @@ input.ajp-customcheckbox { display: none; }
 
 .ajp-autocomplete-list { margin-top: 0.6em\9 }
 
-/* $Id$ */
+/* $Id: jquery.ajp.colorpicker.css 46 2011-10-25 12:58:23Z azbitnev@gmail.com $ */
 
 /*
 	ajp-colorpicker: common style
 */
 
 .ajp-colorpicker {
-	background: #eee;
-	box-shadow: 0px 4px 16px #ccc;
+	background: #ededed;
+	box-shadow: 0px 6px 16px rgba(200,200,200,0.33);
+	border-style: solid;
+	border-color: #ddd;
 }
 
 .ajp-colorpicker > .pallete > .color {
@@ -358,6 +360,8 @@ input.ajp-customcheckbox { display: none; }
 	padding-top: 8px;
 	margin-left: -8px;
 	margin-top: 4px;
+	border-width: 1px;
+	border-top-width: 0px;
 }
 
 .ajp-colorpicker > .pallete > .color {
