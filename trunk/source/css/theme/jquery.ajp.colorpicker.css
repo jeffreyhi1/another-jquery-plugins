@@ -5,8 +5,10 @@
 */
 
 .ajp-colorpicker {
-	background: #eee;
-	box-shadow: 0px 4px 16px #ccc;
+	background: #ededed;
+	box-shadow: 0px 6px 16px rgba(200,200,200,0.33);
+	border-style: solid;
+	border-color: #ddd;
 }
 
 .ajp-colorpicker > .pallete > .color {
@@ -29,6 +31,8 @@
 	padding-top: 8px;
 	margin-left: -8px;
 	margin-top: 4px;
+	border-width: 1px;
+	border-top-width: 0px;
 }
 
 .ajp-colorpicker > .pallete > .color {
