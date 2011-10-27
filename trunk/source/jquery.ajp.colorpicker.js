@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.colorpicker = { version: '0.1pa', installed: false, controls: [], serial: 1 }
+	$.ajp.colorpicker = { version: '0.2pa', installed: false, controls: [], serial: 1 }
 
 	$.fn.extend({
 
@@ -20,14 +20,31 @@
 					['#000000','#434343','#666666','#999999','#b7b7b7','#cccccc','#d9d9d9','#efefef','#f3f3f3','#ffffff'],
 					['#980000','#ff0000','#ff9900','#ffff00','#00ff00','#00ffff','#4a86e8','#0000ff','#9900ff','#ff00ff']
 				],
-				onchange: function (val, $el) { }
+				onchange: function (val, $el) { },
+				show: function ($el, $cp) {
+					$cp.css({ visibility: 'visible' })
+				},
+				hide: function ($el, $cp) {
+					$cp.css({ visibility: 'hidden' })
+				}
 			}
 
 			var opts = $.extend(defaults, options);
 
 			if (!$.ajp.colorpicker.installed) {
-
 				$.ajp.colorpicker.installed = true
+				$(document).find('body:eq(0)').keydown(function (evt) {
+					if (evt.keyCode == 27)
+						$('.ajp-colorpicker').css({ visibility: 'hidden' })
+				})
+				$(document).find('body:eq(0)').mouseup(function (evt) {
+					if (evt.button == ($.browser.msie ? 1 : 0)) $('.ajp-colorpicker').each(function () {
+						var $c = $(this)
+						var vis = $c.css('visibility')
+						$c.data('ajp-colorpicker-visible', (vis == 'hidden' ? 'no' : 'yes'))
+						$c.css({ visibility: 'hidden' })
+					})
+				})
 			}
 
 			return this.each(function(i, el) {
@@ -51,10 +68,12 @@
 				})
 
 				$el.click(function () {
-					var vis = ($cp.css('visibility') == 'visible' ? 'hidden' : 'visible')
-					if (vis == 'visible')
-						$('.ajp-colorpicker').css({ visibility: 'hidden' })
-					$cp.css({ visibility: vis })
+					var vis = ($cp.data('ajp-colorpicker-visible') == 'yes' ? 'hidden' : 'visible')
+					if (vis == 'visible') {
+						opts.show($el, $cp)
+					} else {
+						opts.hide($el, $cp)
+					}
 				})
 			})
 		}
