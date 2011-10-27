@@ -22,7 +22,7 @@
 
 <style>
 
-body { margin: 1em; }
+body { margin: 1em; /*font-size: 16px;*/ }
 
 #ex1 {
 	background: #fff;
@@ -32,13 +32,15 @@ body { margin: 1em; }
 	overflow: auto;
 	padding: 6px;
 	margin-bottom: 1em;
+	position: relative;
 	z-index: 1;
 }
 
 .toolbar {
 	background: #eee;
-	width: 674px;
+	width: 672px;
 	visibility: hidden;
+	border: 1px solid #ddd;
 }
 
 .toolbar button, .toolbar .button {
@@ -46,13 +48,6 @@ body { margin: 1em; }
 	border: 0;
 	float: left;
 	margin: 0;
-	opacity: 0.6;
-	filter: alpha(opacity=60);
-}
-
-.toolbar button:hover, .toolbar .button:hover {
-	opacity: 1;
-	filter: alpha(opacity=100);
 }
 
 .toolbar button:active {
@@ -69,9 +64,23 @@ body { margin: 1em; }
 	min-width: 0;
 }
 
+.toolbar .delimiter {
+	width: 1px;
+	height: 1.8em;
+	border-left: 1px solid #ddd;
+	padding: 0;
+	margin: 0;
+	margin-top: 0.2em;
+	float: left;
+}
+
 .foreground-colorpicker, .background-colorpicker {
 	width: 2em;
 	line-height: 2.2em;
+}
+
+.background-colorpicker {
+	width: 3.6em;
 }
 
 .foreground-colorpicker > .letter {
@@ -84,17 +93,81 @@ body { margin: 1em; }
 	background-color: red;
 	color: white;
 	font-weight: bold;
-	margin-right: 0.4em;
 	padding: 4px;
 	margin-left: -4px;
+	margin-right: 0.4em;
 	position: relative;
 	top: 0.2em;
 }
 
 .ajp-colorpicker {
 	position: relative;
-	z-index: 5;	
+	z-index: 5;
+	box-shadow: 0 3px 6px rgba(0,0,0,.1);
+	border-top-width: 0;
+	background: #fafafa;
+	margin-top: 0.4em;
+	margin-left: -0.8em;
 }
+
+.foreground-colorpicker span, .background-colorpicker span {
+	position: relative;
+	top: 0.2em;
+}
+
+.heading {
+	width: 7em;
+	line-height: 2.2em;
+}
+
+.heading span {
+	position: relative;
+	top: 0.2em;
+}
+
+.heading .label {
+	margin-right: 0.4em;
+}
+
+.heading .popup {
+	width: 200px;
+	border: 1px solid #ddd;
+	position: relative;
+	z-index: 5;
+	margin-top: 0.4em;
+	margin-left: -0.8em;
+	visibility: hidden;
+	box-shadow: 0 3px 6px rgba(0,0,0,.1);
+	border-top-width: 0;
+}
+
+.heading .popup .btn {
+	display: block;
+	background: #fafafa;
+	float: none;
+	text-align: left;
+	padding-left: 0.75em;
+}
+
+.heading .popup .btn:hover {
+	background: #eee;
+}
+
+button img {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	position: relative;
+	top: 0.2em;
+}
+
+.h1 { font-weight: bold; color: #000; }
+.h2 { font-weight: bold; color: #333;  }
+.h3 { font-weight: bold; color: #666; }
+.h4 { font-weight: bold; text-shadow: none; color: #999; }
+.h5 { text-shadow: none; color: #999; }
+.h6 { text-shadow: none; color: #ccc; }
 
 </style>
 
@@ -107,8 +180,33 @@ $(document).ready(function () {
 		var cmd = $btn.data('cmd')
 		$btn.addClass(cmd).click(function () {
 			var ctx = $('#ex1').ajp$editableContext()
+			if ($btn.data('restore'))
+				ctx.restoreSelection()
 			ctx.execCommand(cmd)
 		})
+	})
+
+	$(document).find('body:eq(0)').keydown(function (evt) {
+		if (evt.keyCode == 27)
+			$('.popup').css({ visibility: 'hidden' })
+	})
+	$(document).find('body:eq(0)').mouseup(function (evt) {
+		if (evt.button == ($.browser.msie ? 1 : 0)) $('.popup').each(function () {
+			var $c = $(this)
+			var vis = $c.css('visibility')
+			$c.data('toolbar-btn-heading-visible', (vis == 'hidden' ? 'no' : 'yes'))
+			$c.css({ visibility: 'hidden' })
+		})
+	})
+
+	$('.toolbar .heading').click(function () {
+
+			var ctx = $('#ex1').ajp$editableContext()
+			ctx.saveSelection()
+
+		var $popup = $(this).find('.popup')
+		var vis = ($popup.data('toolbar-btn-heading-visible') == 'yes' ? 'hidden' : 'visible')
+		$popup.css({ visibility: vis })
 	})
 
 	$('.toolbar .foreground-colorpicker').ajp$colorpicker({
@@ -126,12 +224,12 @@ $(document).ready(function () {
 	})
 
 	$('.make-editable').click(function () {
-		$('#ex1').ajp$editable()
+		$('#ex1').css({ 'border-top-color': 'transparent' }).ajp$editable()
 		$('.toolbar').css({ visibility: 'visible', opacity: 0 }).animate({ opacity: 1 }, 'fast', 'swing')
 	})
 
 	$('.make-uneditable').click(function () {
-		$('#ex1').ajp$uneditable()
+		$('#ex1').css({ 'border-top-color': '#ddd' }).ajp$uneditable()
 		$('.toolbar').animate({ opacity: 0 }, 'fast', 'swing', function () { $(this).css({ visibility: 'visible', opacity: 0 }) })
 	})
 
@@ -145,20 +243,30 @@ $(document).ready(function () {
 <body>
 
 	<div class="toolbar">
+		<button class="heading">
+			<span class="label">Heading</span><span>&#x25BE;</span>
+			<div class="popup">
+				<div class="btn" data-cmd="h1" data-restore="true">Header 1</div>
+				<div class="btn" data-cmd="h2" data-restore="true">Header 2</div>
+				<div class="btn" data-cmd="h3" data-restore="true">Header 3</div>
+				<div class="btn" data-cmd="h4" data-restore="true">Header 4</div>
+				<div class="btn" data-cmd="h5" data-restore="true">Header 5</div>
+				<div class="btn" data-cmd="h6" data-restore="true">Header 6</div>
+			</div>
+		</button>
+		<div class="delimiter"></div>
 		<button class="btn" data-cmd="bold">B</button>
 		<button class="btn" data-cmd="italic">I</button>
 		<button class="btn" data-cmd="underline">U</button>
 		<button class="btn" data-cmd="strike">S</button>
+		<div class="delimiter"></div>
 		<button class="foreground-colorpicker"><span class="letter">A</span><span>&#x25BE;</span></button>
 		<button class="background-colorpicker"><span class="letter">B</span><span>&#x25BE;</span></button>
-		<button class="btn" data-cmd="h1">H1</button>
-		<button class="btn" data-cmd="h2">H2</button>
-		<button class="btn" data-cmd="h3">H3</button>
-		<button class="btn" data-cmd="h4">H4</button>
-		<button class="btn" data-cmd="h5">H5</button>
-		<button class="btn" data-cmd="h6">H6</button>
-		<button class="btn" data-cmd="anchor">link</button>
-		<button class="btn" data-cmd="text">clear</button>
+		<div class="delimiter"></div>
+		<button class="btn" data-cmd="anchor"><img src="link.png"/></button>
+		<div class="delimiter"></div>
+		<button class="btn" data-cmd="text"><img src="clear.png"/></button>
+
 		<div class="clear"></div>
 	</div>
 
