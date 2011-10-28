@@ -50,16 +50,17 @@ body { margin: 1em; /*font-size: 16px;*/ }
 	border: 0;
 	float: left;
 	margin: 0;
+	padding: 0;
 }
 
 .toolbar button:active {
 	background: #ccc;
 }
 
-.toolbar .bold { font-weight: bold; }
-.toolbar .italic { font-style: italic; }
-.toolbar .underline { text-decoration: underline; }
-.toolbar .strike { text-decoration: line-through; }
+.toolbar .cmd-bold { font-weight: bold; }
+.toolbar .cmd-italic { font-style: italic; }
+.toolbar .cmd-underline { text-decoration: underline; }
+.toolbar .cmd-strike { text-decoration: line-through; }
 
 .toolbar .button {
 	padding: 0.07em 0.6em;
@@ -116,21 +117,21 @@ body { margin: 1em; /*font-size: 16px;*/ }
 	top: 0.2em;
 }
 
-.heading {
+.toolbar .styling {
 	width: 4em;
 	line-height: 2.2em;
 }
 
-.heading span {
+.toolbar .styling span {
 	position: relative;
 	top: 0.2em;
 }
 
-.heading .label {
+.toolbar .styling .label {
 	margin-right: 0.4em;
 }
 
-.heading .popup {
+.toolbar .styling .popup {
 	width: 200px;
 	border: 1px solid #ddd;
 	background: #fff;
@@ -143,7 +144,7 @@ body { margin: 1em; /*font-size: 16px;*/ }
 	border-top-width: 0;
 }
 
-.heading .popup .btn {
+.toolbar .styling .popup .btn {
 	display: block;
 	float: none;
 	text-align: left;
@@ -152,11 +153,11 @@ body { margin: 1em; /*font-size: 16px;*/ }
 	line-height: 2.4em;
 }
 
-.heading .popup .btn:hover {
+.toolbar .styling .popup .btn:hover {
 	background: #eee;
 }
 
-button img {
+.toolbar button img {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -165,25 +166,15 @@ button img {
 	top: 0.2em;
 }
 
-.h1 { font-weight: bold; color: #000; }
-.h2 { font-weight: bold; color: #333;  }
-.h3 { font-weight: bold; color: #666; }
-.h4 { font-weight: bold; text-shadow: none; color: #999; }
-.h5 { text-shadow: none; color: #999; }
-.h6 { text-shadow: none; color: #ccc; }
-
-.blockquote { font-style: italic; }
-
-</style>
-
-<!--[if lt IE 9]>
-<style>
-
-.toolbar button { padding: 0; }
-
+.toolbar .cmd-h1 { font-weight: bold; color: #000; }
+.toolbar .cmd-h2 { font-weight: bold; color: #333;  }
+.toolbar .cmd-h3 { font-weight: bold; color: #666; }
+.toolbar .cmd-h4 { font-weight: bold; text-shadow: none; color: #999; }
+.toolbar .cmd-h5 { text-shadow: none; color: #999; }
+.toolbar .cmd-h6 { text-shadow: none; color: #ccc; }
+.toolbar .cmd-blockquote { font-style: italic; }
 
 </style>
-<![endif]-->
 
 <script>
 
@@ -194,7 +185,7 @@ $(document).ready(function () {
 	$('.toolbar .btn').each(function () {
 		var $btn = $(this)
 		var cmd = $btn.data('cmd')
-		$btn.addClass(cmd).click(function () {
+		$btn.addClass('cmd-' + cmd).click(function () {
 			var ctx = $editor.ajp$editableContext()
 			if ($btn.data('restore'))
 				ctx.restoreSelection()
@@ -210,12 +201,12 @@ $(document).ready(function () {
 		if (evt.button == ($.browser.msie ? 1 : 0)) $('.popup').each(function () {
 			var $c = $(this)
 			var vis = $c.css('visibility')
-			$c.data('toolbar-btn-heading-visible', (vis == 'hidden' ? 'no' : 'yes'))
+			$c.data('toolbar-btn-styling-visible', (vis == 'hidden' ? 'no' : 'yes'))
 			$c.css({ visibility: 'hidden' })
 		})
 	})
 
-	$('.toolbar .heading, .toolbar .colorpicker').mousedown(function () {
+	$('.toolbar .styling, .toolbar .colorpicker').mousedown(function () {
 		var ctx = $editor.ajp$editableContext()
 		ctx.saveSelection()
 	})
@@ -226,9 +217,9 @@ $(document).ready(function () {
 		ctx.restoreSelection()
 	})
 
-	$('.toolbar .heading').click(function () {
+	$('.toolbar .styling').click(function () {
 		var $popup = $(this).find('.popup')
-		var vis = ($popup.data('toolbar-btn-heading-visible') == 'yes' ? 'hidden' : 'visible')
+		var vis = ($popup.data('toolbar-btn-styling-visible') == 'yes' ? 'hidden' : 'visible')
 		$popup.css({ visibility: vis })
 	})
 
@@ -263,26 +254,14 @@ $(document).ready(function () {
 
 </script>
 
-<!--[if lt IE 9]>
-<script>
-
-$(document).ready(function () {
-
-	$('.disclosure-arrow').html('&darr;')
-})
-
-</script>
-<![endif]-->
-
-
 </head>
 
 <body>
 
 	<div class="toolbar">
 
-		<div class="heading button">
-			<span class="label">Style</span><span class="disclosure-arrow">&#x25BE;</span>
+		<div class="styling button">
+			<span class="label">Style</span><img src="disclosure-arrow.png"/>
 			<div class="popup">
 				<div class="btn" data-cmd="h1" data-restore="true">Header 1</div>
 				<div class="btn" data-cmd="h2" data-restore="true">Header 2</div>
@@ -301,9 +280,8 @@ $(document).ready(function () {
 		<button class="btn" data-cmd="underline">U</button>
 		<button class="btn" data-cmd="strike">S</button>
 		<div class="separator"></div>
-
-		<div class="foreground-colorpicker button"><span class="letter">A</span><span class="disclosure-arrow">&#x25BE;</span></div>
-		<div class="background-colorpicker button"><span class="letter">A</span><span class="disclosure-arrow">&#x25BE;</span></div>
+		<div class="foreground-colorpicker button"><span class="letter">A</span><img src="disclosure-arrow.png"/></div>
+		<div class="background-colorpicker button"><span class="letter">A</span><img src="disclosure-arrow.png"/></div>
 		<div class="separator"></div>
 		<button class="btn" data-cmd="sup">X<sup>2</sup></button>
 		<button class="btn" data-cmd="sub">X<sub>2</sub></button>
@@ -311,12 +289,12 @@ $(document).ready(function () {
 		<button class="btn" data-cmd="ul"><img src="ul.png"/></button>
 		<button class="btn" data-cmd="ol"><img src="ol.png"/></button>
 		<div class="separator"></div>
-		<button class="btn" data-cmd="left">L</button>
-		<button class="btn" data-cmd="center">C</button>
-		<button class="btn" data-cmd="right">R</button>
-		<button class="btn" data-cmd="justify">J</button>
+		<button class="btn" data-cmd="left"><img src="left.png"/></button>
+		<button class="btn" data-cmd="center"><img src="center.png"/></button>
+		<button class="btn" data-cmd="right"><img src="right.png"/></button>
+		<button class="btn" data-cmd="justify"><img src="justify.png"/></button>
 		<div class="separator"></div>
-		<button class="btn" data-cmd="image"><img src="image.png"/></button>
+		<button class="btn" data-cmd="image"><img src="picture.png"/></button>
 		<div class="separator"></div>
 		<button class="btn" data-cmd="anchor"><img src="link.png"/></button>
 		<div class="separator"></div>

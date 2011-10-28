@@ -18,6 +18,45 @@
    sodipodi:docname="examples.svg">
   <defs
      id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Send"
+       style="overflow:visible;">
+      <path
+         id="path4775"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none;"
+         transform="scale(0.2) rotate(180) translate(6,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Sstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Sstart"
+       style="overflow:visible">
+      <path
+         id="path4790"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.3) translate(-2.3,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Send"
+       style="overflow:visible;">
+      <path
+         id="path4793"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.3) rotate(180) translate(-2.3,0)" />
+    </marker>
     <linearGradient
        id="linearGradient5101">
       <stop
@@ -1398,9 +1437,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.9999999"
-     inkscape:cx="604.67072"
-     inkscape:cy="640.5024"
+     inkscape:zoom="5.656854"
+     inkscape:cx="320.55334"
+     inkscape:cy="-1157.3089"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1447,6 +1486,58 @@
        orientation="1,0"
        position="462.00002,763.50003"
        id="guide5089" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="321.62502,-1136.1876"
+       id="guide3826" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="322.13135,-1142.2427"
+       id="guide3828" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="323.2804,-1148.2531"
+       id="guide3830" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="313.82284,-1134.6413"
+       id="guide3832" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="326.10883,-1144.0546"
+       id="guide3837" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="342.15131,-1131.3709"
+       id="guide4629" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="358.15627,-1151.1094"
+       id="guide4663" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="374.14789,-1132.9619"
+       id="guide4677" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="390.14619,-1155.6777"
+       id="guide4687" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="406.14448,-1154.1751"
+       id="guide4697" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="422.14277,-1122.3553"
+       id="guide4711" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="438.09687,-1130.7964"
+       id="guide4731" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="454.13935,-1123.6811"
+       id="guide4755" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -8547,6 +8638,479 @@
        x="412.74936"
        y="323.55719"
        inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.progressbar.fill.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#e6e6e6;stroke:none;opacity:0"
+       id="rect3814"
+       width="16"
+       height="16"
+       x="310.15479"
+       y="2186.3831"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\_ol.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.82718468px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
+       x="309.98395"
+       y="2189.9685"
+       id="text3816"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\_ol.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3818"
+         x="309.98395"
+         y="2189.9685">1</tspan><tspan
+         sodipodi:role="line"
+         x="309.98395"
+         y="2196.0024"
+         id="tspan3820">2</tspan><tspan
+         sodipodi:role="line"
+         x="309.98395"
+         y="2202.0364"
+         id="tspan3822">3</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.96159607px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 314.78443,2188.5114 11.3244,0"
+       id="path3839"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\_ol.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.96159607px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 314.78443,2194.5858 11.3244,0"
+       id="path3841"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\_ol.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.96159607px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 314.78443,2200.6153 11.3244,0"
+       id="path3843"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\_ol.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\_ul.png"
+       y="2186.3831"
+       x="326.15479"
+       height="16"
+       width="16"
+       id="rect4613"
+       style="opacity:0;fill:#e6e6e6;stroke:none" />
+    <text
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\_ul.png"
+       sodipodi:linespacing="125%"
+       id="text4615"
+       y="2189.6321"
+       x="324.44385"
+       style="font-size:16.83768654px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
+       xml:space="preserve"><tspan
+         id="tspan4621"
+         y="2189.6321"
+         x="324.44385"
+         sodipodi:role="line">.</tspan></text>
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\_ul.png"
+       inkscape:connector-curvature="0"
+       id="path4623"
+       d="m 330.82691,2188.5114 11.3244,0"
+       style="fill:none;stroke:#000000;stroke-width:0.96159607px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\_ul.png"
+       inkscape:connector-curvature="0"
+       id="path4625"
+       d="m 330.82691,2194.5858 11.3244,0"
+       style="fill:none;stroke:#000000;stroke-width:0.96159607px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\_ul.png"
+       inkscape:connector-curvature="0"
+       id="path4627"
+       d="m 330.82691,2200.6153 11.3244,0"
+       style="fill:none;stroke:#000000;stroke-width:0.96159607px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-size:16.83768654px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
+       x="324.44385"
+       y="2195.6321"
+       id="text4635"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\_ul.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="324.44385"
+         y="2195.6321"
+         id="tspan4637">.</tspan></text>
+    <text
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\_ul.png"
+       sodipodi:linespacing="125%"
+       id="text4639"
+       y="2201.6321"
+       x="324.44385"
+       style="font-size:16.83768654px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
+       xml:space="preserve"><tspan
+         id="tspan4641"
+         y="2201.6321"
+         x="324.44385"
+         sodipodi:role="line">.</tspan></text>
+    <rect
+       style="opacity:0;fill:#e6e6e6;stroke:none"
+       id="rect4643"
+       width="16"
+       height="16"
+       x="342.15479"
+       y="2186.3831"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\left.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 342.15131,2188.5498 11.68747,0"
+       id="path4649"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\left.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\left.png"
+       inkscape:connector-curvature="0"
+       id="path4665"
+       d="m 342.15131,2194.6049 16.00496,0"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 342.15131,2200.6153 8.59359,0"
+       id="path4667"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\left.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\center.png"
+       y="2186.3831"
+       x="358.15479"
+       height="16"
+       width="16"
+       id="rect4669"
+       style="opacity:0;fill:#e6e6e6;stroke:none" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\center.png"
+       inkscape:connector-curvature="0"
+       id="path4671"
+       d="m 360.15131,2188.5498 11.68747,0"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 358.15131,2194.6049 16.00496,0"
+       id="path4673"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\center.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\center.png"
+       inkscape:connector-curvature="0"
+       id="path4675"
+       d="m 362.15131,2200.6153 8.59359,0"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <rect
+       style="opacity:0;fill:#e6e6e6;stroke:none"
+       id="rect4679"
+       width="16"
+       height="16"
+       x="-390.1528"
+       y="2186.3831"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\right.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(-1,1)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 390.15627,2188.5498 -11.68747,0"
+       id="path4681"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\right.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\right.png"
+       inkscape:connector-curvature="0"
+       id="path4683"
+       d="m 390.15627,2194.6049 -16.00496,0"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 390.15627,2200.6153 -8.59359,0"
+       id="path4685"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\right.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\justify.png"
+       y="2186.3831"
+       x="390.15479"
+       height="16"
+       width="16"
+       id="rect4689"
+       style="opacity:0;fill:#e6e6e6;stroke:none" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 390.15131,2194.6049 16.00496,0"
+       id="path4693"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\justify.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\justify.png"
+       inkscape:connector-curvature="0"
+       id="path4699"
+       d="m 390.15131,2188.6049 16.00496,0"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 390.15131,2200.6049 16.00496,0"
+       id="path4701"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\justify.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#4d4d4d;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 407.03127,2200.6153 3.875,-5.0031 2.625,1.75 3.09375,-4.5 4.8125,4.5 0.0312,3.2531 z"
+       id="path4717"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\picture.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#e6e6e6;stroke:none"
+       id="rect4703"
+       width="16"
+       height="16"
+       x="406.15479"
+       y="2186.3831"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\picture.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 406.15131,2188.1052 16.00496,0"
+       id="path4707"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\picture.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\picture.png"
+       inkscape:connector-curvature="0"
+       id="path4709"
+       d="m 406.15131,2201.1052 16.00496,0"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 406.64448,2188.5498 0,12.0655"
+       id="path4713"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\picture.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4715"
+       d="m 421.644,2188.5498 0,12.0655"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\link.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:#4d4d4d;fill-opacity:1;stroke:none"
+       id="path4719"
+       sodipodi:sides="15"
+       sodipodi:cx="411.46988"
+       sodipodi:cy="2190.3401"
+       sodipodi:r1="2.81545"
+       sodipodi:r2="1.407725"
+       sodipodi:arg1="0.94142301"
+       sodipodi:arg2="1.1508625"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 413.12716,2192.6161 -1.08335,-0.9906 0.0143,1.4679 -0.58679,-1.3456 -0.58394,1.3468 0.0112,-1.4679 -1.08126,0.9929 0.60733,-1.3365 -1.39162,0.4673 1.0984,-0.9739 -1.46135,-0.1392 1.39955,-0.4429 -1.2784,-0.7215 1.4587,0.1646 -0.8744,-1.1791 1.26563,0.7437 -0.31922,-1.4328 0.85372,1.1941 0.29117,-1.4388 0.2942,1.4382 0.8512,-1.196 -0.31619,1.4335 1.26406,-0.7463 -0.87192,1.1809 1.45835,-0.1677 -1.27687,0.7243 1.40047,0.4399 -1.46105,0.1423 1.10045,0.9715 -1.39259,-0.4643 z"
+       inkscape:transform-center-x="-0.00031041891"
+       inkscape:transform-center-y="-0.030453433"
+       transform="translate(-0.28726214,1.9887947)"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\picture.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0;fill:#e6e6e6;stroke:none"
+       id="rect4721"
+       width="16"
+       height="16"
+       x="422.15479"
+       y="2186.3831"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\link.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:0.43646398;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4733"
+       sodipodi:cx="426.61743"
+       sodipodi:cy="2191.8538"
+       sodipodi:rx="1.1600971"
+       sodipodi:ry="1.1600971"
+       d="m 427.69133,2192.2926 a 1.1600971,1.1600971 0 1 1 0.0284,-0.8003"
+       transform="matrix(1.6200805,-1.6200805,1.6200805,1.6200805,-3814.862,-662.43864)"
+       sodipodi:start="0.38792041"
+       sodipodi:end="5.966314"
+       sodipodi:open="true"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\link.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:open="true"
+       sodipodi:end="5.966314"
+       sodipodi:start="0.38792041"
+       transform="matrix(-1.6200805,1.6200805,1.6200805,1.6200805,-2426.99,-2050.3106)"
+       d="m 427.69133,2192.2926 a 1.1600971,1.1600971 0 1 1 0.0284,-0.8003"
+       sodipodi:ry="1.1600971"
+       sodipodi:rx="1.1600971"
+       sodipodi:cy="2191.8538"
+       sodipodi:cx="426.61743"
+       id="path4735"
+       style="fill:none;stroke:#000000;stroke-width:0.43646398;stroke-miterlimit:4;stroke-dasharray:none"
+       sodipodi:type="arc"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\link.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 427.88893,2196.7695 4.34244,-4.3424"
+       id="path4737"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\link.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:open="true"
+       sodipodi:end="5.966314"
+       sodipodi:start="0.38792041"
+       transform="matrix(2.2911398,0,0,2.2911398,-551.32017,-2809.2385)"
+       d="m 427.69133,2192.2926 a 1.1600971,1.1600971 0 1 1 0.0284,-0.8003"
+       sodipodi:ry="1.1600971"
+       sodipodi:rx="1.1600971"
+       sodipodi:cy="2191.8538"
+       sodipodi:cx="426.61743"
+       id="path4739"
+       style="fill:none;stroke:#000000;stroke-width:0.43646398;stroke-miterlimit:4;stroke-dasharray:none"
+       sodipodi:type="arc" />
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:0.43646398;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4741"
+       sodipodi:cx="426.61743"
+       sodipodi:cy="2191.8538"
+       sodipodi:rx="1.1600971"
+       sodipodi:ry="1.1600971"
+       d="m 427.69133,2192.2926 a 1.1600971,1.1600971 0 1 1 0.0284,-0.8003"
+       transform="matrix(-2.2911398,0,0,2.2911398,1411.4272,-2809.2385)"
+       sodipodi:start="0.38792041"
+       sodipodi:end="5.966314"
+       sodipodi:open="true" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4743"
+       d="m 426.99231,2212.6049 6.14114,0"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\clear.png"
+       y="2186.3831"
+       x="438.15479"
+       height="16"
+       width="16"
+       id="rect4747"
+       style="opacity:0;fill:#e6e6e6;stroke:none" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-end:none"
+       d="m 440.9253,2193.3232 c 1.45819,-5.6762 8.72107,-5.6459 10.20885,0.044"
+       id="path6123"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\clear.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path6125"
+       d="m 440.88111,2195.8782 c 1.45819,5.6762 8.72107,5.6459 10.20885,-0.044"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\clear.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 449.1501,2192.1882 2.06414,1.4863 0.73124,-2.2857"
+       id="path6873"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\clear.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path6875"
+       d="m 442.82363,2197.037 -1.96589,-1.614 -0.8745,2.2348"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\clear.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#000000;stroke:none"
+       d="m 313.82284,2209.4427 4,0.042 -1.97753,1.9576 z"
+       id="path6879"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\examples\wysiwyg\disclosure-arrow.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
   </g>
