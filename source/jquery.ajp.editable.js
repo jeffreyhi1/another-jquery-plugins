@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.editable = { version: '0.14pa', required: ['bindkeys'], editors: { } }
+	$.ajp.editable = { version: '0.16pa', required: ['bindkeys'], editors: { } }
 
 	$.fn.extend({
 
@@ -66,6 +66,19 @@
 							'attrs': {
 								'rel': 'nofollow',
 								'target': '_blank'
+							}
+						})
+					}
+				},
+
+				imageDialog: function (callback) {
+					var url = prompt('Image URL', 'http://')
+					if (url) {
+						callback({
+							'url': url,
+							'attrs': {
+								'alt': '',
+								'title': ''
 							}
 						})
 					}
@@ -130,7 +143,7 @@
 							userSelection = window.getSelection();
 							// Get the range:
 							if (userSelection.getRangeAt)
-								var range = userSelection.getRangeAt (0);
+								var range = userSelection.getRangeAt(0);
 							else {
 								var range = document.createRange();
 								range.setStart(userSelection.anchorNode, userSelection.anchorOffset);
@@ -167,28 +180,21 @@
 							var selection = window.getSelection();
 							var range = selection.getRangeAt(0);
 							range.deleteContents();
+//console.log('insert', node)
 							range.insertNode(node);
+//console.log('parent', node.parentNode)
 							api.selectNode(node);
 						}
 					},
 
-					createAnchor: function (url, html) {
+					createImage: function (url) {
 						if (!url) return;
-						if (!html) html = url;
-						var html = this.getSelectedHtml();
-						if (/explorer/i.test(navigator.appName)) {
-							var range = document.selection.createRange()
-							range.pasteHTML('<a href="' + url + '">' + html + '</a>');
-						} else {
-							var node = document.createElement('a');
-							node.href = url;
-							node.innerHTML = html;
-							var selection = window.getSelection();
-							var range = selection.getRangeAt(0);
-							range.deleteContents();
-							range.insertNode(node);
-							this.selectNode(node);
-						}
+						this.replaceSelection('<img src="' + url + '"/>')
+					},
+
+					createAnchor: function (url) {
+						if (!url) return;
+						this.replaceSelection('<a href="' + url + '">' + this.getSelectedHtml() + '</a>');
 					},
 
 					pasteHtml: function (html) {
@@ -213,89 +219,169 @@
 					}
 				}
 
+				var helpers = {
+
+					wrap: function (evt, ctx, s, e) {
+						ctx.cancelEvent(evt)
+						evt.returnValue = false
+						ctx.replaceSelection(s + ctx.getSelectedHtml() + e)
+						return false
+					},
+
+					list: function (evt, api, s, e) {
+
+						api.cancelEvent(evt);
+						evt.returnValue = false;
+				
+						var list = s
+						var $node = $('<div>' + api.getSelectedHtml() + '</div>')
+						var $items = $node.children('div, p')
+						$items.each(function () { list += '<li>' + $(this).html() + '</li>' })
+						list += e
+
+						api.replaceSelection(list)
+
+						return false;
+					},
+
+					align: function (evt, api, a) {
+
+						api.cancelEvent(evt);
+						evt.returnValue = false;
+
+						var html = api.getSelectedHtml()
+						html = html.replace(/text-align\:\s*(left|center|right|justify)\s*\;?/gi, '')
+						api.replaceSelection('<div style="text-align: '+ a + ';">' + html + '</div>')
+
+/*
+						var $node = $('<div>' + api.getSelectedHtml() + '</div>')
+console.log('BEFORE', api.getSelectedHtml())
+						$node.find('.ae-alignment > span').unwrap()
+//						var html = $node.html()
+//
+//						if (/^\s*\<span\>/.test(html) && /\<\/span\>\s*$/.test(html))
+//							html = html.replace(/^\s*\<span\>/, '')
+//								.replace(/\<\/span\>\s*$/, '')
+
+						var html
+						do {
+							html = $node.html()
+							$node = (html.match(/^\s*\</) ? $(html) : null)
+						} while ($node && ($node.hasClass('ae-alignment') || $node[0].tagName == 'SPAN'));
+
+						
+						
+console.log('AFTER', html)
+						api.replaceSelection('<div class="ae-alignment" style="text-align: '+ a + ';"><span>' + html + '</span></div>')
+*/
+
+
+						//api.replaceSelection('<div class="ae-alignment" style="text-align: '+ a + ';">' + api.getSelectedHtml() + '</div>')
+
+						return false;
+					},
+
+					gc: function (api) {
+
+						var $el = $(api.element)
+
+						$el.find('span').each(function () {
+							var $span = $(this);
+							if ($span.text() == '')
+							$span.remove()
+						})
+						
+					}
+				}
+
 				var defaultCommands = {
 
 					h1: function (evt, ctx) {
-						ctx.cancelEvent(evt)
-						evt.returnValue = false
-						ctx.replaceSelection('<h1>' + ctx.getSelectedHtml() + '</h1>')
-						return false
+						return helpers.wrap(evt, ctx, '<h1>', '</h1>')
 					},
 
 					h2: function (evt, ctx) {
-						ctx.cancelEvent(evt)
-						evt.returnValue = false
-						ctx.replaceSelection('<h2>' + ctx.getSelectedHtml() + '</h2>')
-						return false
+						return helpers.wrap(evt, ctx, '<h2>', '</h2>')
 					},
 
 					h3: function (evt, ctx) {
-						ctx.cancelEvent(evt)
-						evt.returnValue = false
-						ctx.replaceSelection('<h3>' + ctx.getSelectedHtml() + '</h3>')
-						return false
+						return helpers.wrap(evt, ctx, '<h3>', '</h3>')
 					},
 
 					h4: function (evt, ctx) {
-						ctx.cancelEvent(evt)
-						evt.returnValue = false
-						ctx.replaceSelection('<h4>' + ctx.getSelectedHtml() + '</h4>')
-						return false
+						return helpers.wrap(evt, ctx, '<h4>', '</h4>')
 					},
 
 					h5: function (evt, ctx) {
-						ctx.cancelEvent(evt)
-						evt.returnValue = false
-						ctx.replaceSelection('<h5>' + ctx.getSelectedHtml() + '</h5>')
-						return false
+						return helpers.wrap(evt, ctx, '<h5>', '</h5>')
 					},
 
 					h6: function (evt, ctx) {
-						ctx.cancelEvent(evt)
-						evt.returnValue = false
-						ctx.replaceSelection('<h6>' + ctx.getSelectedHtml() + '</h6>')
-						return false
+						return helpers.wrap(evt, ctx, '<h6>', '</h6>')
 					},
 
-					bold: function (evt, api) {
-
-						api.cancelEvent(evt);
-						evt.returnValue = false;
-
-						api.replaceSelection('<b>' + api.getSelectedHtml() + '</b>')			
-
-						return false;
+					bold: function (evt, ctx) {
+						return helpers.wrap(evt, ctx, '<b>', '</b>')
 					},
 
-					italic: function (evt, api) {
-
-						api.cancelEvent(evt);
-						evt.returnValue = false;
-				
-						api.replaceSelection('<i>' + api.getSelectedHtml() + '</i>')
-
-						return false;
+					italic: function (evt, ctx) {
+						return helpers.wrap(evt, ctx, '<i>', '</i>')
 					},
 
-					underline: function (evt, api) {
-
-						api.cancelEvent(evt);
-						evt.returnValue = false;
-				
-						api.replaceSelection('<u>' + api.getSelectedHtml() + '</u>')
-
-						return false;
+					underline: function (evt, ctx) {
+						return helpers.wrap(evt, ctx, '<u>', '</u>')
 					},
 
-					strike: function (evt, api) {
+					strike: function (evt, ctx) {
+						return helpers.wrap(evt, ctx, '<span style="text-decoration: line-through;">', '</span>')
+					},
 
-						api.cancelEvent(evt);
-						evt.returnValue = false;
-				
-						api.replaceSelection('<span style="text-decoration: line-through;">' + api.getSelectedHtml() + '</span>')
+					small: function (evt, ctx) {
+						return helpers.wrap(evt, ctx, '<small>', '</small>')
+					},
 
-						return false;
+					sub: function (evt, ctx) {
+						return helpers.wrap(evt, ctx, '<sub>', '</sub>')
+					},
 
+					sup: function (evt, ctx) {
+						return helpers.wrap(evt, ctx, '<sup>', '</sup>')
+					},
+
+					blockquote: function (evt, ctx) {
+						return helpers.wrap(evt, ctx, '<blockquote>', '</blockquote>')
+					},
+
+					code: function (evt, ctx) {
+						return helpers.wrap(evt, ctx, '<code>', '</code>')
+					},
+
+					quote: function (evt, ctx) {
+						return helpers.wrap(evt, ctx, '<q>', '</q>')
+					},
+
+					ul: function (evt, ctx) {
+						return helpers.list(evt, ctx, '<ul>', '</ul>')
+					},
+
+					ol: function (evt, ctx) {
+						return helpers.list(evt, ctx, '<ol>', '</ol>')
+					},
+
+					left: function (evt, ctx) {
+						return helpers.align(evt, ctx, 'left')
+					},
+
+					center: function (evt, ctx) {
+						return helpers.align(evt, ctx, 'center')
+					},
+
+					right: function (evt, ctx) {
+						return helpers.align(evt, ctx, 'right')
+					},
+
+					justify: function (evt, ctx) {
+						return helpers.align(evt, ctx, 'justify')
 					},
 
 					text: function (evt, api) {
@@ -307,6 +393,8 @@
 						var text = html.replace(/\<[^\>]*\>/g, '')
 						api.replaceSelection('<span>' + text + '</span>')
 
+						helpers.gc()
+
 						return false;
 					},
 
@@ -317,6 +405,18 @@
 
 						options.anchorDialog(function (params) {
 							api.createAnchor(params.url, api.getSelectedHtml());
+						})
+
+						return false;
+					},
+
+					image: function (evt, api) {
+
+						api.cancelEvent(evt);
+						evt.returnValue = false;
+
+						options.imageDialog(function (params) {
+							api.createImage(params.url, api.getSelectedHtml());
 						})
 
 						return false;
