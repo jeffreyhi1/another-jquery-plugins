@@ -2,6 +2,8 @@
 
 <!-- $Id$ -->
 
+<html lang="ru">
+
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
@@ -27,8 +29,8 @@ body { margin: 1em; /*font-size: 16px;*/ }
 #ex1 {
 	background: #fff;
 	border: 1px dashed #ccc;
-	width: 660px;
-	height: 200px;
+	width: 690px;
+	height: 300px;
 	overflow: auto;
 	padding: 6px;
 	margin-bottom: 1em;
@@ -37,8 +39,8 @@ body { margin: 1em; /*font-size: 16px;*/ }
 }
 
 .toolbar {
-	background: #eee;
-	width: 672px;
+	background: #eee url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAYAAADtlXTHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAfSURBVAiZY/j37/t/pv///zNACAYGBgasXJwStFAHAIlSPPR0066nAAAAAElFTkSuQmCC) 0 0 repeat-x;
+	width: 702px;
 	visibility: hidden;
 	border: 1px solid #ddd;
 }
@@ -64,7 +66,7 @@ body { margin: 1em; /*font-size: 16px;*/ }
 	min-width: 0;
 }
 
-.toolbar .delimiter {
+.toolbar .separator {
 	width: 1px;
 	height: 1.8em;
 	border-left: 1px solid #ddd;
@@ -75,18 +77,16 @@ body { margin: 1em; /*font-size: 16px;*/ }
 }
 
 .foreground-colorpicker, .background-colorpicker {
-	width: 2em;
+	text-align: center;
+	width: 2.2em;
 	line-height: 2.2em;
-}
-
-.background-colorpicker {
-	width: 3.6em;
 }
 
 .foreground-colorpicker > .letter {
 	font-weight: bold;
-	border-bottom: 2px solid red;
+	color: red;
 	margin-right: 0.4em;
+	text-shadow: none;
 }
 
 .background-colorpicker > .letter {
@@ -96,6 +96,7 @@ body { margin: 1em; /*font-size: 16px;*/ }
 	padding: 4px;
 	margin-left: -4px;
 	margin-right: 0.4em;
+	text-shadow: none;
 	position: relative;
 	top: 0.2em;
 }
@@ -105,7 +106,7 @@ body { margin: 1em; /*font-size: 16px;*/ }
 	z-index: 5;
 	box-shadow: 0 3px 6px rgba(0,0,0,.1);
 	border-top-width: 0;
-	background: #fafafa;
+	background: #fff;
 	margin-top: 0.4em;
 	margin-left: -0.8em;
 }
@@ -116,7 +117,7 @@ body { margin: 1em; /*font-size: 16px;*/ }
 }
 
 .heading {
-	width: 7em;
+	width: 4em;
 	line-height: 2.2em;
 }
 
@@ -132,10 +133,11 @@ body { margin: 1em; /*font-size: 16px;*/ }
 .heading .popup {
 	width: 200px;
 	border: 1px solid #ddd;
+	background: #fff;
 	position: relative;
 	z-index: 5;
 	margin-top: 0.4em;
-	margin-left: -0.8em;
+	margin-left: -0.75em;
 	visibility: hidden;
 	box-shadow: 0 3px 6px rgba(0,0,0,.1);
 	border-top-width: 0;
@@ -143,10 +145,11 @@ body { margin: 1em; /*font-size: 16px;*/ }
 
 .heading .popup .btn {
 	display: block;
-	background: #fafafa;
 	float: none;
 	text-align: left;
 	padding-left: 0.75em;
+	height: 2.4em;
+	line-height: 2.4em;
 }
 
 .heading .popup .btn:hover {
@@ -169,17 +172,30 @@ button img {
 .h5 { text-shadow: none; color: #999; }
 .h6 { text-shadow: none; color: #ccc; }
 
+.blockquote { font-style: italic; }
+
 </style>
+
+<!--[if lt IE 9]>
+<style>
+
+.toolbar button { padding: 0; }
+
+
+</style>
+<![endif]-->
 
 <script>
 
 $(document).ready(function () {
 
+	var $editor = $('#ex1')
+
 	$('.toolbar .btn').each(function () {
 		var $btn = $(this)
 		var cmd = $btn.data('cmd')
 		$btn.addClass(cmd).click(function () {
-			var ctx = $('#ex1').ajp$editableContext()
+			var ctx = $editor.ajp$editableContext()
 			if ($btn.data('restore'))
 				ctx.restoreSelection()
 			ctx.execCommand(cmd)
@@ -199,11 +215,18 @@ $(document).ready(function () {
 		})
 	})
 
+	$('.toolbar .heading, .toolbar .colorpicker').mousedown(function () {
+		var ctx = $editor.ajp$editableContext()
+		ctx.saveSelection()
+	})
+
+	$('.toolbar .button').mouseup(function () {
+		var ctx = $editor.ajp$editableContext()
+		$editor.focus()
+		ctx.restoreSelection()
+	})
+
 	$('.toolbar .heading').click(function () {
-
-			var ctx = $('#ex1').ajp$editableContext()
-			ctx.saveSelection()
-
 		var $popup = $(this).find('.popup')
 		var vis = ($popup.data('toolbar-btn-heading-visible') == 'yes' ? 'hidden' : 'visible')
 		$popup.css({ visibility: vis })
@@ -234,17 +257,32 @@ $(document).ready(function () {
 	})
 
 	$('.make-editable').click()
+
+
 })
 
 </script>
+
+<!--[if lt IE 9]>
+<script>
+
+$(document).ready(function () {
+
+	$('.disclosure-arrow').html('&darr;')
+})
+
+</script>
+<![endif]-->
+
 
 </head>
 
 <body>
 
 	<div class="toolbar">
-		<button class="heading">
-			<span class="label">Heading</span><span>&#x25BE;</span>
+
+		<div class="heading button">
+			<span class="label">Style</span><span class="disclosure-arrow">&#x25BE;</span>
 			<div class="popup">
 				<div class="btn" data-cmd="h1" data-restore="true">Header 1</div>
 				<div class="btn" data-cmd="h2" data-restore="true">Header 2</div>
@@ -252,29 +290,50 @@ $(document).ready(function () {
 				<div class="btn" data-cmd="h4" data-restore="true">Header 4</div>
 				<div class="btn" data-cmd="h5" data-restore="true">Header 5</div>
 				<div class="btn" data-cmd="h6" data-restore="true">Header 6</div>
+				<div class="btn" data-cmd="code" data-restore="true"><code>Code</code></div>
+				<div class="btn" data-cmd="small" data-restore="true"><small>Small</small></div>
+				<div class="btn" data-cmd="blockquote" data-restore="true"><small>Blockquote</small></div>
 			</div>
-		</button>
-		<div class="delimiter"></div>
+		</div>
+		<div class="separator"></div>
 		<button class="btn" data-cmd="bold">B</button>
 		<button class="btn" data-cmd="italic">I</button>
 		<button class="btn" data-cmd="underline">U</button>
 		<button class="btn" data-cmd="strike">S</button>
-		<div class="delimiter"></div>
-		<button class="foreground-colorpicker"><span class="letter">A</span><span>&#x25BE;</span></button>
-		<button class="background-colorpicker"><span class="letter">B</span><span>&#x25BE;</span></button>
-		<div class="delimiter"></div>
+		<div class="separator"></div>
+
+		<div class="foreground-colorpicker button"><span class="letter">A</span><span class="disclosure-arrow">&#x25BE;</span></div>
+		<div class="background-colorpicker button"><span class="letter">A</span><span class="disclosure-arrow">&#x25BE;</span></div>
+		<div class="separator"></div>
+		<button class="btn" data-cmd="sup">X<sup>2</sup></button>
+		<button class="btn" data-cmd="sub">X<sub>2</sub></button>
+		<div class="separator"></div>
+		<button class="btn" data-cmd="ul"><img src="ul.png"/></button>
+		<button class="btn" data-cmd="ol"><img src="ol.png"/></button>
+		<div class="separator"></div>
+		<button class="btn" data-cmd="left">L</button>
+		<button class="btn" data-cmd="center">C</button>
+		<button class="btn" data-cmd="right">R</button>
+		<button class="btn" data-cmd="justify">J</button>
+		<div class="separator"></div>
+		<button class="btn" data-cmd="image"><img src="image.png"/></button>
+		<div class="separator"></div>
 		<button class="btn" data-cmd="anchor"><img src="link.png"/></button>
-		<div class="delimiter"></div>
+		<div class="separator"></div>
 		<button class="btn" data-cmd="text"><img src="clear.png"/></button>
 
 		<div class="clear"></div>
 	</div>
 
 	<div id="ex1">
-		This is editable area. You can use Ctrl+b, Ctrl+i, Ctrl+u, Ctrl+s, Ctrl+r, Ctrl+l, Ctrl+[1-6] shortcuts.
+		<p>Lorem ipsum dolor sit amet, modus integre an vim, at vitae audiam has. Mea et posse tibique interpretaris. Summo audiam te quo. Dicta nemore quaeque duo cu, vis iisque tincidunt eu. An vel quis accusata ocurreret.</p>
+		<p>Tollit expetenda pertinacia pro ea. Ea gubergren constituto est, ex nonumy omnesque suavitate his. Copiosae suavitate has ut, et porro fuisset cum. Noster scaevola quaestio ne ius. No vix verterem tincidunt suscipiantur, at denique appareat pri.</p>
+		<p>This is editable area. You can use Ctrl+b, Ctrl+i, Ctrl+u, Ctrl+s, Ctrl+r, Ctrl+l, Ctrl+[1-6] shortcuts.</p>
 	</div>
 
 	<button class="make-editable">Make editable</button>
 	<button class="make-uneditable">Make uneditable</button>
 
 </body>
+
+</html>
