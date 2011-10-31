@@ -1210,7 +1210,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.editable = { version: '0.16pa', required: ['bindkeys'], editors: { } }
+	$.ajp.editable = { version: '0.17pa', required: ['bindkeys'], editors: { } }
 
 	$.fn.extend({
 
@@ -1245,7 +1245,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 				hotkeys: {
 
 					'Ctrl+b': 'bold',
-					'Ctrl+s': 'strike',
+					'Ctrl+s': 'strikethrough',
 					'Ctrl+i': 'italic',
 					'Ctrl+u': 'underline',
 
@@ -1534,7 +1534,7 @@ console.log('AFTER', html)
 						return helpers.wrap(evt, ctx, '<u>', '</u>')
 					},
 
-					strike: function (evt, ctx) {
+					strikethrough: function (evt, ctx) {
 						return helpers.wrap(evt, ctx, '<span style="text-decoration: line-through;">', '</span>')
 					},
 
@@ -1595,7 +1595,7 @@ console.log('AFTER', html)
 						var text = html.replace(/\<[^\>]*\>/g, '')
 						api.replaceSelection('<span>' + text + '</span>')
 
-						helpers.gc()
+						helpers.gc(api)
 
 						return false;
 					},
