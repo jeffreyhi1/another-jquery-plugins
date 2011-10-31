@@ -24,9 +24,9 @@
 
 <style>
 
-body { margin: 1em; /*font-size: 16px;*/ }
+body { margin: 1em; font-size: 14px; }
 
-#ex1 {
+.editor {
 	background: #fff;
 	border: 1px dashed #ccc;
 	width: 690px;
@@ -41,8 +41,14 @@ body { margin: 1em; /*font-size: 16px;*/ }
 .toolbar {
 	background: #eee url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAYAAADtlXTHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAfSURBVAiZY/j37/t/pv///zNACAYGBgasXJwStFAHAIlSPPR0066nAAAAAElFTkSuQmCC) 0 0 repeat-x;
 	width: 702px;
-	visibility: hidden;
+	display: none;
 	border: 1px solid #ddd;
+}
+
+.toolbar-air {
+	z-index: 15;
+	width: 364px;
+	box-shadow: 0 3px 16px rgba(0,0,0,.333);
 }
 
 .toolbar button, .toolbar .button {
@@ -57,10 +63,21 @@ body { margin: 1em; /*font-size: 16px;*/ }
 	background: #ccc;
 }
 
+.toolbar .clear { clear: both; }
+
 .toolbar .cmd-bold { font-weight: bold; }
 .toolbar .cmd-italic { font-style: italic; }
 .toolbar .cmd-underline { text-decoration: underline; }
-.toolbar .cmd-strike { text-decoration: line-through; }
+.toolbar .cmd-strikethrough { text-decoration: line-through; }
+
+.toolbar > .cmd-bold > span,
+.toolbar > .cmd-italic > span,
+.toolbar > .cmd-underline > span,
+.toolbar > .cmd-strikethrough > span {
+	position: relative;
+	top: 0.4em;
+	margin: 0 0.4em;
+}
 
 .toolbar .button {
 	padding: 0.07em 0.6em;
@@ -112,26 +129,30 @@ body { margin: 1em; /*font-size: 16px;*/ }
 	margin-left: -0.8em;
 }
 
+.toolbar-air .ajp-colorpicker {
+	top: -183px;
+}
+
 .foreground-colorpicker span, .background-colorpicker span {
 	position: relative;
 	top: 0.2em;
 }
 
-.toolbar .styling {
+.toolbar .select {
 	width: 4em;
 	line-height: 2.2em;
 }
 
-.toolbar .styling span {
+.toolbar .select span {
 	position: relative;
 	top: 0.2em;
 }
 
-.toolbar .styling .label {
+.toolbar .select .label {
 	margin-right: 0.4em;
 }
 
-.toolbar .styling .popup {
+.toolbar .select .popup {
 	width: 200px;
 	border: 1px solid #ddd;
 	background: #fff;
@@ -144,7 +165,7 @@ body { margin: 1em; /*font-size: 16px;*/ }
 	border-top-width: 0;
 }
 
-.toolbar .styling .popup .btn {
+.toolbar .select .popup > div {
 	display: block;
 	float: none;
 	text-align: left;
@@ -153,7 +174,7 @@ body { margin: 1em; /*font-size: 16px;*/ }
 	line-height: 2.4em;
 }
 
-.toolbar .styling .popup .btn:hover {
+.toolbar .select .popup > div:hover {
 	background: #eee;
 }
 
@@ -162,8 +183,8 @@ body { margin: 1em; /*font-size: 16px;*/ }
 	padding: 0;
 	border: 0;
 	outline: 0;
-	position: relative;
-	top: 0.2em;
+
+	margin-top: 8px;
 }
 
 .toolbar .cmd-h1 { font-weight: bold; color: #000; }
@@ -174,81 +195,227 @@ body { margin: 1em; /*font-size: 16px;*/ }
 .toolbar .cmd-h6 { text-shadow: none; color: #ccc; }
 .toolbar .cmd-blockquote { font-style: italic; }
 
+
+.toolbar .heading {
+	width: 2em;
+}
+
+.toolbar .styling-1 {
+	width: 4em;
+}
+
+.toolbar .styling-2 {
+	width: 2em;
+}
+
+
+
+.toolbar .button > img {
+	margin-top: 0.75em;
+}
+
+
+
+
+.toolbar .subtoolbar {
+	width: 4em;
+	line-height: normal;
+}
+
+.toolbar .subtoolbar .popup {
+	width: 12.4em;
+	height: 3em;
+	border: 1px solid #ddd;
+	background: #fff;
+	position: relative;
+	z-index: 5;
+	margin-top: 0.4em;
+	margin-left: -0.75em;
+	visibility: hidden;
+	box-shadow: 0 3px 6px rgba(0,0,0,.1);
+	border-top-width: 0;
+}
+
+.toolbar .subtoolbar .popup > div {
+	float: left;
+	text-align: center;
+}
+
+.toolbar .subtoolbar .popup .separator {
+	margin-top: 0.6em;
+}
+
+.toolbar .subtoolbar {
+	width: 2.2em;
+}
+
+.toolbar .subtoolbar > img {
+	margin-right: 0.4em;
+}
+
+.toolbar .subtoolbar .disclosure-arrow {
+	margin: 0;
+	position: relative;
+	top: -6px;
+}
+
+.toolbar .subtoolbar .popup > div > img {
+	margin: 0.8em;
+}
+
+
 </style>
+
+
+<script>
+
+/*
+	Copyright (c) 2011 Andrey O. Zbitnev (azbitnev@gmail.com)
+	Licensed under the MIT License (LICENSE.txt).
+
+	$Id$
+*/
+
+(function ($) {
+
+	if (!$.ajp) $.ajp = { }
+	$.ajp.wysiwyg = { version: '0.1pa', required: ['editable'], current: null }
+
+	$.fn.extend({
+
+		ajp$wysiwyg: function (options) {
+
+			var defaults = {
+				toolbar: function ($editor) {
+					return $editor.prev('.toolbar')
+				},
+				air: false
+			}
+
+			var opts = $.extend(defaults, options);
+
+			return this.each(function() {
+
+				var $editor = $(this)
+				$editor.ajp$editable()
+				var ctx = $editor.ajp$editableContext()
+				var $toolbar = opts.toolbar($editor)
+
+				$toolbar.find('.button, button, .popup > div').each(function () {
+					var $command = $(this)
+					var cmd = $command.data('cmd')
+					if (cmd) {
+						$command.addClass('cmd-' + cmd).click(function () {
+							ctx.execCommand(cmd)
+						})
+					}
+				})
+
+				$(document).find('body:eq(0)').keydown(function (evt) {
+					if (evt.keyCode == 27)
+						$('.popup').css({ visibility: 'hidden' })
+					if (opts.air)
+						$toolbar.css({ visibility: 'hidden' })
+				})
+
+				$(document).find('body:eq(0)').mouseup(function (evt) {
+					if (evt.button == ($.browser.msie ? 1 : 0)) $('.popup').each(function () {
+						var $c = $(this)
+						var vis = $c.css('visibility')
+						$c.data('ajp-wysiwyg-toolbar-popup-visible', (vis == 'hidden' ? 'no' : 'yes'))
+						$c.css({ visibility: 'hidden' })
+					})
+				})
+
+				$toolbar.find('.button').mousedown(function () {
+					ctx.saveSelection()
+				})
+
+				$toolbar.find('.button').mouseup(function () {
+					$editor.focus()
+					ctx.restoreSelection()
+				})
+
+				$toolbar.find('.popup-open').click(function () {
+					var $popup = $(this).find('.popup')
+					var vis = ($popup.data('ajp-wysiwyg-toolbar-popup-visible') == 'yes' ? 'hidden' : 'visible')
+					$popup.css({ visibility: vis })
+				})
+
+				$toolbar.find('.foreground-colorpicker').ajp$colorpicker({
+					onchange: function (val) {
+						ctx.replaceSelection('<span style="color: ' + val + '">' + ctx.getSelectedHtml() + '</span>')
+					}
+				})
+
+				$toolbar.find('.background-colorpicker').ajp$colorpicker({
+					onchange: function (val) {
+						ctx.replaceSelection('<span style="background-color: ' + val + '">' + ctx.getSelectedHtml() + '</span>')
+					}
+				})
+
+				$toolbar.css({ display: 'block' })
+
+				if (opts.air) {
+
+					$toolbar.addClass('toolbar-air').css({
+						visibility: 'hidden',
+						position: 'absolute',
+						left: '0px',
+						top: '0px'
+					})
+
+					$editor.mouseup(function (evt) {
+						var sel = ctx.getSelectedHtml()
+						if (sel.length > 0) {
+							$toolbar.css({
+								visibility: 'visible',
+								left: '' + (evt.clientX + $(document).scrollLeft()) + 'px',
+								top: '' + (evt.clientY + $(document).scrollTop()) + 'px'
+							})
+						} else {
+							$toolbar.css({ visibility: 'hidden' })
+						}
+					})
+				}
+			})
+		}
+	})
+
+})(jQuery);
+
+
+
+
+
+</script>
+
+
 
 <script>
 
 $(document).ready(function () {
 
-	var $editor = $('#ex1')
-
-	$('.toolbar .btn').each(function () {
-		var $btn = $(this)
-		var cmd = $btn.data('cmd')
-		$btn.addClass('cmd-' + cmd).click(function () {
-			var ctx = $editor.ajp$editableContext()
-			if ($btn.data('restore'))
-				ctx.restoreSelection()
-			ctx.execCommand(cmd)
-		})
-	})
-
-	$(document).find('body:eq(0)').keydown(function (evt) {
-		if (evt.keyCode == 27)
-			$('.popup').css({ visibility: 'hidden' })
-	})
-	$(document).find('body:eq(0)').mouseup(function (evt) {
-		if (evt.button == ($.browser.msie ? 1 : 0)) $('.popup').each(function () {
-			var $c = $(this)
-			var vis = $c.css('visibility')
-			$c.data('toolbar-btn-styling-visible', (vis == 'hidden' ? 'no' : 'yes'))
-			$c.css({ visibility: 'hidden' })
-		})
-	})
-
-	$('.toolbar .styling, .toolbar .colorpicker').mousedown(function () {
-		var ctx = $editor.ajp$editableContext()
-		ctx.saveSelection()
-	})
-
-	$('.toolbar .button').mouseup(function () {
-		var ctx = $editor.ajp$editableContext()
-		$editor.focus()
-		ctx.restoreSelection()
-	})
-
-	$('.toolbar .styling').click(function () {
-		var $popup = $(this).find('.popup')
-		var vis = ($popup.data('toolbar-btn-styling-visible') == 'yes' ? 'hidden' : 'visible')
-		$popup.css({ visibility: vis })
-	})
-
-	$('.toolbar .foreground-colorpicker').ajp$colorpicker({
-		onchange: function (val) {
-			var ctx = $('#ex1').ajp$editableContext()
-			ctx.replaceSelection('<span style="color: ' + val + '">' + ctx.getSelectedHtml() + '</span>')
+	$('#ex1').ajp$wysiwyg({
+		toolbar: function ($e) {
+			return $('.tb-standart')
 		}
 	})
 
-	$('.toolbar .background-colorpicker').ajp$colorpicker({
-		onchange: function (val) {
-			var ctx = $('#ex1').ajp$editableContext()
-			ctx.replaceSelection('<span style="background-color: ' + val + '">' + ctx.getSelectedHtml() + '</span>')
+	$('#ex2').ajp$wysiwyg({
+		toolbar: function ($e) {
+			return $('.tb-mini')
 		}
 	})
 
-	$('.make-editable').click(function () {
-		$('#ex1').css({ 'border-top-color': 'transparent' }).ajp$editable()
-		$('.toolbar').css({ visibility: 'visible', opacity: 0 }).animate({ opacity: 1 }, 'fast', 'swing')
+	$('#ex3').ajp$wysiwyg({
+		toolbar: function ($e) {
+			var tb = $('.tb-mini').clone()
+			$('#ex3').before(tb)
+			return tb
+		},
+		air: true
 	})
-
-	$('.make-uneditable').click(function () {
-		$('#ex1').css({ 'border-top-color': '#ddd' }).ajp$uneditable()
-		$('.toolbar').animate({ opacity: 0 }, 'fast', 'swing', function () { $(this).css({ visibility: 'visible', opacity: 0 }) })
-	})
-
-	$('.make-editable').click()
-
 
 })
 
@@ -258,60 +425,134 @@ $(document).ready(function () {
 
 <body>
 
-	<div class="toolbar">
 
-		<div class="styling button">
+	<h1>Basic usage</h1>
+
+
+	<div class="toolbar tb-standart">
+		<div class="select styling-1 popup-open button">
 			<span class="label">Style</span><img src="disclosure-arrow.png"/>
 			<div class="popup">
-				<div class="btn" data-cmd="h1" data-restore="true">Header 1</div>
-				<div class="btn" data-cmd="h2" data-restore="true">Header 2</div>
-				<div class="btn" data-cmd="h3" data-restore="true">Header 3</div>
-				<div class="btn" data-cmd="h4" data-restore="true">Header 4</div>
-				<div class="btn" data-cmd="h5" data-restore="true">Header 5</div>
-				<div class="btn" data-cmd="h6" data-restore="true">Header 6</div>
-				<div class="btn" data-cmd="code" data-restore="true"><code>Code</code></div>
-				<div class="btn" data-cmd="small" data-restore="true"><small>Small</small></div>
-				<div class="btn" data-cmd="blockquote" data-restore="true"><small>Blockquote</small></div>
+				<div data-cmd="h1">Header 1</div>
+				<div data-cmd="h2">Header 2</div>
+				<div data-cmd="h3">Header 3</div>
+				<div data-cmd="h4">Header 4</div>
+				<div data-cmd="h5">Header 5</div>
+				<div data-cmd="h6">Header 6</div>
+				<div data-cmd="code"><code>Code</code></div>
+				<div data-cmd="small"><small>Small</small></div>
+				<div data-cmd="blockquote"><small>Blockquote</small></div>
 			</div>
 		</div>
 		<div class="separator"></div>
-		<button class="btn" data-cmd="bold">B</button>
-		<button class="btn" data-cmd="italic">I</button>
-		<button class="btn" data-cmd="underline">U</button>
-		<button class="btn" data-cmd="strike">S</button>
+		<div class="button" data-cmd="bold"><span>B</span></div>
+		<div class="button" data-cmd="italic"><span>I</span></div>
+		<div class="button" data-cmd="underline"><span>U</span></div>
+		<div class="button" data-cmd="strikethrough"><span>S</span></div>
 		<div class="separator"></div>
 		<div class="foreground-colorpicker button"><span class="letter">A</span><img src="disclosure-arrow.png"/></div>
 		<div class="background-colorpicker button"><span class="letter">A</span><img src="disclosure-arrow.png"/></div>
 		<div class="separator"></div>
-		<button class="btn" data-cmd="sup">X<sup>2</sup></button>
-		<button class="btn" data-cmd="sub">X<sub>2</sub></button>
+		<div class="button" data-cmd="sup">X<sup>2</sup></div>
+		<div class="button" data-cmd="sub">X<sub>2</sub></div>
 		<div class="separator"></div>
-		<button class="btn" data-cmd="ul"><img src="ul.png"/></button>
-		<button class="btn" data-cmd="ol"><img src="ol.png"/></button>
+		<div class="button" data-cmd="ul"><img src="ul.png"/></div>
+		<div class="button" data-cmd="ol"><img src="ol.png"/></div>
 		<div class="separator"></div>
-		<button class="btn" data-cmd="left"><img src="left.png"/></button>
-		<button class="btn" data-cmd="center"><img src="center.png"/></button>
-		<button class="btn" data-cmd="right"><img src="right.png"/></button>
-		<button class="btn" data-cmd="justify"><img src="justify.png"/></button>
+		<div class="button" data-cmd="left"><img src="left.png"/></div>
+		<div class="button" data-cmd="center"><img src="center.png"/></div>
+		<div class="button" data-cmd="right"><img src="right.png"/></div>
+		<div class="button" data-cmd="justify"><img src="justify.png"/></div>
 		<div class="separator"></div>
-		<button class="btn" data-cmd="image"><img src="picture.png"/></button>
+		<div class="button" data-cmd="image"><img src="picture.png"/></div>
 		<div class="separator"></div>
-		<button class="btn" data-cmd="anchor"><img src="link.png"/></button>
+		<div class="button" data-cmd="anchor"><img src="link.png"/></div>
 		<div class="separator"></div>
-		<button class="btn" data-cmd="text"><img src="clear.png"/></button>
-
+		<div class="button" data-cmd="text"><img src="clear.png"/></div>
 		<div class="clear"></div>
 	</div>
 
-	<div id="ex1">
+	<div id="ex1" class="editor">
 		<p>Lorem ipsum dolor sit amet, modus integre an vim, at vitae audiam has. Mea et posse tibique interpretaris. Summo audiam te quo. Dicta nemore quaeque duo cu, vis iisque tincidunt eu. An vel quis accusata ocurreret.</p>
 		<p>Tollit expetenda pertinacia pro ea. Ea gubergren constituto est, ex nonumy omnesque suavitate his. Copiosae suavitate has ut, et porro fuisset cum. Noster scaevola quaestio ne ius. No vix verterem tincidunt suscipiantur, at denique appareat pri.</p>
 		<p>This is editable area. You can use Ctrl+b, Ctrl+i, Ctrl+u, Ctrl+s, Ctrl+r, Ctrl+l, Ctrl+[1-6] shortcuts.</p>
 	</div>
 
-	<button class="make-editable">Make editable</button>
-	<button class="make-uneditable">Make uneditable</button>
+	<h1>Mini toolbar</h1>
+
+	<div class="toolbar tb-mini">
+		<div class="select heading popup-open button">
+			<span class="label">H</span><img class="disclosure-arrow" src="disclosure-arrow.png"/>
+			<div class="popup">
+				<div data-cmd="h1">Header 1</div>
+				<div data-cmd="h2">Header 2</div>
+				<div data-cmd="h3">Header 3</div>
+				<div data-cmd="h4">Header 4</div>
+				<div data-cmd="h5">Header 5</div>
+				<div data-cmd="h6">Header 6</div>
+			</div>
+		</div>
+		<div class="separator"></div>
+		<div class="select styling-2 popup-open button">
+			<span class="label">A</span><img class="disclosure-arrow" src="disclosure-arrow.png"/>
+			<div class="popup">
+				<div data-cmd="bold">Bold</div>
+				<div data-cmd="italic">Italic</div>
+				<div data-cmd="underline">Underline</div>
+				<div data-cmd="strikethrough">Strikethrough</div>
+				<div data-cmd="code"><code>Code</code></div>
+				<div data-cmd="small"><small>Small</small></div>
+				<div data-cmd="blockquote"><small>Blockquote</small></div>
+				<div data-cmd="sup">X<sup>2</sup></div>
+				<div data-cmd="sub">X<sub>2</sub></div>
+			</div>
+		</div>
+		<div class="separator"></div>
+		<div class="foreground-colorpicker button"><span class="letter">A</span><img class="disclosure-arrow" src="disclosure-arrow.png"/></div>
+		<div class="background-colorpicker button"><span class="letter">A</span><img class="disclosure-arrow" src="disclosure-arrow.png"/></div>
+		<div class="separator"></div>
+		<div class="subtoolbar popup-open button">
+			<img src="left.png"/><img class="disclosure-arrow" src="disclosure-arrow.png"/>
+			<div class="popup">
+				<div data-cmd="left"><img src="left.png"/></div>
+				<div class="separator"></div>
+				<div data-cmd="center"><img src="center.png"/></div>
+				<div class="separator"></div>
+				<div data-cmd="right"><img src="right.png"/></div>
+				<div class="separator"></div>
+				<div data-cmd="justify"><img src="justify.png"/></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="separator"></div>
+		<div class="button" data-cmd="ul"><img src="ul.png"/></div>
+		<div class="button" data-cmd="ol"><img src="ol.png"/></div>
+		<div class="separator"></div>
+		<div class="button" data-cmd="image"><img src="picture.png"/></div>
+		<div class="separator"></div>
+		<div class="button" data-cmd="anchor"><img src="link.png"/></div>
+		<div class="separator"></div>
+		<div class="button" data-cmd="text"><img src="clear.png"/></div>
+		<div class="clear"></div>
+	</div>
+
+	<div id="ex2" class="editor">
+		<p>Lorem ipsum dolor sit amet, modus integre an vim, at vitae audiam has. Mea et posse tibique interpretaris. Summo audiam te quo. Dicta nemore quaeque duo cu, vis iisque tincidunt eu. An vel quis accusata ocurreret.</p>
+		<p>Tollit expetenda pertinacia pro ea. Ea gubergren constituto est, ex nonumy omnesque suavitate his. Copiosae suavitate has ut, et porro fuisset cum. Noster scaevola quaestio ne ius. No vix verterem tincidunt suscipiantur, at denique appareat pri.</p>
+		<p>This is editable area. You can use Ctrl+b, Ctrl+i, Ctrl+u, Ctrl+s, Ctrl+r, Ctrl+l, Ctrl+[1-6] shortcuts.</p>
+	</div>
+
+
+	<h1>Air mode</h1>
+
+	<div id="ex3" class="editor">
+		<p>Lorem ipsum dolor sit amet, modus integre an vim, at vitae audiam has. Mea et posse tibique interpretaris. Summo audiam te quo. Dicta nemore quaeque duo cu, vis iisque tincidunt eu. An vel quis accusata ocurreret.</p>
+		<p>Tollit expetenda pertinacia pro ea. Ea gubergren constituto est, ex nonumy omnesque suavitate his. Copiosae suavitate has ut, et porro fuisset cum. Noster scaevola quaestio ne ius. No vix verterem tincidunt suscipiantur, at denique appareat pri.</p>
+		<p>This is editable area. You can use Ctrl+b, Ctrl+i, Ctrl+u, Ctrl+s, Ctrl+r, Ctrl+l, Ctrl+[1-6] shortcuts.</p>
+	</div>
+
 
 </body>
 
 </html>
+
