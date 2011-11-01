@@ -10,7 +10,7 @@
 	if (!$.ajp) $.ajp = { }
 
 	$.ajp.resizable = {
-		version: '0.7pa',
+		version: '0.8pa',
 		installed: false,
 		serial: 1,
 		current: undefined,
@@ -34,7 +34,8 @@
 			var defaults = {
 				proportional: false,
 				minWidth: 40,
-				minHeight: 40
+				minHeight: 40,
+				onchange: function (w, h, $el) { }
 			}
 
 			var options = $.extend(defaults, options);
@@ -65,7 +66,11 @@
 					cancelEvent(evt)
 					$.ajp.resizable.mouse.down = false;
 					$.ajp.resizable.current = undefined;
-					root.onselectstart = $.ajp.resizable.mouse.sel
+					try {
+						root.onselectstart = $.ajp.resizable.mouse.sel
+					} catch(ex) {
+						// msie: do nothing
+					}
 				}).mousemove(function (evt) {
 					cancelEvent(evt)
 					if ($.ajp.resizable.mouse.down) {
@@ -122,6 +127,8 @@
 						}).mouseout(function (evt) {
 							ctx.hide()
 						})
+
+						options.onchange(t.width(), t.height(), t)
 					},
 
 					disable: function () { this.enabled = false; this.hide() },
@@ -169,6 +176,8 @@
 								.width('' + newWidth + 'px')
 								.height('' + newHeight + 'px')
 						}
+
+						options.onchange(newWidth, newHeight, this.target)
 
 						this.show()
 					}
