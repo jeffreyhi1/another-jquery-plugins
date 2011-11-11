@@ -276,3 +276,82 @@ input.ajp-customcheckbox { display: none; }
 	z-index: 2;
 }
 
+/* $Id$ */
+
+/*
+	ajp-wysiwyg: common logic
+*/
+
+.ajp-wysiwyg-toolbar {
+	display: none;
+}
+
+.ajp-wysiwyg-toolbar-air {
+	z-index: 15;
+}
+
+.ajp-wysiwyg-toolbar .button {
+	float: left;
+}
+
+.ajp-wysiwyg-toolbar .disabled {
+	cursor: auto;
+}
+
+.ajp-wysiwyg-toolbar .clear { clear: both; }
+
+.ajp-wysiwyg-toolbar .separator {
+	float: left;
+}
+
+.ajp-wysiwyg-toolbar .ajp-colorpicker {
+	position: relative;
+	z-index: 5;
+}
+
+/*
+.ajp-wysiwyg-toolbar .select {
+	width: 4em;
+	line-height: 2.2em;
+}
+*/
+
+.ajp-wysiwyg-toolbar .select .popup {
+	position: relative;
+	z-index: 5;
+	visibility: hidden;
+}
+
+.ajp-wysiwyg-toolbar .select .popup > div {
+	display: block;
+	float: none;
+}
+
+.ajp-wysiwyg-toolbar .subtoolbar .popup {
+	position: relative;
+	z-index: 5;
+	visibility: hidden;
+}
+
+.ajp-wysiwyg-toolbar .subtoolbar .popup > div {
+	float: left;
+}
+
+.ajp-wysiwyg-toolbar .subtoolbar .disclosure-arrow {
+	position: relative;
+	/*top: -6px; /* TODO px to em */
+}
+
+.ajp-wysiwyg-toolbar .disclosure-arrow {
+	display: inline-block;
+}
+
+.ajp-wysiwyg-toolbar .img {
+	display: inline-block;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+}
+
+/*.ajp-wysiwyg-toolbar .button .img {
+	margin-top: 0.75em;
+}*/

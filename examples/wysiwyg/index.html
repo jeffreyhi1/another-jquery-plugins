@@ -44,553 +44,23 @@ body { margin: 1em; font-size: 14px; }
 	outline: 0;
 }
 
-.ajp-editable-codemode {
-	font-family: Courier New;
-}
-
 .resizable {
 	width: 720px;
 	height: 360px;
 }
 
-.toolbar {
-	background: #eee url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAYAAADtlXTHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAfSURBVAiZY/j37/t/pv///zNACAYGBgasXJwStFAHAIlSPPR0066nAAAAAElFTkSuQmCC) 0 0 repeat-x;
-	width: 702px;
-	display: none;
-	border: 1px solid #ddd;
-}
-
-.toolbar-air {
-	z-index: 15;
-	width: 29.6em;
-	box-shadow: 0 3px 16px rgba(0,0,0,.333);
-}
-
-/*.toolbar button,*/ .toolbar .button {
-	min-width: 3em;
-	border: 0;
-	float: left;
-	margin: 0;
-	padding: 0;
-}
-
-/*
-.toolbar button:active {
-	background: #ccc;
-}
-*/
-
-.toolbar .disabled {
-	cursor: auto;
-	opacity: 0.3;
-	filter: alpha(opacity=30);
-}
-
-.toolbar .clear { clear: both; }
-
-.toolbar .cmd-bold { font-weight: bold; }
-.toolbar .cmd-italic { font-style: italic; }
-.toolbar .cmd-underline { text-decoration: underline; }
-.toolbar .cmd-strikethrough { text-decoration: line-through; }
-
-.toolbar > .cmd-bold > span,
-.toolbar > .cmd-italic > span,
-.toolbar > .cmd-underline > span,
-.toolbar > .cmd-strikethrough > span,
-.toolbar > .cmd-codemode > span {
-	position: relative;
-	top: 0.4em;
-	margin: 0 0.4em;
-}
-
-.toolbar .button {
-	padding: 0.07em 0.6em;
-	min-width: 0;
-}
-
-.toolbar .separator {
-	width: 1px;
-	height: 1.8em;
-	border-left: 1px solid #ddd;
-	padding: 0;
-	margin: 0;
-	margin-top: 0.2em;
-	float: left;
-}
-
-.foreground-colorpicker, .background-colorpicker {
-	text-align: center;
-	width: 2.2em;
-	line-height: 2.2em;
-}
-
-.foreground-colorpicker > .letter {
-	font-weight: bold;
-	color: red;
-	margin-right: 0.4em;
-	text-shadow: none;
-}
-
-.background-colorpicker > .letter {
-	background-color: red;
-	color: white;
-	font-weight: bold;
-	padding: 4px;
-	margin-left: -4px;
-	margin-right: 0.4em;
-	text-shadow: none;
-	position: relative;
-	top: 0.2em;
-}
-
-.ajp-colorpicker {
-	position: relative;
-	z-index: 5;
-	box-shadow: 0 3px 6px rgba(0,0,0,.1);
-	border-top-width: 0;
-	background: #fff;
-	margin-top: 0.4em;
-	margin-left: -0.8em;
-}
-
-.foreground-colorpicker span, .background-colorpicker span {
-	position: relative;
-	top: 0.2em;
-}
-
-.toolbar .select {
-	width: 4em;
-	line-height: 2.2em;
-}
-
-.toolbar .select span {
-	position: relative;
-	top: 0.2em;
-}
-
-.toolbar .select .label {
-	margin-right: 0.4em;
-}
-
-.toolbar .select .popup {
-	width: 200px;
-	border: 1px solid #ddd;
-	background: #fff;
-	position: relative;
-	z-index: 5;
-	margin-top: 0.4em;
-	margin-left: -0.75em;
-	visibility: hidden;
-	box-shadow: 0 3px 6px rgba(0,0,0,.1);
-	border-top-width: 0;
-}
-
-.toolbar .select .popup > div {
-	display: block;
-	float: none;
-	text-align: left;
-	padding-left: 0.75em;
-	height: 2.4em;
-	line-height: 2.4em;
-}
-
-.toolbar .select .popup > div:hover {
-	background: #eee;
-}
-
-/*
-.toolbar button img {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-
-	margin-top: 8px;
-}
-*/
-
-.toolbar .cmd-h1 { font-weight: bold; color: #000; }
-.toolbar .cmd-h2 { font-weight: bold; color: #333;  }
-.toolbar .cmd-h3 { font-weight: bold; color: #666; }
-.toolbar .cmd-h4 { font-weight: bold; text-shadow: none; color: #999; }
-.toolbar .cmd-h5 { text-shadow: none; color: #999; }
-.toolbar .cmd-h6 { text-shadow: none; color: #aaa; }
-.toolbar .cmd-blockquote { font-style: italic; }
-
-
-.toolbar .heading {
-	width: 2em;
-}
-
-.toolbar .styling-1 {
-	width: 4em;
-}
-
-.toolbar .styling-2 {
-	width: 2em;
-}
-
-
-
-.toolbar .button > img {
-	margin-top: 0.75em;
-}
-
-
-
-
-.toolbar .subtoolbar {
-	width: 4em;
-	line-height: normal;
-}
-
-.toolbar .subtoolbar .popup {
-	width: 12.4em;
-	height: 3em;
-	border: 1px solid #ddd;
-	background: #fff;
-	position: relative;
-	z-index: 5;
-	margin-top: 0.4em;
-	margin-left: -0.75em;
-	visibility: hidden;
-	box-shadow: 0 3px 6px rgba(0,0,0,.1);
-	border-top-width: 0;
-}
-
-.toolbar .subtoolbar .popup > div {
-	float: left;
-	text-align: center;
-}
-
-.toolbar .subtoolbar .popup .separator {
-	margin-top: 0.6em;
-}
-
-.toolbar .subtoolbar {
-	width: 2.2em;
-}
-
-.toolbar .subtoolbar > .img {
-	margin-right: 0.4em;
-}
-
-.toolbar .subtoolbar .disclosure-arrow {
-	margin: 0;
-	position: relative;
-	top: -6px;
-}
-
-.toolbar .subtoolbar .popup > div > .img {
-	margin: 0.8em;
-}
-
-.toolbar .disclosure-arrow {
-	width: 4px;
-	height: 2px;
-	background: url(disclosure-arrow.png) 0 0 no-repeat;
-	display: inline-block;
-	
-}
-
-.toolbar .img {
-	width: 16px;
-	height: 16px;
-	display: inline-block;
-	background-position: 0 0;
-	background-repeat: no-repeat;
-}
-
-.toolbar .button .img {
-	margin-top: 0.75em;
-}
-
-.toolbar .cmd-ul > .img { background-image: url(ul.png); }
-.toolbar .cmd-ol > .img { background-image: url(ol.png); }
-
-.toolbar .cmd-left > .img { background-image: url(left.png); }
-.toolbar .cmd-center > .img { background-image: url(center.png); }
-.toolbar .cmd-right > .img { background-image: url(right.png); }
-.toolbar .cmd-justify > .img { background-image: url(justify.png); }
-
-.toolbar .cmd-image > .img { background-image: url(picture.png); }
-.toolbar .cmd-anchor > .img { background-image: url(link.png); }
-.toolbar .cmd-text > .img { background-image: url(clear.png); }
-
-.toolbar .align .img { background-image: url(left.png); }
-
-
-
-
 .ajp-resizable-active { outline: 0; }
 
+.ajp-wysiwyg-toolbar {
+	width: 702px;
+}
+
+.ajp-wysiwyg-toolbar-air {
+	width: 29.6em;
+}
+
+
 </style>
-
-
-<script>
-
-/*
-	Copyright (c) 2011 Andrey O. Zbitnev (azbitnev@gmail.com)
-	Licensed under the MIT License (LICENSE.txt).
-
-	$Id$
-*/
-
-(function ($) {
-
-	if (!$.ajp) $.ajp = { }
-	$.ajp.wysiwyg = { version: '0.2pa', required: ['editable'], current: null, installed: false }
-
-	$.fn.extend({
-
-		ajp$wysiwyg: function (options) {
-
-			var defaults = {
-				toolbar: 'basic',
-				air: false
-			}
-
-			var opts = $.extend(defaults, options);
-
-			return this.each(function() {
-
-				var $editor = $(this)
-				var $toolbar
-
-				if (typeof opts.toolbar == 'string') {
-					var html = ''
-					if (opts.toolbar == 'basic') {
-						html = ''
-						+ '<div class="toolbar tb-basic">'
-						+ '	<div class="select styling-1 popup-open button">'
-						+ '		<span class="label">Style</span><div class="disclosure-arrow"></div>'
-						+ '		<div class="popup">'
-						+ '			<div data-cmd="h1">Header 1</div>'
-						+ '			<div data-cmd="h2">Header 2</div>'
-						+ '			<div data-cmd="h3">Header 3</div>'
-						+ '			<div data-cmd="h4">Header 4</div>'
-						+ '			<div data-cmd="h5">Header 5</div>'
-						+ '			<div data-cmd="h6">Header 6</div>'
-						+ '			<div data-cmd="code"><code>Code</code></div>'
-						+ '			<div data-cmd="small"><small>Small</small></div>'
-						+ '			<div data-cmd="blockquote"><small>Blockquote</small></div>'
-						+ '		</div>'
-						+ '	</div>'
-						+ '	<div class="separator"></div>'
-						+ '	<div class="button" data-cmd="bold"><span>B</span></div>'
-						+ '	<div class="button" data-cmd="italic"><span>I</span></div>'
-						+ '	<div class="button" data-cmd="underline"><span>U</span></div>'
-						+ '	<div class="button" data-cmd="strikethrough"><span>S</span></div>'
-						+ '	<div class="separator"></div>'
-						+ '	<div class="foreground-colorpicker button"><span class="letter">A</span><div class="disclosure-arrow"></div></div>'
-						+ '	<div class="background-colorpicker button"><span class="letter">A</span><div class="disclosure-arrow"></div></div>'
-						+ '	<div class="separator"></div>'
-						+ '	<div class="button" data-cmd="sup">X<sup>2</sup></div>'
-						+ '	<div class="button" data-cmd="sub">X<sub>2</sub></div>'
-						+ '	<div class="separator"></div>'
-						+ '	<div class="button image-button" data-cmd="ul"></div>'
-						+ '	<div class="button image-button" data-cmd="ol"></div>'
-						+ '	<div class="separator"></div>'
-						+ '	<div class="button image-button" data-cmd="left"></div>'
-						+ '	<div class="button image-button" data-cmd="center"></div>'
-						+ '	<div class="button image-button" data-cmd="right"></div>'
-						+ '	<div class="button image-button" data-cmd="justify"></div>'
-						+ '	<div class="separator"></div>'
-						+ '	<div class="button image-button" data-cmd="image"></div>'
-						+ '	<div class="separator"></div>'
-						+ '	<div class="button image-button" data-cmd="anchor"></div>'
-						+ '	<div class="separator"></div>'
-						+ '	<div class="button image-button" data-cmd="text"></div>'
-						+ '	<div class="separator"></div>'
-						+ '	<div class="button" data-cmd="codemode"><span>&lt;/&gt;</span></div>'
-						+ '	<div class="clear"></div>'
-						+ '</div>'
-					} else if (opts.toolbar == 'mini') {
-						html = ''
-						+ '<div class="toolbar tb-mini">'
-						+ '	<div class="select heading popup-open button">'
-						+ '		<span class="label">H</span><div class="disclosure-arrow"></div>'
-						+ '		<div class="popup">'
-						+ '			<div data-cmd="h1">Header 1</div>'
-						+ '			<div data-cmd="h2">Header 2</div>'
-						+ '			<div data-cmd="h3">Header 3</div>'
-						+ '			<div data-cmd="h4">Header 4</div>'
-						+ '			<div data-cmd="h5">Header 5</div>'
-						+ '			<div data-cmd="h6">Header 6</div>'
-						+ '		</div>'
-						+ '	</div>'
-						+ '	<div class="separator"></div>'
-						+ '	<div class="select styling-2 popup-open button">'
-						+ '		<span class="label">A</span><div class="disclosure-arrow"></div>'
-						+ '		<div class="popup">'
-						+ '			<div data-cmd="bold">Bold</div>'
-						+ '			<div data-cmd="italic">Italic</div>'
-						+ '			<div data-cmd="underline">Underline</div>'
-						+ '			<div data-cmd="strikethrough">Strikethrough</div>'
-						+ '			<div data-cmd="code"><code>Code</code></div>'
-						+ '			<div data-cmd="small"><small>Small</small></div>'
-						+ '			<div data-cmd="blockquote"><small>Blockquote</small></div>'
-						+ '			<div data-cmd="sup">X<sup>2</sup></div>'
-						+ '			<div data-cmd="sub">X<sub>2</sub></div>'
-						+ '		</div>'
-						+ '	</div>'
-						+ '	<div class="separator"></div>'
-						+ '	<div class="foreground-colorpicker button"><span class="letter">A</span><div class="disclosure-arrow"></div></div>'
-						+ '	<div class="background-colorpicker button"><span class="letter">A</span><div class="disclosure-arrow"></div></div>'
-						+ '	<div class="separator"></div>'
-						+ '	<div class="subtoolbar popup-open button align">'
-						+ '		<div class="img"></div><div class="disclosure-arrow"></div>'
-						+ '		<div class="popup">'
-						+ '			<div class="image-button" data-cmd="left"></div>'
-						+ '			<div class="separator"></div>'
-						+ '			<div class="image-button" data-cmd="center"></div>'
-						+ '			<div class="separator"></div>'
-						+ '			<div class="image-button" data-cmd="right"></div>'
-						+ '			<div class="separator"></div>'
-						+ '			<div class="image-button" data-cmd="justify"></div>'
-						+ '			<div class="clear"></div>'
-						+ '		</div>'
-						+ '	</div>'
-						+ '	<div class="separator"></div>'
-						+ '	<div class="button image-button" data-cmd="ul"></div>'
-						+ '	<div class="button image-button" data-cmd="ol"></div>'
-						+ '	<div class="separator"></div>'
-						+ '	<div class="button image-button" data-cmd="image"></div>'
-						+ '	<div class="separator"></div>'
-						+ '	<div class="button image-button" data-cmd="anchor"></div>'
-						+ '	<div class="separator"></div>'
-						+ '	<div class="button image-button" data-cmd="text"></div>'
-						+ '	<div class="separator"></div>'
-						+ '	<div class="button" data-cmd="codemode"><span>&lt;/&gt;</span></div>'
-						+ '	<div class="clear"></div>'
-						+ '</div>'
-					}
-
-					$toolbar = $(html)
-					$editor.before($toolbar)
-					
-				} else {
-
-					$toolbar = opts.toolbar($editor)
-				}
-
-				$toolbar.append('<input type="hidden" name="codemode" value="no"/>')
-
-				$editor.ajp$editable()
-				var ctx = $editor.ajp$editableContext()
-
-				$toolbar.find('.image-button').each(function () {
-					var $btn = $(this)
-					if ($btn.children('.img').length <= 0)
-						$btn.append('<div class="img"></div>')
-				})
-
-				$toolbar.find('.button, button, .popup > div').each(function () {
-					var $command = $(this)
-					var cmd = $command.data('cmd')
-					if (cmd) {
-						$command.addClass('cmd-' + cmd).click(function () {
-							if (!$command.hasClass('disabled')) {
-								if (cmd == 'codemode') {
-									var $flag = $toolbar.find('input[name=codemode]')
-									if ($flag.val() == 'no') {
-										$toolbar.children('.button').addClass('disabled')
-										$toolbar.find('.cmd-codemode').removeClass('disabled')
-										$flag.val('yes')
-									} else {
-										$toolbar.children('.button').removeClass('disabled')
-										$flag.val('no')
-									}
-								}
-								ctx.execCommand(cmd)
-							}
-						})
-					}
-				})
-
-				if (!$.ajp.wysiwyg.installed) {
-
-					$.ajp.wysiwyg.installed = true
-
-					$(document).find('body:eq(0)').keydown(function (evt) {
-						if (evt.keyCode == 27)
-							$('.popup').css({ visibility: 'hidden' })
-						if (opts.air)
-							$toolbar.css({ visibility: 'hidden' })
-					})
-
-					$(document).find('body:eq(0)').mouseup(function (evt) {
-						if (evt.button == ($.browser.msie ? 1 : 0)) $('.popup').each(function () {
-							var $c = $(this)
-							var vis = $c.css('visibility')
-							$c.data('ajp-wysiwyg-toolbar-popup-visible', (vis == 'hidden' ? 'no' : 'yes'))
-							$c.css({ visibility: 'hidden' })
-						})
-					})
-				}
-
-				$toolbar.find('.button').mousedown(function () {
-					ctx.saveSelection()
-				})
-
-				$toolbar.find('.button').mouseup(function () {
-					$editor.focus()
-					ctx.restoreSelection()
-				})
-
-				$toolbar.find('.popup-open').click(function () {
-					var $popup = $(this).find('.popup')
-					var vis = ($popup.data('ajp-wysiwyg-toolbar-popup-visible') == 'yes' ? 'hidden' : 'visible')
-					$popup.css({ visibility: vis })
-				})
-
-				$toolbar.find('.foreground-colorpicker').ajp$colorpicker({
-					onchange: function (val) {
-						ctx.replaceSelection('<span style="color: ' + val + '">' + ctx.getSelectedHtml() + '</span>')
-					}
-				})
-
-				$toolbar.find('.background-colorpicker').ajp$colorpicker({
-					onchange: function (val) {
-						ctx.replaceSelection('<span style="background-color: ' + val + '">' + ctx.getSelectedHtml() + '</span>')
-					}
-				})
-
-				$toolbar.css({ display: 'block' })
-
-				if (opts.air) {
-
-					$toolbar.addClass('toolbar-air').css({
-						visibility: 'hidden',
-						position: 'absolute',
-						left: '0px',
-						top: '0px'
-					})
-
-					$editor.mouseup(function (evt) {
-						var sel = ctx.getSelectedHtml()
-						if (sel.length > 0) {
-							$toolbar.css({
-								visibility: 'visible',
-								left: '' + (evt.clientX + $(document).scrollLeft()) + 'px',
-								top: '' + (evt.clientY + $(document).scrollTop()) + 'px'
-							})
-						} else {
-							$toolbar.css({ visibility: 'hidden' })
-						}
-					})
-				}
-			})
-		}
-	})
-
-})(jQuery);
-
-
-
-</script>
-
-
 
 <script>
 
@@ -613,7 +83,7 @@ $(document).ready(function () {
 	$('#ex5').ajp$wysiwyg()
 	$('.resizable').ajp$resizable({
 		onchange: function (w, h, $el) {
-			var $tb = $el.children('.toolbar')
+			var $tb = $el.children('.ajp-wysiwyg-toolbar')
 			var $ed = $el.children('.editor')
 			$ed.width(w - ($ed.outerWidth() - $ed.width()))
 			$ed.height(h - ($ed.outerHeight() - $ed.height()) - $tb.outerHeight())
@@ -652,6 +122,16 @@ $(document).ready(function () {
 		<p>This is editable area. You can use Ctrl+b, Ctrl+i, Ctrl+u, Ctrl+s, Ctrl+r, Ctrl+l, Ctrl+[1-6] shortcuts.</p>
 	</div>
 
+	<h1>Resizable editor</h1>
+
+	<div class="resizable">
+		<div id="ex5" class="editor">
+			<p>Lorem ipsum dolor sit amet, modus integre an vim, at vitae audiam has. Mea et posse tibique interpretaris. Summo audiam te quo. Dicta nemore quaeque duo cu, vis iisque tincidunt eu. An vel quis accusata ocurreret.</p>
+			<p>Tollit expetenda pertinacia pro ea. Ea gubergren constituto est, ex nonumy omnesque suavitate his. Copiosae suavitate has ut, et porro fuisset cum. Noster scaevola quaestio ne ius. No vix verterem tincidunt suscipiantur, at denique appareat pri.</p>
+			<p>This is editable area. You can use Ctrl+b, Ctrl+i, Ctrl+u, Ctrl+s, Ctrl+r, Ctrl+l, Ctrl+[1-6] shortcuts.</p>
+		</div>
+	</div>
+
 	<h1>Custom toolbar</h1>
 
 	<div id="ex4" class="editor">
@@ -662,7 +142,7 @@ $(document).ready(function () {
 
 	<!-- custom toolbar model -->
 
-	<div class="toolbar tb-custom">
+	<div class="ajp-wysiwyg-toolbar tb-custom">
 		<div class="button" data-cmd="codemode"><span>&lt;/&gt;</span></div>
 		<div class="separator"></div>
 		<div class="button" data-cmd="bold"><span>B</span></div>
@@ -678,18 +158,6 @@ $(document).ready(function () {
 	</div>
 
 	<!-- end of custom toolbar -->
-
-<!--
-	<h1>Resizable editor</h1>
-
-	<div class="resizable">
-		<div id="ex5" class="editor">
-			<p>Lorem ipsum dolor sit amet, modus integre an vim, at vitae audiam has. Mea et posse tibique interpretaris. Summo audiam te quo. Dicta nemore quaeque duo cu, vis iisque tincidunt eu. An vel quis accusata ocurreret.</p>
-			<p>Tollit expetenda pertinacia pro ea. Ea gubergren constituto est, ex nonumy omnesque suavitate his. Copiosae suavitate has ut, et porro fuisset cum. Noster scaevola quaestio ne ius. No vix verterem tincidunt suscipiantur, at denique appareat pri.</p>
-			<p>This is editable area. You can use Ctrl+b, Ctrl+i, Ctrl+u, Ctrl+s, Ctrl+r, Ctrl+l, Ctrl+[1-6] shortcuts.</p>
-		</div>
-	</div>
--->
 
 </body>
 
