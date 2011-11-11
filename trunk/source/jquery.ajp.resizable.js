@@ -10,7 +10,7 @@
 	if (!$.ajp) $.ajp = { }
 
 	$.ajp.resizable = {
-		version: '0.8pa',
+		version: '0.9pa',
 		installed: false,
 		serial: 1,
 		current: undefined,
@@ -40,17 +40,7 @@
 
 			var options = $.extend(defaults, options);
 
-			var cancelEvent = function (evt) {
-				if (!evt) return;
-				evt.cancelBubble = true;
-				if (evt.stopPropagation) {
-					evt.stopPropagation();
-					evt.preventDefault();
-				}
-			}
-
 			var root = $('html')[0]
-
 			if (!$.ajp.resizable.installed) {
 				$(document).mousedown(function (evt) {
 					if ($.ajp.resizable.current) {
@@ -63,7 +53,6 @@
 						root.onselectstart = function () { return false }
 					}
 				}).mouseup(function (evt) {
-					cancelEvent(evt)
 					$.ajp.resizable.mouse.down = false;
 					$.ajp.resizable.current = undefined;
 					try {
@@ -72,7 +61,7 @@
 						// msie: do nothing
 					}
 				}).mousemove(function (evt) {
-					cancelEvent(evt)
+					evt.preventDefault()
 					if ($.ajp.resizable.mouse.down) {
 						var dx = evt.clientX - $.ajp.resizable.mouse.x;
 						var dy = evt.clientY - $.ajp.resizable.mouse.y;
@@ -83,7 +72,6 @@
 				})
 				$.ajp.resizable.installed = true;
 			}
-
 
 			return this.each(function(i, el) {
 
@@ -184,7 +172,9 @@
 				}
 
 				var idx = $.ajp.resizable.serial ++
-				$(el).data('ajp-resizable-id', idx)
+				$(el).data('ajp-resizable-id', idx).bind('drag', function (evt) {
+					evt.preventDefault()
+				})
 
 				api.init();
 			})

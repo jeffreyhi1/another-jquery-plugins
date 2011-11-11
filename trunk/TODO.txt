@@ -1,2 +1,2 @@
 - add swappable
-- editable: optional toolbar
+- resizable: fix
