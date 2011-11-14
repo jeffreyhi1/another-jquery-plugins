@@ -10,7 +10,7 @@
 	if (!$.ajp) $.ajp = { }
 
 	$.ajp.resizable = {
-		version: '0.9pa',
+		version: '0.10pa',
 		installed: false,
 		serial: 1,
 		current: undefined,
@@ -92,11 +92,10 @@
 
 						$.ajp.resizable.elements[id] = this;
 
-						var c = $(document.createElement('div'));
+						var c = $('<div class="ajp-resizable-control"></div>');
 						var z = t.css('z-index').replace(/[^0-9]/g, '');
 						z = (z ? parseFloat(z) : 0);
 						this.control = c
-							.addClass('ajp-resizable-control')
 							.appendTo('body')
 							.css({
 								'z-index': z + 1,
@@ -106,12 +105,16 @@
 						;
 						var ctx = this;
 						t.mouseover(function (evt) {
-							if (ctx.enabled) ctx.show()
+							if (ctx.enabled)
+								ctx.show()
 						}).mouseout(function (evt) {
 							ctx.hide()
 						})
 						c.mouseover(function (evt) {
-							if (ctx.enabled) ctx.show()
+							if (ctx.enabled) {
+								ctx.show()
+								$.ajp.resizable.current = ctx
+							}
 						}).mouseout(function (evt) {
 							ctx.hide()
 						})
@@ -139,7 +142,6 @@
 							left: '' + (o.left + t.outerWidth() - c.outerWidth()) + 'px',
 							top: '' + (o.top + t.outerHeight() - c.outerHeight()) + 'px'
 						})
-						$.ajp.resizable.current = this;
 					},
 
 					scale: function (dx, dy) {

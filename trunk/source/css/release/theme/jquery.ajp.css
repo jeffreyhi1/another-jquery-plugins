@@ -41,7 +41,7 @@
 
 .ajp-autocomplete-list { margin-top: 0.6em\9 }
 
-/* $Id: jquery.ajp.colorpicker.css 48 2011-10-26 12:38:06Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.colorpicker.css 54 2011-11-11 12:43:41Z azbitnev@gmail.com $ */
 
 /*
 	ajp-colorpicker: common style
@@ -322,7 +322,7 @@
 	margin: 5px;
 }
 
-/* $Id$ */
+/* $Id: jquery.ajp.editable.css 54 2011-11-11 12:43:41Z azbitnev@gmail.com $ */
 
 /*
 	ajp-editable: common style
@@ -779,7 +779,7 @@ input:-moz-placeholder {
 }
 
 
-/* $Id$ */
+/* $Id: jquery.ajp.wysiwyg.css 54 2011-11-11 12:43:41Z azbitnev@gmail.com $ */
 
 /*
 	ajp-wysiwyg: common style
