@@ -28,13 +28,23 @@ body { margin: 1em; }
 	width: 600px;
 	height: 200px;
 	background: #fff6d5;
+	overflow: hidden;
+	line-height: 1em;
+	font-size: 0.8em;
 }
+
+#ex1 > p { margin: 1em; }
 
 #ex2 {
 	width: 600px;
 	height: 200px;
 	background: #fff6d5;
+	overflow: hidden;
+	line-height: 1em;
+	font-size: 0.8em;
 }
+
+#ex2 > p { margin: 1em; }
 
 </style>
 
@@ -45,12 +55,18 @@ $(document).ready(function () {
 	$('#mkresizable').click(function () {
 		$('#ex1').ajp$resizable({ proportional: false })
 		$('#ex2').ajp$resizable({ proportional: true })
+		$('#mkresizable').attr('disabled', true)
+		$('#mkunresizable').removeAttr('disabled')
 	})
 
 	$('#mkunresizable').click(function () {
 		$('#ex1').ajp$unresizable()
 		$('#ex2').ajp$unresizable()
+		$('#mkunresizable').attr('disabled', true)
+		$('#mkresizable').removeAttr('disabled')
 	})
+
+	$('#mkresizable').click()
 })
 
 </script>
@@ -63,8 +79,14 @@ $(document).ready(function () {
 	<button id="mkunresizable">Unresizable</button>
 	<br/>
 	<br/>
-	<div id="ex1" class="resizable"></div>
+	<div id="ex1" class="resizable">
+		<p>Lorem ipsum dolor sit amet, iriure numquam impedit te has, eum ex tation iisque elaboraret. Natum sonet contentiones ei pro, natum perfecto te eum, cu quo elitr propriae. At duo ipsum appellantur. Ea erat aliquip nec, clita soleat commune eu per.</p>
+		<p>Vim graeco laoreet te, sed eu magna assueverit interpretaris. Usu oblique saperet gubergren te, in erat dicunt est. An his graecis placerat, nec accusata mediocrem aliquando te. Ex eum ipsum percipit. Probatus imperdiet consectetuer eu mel, ei his nemore salutatus tincidunt, cu mucius essent duo.</p>
+	</div>
 	<br/>
-	<div id="ex2" class="resizable"></div>
+	<div id="ex2" class="resizable">
+		<p>Lorem ipsum dolor sit amet, iriure numquam impedit te has, eum ex tation iisque elaboraret. Natum sonet contentiones ei pro, natum perfecto te eum, cu quo elitr propriae. At duo ipsum appellantur. Ea erat aliquip nec, clita soleat commune eu per.</p>
+		<p>Vim graeco laoreet te, sed eu magna assueverit interpretaris. Usu oblique saperet gubergren te, in erat dicunt est. An his graecis placerat, nec accusata mediocrem aliquando te. Ex eum ipsum percipit. Probatus imperdiet consectetuer eu mel, ei his nemore salutatus tincidunt, cu mucius essent duo.</p>
+	</div>
 
 </body>

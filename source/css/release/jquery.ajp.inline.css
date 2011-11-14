@@ -4,7 +4,7 @@
 
 	Project home: http://code.google.com/p/another-jquery-plugins/
 
-	Version: 0.6.0a
+	Version: 0.6.0
 */
 /* $Id: autocomplete.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
@@ -284,7 +284,7 @@ input.ajp-customcheckbox { display: none; }
 	z-index: 2;
 }
 
-/* $Id$ */
+/* $Id: jquery.ajp.wysiwyg.css 54 2011-11-11 12:43:41Z azbitnev@gmail.com $ */
 
 /*
 	ajp-wysiwyg: common logic
@@ -317,13 +317,6 @@ input.ajp-customcheckbox { display: none; }
 	z-index: 5;
 }
 
-/*
-.ajp-wysiwyg-toolbar .select {
-	width: 4em;
-	line-height: 2.2em;
-}
-*/
-
 .ajp-wysiwyg-toolbar .select .popup {
 	position: relative;
 	z-index: 5;
@@ -347,7 +340,6 @@ input.ajp-customcheckbox { display: none; }
 
 .ajp-wysiwyg-toolbar .subtoolbar .disclosure-arrow {
 	position: relative;
-	/*top: -6px; /* TODO px to em */
 }
 
 .ajp-wysiwyg-toolbar .disclosure-arrow {
@@ -359,10 +351,6 @@ input.ajp-customcheckbox { display: none; }
 	background-position: 0 0;
 	background-repeat: no-repeat;
 }
-
-/*.ajp-wysiwyg-toolbar .button .img {
-	margin-top: 0.75em;
-}*/
 ﻿/* $Id: autocomplete.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 /*
@@ -406,7 +394,7 @@ input.ajp-customcheckbox { display: none; }
 
 .ajp-autocomplete-list { margin-top: 0.6em\9 }
 
-/* $Id: jquery.ajp.colorpicker.css 48 2011-10-26 12:38:06Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.colorpicker.css 54 2011-11-11 12:43:41Z azbitnev@gmail.com $ */
 
 /*
 	ajp-colorpicker: common style
@@ -687,7 +675,7 @@ input.ajp-customcheckbox { display: none; }
 	margin: 5px;
 }
 
-/* $Id$ */
+/* $Id: jquery.ajp.editable.css 54 2011-11-11 12:43:41Z azbitnev@gmail.com $ */
 
 /*
 	ajp-editable: common style
@@ -1144,7 +1132,7 @@ input:-moz-placeholder {
 }
 
 
-/* $Id$ */
+/* $Id: jquery.ajp.wysiwyg.css 54 2011-11-11 12:43:41Z azbitnev@gmail.com $ */
 
 /*
 	ajp-wysiwyg: common style

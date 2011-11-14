@@ -31,13 +31,6 @@
 	z-index: 5;
 }
 
-/*
-.ajp-wysiwyg-toolbar .select {
-	width: 4em;
-	line-height: 2.2em;
-}
-*/
-
 .ajp-wysiwyg-toolbar .select .popup {
 	position: relative;
 	z-index: 5;
@@ -61,7 +54,6 @@
 
 .ajp-wysiwyg-toolbar .subtoolbar .disclosure-arrow {
 	position: relative;
-	/*top: -6px; /* TODO px to em */
 }
 
 .ajp-wysiwyg-toolbar .disclosure-arrow {
@@ -73,7 +65,3 @@
 	background-position: 0 0;
 	background-repeat: no-repeat;
 }
-
-/*.ajp-wysiwyg-toolbar .button .img {
-	margin-top: 0.75em;
-}*/

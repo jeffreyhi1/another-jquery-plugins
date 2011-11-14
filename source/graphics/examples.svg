@@ -20,6 +20,13 @@
      id="defs4">
     <inkscape:perspective
        sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="490.28561 : -1134.2498 : 1"
+       inkscape:vp_y="3.2850112e-016 : 5.3650074 : 0"
+       inkscape:vp_z="531.57696 : -1125.0973 : 1"
+       inkscape:persp3d-origin="496.8852 : -1134.8752 : 1"
+       id="perspective3779" />
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
        inkscape:vp_x="474.28561 : -1134.2498 : 1"
        inkscape:vp_y="3.2850112e-016 : 5.3650074 : 0"
        inkscape:vp_z="515.57696 : -1125.0973 : 1"
@@ -1444,9 +1451,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710675"
-     inkscape:cx="463.26169"
-     inkscape:cy="-1145.881"
+     inkscape:zoom="15.999999"
+     inkscape:cx="503.13669"
+     inkscape:cy="-1137.7008"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1547,7 +1554,7 @@
        id="guide4755" />
     <sodipodi:guide
        orientation="0,1"
-       position="467.81252,-1146.8751"
+       position="509.55885,-1146.6179"
        id="guide7652" />
     <sodipodi:guide
        orientation="1,0"
@@ -1561,6 +1568,22 @@
        orientation="1,0"
        position="584.93753,-1108.5626"
        id="guide8332" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="518.00002,-1129.2501"
+       id="guide3781" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="505.66976,-1141.9376"
+       id="guide4571" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="514.55279,-1141.9376"
+       id="guide4573" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="509.07271,-1137.6907"
+       id="guide4575" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -9289,5 +9312,93 @@
        id="path8342"
        d="m 638.93753,2165.3761 0,-12.5815"
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.wysiwyg.toolbar.resize.png"
+       y="2186.3811"
+       x="502.15601"
+       height="16.003723"
+       width="15.898791"
+       id="rect3763"
+       style="opacity:0;fill:#e6e6e6;stroke:none" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.96503216;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect3783"
+       width="14.713201"
+       height="14.224453"
+       x="502.77081"
+       y="2187.3806"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.wysiwyg.toolbar.resize.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.96503216;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 505.73778,2192.8834 0,-2.8305 2.98206,0"
+       id="path4577"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.wysiwyg.toolbar.resize.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.96503216;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 505.73778,2190.0529 3.52424,3.3547"
+       id="path4579"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.wysiwyg.toolbar.resize.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path4587"
+       d="m 505.73778,2195.9144 0,2.8306 2.98206,0"
+       style="fill:none;stroke:#000000;stroke-width:0.96503216;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.wysiwyg.toolbar.resize.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4589"
+       d="m 505.73778,2198.745 3.52424,-3.3547"
+       style="fill:none;stroke:#000000;stroke-width:0.96503216;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.wysiwyg.toolbar.resize.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path4593"
+       d="m 514.55279,2192.8834 0,-2.8305 -2.98206,0"
+       style="fill:none;stroke:#000000;stroke-width:0.96503216;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.wysiwyg.toolbar.resize.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4595"
+       d="m 514.55279,2190.0529 -3.52424,3.3547"
+       style="fill:none;stroke:#000000;stroke-width:0.96503216;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.wysiwyg.toolbar.resize.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.96503216;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 514.55279,2195.9144 0,2.8306 -2.98206,0"
+       id="path4599"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.wysiwyg.toolbar.resize.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.96503216;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 514.55279,2198.745 -3.52424,-3.3547"
+       id="path4601"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.wysiwyg.toolbar.resize.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>

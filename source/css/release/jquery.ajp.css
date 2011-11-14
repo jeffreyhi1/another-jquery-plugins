@@ -276,7 +276,7 @@ input.ajp-customcheckbox { display: none; }
 	z-index: 2;
 }
 
-/* $Id$ */
+/* $Id: jquery.ajp.wysiwyg.css 54 2011-11-11 12:43:41Z azbitnev@gmail.com $ */
 
 /*
 	ajp-wysiwyg: common logic
@@ -309,13 +309,6 @@ input.ajp-customcheckbox { display: none; }
 	z-index: 5;
 }
 
-/*
-.ajp-wysiwyg-toolbar .select {
-	width: 4em;
-	line-height: 2.2em;
-}
-*/
-
 .ajp-wysiwyg-toolbar .select .popup {
 	position: relative;
 	z-index: 5;
@@ -339,7 +332,6 @@ input.ajp-customcheckbox { display: none; }
 
 .ajp-wysiwyg-toolbar .subtoolbar .disclosure-arrow {
 	position: relative;
-	/*top: -6px; /* TODO px to em */
 }
 
 .ajp-wysiwyg-toolbar .disclosure-arrow {
@@ -351,7 +343,3 @@ input.ajp-customcheckbox { display: none; }
 	background-position: 0 0;
 	background-repeat: no-repeat;
 }
-
-/*.ajp-wysiwyg-toolbar .button .img {
-	margin-top: 0.75em;
-}*/
