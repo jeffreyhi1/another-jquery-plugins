@@ -562,7 +562,7 @@
 	if (!$.ajp) $.ajp = { }
 	if ($.ajp.customSelect)
 		return
-	$.ajp.customSelect = { version: '0.14pa', initialized: false, contexts: {}, serial: 1 }
+	$.ajp.customSelect = { version: '0.15pa', initialized: false, contexts: {}, serial: 1 }
 
 	$.fn.extend({
 
@@ -585,15 +585,6 @@
 					valueToIndex: {},
 					indexToValue: [],
 					timer: null,
-
-					cancelEvent: function (evt) {
-						if (!evt) return;
-						evt.cancelBubble = true;
-						if (evt.stopPropagation) {
-							evt.stopPropagation();
-							evt.preventDefault();
-						}
-					},
 
 					init: function () {
 
@@ -634,11 +625,13 @@
 									$('.ajp-customselect > .list').css({ visibility: 'hidden' })
 									var top = 0
 									var item = list.find('.selected')
-									do {
-										item = item.prev()
-										top += item.outerHeight()
-									} while (!item.hasClass('top'))
-									list.scrollTop(top)
+									if (item.length > 0) {
+										do {
+											item = item.prev()
+											top += item.outerHeight()
+										} while (!item.hasClass('top'))
+										list.scrollTop(top)
+									}
 								}
 								list.css({ visibility: vis })
 							}
@@ -697,19 +690,22 @@
 						html += '</div>'
 						html += '<div class="bottom"></div></div>'
 						this.custom.children('.list:eq(0)').html(html)
-
-						if (selOpt) this.selectItem(selOpt.attr('value'))
-
+						if (selOpt) {
+							this.selectItem(selOpt.attr('value'))
+						} else {
+							this.selectItem('')
+						}
 						this.custom.find('.list:eq(0) > .item').each(function (i) {
 							$(this).click(function (evt) {
 								ths.selectItem(ths.indexToValue[i])
 							})
 						})
 
-						if (this.element.attr('disabled'))
+						if (this.element.attr('disabled') || this.indexToValue.length <= 0) {
 							this.custom.addClass('ajp-customselect-disabled')
-						else
+						} else {
 							this.custom.removeClass('ajp-customselect-disabled')
+						}
 					},
 
 					setValue: function (val) {
@@ -727,10 +723,14 @@
 					invalidate: function () {
 						var list = this.custom.find('.list:eq(0)')
 						list.find('.selected').removeClass('selected')
-						var item = list.find('.item:eq(' + this.valueToIndex[this.currentValue] + ')').addClass('selected')
-						this.custom.find('.current:eq(0)').val(item.text())
+						if (this.indexToValue.length > 0) {
+							var item = list.find('.item:eq(' + this.valueToIndex[this.currentValue] + ')').addClass('selected')
+							this.custom.find('.current:eq(0)').val(item.text())
+							this.element.val(this.currentValue)
+						} else {
+							this.custom.find('.current:eq(0)').val('')
+						}
 						list.css({ visibility: 'hidden' })
-						this.element.val(this.currentValue)
 					}
 				}
 
@@ -1210,7 +1210,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.editable = { version: '0.18pa', required: ['bindkeys'], editors: { } }
+	$.ajp.editable = { version: '0.19pa', required: ['bindkeys'], editors: { }, installed: false }
 
 	$.fn.extend({
 
@@ -1623,6 +1623,22 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 						}
 
 						return false
+					}
+				}
+
+				api.get = function () {
+					var $el = $(this.element)
+					var $cm = this.codeArea
+					return ($el.css('display') == 'none' ? $cm.val() : $el.html());
+				}
+
+				api.set = function (val) {
+					var $el = $(this.element)
+					var $cm = this.codeArea
+					if ($el.css('display') == 'none') {
+						$cm.val(val)
+					} else {
+						$el.html(val)
 					}
 				}
 
@@ -2274,7 +2290,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 	if (!$.ajp) $.ajp = { }
 
 	$.ajp.resizable = {
-		version: '0.10pa',
+		version: '0.11pa',
 		installed: false,
 		serial: 1,
 		current: undefined,
@@ -2325,8 +2341,8 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 						// msie: do nothing
 					}
 				}).mousemove(function (evt) {
-					evt.preventDefault()
 					if ($.ajp.resizable.mouse.down) {
+						evt.preventDefault()
 						var dx = evt.clientX - $.ajp.resizable.mouse.x;
 						var dy = evt.clientY - $.ajp.resizable.mouse.y;
 						if ($.ajp.resizable.current) {
@@ -3075,7 +3091,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.wysiwyg = { version: '0.3pa', required: ['editable', 'colorpicker'], current: null, installed: false }
+	$.ajp.wysiwyg = { version: '0.4pa', required: ['editable', 'colorpicker'], current: null, installed: false }
 
 	$.fn.extend({
 
@@ -3083,14 +3099,16 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 
 			var defaults = {
 				toolbar: 'basic',
-				air: false
+				air: false,
+				offset: { left: 14, top: 14 }
 			}
 
 			var opts = $.extend(defaults, options);
 
 			return this.each(function() {
 
-				var $editor = $(this)
+				var $origin = $(this).css({ display: 'none' })
+				var $editor = $('<div class="ajp-wysiwyg"></div>').html($origin.val()).insertAfter($origin)
 				var $toolbar
 
 				if (typeof opts.toolbar == 'string') {
@@ -3215,6 +3233,11 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 				$editor.ajp$editable()
 				var ctx = $editor.ajp$editableContext()
 
+				$editor.parents('form').submit(function () {
+					$origin.val(ctx.get())
+					return true
+				})
+
 				$toolbar.find('.image-button').each(function () {
 					var $btn = $(this)
 					if ($btn.children('.img').length <= 0)
@@ -3306,10 +3329,9 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 					$editor.mouseup(function (evt) {
 						var sel = ctx.getSelectedHtml()
 						if (sel.length > 0) {
-							$toolbar.css({
-								visibility: 'visible',
-								left: '' + (evt.clientX + $(document).scrollLeft()) + 'px',
-								top: '' + (evt.clientY + $(document).scrollTop()) + 'px'
+							$toolbar.css({ visibility: 'visible' }).offset({
+								left: (evt.clientX + $(document).scrollLeft() + opts.offset.left),
+								top: (evt.clientY + $(document).scrollTop() + opts.offset.top)
 							})
 						} else {
 							$toolbar.css({ visibility: 'hidden' })

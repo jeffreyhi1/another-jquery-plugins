@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.editable = { version: '0.18pa', required: ['bindkeys'], editors: { } }
+	$.ajp.editable = { version: '0.19pa', required: ['bindkeys'], editors: { }, installed: false }
 
 	$.fn.extend({
 
@@ -421,6 +421,22 @@
 						}
 
 						return false
+					}
+				}
+
+				api.get = function () {
+					var $el = $(this.element)
+					var $cm = this.codeArea
+					return ($el.css('display') == 'none' ? $cm.val() : $el.html());
+				}
+
+				api.set = function (val) {
+					var $el = $(this.element)
+					var $cm = this.codeArea
+					if ($el.css('display') == 'none') {
+						$cm.val(val)
+					} else {
+						$el.html(val)
 					}
 				}
 
