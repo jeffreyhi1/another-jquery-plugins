@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.wysiwyg = { version: '0.3pa', required: ['editable', 'colorpicker'], current: null, installed: false }
+	$.ajp.wysiwyg = { version: '0.4pa', required: ['editable', 'colorpicker'], current: null, installed: false }
 
 	$.fn.extend({
 
@@ -16,14 +16,16 @@
 
 			var defaults = {
 				toolbar: 'basic',
-				air: false
+				air: false,
+				offset: { left: 14, top: 14 }
 			}
 
 			var opts = $.extend(defaults, options);
 
 			return this.each(function() {
 
-				var $editor = $(this)
+				var $origin = $(this).css({ display: 'none' })
+				var $editor = $('<div class="ajp-wysiwyg"></div>').html($origin.val()).insertAfter($origin)
 				var $toolbar
 
 				if (typeof opts.toolbar == 'string') {
@@ -148,6 +150,11 @@
 				$editor.ajp$editable()
 				var ctx = $editor.ajp$editableContext()
 
+				$editor.parents('form').submit(function () {
+					$origin.val(ctx.get())
+					return true
+				})
+
 				$toolbar.find('.image-button').each(function () {
 					var $btn = $(this)
 					if ($btn.children('.img').length <= 0)
@@ -239,10 +246,9 @@
 					$editor.mouseup(function (evt) {
 						var sel = ctx.getSelectedHtml()
 						if (sel.length > 0) {
-							$toolbar.css({
-								visibility: 'visible',
-								left: '' + (evt.clientX + $(document).scrollLeft()) + 'px',
-								top: '' + (evt.clientY + $(document).scrollTop()) + 'px'
+							$toolbar.css({ visibility: 'visible' }).offset({
+								left: (evt.clientX + $(document).scrollLeft() + opts.offset.left),
+								top: (evt.clientY + $(document).scrollTop() + opts.offset.top)
 							})
 						} else {
 							$toolbar.css({ visibility: 'hidden' })

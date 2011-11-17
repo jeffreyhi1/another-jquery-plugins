@@ -10,7 +10,7 @@
 	if (!$.ajp) $.ajp = { }
 
 	$.ajp.resizable = {
-		version: '0.10pa',
+		version: '0.11pa',
 		installed: false,
 		serial: 1,
 		current: undefined,
@@ -61,8 +61,8 @@
 						// msie: do nothing
 					}
 				}).mousemove(function (evt) {
-					evt.preventDefault()
 					if ($.ajp.resizable.mouse.down) {
+						evt.preventDefault()
 						var dx = evt.clientX - $.ajp.resizable.mouse.x;
 						var dy = evt.clientY - $.ajp.resizable.mouse.y;
 						if ($.ajp.resizable.current) {

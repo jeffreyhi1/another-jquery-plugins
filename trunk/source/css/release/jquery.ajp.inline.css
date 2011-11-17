@@ -4,7 +4,7 @@
 
 	Project home: http://code.google.com/p/another-jquery-plugins/
 
-	Version: 0.6.0
+	Version: 0.6.1
 */
 /* $Id: autocomplete.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
@@ -284,7 +284,7 @@ input.ajp-customcheckbox { display: none; }
 	z-index: 2;
 }
 
-/* $Id: jquery.ajp.wysiwyg.css 54 2011-11-11 12:43:41Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.wysiwyg.css 55 2011-11-14 06:55:12Z azbitnev@gmail.com $ */
 
 /*
 	ajp-wysiwyg: common logic
@@ -300,6 +300,7 @@ input.ajp-customcheckbox { display: none; }
 
 .ajp-wysiwyg-toolbar .button {
 	float: left;
+	cursor: pointer;
 }
 
 .ajp-wysiwyg-toolbar .disabled {
@@ -526,6 +527,7 @@ input.ajp-customcheckbox { display: none; }
 .ajp-customselect .selected {
 	background: #181818 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAoCAYAAAA/tpB3AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA4SURBVAiZY4iNjvvP9O/fPwYo8R/OwkL8xyuLpvfPnz9Q4u/fv8hcqFH/GZgYGBigLEoIBgYGBgBJGXCZ7PgTAwAAAABJRU5ErkJggg==) 0 0 repeat-x !important;
 	color: #fff !important;
+	border-bottom-color: #000;
 }
 
 .ajp-customselect { background: #fff; }
@@ -557,14 +559,14 @@ input.ajp-customcheckbox { display: none; }
 
 .ajp-customselect .list {
 	width: 300px; /* width of popup list */
-	max-height: 150px; /* full height of item * number of visible items = 30 (padding-top + padding-bottom + border-top-width + border-bottom-width + line-height) * 5 = 150 */
+	max-height: 14em; /* full height of item * number of visible items = 30 (padding-top + padding-bottom + border-top-width + border-bottom-width + line-height) * 5 = 150 */
 	border-width: 1px;
 }
 
 .ajp-customselect .item {
-	padding: 4px;
-	border-top-width: 1px;
-	border-bottom-width: 1px;
+	padding: 0.4em;
+	min-height: 2em;
+	border-bottom-width: 0.1em;
 }
 
 /* $Id: datepicker.css 14 2011-06-24 11:48:30Z azbitnev@gmail.com $ */
@@ -970,7 +972,7 @@ input:-moz-placeholder {
 }
 
 .ajp-progressbar > .fill {
-	background: #0c0 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAYAAADtlXTHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA+SURBVAiZfYrBCQAhEMTidCDYf1/Xyfpwx8fhwsHhLyShP8PCINLICcJGvPQN6XIVamGBCFCLQ0T7cddlwgYnbCes1WM6SAAAAABJRU5ErkJggg==);
+	background: #0c0 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAYAAADtlXTHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABJSURBVAiZncrBCcAgFATRzfw+0n9piq6IeP8ehBSQy8DAU2YKSQ+S+PJ7bUOtNVhrQSklmHOC7WDvDb33oLXGJbYvicx8GWNwAESeKsvXpLVwAAAAAElFTkSuQmCC);
 }
 
 /* $Id: resizable.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
@@ -1237,7 +1239,6 @@ input:-moz-placeholder {
 */
 
 .ajp-wysiwyg-toolbar {
-	width: 702px;
 	border-width: 1px;
 }
 

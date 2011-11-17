@@ -54,6 +54,7 @@
 .ajp-customselect .selected {
 	background: #181818 url(images/jquery.ajp.customselect-selected.png) 0 0 repeat-x !important;
 	color: #fff !important;
+	border-bottom-color: #000;
 }
 
 .ajp-customselect { background: #fff; }
@@ -85,13 +86,13 @@
 
 .ajp-customselect .list {
 	width: 300px; /* width of popup list */
-	max-height: 150px; /* full height of item * number of visible items = 30 (padding-top + padding-bottom + border-top-width + border-bottom-width + line-height) * 5 = 150 */
+	max-height: 14em; /* full height of item * number of visible items = 30 (padding-top + padding-bottom + border-top-width + border-bottom-width + line-height) * 5 = 150 */
 	border-width: 1px;
 }
 
 .ajp-customselect .item {
-	padding: 4px;
-	border-top-width: 1px;
-	border-bottom-width: 1px;
+	padding: 0.4em;
+	min-height: 2em;
+	border-bottom-width: 0.1em;
 }
 

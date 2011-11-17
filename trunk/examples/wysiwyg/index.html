@@ -30,10 +30,14 @@ body { margin: 1em; font-size: 14px; }
 	border-top-width: 0 !important;
 }
 
-.editor, .ajp-editable-codemode {
+/*.ajp-wysiwyg-toolbar {
+	width: 702px;
+}*/
+
+.ajp-wysiwyg, .ajp-editable-codemode {
 	background: #fff;
 	border: 1px dashed #ccc;
-	width: 690px;
+	/*width: 690px;*/
 	height: 300px;
 	overflow: auto;
 	padding: 6px;
@@ -50,10 +54,6 @@ body { margin: 1em; font-size: 14px; }
 }
 
 .ajp-resizable-active { outline: 0; }
-
-.ajp-wysiwyg-toolbar {
-	width: 702px;
-}
 
 .ajp-wysiwyg-toolbar-air {
 	width: 29.6em;
@@ -84,9 +84,12 @@ $(document).ready(function () {
 	$('.resizable').ajp$resizable({
 		onchange: function (w, h, $el) {
 			var $tb = $el.children('.ajp-wysiwyg-toolbar')
-			var $ed = $el.children('.editor')
+			var $ed = $el.children('.ajp-wysiwyg')
+			var $cm = $el.children('.ajp-editable-codemode')
 			$ed.width(w - ($ed.outerWidth() - $ed.width()))
 			$ed.height(h - ($ed.outerHeight() - $ed.height()) - $tb.outerHeight())
+			$cm.width(w - ($cm.outerWidth() - $cm.width()))
+			$cm.height(h - ($cm.outerHeight() - $cm.height()) - $tb.outerHeight())
 			$tb.width(w - ($tb.outerWidth() - $tb.width()))
 		}
 	})
@@ -98,47 +101,50 @@ $(document).ready(function () {
 
 <body>
 
+<div class="container_12">
+	<div class="grid_12">
+
 	<h1>Basic usage</h1>
 
-	<div id="ex1" class="editor">
+	<textarea id="ex1">
 		<p>Lorem ipsum dolor sit amet, modus integre an vim, at vitae audiam has. Mea et posse tibique interpretaris. Summo audiam te quo. Dicta nemore quaeque duo cu, vis iisque tincidunt eu. An vel quis accusata ocurreret.</p>
 		<p>Tollit expetenda pertinacia pro ea. Ea gubergren constituto est, ex nonumy omnesque suavitate his. Copiosae suavitate has ut, et porro fuisset cum. Noster scaevola quaestio ne ius. No vix verterem tincidunt suscipiantur, at denique appareat pri.</p>
 		<p>This is editable area. You can use Ctrl+b, Ctrl+i, Ctrl+u, Ctrl+s, Ctrl+r, Ctrl+l, Ctrl+[1-6] shortcuts.</p>
-	</div>
+	</textarea>
 
 	<h1>Mini toolbar</h1>
 
-	<div id="ex2" class="editor">
+	<textarea id="ex2">
 		<p>Lorem ipsum dolor sit amet, modus integre an vim, at vitae audiam has. Mea et posse tibique interpretaris. Summo audiam te quo. Dicta nemore quaeque duo cu, vis iisque tincidunt eu. An vel quis accusata ocurreret.</p>
 		<p>Tollit expetenda pertinacia pro ea. Ea gubergren constituto est, ex nonumy omnesque suavitate his. Copiosae suavitate has ut, et porro fuisset cum. Noster scaevola quaestio ne ius. No vix verterem tincidunt suscipiantur, at denique appareat pri.</p>
 		<p>This is editable area. You can use Ctrl+b, Ctrl+i, Ctrl+u, Ctrl+s, Ctrl+r, Ctrl+l, Ctrl+[1-6] shortcuts.</p>
-	</div>
+	</textarea>
 
 	<h1>Air mode</h1>
 
-	<div id="ex3" class="editor">
+	<textarea id="ex3">
 		<p>Lorem ipsum dolor sit amet, modus integre an vim, at vitae audiam has. Mea et posse tibique interpretaris. Summo audiam te quo. Dicta nemore quaeque duo cu, vis iisque tincidunt eu. An vel quis accusata ocurreret.</p>
 		<p>Tollit expetenda pertinacia pro ea. Ea gubergren constituto est, ex nonumy omnesque suavitate his. Copiosae suavitate has ut, et porro fuisset cum. Noster scaevola quaestio ne ius. No vix verterem tincidunt suscipiantur, at denique appareat pri.</p>
 		<p>This is editable area. You can use Ctrl+b, Ctrl+i, Ctrl+u, Ctrl+s, Ctrl+r, Ctrl+l, Ctrl+[1-6] shortcuts.</p>
-	</div>
+	</textarea>
 
 	<h1>Resizable editor</h1>
 
 	<div class="resizable">
-		<div id="ex5" class="editor">
+		<textarea id="ex5">
 			<p>Lorem ipsum dolor sit amet, modus integre an vim, at vitae audiam has. Mea et posse tibique interpretaris. Summo audiam te quo. Dicta nemore quaeque duo cu, vis iisque tincidunt eu. An vel quis accusata ocurreret.</p>
 			<p>Tollit expetenda pertinacia pro ea. Ea gubergren constituto est, ex nonumy omnesque suavitate his. Copiosae suavitate has ut, et porro fuisset cum. Noster scaevola quaestio ne ius. No vix verterem tincidunt suscipiantur, at denique appareat pri.</p>
 			<p>This is editable area. You can use Ctrl+b, Ctrl+i, Ctrl+u, Ctrl+s, Ctrl+r, Ctrl+l, Ctrl+[1-6] shortcuts.</p>
-		</div>
+		</textarea>
 	</div>
 
 	<h1>Custom toolbar</h1>
 
-	<div id="ex4" class="editor">
+	<textarea id="ex4">
 		<p>Lorem ipsum dolor sit amet, modus integre an vim, at vitae audiam has. Mea et posse tibique interpretaris. Summo audiam te quo. Dicta nemore quaeque duo cu, vis iisque tincidunt eu. An vel quis accusata ocurreret.</p>
 		<p>Tollit expetenda pertinacia pro ea. Ea gubergren constituto est, ex nonumy omnesque suavitate his. Copiosae suavitate has ut, et porro fuisset cum. Noster scaevola quaestio ne ius. No vix verterem tincidunt suscipiantur, at denique appareat pri.</p>
 		<p>This is editable area. You can use Ctrl+b, Ctrl+i, Ctrl+u, Ctrl+s, Ctrl+r, Ctrl+l, Ctrl+[1-6] shortcuts.</p>
-	</div>
+	</textarea>
 
 	<!-- custom toolbar model -->
 
@@ -158,6 +164,9 @@ $(document).ready(function () {
 	</div>
 
 	<!-- end of custom toolbar -->
+
+	</div>
+</div>
 
 </body>
 

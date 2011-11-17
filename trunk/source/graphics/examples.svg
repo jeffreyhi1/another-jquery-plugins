@@ -18,6 +18,25 @@
    sodipodi:docname="examples.svg">
   <defs
      id="defs4">
+    <linearGradient
+       id="linearGradient4572">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="0"
+         id="stop4574" />
+      <stop
+         id="stop4576"
+         offset="0.25"
+         style="stop-color:#ffffff;stop-opacity:0.09444445;" />
+      <stop
+         id="stop4578"
+         offset="0.5"
+         style="stop-color:#000000;stop-opacity:0.23333333;" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0.39444444;"
+         offset="1"
+         id="stop4580" />
+    </linearGradient>
     <inkscape:perspective
        sodipodi:type="inkscape:persp3d"
        inkscape:vp_x="490.28561 : -1134.2498 : 1"
@@ -1443,6 +1462,36 @@
        y1="286.05688"
        x2="462.00003"
        y2="343.55688" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7669-7"
+       id="linearGradient3782"
+       gradientUnits="userSpaceOnUse"
+       x1="462.24936"
+       y1="286.05688"
+       x2="462.00003"
+       y2="343.55688"
+       gradientTransform="translate(164,56)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4572"
+       id="linearGradient3784"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.36249997,0,0,1,439.87773,100)"
+       x1="462.24936"
+       y1="286.05688"
+       x2="462.00003"
+       y2="343.55688" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4572"
+       id="linearGradient4584"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.005,0,0,1,594.58564,142)"
+       x1="462.24936"
+       y1="286.05688"
+       x2="462.00003"
+       y2="343.55688" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -1451,9 +1500,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="15.999999"
-     inkscape:cx="503.13669"
-     inkscape:cy="-1137.7008"
+     inkscape:zoom="3.9999998"
+     inkscape:cx="684.86844"
+     inkscape:cy="642.29931"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -9398,6 +9447,30 @@
        id="path4601"
        inkscape:connector-curvature="0"
        inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.wysiwyg.toolbar.resize.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       y="341.55688"
+       x="596.74939"
+       height="30"
+       width="200"
+       id="rect3778"
+       style="fill:url(#linearGradient3782);fill-opacity:1;stroke:none" />
+    <rect
+       style="fill:url(#linearGradient3784);fill-opacity:1;stroke:none"
+       id="rect3780"
+       width="72.499992"
+       height="30"
+       x="596.74939"
+       y="385.55688" />
+    <rect
+       y="427.55688"
+       x="596.74939"
+       height="30"
+       width="1"
+       id="rect4582"
+       style="fill:url(#linearGradient4584);fill-opacity:1;stroke:none"
+       inkscape:export-filename="C:\work\htdocs\ajp\another-jquery-plugins\source\css\release\theme\images\jquery.ajp.progressbar.fill.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
   </g>

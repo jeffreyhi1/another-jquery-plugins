@@ -10,7 +10,7 @@
 	if (!$.ajp) $.ajp = { }
 	if ($.ajp.customSelect)
 		return
-	$.ajp.customSelect = { version: '0.14pa', initialized: false, contexts: {}, serial: 1 }
+	$.ajp.customSelect = { version: '0.15pa', initialized: false, contexts: {}, serial: 1 }
 
 	$.fn.extend({
 
@@ -33,15 +33,6 @@
 					valueToIndex: {},
 					indexToValue: [],
 					timer: null,
-
-					cancelEvent: function (evt) {
-						if (!evt) return;
-						evt.cancelBubble = true;
-						if (evt.stopPropagation) {
-							evt.stopPropagation();
-							evt.preventDefault();
-						}
-					},
 
 					init: function () {
 
@@ -82,11 +73,13 @@
 									$('.ajp-customselect > .list').css({ visibility: 'hidden' })
 									var top = 0
 									var item = list.find('.selected')
-									do {
-										item = item.prev()
-										top += item.outerHeight()
-									} while (!item.hasClass('top'))
-									list.scrollTop(top)
+									if (item.length > 0) {
+										do {
+											item = item.prev()
+											top += item.outerHeight()
+										} while (!item.hasClass('top'))
+										list.scrollTop(top)
+									}
 								}
 								list.css({ visibility: vis })
 							}
@@ -145,19 +138,22 @@
 						html += '</div>'
 						html += '<div class="bottom"></div></div>'
 						this.custom.children('.list:eq(0)').html(html)
-
-						if (selOpt) this.selectItem(selOpt.attr('value'))
-
+						if (selOpt) {
+							this.selectItem(selOpt.attr('value'))
+						} else {
+							this.selectItem('')
+						}
 						this.custom.find('.list:eq(0) > .item').each(function (i) {
 							$(this).click(function (evt) {
 								ths.selectItem(ths.indexToValue[i])
 							})
 						})
 
-						if (this.element.attr('disabled'))
+						if (this.element.attr('disabled') || this.indexToValue.length <= 0) {
 							this.custom.addClass('ajp-customselect-disabled')
-						else
+						} else {
 							this.custom.removeClass('ajp-customselect-disabled')
+						}
 					},
 
 					setValue: function (val) {
@@ -175,10 +171,14 @@
 					invalidate: function () {
 						var list = this.custom.find('.list:eq(0)')
 						list.find('.selected').removeClass('selected')
-						var item = list.find('.item:eq(' + this.valueToIndex[this.currentValue] + ')').addClass('selected')
-						this.custom.find('.current:eq(0)').val(item.text())
+						if (this.indexToValue.length > 0) {
+							var item = list.find('.item:eq(' + this.valueToIndex[this.currentValue] + ')').addClass('selected')
+							this.custom.find('.current:eq(0)').val(item.text())
+							this.element.val(this.currentValue)
+						} else {
+							this.custom.find('.current:eq(0)').val('')
+						}
 						list.css({ visibility: 'hidden' })
-						this.element.val(this.currentValue)
 					}
 				}
 

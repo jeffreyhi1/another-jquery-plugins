@@ -1,1 +1,3 @@
 - add swappable
+- add "popup" and modify "select", "menu", "wysiwyg"
+- check dependencies from "basics.css"
