@@ -49,7 +49,7 @@ body { margin: 1em; font-size: 14px; }
 	box-shadow: 0 3px 6px rgba(0,0,0,.1);
 	position: relative;
 	z-index: 5;
-	/*visibility: hidden;*/
+	visibility: hidden;
 }
 
 </style>
@@ -57,6 +57,25 @@ body { margin: 1em; font-size: 14px; }
 <script>
 
 $(document).ready(function () {
+
+	$('.popup-holder').ajp$popup({
+		action: 'hover',
+		show: function ($popup, $el) {
+			$popup.css({
+				opacity: 0,
+				visibility: 'visible'
+			}).animate({
+				opacity: 1
+			}, 250)
+		},
+		hide: function ($popup, $el) {
+			$popup.animate({
+				opacity: 0
+			}, 250, function () {
+				$popup.css({ visibility: 'hidden' })
+			})
+		}
+	})
 
 })
 
@@ -74,7 +93,7 @@ $(document).ready(function () {
 	<p>Lorem ipsum dolor sit amet, modus integre an vim, at vitae audiam has. Mea et posse tibique interpretaris. Summo audiam te quo. Dicta nemore quaeque duo cu, vis iisque tincidunt eu. An vel quis accusata ocurreret.</p>
 	<div>
 		<div class="left">Tollit expetenda pertinacia pro ea. Ea</div>
-		<div class="popup-holder">
+		<div id="ex1" class="popup-holder">
 			<span>gubergren</span>
 			<div class="popup">
 				Lorem ipsum dolor sit amet, modus integre an vim, at vitae audiam has.
@@ -84,7 +103,14 @@ $(document).ready(function () {
 		<div>constituto est, ex nonumy omnesque suavitate his. Copiosae suavitate has ut, et porro fuisset cum. Noster scaevola quaestio ne ius. No vix verterem tincidunt suscipiantur, at denique appareat pri.</div>
 	</div>
 	<p>Lorem ipsum dolor sit amet, modus integre an vim, at vitae audiam has. Mea et posse tibique interpretaris. Summo audiam te quo. Dicta nemore quaeque duo cu, vis iisque tincidunt eu. An vel quis accusata ocurreret.</p>
-	<p>Tollit expetenda pertinacia pro ea. Ea gubergren constituto est, ex nonumy omnesque suavitate his. Copiosae suavitate has ut, et porro fuisset cum. Noster scaevola quaestio ne ius. No vix verterem tincidunt suscipiantur, at denique appareat pri.</p>
+	<div>
+		<div class="left">Tollit expetenda</div>
+		<div id="ex2" class="popup-holder">
+			<span>pertinacia</span>
+			<div class="popup">Ea gubergren constituto est, ex nonumy omnesque suavitate his.</div>
+		</div>
+		<div>pro ea. Ea gubergren constituto est, ex nonumy omnesque suavitate his. Copiosae suavitate has ut, et porro fuisset cum. Noster scaevola quaestio ne ius. No vix verterem tincidunt suscipiantur, at denique appareat pri.</div>
+	</div>
 	<p>Lorem ipsum dolor sit amet, modus integre an vim, at vitae audiam has. Mea et posse tibique interpretaris. Summo audiam te quo. Dicta nemore quaeque duo cu, vis iisque tincidunt eu. An vel quis accusata ocurreret.</p>
 	<p>Tollit expetenda pertinacia pro ea. Ea gubergren constituto est, ex nonumy omnesque suavitate his. Copiosae suavitate has ut, et porro fuisset cum. Noster scaevola quaestio ne ius. No vix verterem tincidunt suscipiantur, at denique appareat pri.</p>
 </div>

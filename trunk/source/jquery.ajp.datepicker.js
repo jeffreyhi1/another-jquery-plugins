@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.datepicker = { version: '0.5pa', installed: false }
+	$.ajp.datepicker = { version: '0.6pa', required: [ 'popup' ] }
 
 	$.fn.extend({
 
@@ -19,14 +19,14 @@
 				displayFormat: 'yyyy-mm-dd',
 				valueFormat: 'yyyy-mm-dd',
 				value: function ($el) { var d = $el.val(); if (!d) d = new Date(); return d },
-				show: function ($el, $ctl) {
+				show: function ($ctl, $el) {
 					$ctl.css({
 						visibility: 'visible',
 						left: '' + $el.offset().left + 'px',
 						top: '' + ($el.offset().top + $el.outerHeight()) + 'px'
 					})
 				},
-				hide: function ($el, $ctl) {
+				hide: function ($ctl, $el) {
 					$ctl.css({
 						visibility: 'hidden'
 					})
@@ -114,7 +114,7 @@
 				var $el = $(el)
 				var yearShift = ($.browser.msie ? 0 : 1900)
 
-				var $vel = $('<input type="' + $el.attr('type') + '"/>')
+				var $vel = $('<input type="' + $el.attr('type') + '"/>').attr('readonly', true)
 
 				var attrs = ['class', 'title']
 				for (var a = 0; a < attrs.length; a ++) {
@@ -150,21 +150,14 @@
 
 				$('body').append($control)
 
-				if (!$.ajp.datepicker.installed) {
-					$.ajp.datepicker.installed = true
-					$(document).find('body:eq(0)').keydown(function (evt) {
-						if (evt.keyCode == 27)
-							$('.ajp-datepicker').css({ visibility: 'hidden' })
-					})
-					$(document).find('body:eq(0)').mouseup(function (evt) {
-						if (evt.button == ($.browser.msie ? 1 : 0)) $('.ajp-datepicker').each(function () {
-							var $c = $(this)
-							var vis = $c.css('visibility')
-							$c.data('ajp-datepicker-visible', (vis == 'hidden' ? 'no' : 'yes'))
-							$c.css({ visibility: 'hidden' })
-						})
-					})
-				}
+				$vel.ajp$popup({
+					action: 'click',
+					popup: function () { return $control },
+					show: opts.show,
+					hide: opts.hide
+				})
+
+				var $popupContext = $vel.ajp$popupContext()
 
 				function getSelectedDate() {
 					var d = (typeof opts.value == 'function' ? opts.value($el) : opts.value)
@@ -202,25 +195,25 @@
 					$control.find('.ajp-datepicker-month > tbody > tr > td').click(function () {
 						if ($(this).text()) {
 							opts.update($el, $vel, new Date($(this).data('date')))
-							opts.hide($el, $control)
+							$popupContext.hide()
 						}
 					})
 				}
 
 				$control.find('.ajp-datepicker-prev').mouseup(function (evt) {
+					$control.data('ajp-popup-opening', true)
+
 					var date = new Date($control.data('visualized-date'))
 					date = new Date(date.getYear() + yearShift, date.getMonth() - 1, 1)
 					visualize(date)
-					evt.preventDefault()
-					return false
 				})
 
 				$control.find('.ajp-datepicker-next').mouseup(function (evt) {
+					$control.data('ajp-popup-opening', true)
+
 					var date = new Date($control.data('visualized-date'))
 					date = new Date(date.getYear() + yearShift, date.getMonth() + 1, 1)
 					visualize(date)
-					evt.preventDefault()
-					return false
 				})
 
 				$control.find('.ajp-datepicker-clear').mouseup(function (evt) {
@@ -228,15 +221,7 @@
 					$el.val('').change()
 				})
 
-				$vel.attr('readonly', true).click(function () {
-					var vis = ($control.data('ajp-datepicker-visible') == 'yes' ? 'hidden' : 'visible')
-					if (vis == 'visible') {
-						visualize(getSelectedDate())
-						opts.show($vel, $control)
-					} else {
-						opts.hide($vel, $control)
-					}
-				})
+				visualize(getSelectedDate())
 
 				if ($el.val())
 					opts.update($(), $vel, getSelectedDate())
