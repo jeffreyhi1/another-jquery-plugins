@@ -420,44 +420,25 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.colorpicker = { version: '0.2pa', installed: false, controls: [], serial: 1 }
+	$.ajp.colorpicker = { version: '0.3pa', required: ['popup'], controls: [], serial: 1 }
 
 	$.fn.extend({
 
 		ajp$colorpicker: function (options) {
 
 			var defaults = {
+				action: 'click',
 				pallete: [
 					['#e6b8af','#f4cccc','#fce5cd','#fff2cc','#d9ead3','#d0e0e3','#c9daf8','#cfe2f3','#d9d2e9','#ead1dc','#dd7e6b','#ea9999','#f9cb9c','#ffe599','#b6d7a8','#a2c4c9','#a4c2f4','#9fc5e8','#b4a7d6','#d5a6bd','#cc4125','#e06666','#f6b26b','#ffd966','#93c47d','#76a5af','#6d9eeb','#6fa8dc','#8e7cc3','#c27ba0','#a61c00','#cc0000','#e69138','#f1c232','#6aa84f','#45818e','#3c78d8','#3d85c6','#674ea7','#a64d79','#85200c','#990000','#b45f06','#bf9000','#38761d','#134f5c','#285bac','#0b5394','#351c75','#741b47','#5b0f00','#660000','#783f04','#7f6000','#274e13','#0c343d','#1c4587','#073763','#20124d','#4c1130'],
 					['#000000','#434343','#666666','#999999','#b7b7b7','#cccccc','#d9d9d9','#efefef','#f3f3f3','#ffffff'],
 					['#980000','#ff0000','#ff9900','#ffff00','#00ff00','#00ffff','#4a86e8','#0000ff','#9900ff','#ff00ff']
 				],
-				onchange: function (val, $el) { },
-				show: function ($el, $cp) {
-					$cp.css({ visibility: 'visible' })
-				},
-				hide: function ($el, $cp) {
-					$cp.css({ visibility: 'hidden' })
-				}
+				onchange: function (val, $el) { }
+				// show: function ($cp, $el) { $cp.css({ visibility: 'visible' }) }
+				// hide: function ($cp, $el) { $cp.css({ visibility: 'hidden' }) }
 			}
 
 			var opts = $.extend(defaults, options);
-
-			if (!$.ajp.colorpicker.installed) {
-				$.ajp.colorpicker.installed = true
-				$(document).find('body:eq(0)').keydown(function (evt) {
-					if (evt.keyCode == 27)
-						$('.ajp-colorpicker').css({ visibility: 'hidden' })
-				})
-				$(document).find('body:eq(0)').mouseup(function (evt) {
-					if (evt.button == ($.browser.msie ? 1 : 0)) $('.ajp-colorpicker').each(function () {
-						var $c = $(this)
-						var vis = $c.css('visibility')
-						$c.data('ajp-colorpicker-visible', (vis == 'hidden' ? 'no' : 'yes'))
-						$c.css({ visibility: 'hidden' })
-					})
-				})
-			}
 
 			return this.each(function(i, el) {
 
@@ -475,17 +456,15 @@
 
 				$cp.appendTo($el)
 
-				$cp.find('.color').click(function (evt) {
-					opts.onchange($(this).attr('title'), $el)
+				$el.ajp$popup({
+					action: opts.action,
+					popup: function () { return $cp },
+					show: opts.show,
+					hide: opts.hide
 				})
 
-				$el.click(function () {
-					var vis = ($cp.data('ajp-colorpicker-visible') == 'yes' ? 'hidden' : 'visible')
-					if (vis == 'visible') {
-						opts.show($el, $cp)
-					} else {
-						opts.hide($el, $cp)
-					}
+				$cp.find('.color').click(function (evt) {
+					opts.onchange($(this).attr('title'), $el)
 				})
 			})
 		}
@@ -758,7 +737,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.datepicker = { version: '0.5pa', installed: false }
+	$.ajp.datepicker = { version: '0.6pa', required: [ 'popup' ] }
 
 	$.fn.extend({
 
@@ -769,14 +748,14 @@
 				displayFormat: 'yyyy-mm-dd',
 				valueFormat: 'yyyy-mm-dd',
 				value: function ($el) { var d = $el.val(); if (!d) d = new Date(); return d },
-				show: function ($el, $ctl) {
+				show: function ($ctl, $el) {
 					$ctl.css({
 						visibility: 'visible',
 						left: '' + $el.offset().left + 'px',
 						top: '' + ($el.offset().top + $el.outerHeight()) + 'px'
 					})
 				},
-				hide: function ($el, $ctl) {
+				hide: function ($ctl, $el) {
 					$ctl.css({
 						visibility: 'hidden'
 					})
@@ -864,7 +843,7 @@
 				var $el = $(el)
 				var yearShift = ($.browser.msie ? 0 : 1900)
 
-				var $vel = $('<input type="' + $el.attr('type') + '"/>')
+				var $vel = $('<input type="' + $el.attr('type') + '"/>').attr('readonly', true)
 
 				var attrs = ['class', 'title']
 				for (var a = 0; a < attrs.length; a ++) {
@@ -900,21 +879,14 @@
 
 				$('body').append($control)
 
-				if (!$.ajp.datepicker.installed) {
-					$.ajp.datepicker.installed = true
-					$(document).find('body:eq(0)').keydown(function (evt) {
-						if (evt.keyCode == 27)
-							$('.ajp-datepicker').css({ visibility: 'hidden' })
-					})
-					$(document).find('body:eq(0)').mouseup(function (evt) {
-						if (evt.button == ($.browser.msie ? 1 : 0)) $('.ajp-datepicker').each(function () {
-							var $c = $(this)
-							var vis = $c.css('visibility')
-							$c.data('ajp-datepicker-visible', (vis == 'hidden' ? 'no' : 'yes'))
-							$c.css({ visibility: 'hidden' })
-						})
-					})
-				}
+				$vel.ajp$popup({
+					action: 'click',
+					popup: function () { return $control },
+					show: opts.show,
+					hide: opts.hide
+				})
+
+				var $popupContext = $vel.ajp$popupContext()
 
 				function getSelectedDate() {
 					var d = (typeof opts.value == 'function' ? opts.value($el) : opts.value)
@@ -952,25 +924,25 @@
 					$control.find('.ajp-datepicker-month > tbody > tr > td').click(function () {
 						if ($(this).text()) {
 							opts.update($el, $vel, new Date($(this).data('date')))
-							opts.hide($el, $control)
+							$popupContext.hide()
 						}
 					})
 				}
 
 				$control.find('.ajp-datepicker-prev').mouseup(function (evt) {
+					$control.data('ajp-popup-opening', true)
+
 					var date = new Date($control.data('visualized-date'))
 					date = new Date(date.getYear() + yearShift, date.getMonth() - 1, 1)
 					visualize(date)
-					evt.preventDefault()
-					return false
 				})
 
 				$control.find('.ajp-datepicker-next').mouseup(function (evt) {
+					$control.data('ajp-popup-opening', true)
+
 					var date = new Date($control.data('visualized-date'))
 					date = new Date(date.getYear() + yearShift, date.getMonth() + 1, 1)
 					visualize(date)
-					evt.preventDefault()
-					return false
 				})
 
 				$control.find('.ajp-datepicker-clear').mouseup(function (evt) {
@@ -978,15 +950,7 @@
 					$el.val('').change()
 				})
 
-				$vel.attr('readonly', true).click(function () {
-					var vis = ($control.data('ajp-datepicker-visible') == 'yes' ? 'hidden' : 'visible')
-					if (vis == 'visible') {
-						visualize(getSelectedDate())
-						opts.show($vel, $control)
-					} else {
-						opts.hide($vel, $control)
-					}
-				})
+				visualize(getSelectedDate())
 
 				if ($el.val())
 					opts.update($(), $vel, getSelectedDate())
@@ -2194,6 +2158,114 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
+	$.ajp.popup = { version: '0.1pa', serial: 1, contexts: { }, docEvents: { } }
+
+	$.fn.extend({
+
+		ajp$popup: function (options) {
+
+			var defaults = {
+				action: 'click', // click or hover
+				popup: '.popup', // selector of function
+				show: function ($popup, $el) {
+					$el.addClass('ajp-popup-visible')
+					$popup.css({ visibility: 'visible' })
+				},
+				hide: function ($popup, $el) {
+					$el.removeClass('ajp-popup-visible')
+					$popup.css({ visibility: 'hidden' })
+				}
+			}
+
+			var opts = $.extend(defaults, options);
+
+			if (opts.action == 'click' && !$.ajp.popup.docEvents['click']) {
+
+				function hideAll() {
+					for (var id in $.ajp.popup.contexts)
+						$.ajp.popup.contexts[id].hide()
+				}
+
+				$(document).find('body:eq(0)').keydown(function (evt) {
+					if (evt.keyCode == 27)
+						hideAll()
+				})
+
+				$(document).bind('click', function (evt) {
+					for (var id in $.ajp.popup.contexts) {
+						var ctx = $.ajp.popup.contexts[id]
+						var $popup = ctx.getPopup()
+						if (!$popup.data('ajp-popup-opening') && $popup.css('visibility') == 'visible')
+							ctx.hide()
+						$popup.data('ajp-popup-opening', false)
+					}
+				})
+
+				$.ajp.popup.docEvents['click'] = true
+			}
+
+			return this.each(function () {
+
+				var $el = $(this)
+				var $popup = (typeof opts.popup == 'function' ? opts.popup($el) : $el.find(opts.popup))
+
+				var ctx = {
+					getElement: function () {
+						return $el
+					},
+					getPopup: function () {
+						return $popup
+					},
+					show: function () {
+						opts.show($popup, $el)
+					},
+					hide: function () {
+						opts.hide($popup, $el)
+					}
+				}
+
+				var id = $.ajp.popup.serial ++
+				$el.data('ajp-popup-id', id)
+				$.ajp.popup.contexts[id] = ctx
+
+				if (opts.action == 'click') {
+
+					$el.bind('click', function () {
+						if ($popup.css('visibility') == 'visible') {
+							$popup.data('ajp-popup-opening', false)
+						} else {
+							$popup.data('ajp-popup-opening', true)
+							ctx.show()
+						}
+					})
+
+				} else if (opts.action == 'hover') {
+
+					$el.hover(function () {
+						ctx.show()
+					}, function () {
+						ctx.hide()
+					})
+				}
+			})
+		},
+
+		ajp$popupContext: function () {
+			return $.ajp.popup.contexts[this.data('ajp-popup-id')]
+		}
+	})
+
+})(jQuery);
+/*
+	Copyright (c) 2011 Andrey O. Zbitnev (azbitnev@gmail.com)
+	Licensed under the MIT License (LICENSE.txt).
+
+	$Id$
+*/
+
+(function ($) {
+
+	if (!$.ajp) $.ajp = { }
 	$.ajp.progressbar = { version: '0.1pa', installed: false, controls: [], serial: 1 }
 
 	$.fn.extend({
@@ -3121,7 +3193,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.wysiwyg = { version: '0.4pa', required: ['editable', 'colorpicker'], current: null, installed: false }
+	$.ajp.wysiwyg = { version: '0.5pa', required: ['editable', 'colorpicker', 'popup'], current: null, installed: false }
 
 	$.fn.extend({
 
@@ -3302,19 +3374,8 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 					$.ajp.wysiwyg.installed = true
 
 					$(document).find('body:eq(0)').keydown(function (evt) {
-						if (evt.keyCode == 27)
-							$('.popup').css({ visibility: 'hidden' })
 						if (opts.air)
 							$toolbar.css({ visibility: 'hidden' })
-					})
-
-					$(document).find('body:eq(0)').mouseup(function (evt) {
-						if (evt.button == ($.browser.msie ? 1 : 0)) $('.popup').each(function () {
-							var $c = $(this)
-							var vis = $c.css('visibility')
-							$c.data('ajp-wysiwyg-toolbar-popup-visible', (vis == 'hidden' ? 'no' : 'yes'))
-							$c.css({ visibility: 'hidden' })
-						})
 					})
 				}
 
@@ -3327,11 +3388,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 					ctx.restoreSelection()
 				})
 
-				$toolbar.find('.popup-open').click(function () {
-					var $popup = $(this).find('.popup')
-					var vis = ($popup.data('ajp-wysiwyg-toolbar-popup-visible') == 'yes' ? 'hidden' : 'visible')
-					$popup.css({ visibility: vis })
-				})
+				$toolbar.find('.popup-open').ajp$popup()
 
 				$toolbar.find('.foreground-colorpicker').ajp$colorpicker({
 					onchange: function (val) {

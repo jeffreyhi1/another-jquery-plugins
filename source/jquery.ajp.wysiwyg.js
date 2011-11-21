@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.wysiwyg = { version: '0.4pa', required: ['editable', 'colorpicker'], current: null, installed: false }
+	$.ajp.wysiwyg = { version: '0.5pa', required: ['editable', 'colorpicker', 'popup'], current: null, installed: false }
 
 	$.fn.extend({
 
@@ -189,19 +189,8 @@
 					$.ajp.wysiwyg.installed = true
 
 					$(document).find('body:eq(0)').keydown(function (evt) {
-						if (evt.keyCode == 27)
-							$('.popup').css({ visibility: 'hidden' })
 						if (opts.air)
 							$toolbar.css({ visibility: 'hidden' })
-					})
-
-					$(document).find('body:eq(0)').mouseup(function (evt) {
-						if (evt.button == ($.browser.msie ? 1 : 0)) $('.popup').each(function () {
-							var $c = $(this)
-							var vis = $c.css('visibility')
-							$c.data('ajp-wysiwyg-toolbar-popup-visible', (vis == 'hidden' ? 'no' : 'yes'))
-							$c.css({ visibility: 'hidden' })
-						})
 					})
 				}
 
@@ -214,11 +203,7 @@
 					ctx.restoreSelection()
 				})
 
-				$toolbar.find('.popup-open').click(function () {
-					var $popup = $(this).find('.popup')
-					var vis = ($popup.data('ajp-wysiwyg-toolbar-popup-visible') == 'yes' ? 'hidden' : 'visible')
-					$popup.css({ visibility: vis })
-				})
+				$toolbar.find('.popup-open').ajp$popup()
 
 				$toolbar.find('.foreground-colorpicker').ajp$colorpicker({
 					onchange: function (val) {
