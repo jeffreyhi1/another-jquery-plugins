@@ -1,0 +1,47 @@
+/* $Id$ */
+
+/*
+	ajp-select: common logic
+*/
+
+.ajp-disabled {
+	cursor: default;
+}
+
+.ajp-select {
+	cursor: pointer;
+	display: inline-block;
+}
+
+.ajp-select > .ajp-current {
+	float: left;
+	overflow: hidden;
+}
+
+.ajp-select .ajp-disclosure-arrow {
+	float: left;
+}
+
+.ajp-select > .ajp-list {
+	clear: both;
+	visibility: hidden;
+	position: relative;
+	z-index: 5;
+}
+
+.ajp-select > .ajp-list > .ajp-list-items {
+	float: left;
+	overflow: hidden;
+}
+
+.ajp-select > .ajp-list > .ajp-sb-native {
+	overflow: auto;
+}
+
+.ajp-select > .ajp-list > .ajp-list-right {
+	float: left;
+}
+
+.ajp-select > .ajp-list > .ajp-list-bottom {
+	clear: both;
+}

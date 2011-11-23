@@ -539,204 +539,6 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	if ($.ajp.customSelect)
-		return
-	$.ajp.customSelect = { version: '0.15pa', initialized: false, contexts: {}, serial: 1 }
-
-	$.fn.extend({
-
-		ajp$customSelect: function (options) {
-
-			var defaults = {
-				event: 'click',
-				hideTimeout: 0
-			}
-
-			var options = $.extend(defaults, options);
-
-			return this.each(function(i, el) {
-
-				var api = {
-
-					element: $(el),
-					custom: null,
-					currentValue: null,
-					valueToIndex: {},
-					indexToValue: [],
-					timer: null,
-
-					init: function () {
-
-						var ths = this
-
-						if (!$.ajp.customSelect.initialized) {
-							$.ajp.customSelect.initialized = true
-							$(document).find('body:eq(0)').keydown(function (evt) {
-								if (evt.keyCode == 27)
-									$('.ajp-customselect > .list').css({ visibility: 'hidden' })
-							})
-							$(document).find('body:eq(0)').mouseup(function (evt) {
-								if (evt.button == ($.browser.msie ? 1 : 0)) $('.ajp-customselect > .list').each(function () {
-									var $list = $(this)
-									var vis = $list.css('visibility')
-									$list.data('ajp-customselect-visible', (vis == 'hidden' ? 'no' : 'yes'))
-									$list.css({ visibility: 'hidden' })
-								})
-							})
-						}
-
-						var html = '';
-						html += '<div class="ajp-customselect">'
-						html += '<input class="current" readonly="readonly"/>'
-						html += '<div class="control"></div>'
-						html += '<div class="clear"></div>'
-						html += '<div class="list"></div>'
-						html += '</div>'
-
-						this.element.css({ display: 'none' }).after(html)
-						this.custom = this.element.next('.ajp-customselect:eq(0)').attr('class', 'ajp-customselect ' + ths.element.attr('class'))
-
-						function openList() {
-							if (!ths.custom.hasClass('ajp-customselect-disabled')) {
-								var list = ths.custom.find('.list:eq(0)')
-								var vis = (list.data('ajp-customselect-visible') == 'yes' ? 'hidden' : 'visible')
-								if (vis == 'visible') {
-									$('.ajp-customselect > .list').css({ visibility: 'hidden' })
-									var top = 0
-									var item = list.find('.selected')
-									if (item.length > 0) {
-										do {
-											item = item.prev()
-											top += item.outerHeight()
-										} while (!item.hasClass('top'))
-										list.scrollTop(top)
-									}
-								}
-								list.css({ visibility: vis })
-							}
-						}
-
-						this.custom.find('.current:eq(0), .control:eq(0)').bind(options.event, openList)
-
-						this.custom.attr('title', this.element.attr('title'))
-
-						this.sync()
-
-						this.element.change(function () {
-							ths.setValue($(this).val())
-						})
-						var serial = ($.ajp.customSelect.serial ++)
-						$.ajp.customSelect.contexts[serial] = this
-						this.element.data('ajp-customselect-id', serial)
-						this.custom.children('.list:eq(0)').data('ajp-customselect-visible', 'no')
-
-						if (options.hideTimeout) {
-							this.custom.mouseover(function () {
-								if (ths.timer) {
-									clearTimeout(ths.timer)
-									ths.timer = null
-								}
-							})
-							this.custom.mouseout(function () {
-								if (!ths.timer) {
-									ths.timer = setTimeout(function () {
-										ths.custom.children('.list:eq(0)').css({ visibility: 'hidden' })
-									}, options.hideTimeout)
-								}
-							})
-						}
-					},
-
-					sync: function () {
-
-						var ths = this
-
-						ths.valueToIndex = {}
-						ths.indexToValue = []
-
-						var selOpt = null
-						var html = '<div class="top"></div>';
-						this.element.find('option').each(function (i) {
-							var opt = $(this)
-							if (!selOpt || opt.attr('selected')) selOpt = opt
-							html += '<div class="item' + (opt.attr('selected') ? ' selected' : '') + '"' + (opt.attr('style') ? ' style="' + opt.attr('style') + '"' : '') + '>'
-							html += (opt.data('ajp-customselect-html') ? opt.data('ajp-customselect-html') : (opt.attr('label') ? opt.attr('label') : opt.text()))
-							html += '</div>'
-							var val = opt.attr('value')
-							ths.valueToIndex[val] = i
-							ths.indexToValue[i] = val
-						})
-						html += '</div>'
-						html += '<div class="bottom"></div></div>'
-						this.custom.children('.list:eq(0)').html(html)
-						if (selOpt) {
-							this.selectItem(selOpt.attr('value'))
-						} else {
-							this.selectItem('')
-						}
-						this.custom.find('.list:eq(0) > .item').each(function (i) {
-							$(this).click(function (evt) {
-								ths.selectItem(ths.indexToValue[i])
-							})
-						})
-
-						if (this.element.attr('disabled') || this.indexToValue.length <= 0) {
-							this.custom.addClass('ajp-customselect-disabled')
-						} else {
-							this.custom.removeClass('ajp-customselect-disabled')
-						}
-					},
-
-					setValue: function (val) {
-						if (this.currentValue != val) {
-							this.currentValue = val
-							this.invalidate()
-						}
-					},
-
-					selectItem: function (val) {
-						this.setValue(val)
-						this.element.change()
-					},
-
-					invalidate: function () {
-						var list = this.custom.find('.list:eq(0)')
-						list.find('.selected').removeClass('selected')
-						if (this.indexToValue.length > 0) {
-							var item = list.find('.item:eq(' + this.valueToIndex[this.currentValue] + ')').addClass('selected')
-							this.custom.find('.current:eq(0)').val(item.text())
-							this.element.val(this.currentValue)
-						} else {
-							this.custom.find('.current:eq(0)').val('')
-						}
-						list.css({ visibility: 'hidden' })
-					}
-				}
-
-				api.init()
-			})
-		},
-
-		ajp$customSelectContext: function () {
-			if (this.length) {
-				var serial = $(this[0]).data('ajp-customselect-id')
-				return $.ajp.customSelect.contexts[serial]
-			}
-			return null
-		}
-	})
-
-})(jQuery);
-/*
-	Copyright (c) 2011 Andrey O. Zbitnev (azbitnev@gmail.com)
-	Licensed under the MIT License (LICENSE.txt).
-
-	$Id$
-*/
-
-(function ($) {
-
-	if (!$.ajp) $.ajp = { }
 	$.ajp.datepicker = { version: '0.6pa', required: [ 'popup' ] }
 
 	$.fn.extend({
@@ -2158,7 +1960,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.popup = { version: '0.1pa', serial: 1, contexts: { }, docEvents: { } }
+	$.ajp.popup = { version: '0.2pa', serial: 1, contexts: { }, docEvents: { } }
 
 	$.fn.extend({
 
@@ -2175,6 +1977,10 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 					$el.removeClass('ajp-popup-visible')
 					$popup.css({ visibility: 'hidden' })
 				}
+				// beforeShow: function ($popup, $el) { ... }
+				// beforeHide: function ($popup, $el) { ... }
+				// afterShow: function ($popup, $el) { ... }
+				// afterHide: function ($popup, $el) { ... }
 			}
 
 			var opts = $.extend(defaults, options);
@@ -2217,10 +2023,20 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 						return $popup
 					},
 					show: function () {
+						if ($el.hasClass('ajp-disabled'))
+							return;
+						if (opts.beforeShow)
+							opts.beforeShow($popup, $el)
 						opts.show($popup, $el)
+						if (opts.afterShow)
+							opts.afterShow($popup, $el)
 					},
 					hide: function () {
+						if (opts.beforeHide)
+							opts.beforeHide($popup, $el)
 						opts.hide($popup, $el)
+						if (opts.afterHide)
+							opts.afterHide($popup, $el)
 					}
 				}
 
@@ -2789,6 +2605,229 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 				api.init()
 			})
 		}
+	})
+
+})(jQuery);
+/*
+	Copyright (c) 2011 Andrey O. Zbitnev (azbitnev@gmail.com)
+	Licensed under the MIT License (LICENSE.txt).
+
+	$Id$
+*/
+
+(function ($) {
+
+	if (!$.ajp) $.ajp = { }
+	$.ajp.select = { version: '0.1pa', required: ['slider', 'popup'], serial: 1, contexts: { } }
+
+	$.fn.extend({
+
+		ajp$select: function (options) {
+
+			var defaults = {
+				select: 'text', // text | html
+				scrollbars: 'vertical', // vertical | native | none
+				action: 'click', // see 'popup'
+				// show: function ($popup, $el) { ... } // see 'popup'
+				// hide: function ($popup, $el) { ... } // see 'popup'
+				getItemContent: function ($opt) { return $opt.text() },
+				empty: '<div class="ajp-message">list is empty...</div>'
+			}
+
+			var opts = $.extend(defaults, options);
+
+			return this.each(function(i, el) {
+
+				var $el = $(el).css({ display: 'none' })
+
+				var html = '';
+				html += '<div class="ajp-select">'
+					html += '<div class="ajp-current">testing...</div>'
+					html += '<div class="ajp-disclosure-arrow"></div>'
+					html += '<div class="ajp-list">'
+						html += '<div class="ajp-list-top"></div>'
+						html += '<div class="ajp-list-items"></div>'
+						html += '<div class="ajp-list-right"></div>'
+						html += '<div class="ajp-list-bottom"></div>'
+					html += '</div>'
+				html += '</div>'
+
+				var $sel = $(html).insertAfter($el)
+				$sel.attr('class', $sel.attr('class') + ' ' + $el.attr('class'))
+
+				var $r = $sel.find('.ajp-list-right:eq(0)')
+				var $i = $sel.find('.ajp-list-items:eq(0)')
+
+				if (opts.scrollbars == 'vertical') {
+					var $vsb = $('<div class="ajp-vsb"></div>')
+					$r.append($vsb)
+					$vsb.ajp$slider({ orientation: 'vertical', onchange: function (val) {
+						var items = $i.children('.ajp-item')
+						$i.scrollTop((items.outerHeight() * items.length - $i.innerHeight()) * val)
+					}})
+					if (opts.action == 'click') {
+						$vsb.mouseup(function (evt) {
+							$sel.find('.ajp-list').css({ visibility: 'hidden' })
+						})
+					}
+				} else {
+					$i.addClass('ajp-no-vsb')
+				}
+
+				if (opts.scrollbars == 'native')
+					$i.addClass('ajp-sb-native')
+
+				function invalidate() {
+
+					var $cur = $sel.children('.ajp-current')
+					var $opt = $sel.find('.ajp-selected:eq(0)')
+					if ($opt.length <= 0)
+						$opt = $sel.find('.ajp-item:eq(0)')
+					if ($opt.length > 0) {
+						if (opts.select == 'text') {
+							$cur.text($opt.text())
+						} else {
+							$cur.html($opt.html())
+						}
+					} else {
+						$cur.html('<!-- -->')
+					}
+
+					var $i = $sel.find('.ajp-list-items:eq(0)')
+					var top = 0
+					var item = $i.children('.ajp-selected')
+					if (item.length > 0) {
+						do {
+							item = item.prev()
+							if (item.length > 0)
+								top += item.outerHeight()
+						} while (item.length > 0)
+						$i.scrollTop(top)
+						top = $i.scrollTop()
+					}
+
+					var $vsb = $sel.find('.ajp-list-right > .ajp-vsb')
+					if ($vsb.length > 0) {
+						var items = $i.children('.ajp-item')
+						var visibleHeight = $i.innerHeight()
+						var totalHeight = (items.outerHeight() * items.length) 
+						var $control = $vsb.children('.control')
+						if (!$control.data('ajp-min-height'))
+							$control.data('ajp-min-height', $control.height())
+						var minHeight = $control.data('ajp-min-height')
+						var h = (visibleHeight * $vsb.innerHeight()) / totalHeight
+						$control.height(h < minHeight ? minHeight : h)
+						$vsb.val(top / (totalHeight - $i.innerHeight()))
+						if (visibleHeight < totalHeight) {
+							$vsb.css({ display: 'block' })
+							$i.removeClass('ajp-no-vsb')
+						} else {
+							$vsb.css({ display: 'none' })
+							$i.addClass('ajp-no-vsb')
+						}
+					}
+				}
+
+				function selectItem($opt, raiseEvent) {
+					var $list = $sel.find('.ajp-list-items')
+					$list.children('.ajp-item').removeClass('ajp-selected')
+					$opt.addClass('ajp-selected')
+					invalidate()
+					if (opts.action != 'click')
+						$sel.ajp$popupContext().hide()
+					if (raiseEvent) {
+						var val = $opt.data('ajp-value')
+						$el.children('option').each(function () {
+							var $src = $(this)
+							if ($src.attr('value') == val)
+								$src.attr('selected', true)
+						}).change()
+					}
+				}
+
+				function getItem(val) {
+					var $opt = $sel.find('.ajp-item:eq(0)')
+					$sel.find('.ajp-item').each(function () {
+						var $item = $(this)
+						if (!$item.hasClass('ajp-disabled') && $item.data('ajp-value') == val)
+							$opt = $item
+					})
+					return $opt
+				}
+
+				$sel.ajp$popup({
+					action: opts.action,
+					show: opts.show,
+					hide: opts.hide,
+					popup: '.ajp-list'
+				})
+
+				var ctx = {
+
+					sync: function () {
+						if ($el.attr('disabled')) {
+							if (!$sel.hasClass('ajp-disabled'))
+								$sel.addClass('ajp-disabled')
+						} else {
+							$sel.removeClass('ajp-disabled')
+						}
+						var $list = $sel.find('.ajp-list-items')
+						$list.html('<!-- -->')
+						$el.find('option').each(function () {
+							var $src = $(this)
+							var $opt = $('<div class="ajp-item"></div>')
+							$opt.html(opts.getItemContent($src))
+							$opt.data('ajp-value', $src.attr('value'))
+							if ($src.attr('disabled')) {
+								$opt.addClass('ajp-disabled')
+								if (opts.action == 'click')
+									$opt.mouseup(function () {
+										$sel.children('.ajp-list').css({ visibility: 'hidden' })
+									})
+							} else {
+								$opt.click(function () { selectItem($opt, true) })
+							}
+							if ($src.attr('selected')) {
+								$list.children('.ajp-item').removeClass('ajp-selected')
+								$opt.addClass('ajp-selected')
+							}
+							$list.append($opt)
+						})
+						if ($list.children('.ajp-item').length <= 0)
+							$list.html(opts.empty)
+						invalidate()
+					},
+
+					get: function () {
+						return $sel.find('.ajp-selected').data('ajp-value')
+					},
+
+					set: function (val) {
+						if (this.get() != val)
+							selectItem(getItem(val), true)
+					}
+				}
+
+				var id = ($.ajp.select.serial ++)
+				$.ajp.select.contexts[id] = ctx
+				$el.data('ajp-select-id', id)
+				$sel.data('ajp-select-id', id)
+
+				ctx.sync()
+
+				$el.change(function () {
+					var val = $el.children('option[selected]').attr('value')
+					if (ctx.get() != val)
+						selectItem(getItem(val), false)
+				})
+			})
+		},
+
+		ajp$selectContext: function () {
+			var id = this.data('ajp-select-id')
+			return $.ajp.select.contexts[id]
+		}
+
 	})
 
 })(jQuery);
