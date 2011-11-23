@@ -117,104 +117,6 @@
 	top: 2px;
 }
 
-/* $Id: customselect.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
-
-/*
-	ajp-customselect: common style
-*/
-
-.ajp-customselect {
-	border-style: solid;
-	border-color: #eee;
-	background: #fff;
-}
-
-.ajp-customselect:hover {
-	border-color: #d9d9d9;
-}
-
-.ajp-customselect .current {
-	background: transparent;
-}
-
-.ajp-customselect .control {
-	background: url(images/jquery.ajp.customselect.png) 0 0 no-repeat;
-}
-
-.ajp-customselect-disabled .control {
-	background: url(images/jquery.ajp.customselect-disabled.png) 0 0 no-repeat;
-}
-.ajp-customselect-disabled .current {
-	color: #999;
-}
-
-.ajp-customselect .list {
-	background: #fff;
-	border-style: solid;
-	border-color: #d9d9d9;
-	box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
-	-webkit-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
-	-moz-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
-}
-
-.ajp-customselect .item {
-	border-style: solid;
-	border-color: #eee;
-	border-top-color: #fff;
-	font-size: 0.85em;
-	background: #fff;
-}
-
-.ajp-customselect .item:hover {
-	background: #eee;
-	color: #000;
-}
-
-.ajp-customselect .selected {
-	background: #181818 url(images/jquery.ajp.customselect-selected.png) 0 0 repeat-x !important;
-	color: #fff !important;
-	border-bottom-color: #000;
-}
-
-.ajp-customselect { background: #fff; }
-
-.ajp-customselect > .list { background: #fff; }
-
-/*
-	ajp-customselect: sizes
-*/
-
-.ajp-customselect {
-	border-width: 1px;
-	width: 198px; /* real width - border-left-width - border-right-width = 200 - 1 - 1 = 198 */
-	height: 28px; /* real height - botder-top-width - border-bottom-width = 30 - 1 - 1 = 28 */
-}
-
-.ajp-customselect .control {
-	width: 24px;
-	height: 24px;
-	margin-top: 4px; /* make sure that (height + margin-top) <= height of ajp-customselect */
-}
-
-.ajp-customselect .current {
-	margin-left: 4px;
-	width: 168px; /* width of ajp-customselect - width of control - self margin-left = 198 - 24 - 4 - 2 (msie) = 168 */
-	height: 26px; /* width of ajp-customselect - border-top-width of ajp-customselect - border-bottom-width of ajp-customselect = 28 - 1 - 1 = 26 */
-	line-height: 26px; /* same as height */
-}
-
-.ajp-customselect .list {
-	width: 300px; /* width of popup list */
-	max-height: 14em; /* full height of item * number of visible items = 30 (padding-top + padding-bottom + border-top-width + border-bottom-width + line-height) * 5 = 150 */
-	border-width: 1px;
-}
-
-.ajp-customselect .item {
-	padding: 0.4em;
-	min-height: 2em;
-	border-bottom-width: 0.1em;
-}
-
 /* $Id: datepicker.css 14 2011-06-24 11:48:30Z azbitnev@gmail.com $ */
 
 /*
@@ -693,6 +595,105 @@ input:-moz-placeholder {
 	margin-left: 10px;
 }
 
+/* $Id$ */
+
+/*
+	ajp-select: common style
+*/
+
+.ajp-disabled {
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+
+.ajp-select {
+	background: #fff;
+	border: 0 solid #eee;
+}
+
+.ajp-select:hover {
+	border-color: #ddd;
+}
+
+.ajp-select .ajp-disclosure-arrow {
+	background: url(images/jquery.ajp.select.disclosure-arrow.png) 0 0 no-repeat;
+}
+
+.ajp-select > .ajp-list {
+	background: #fff;
+	border: 0 solid #eee;
+	box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+}
+
+.ajp-select > .ajp-list > .ajp-list-items > .ajp-item {
+	border-bottom: 0 solid #eee;
+}
+
+.ajp-select > .ajp-list > .ajp-list-items > .ajp-item:hover {
+	background: #eee;
+}
+
+.ajp-select > .ajp-list > .ajp-list-items > .ajp-selected {
+	background: #181818 url(images/jquery.ajp.select.item-selected.png) 0 0 repeat-x !important;
+	color: white;
+}
+
+.ajp-select > .ajp-list > .ajp-list-items > .ajp-message {
+	font-style: italic;
+	color: #ccc;
+}
+
+/*
+	ajp-select: common sizes
+*/
+
+.ajp-select {
+	border-width: 1px;
+	width: 198px;
+	height: 2em;
+}
+
+.ajp-select > .ajp-current {
+	width: 168px;
+	height: 2em;
+	line-height: 2em;
+	padding-left: 0.4em;
+}
+
+.ajp-select .ajp-disclosure-arrow {
+	width: 20px;
+	height: 20px;
+	margin-top: 0.33em;
+}
+
+.ajp-select > .ajp-list {
+	width: 21.2em;
+	border-width: 1px;
+}
+
+.ajp-select > .ajp-list > .ajp-list-items {
+	width: 18.8em;
+	max-height: 14.5em;
+	margin: 0.6em;
+}
+
+.ajp-select > .ajp-list > .ajp-no-vsb {
+	width: 20em;
+}
+
+.ajp-select > .ajp-list > .ajp-list-items > .ajp-item {
+	padding: 0 0.4em;
+	min-height: 2em;
+	line-height: 2em;
+	border-bottom-width: 1px;
+}
+
+.ajp-select > .ajp-list > .ajp-list-right > .ajp-vsb {
+	height: 14.5em;
+	margin: 0.6em 0;
+}
 /* $Id: slider.css 28 2011-08-10 10:33:17Z azbitnev@gmail.com $ */
 
 /*

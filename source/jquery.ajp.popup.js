@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.popup = { version: '0.1pa', serial: 1, contexts: { }, docEvents: { } }
+	$.ajp.popup = { version: '0.2pa', serial: 1, contexts: { }, docEvents: { } }
 
 	$.fn.extend({
 
@@ -25,6 +25,10 @@
 					$el.removeClass('ajp-popup-visible')
 					$popup.css({ visibility: 'hidden' })
 				}
+				// beforeShow: function ($popup, $el) { ... }
+				// beforeHide: function ($popup, $el) { ... }
+				// afterShow: function ($popup, $el) { ... }
+				// afterHide: function ($popup, $el) { ... }
 			}
 
 			var opts = $.extend(defaults, options);
@@ -67,10 +71,20 @@
 						return $popup
 					},
 					show: function () {
+						if ($el.hasClass('ajp-disabled'))
+							return;
+						if (opts.beforeShow)
+							opts.beforeShow($popup, $el)
 						opts.show($popup, $el)
+						if (opts.afterShow)
+							opts.afterShow($popup, $el)
 					},
 					hide: function () {
+						if (opts.beforeHide)
+							opts.beforeHide($popup, $el)
 						opts.hide($popup, $el)
+						if (opts.afterHide)
+							opts.afterHide($popup, $el)
 					}
 				}
 

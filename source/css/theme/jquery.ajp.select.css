@@ -1,0 +1,99 @@
+/* $Id$ */
+
+/*
+	ajp-select: common style
+*/
+
+.ajp-disabled {
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+
+.ajp-select {
+	background: #fff;
+	border: 0 solid #eee;
+}
+
+.ajp-select:hover {
+	border-color: #ddd;
+}
+
+.ajp-select .ajp-disclosure-arrow {
+	background: url(images/jquery.ajp.select.disclosure-arrow.png) 0 0 no-repeat;
+}
+
+.ajp-select > .ajp-list {
+	background: #fff;
+	border: 0 solid #eee;
+	box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+}
+
+.ajp-select > .ajp-list > .ajp-list-items > .ajp-item {
+	border-bottom: 0 solid #eee;
+}
+
+.ajp-select > .ajp-list > .ajp-list-items > .ajp-item:hover {
+	background: #eee;
+}
+
+.ajp-select > .ajp-list > .ajp-list-items > .ajp-selected {
+	background: #181818 url(images/jquery.ajp.select.item-selected.png) 0 0 repeat-x !important;
+	color: white;
+}
+
+.ajp-select > .ajp-list > .ajp-list-items > .ajp-message {
+	font-style: italic;
+	color: #ccc;
+}
+
+/*
+	ajp-select: common sizes
+*/
+
+.ajp-select {
+	border-width: 1px;
+	width: 198px;
+	height: 2em;
+}
+
+.ajp-select > .ajp-current {
+	width: 168px;
+	height: 2em;
+	line-height: 2em;
+	padding-left: 0.4em;
+}
+
+.ajp-select .ajp-disclosure-arrow {
+	width: 20px;
+	height: 20px;
+	margin-top: 0.33em;
+}
+
+.ajp-select > .ajp-list {
+	width: 21.2em;
+	border-width: 1px;
+}
+
+.ajp-select > .ajp-list > .ajp-list-items {
+	width: 18.8em;
+	max-height: 14.5em;
+	margin: 0.6em;
+}
+
+.ajp-select > .ajp-list > .ajp-no-vsb {
+	width: 20em;
+}
+
+.ajp-select > .ajp-list > .ajp-list-items > .ajp-item {
+	padding: 0 0.4em;
+	min-height: 2em;
+	line-height: 2em;
+	border-bottom-width: 1px;
+}
+
+.ajp-select > .ajp-list > .ajp-list-right > .ajp-vsb {
+	height: 14.5em;
+	margin: 0.6em 0;
+}
