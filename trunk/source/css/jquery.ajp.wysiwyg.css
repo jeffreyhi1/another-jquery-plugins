@@ -66,3 +66,7 @@
 	background-position: 0 0;
 	background-repeat: no-repeat;
 }
+
+.ajp-wysiwyg-toolbar .button {
+	cursor: pointer;
+}

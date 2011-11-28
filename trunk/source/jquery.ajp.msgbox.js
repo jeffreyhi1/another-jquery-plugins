@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.msgbox = { version: '0.5pa', queue: [] }
+	$.ajp.msgbox = { version: '0.6pa', queue: [] }
 
 	$.fn.extend({
 
@@ -150,12 +150,12 @@
 						} else {
 							handler.apply(handler, [ false ])
 						}
+						$tmpl.remove()
 						if ($.ajp.msgbox.queue.length >= 1)
 							opts.show($.ajp.msgbox.queue[$.ajp.msgbox.queue.length - 1], $.ajp.msgbox.shade)
 					} else {
 						opts.notReady($tmpl)
 					}
-					$tmpl.remove()
 				})
 				opts.addButton($tmpl, $btn)
 			})

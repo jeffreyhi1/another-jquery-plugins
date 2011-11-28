@@ -126,14 +126,22 @@
 .ajp-datepicker {
 	border-style: solid;
 	border-color: #eee;
-}
-
-.ajp-datepicker > .ajp-datepicker-month {
 	box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
 	-webkit-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
 	-moz-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
-	position: relative;
-	top: -2px;
+}
+
+.ajp-datepicker > .ajp-datepicker-header .ajp-datepicker-month-name {
+	font-weight: bold;
+}
+
+.ajp-datepicker > .ajp-datepicker-header .ajp-datepicker-prev,
+.ajp-datepicker > .ajp-datepicker-header .ajp-datepicker-next {
+	background: url(images/jquery.ajp.datepicker.prev.png) 6px 4px no-repeat;
+}
+
+.ajp-datepicker > .ajp-datepicker-header .ajp-datepicker-next {
+	background: url(images/jquery.ajp.datepicker.next.png) 6px 4px no-repeat;
 }
 
 .ajp-datepicker > .ajp-datepicker-month > tbody > tr > th, .ajp-datepicker > .ajp-datepicker-month > tbody > tr > td {
@@ -156,36 +164,16 @@
 }
 
 .ajp-datepicker > .ajp-datepicker-header {
-	background: #ccc url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAYAAADtlXTHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAfSURBVAiZY/j37/t/pv///zNACAYGBgasXJwStFAHAIlSPPR0066nAAAAAElFTkSuQmCC') 0 0 repeat-x;
-	box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
-	-webkit-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
-	-moz-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+	background: #fff url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAYAAADtlXTHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAfSURBVAiZY/j37/t/pv///zNACAYGBgasXJwStFAHAIlSPPR0066nAAAAAElFTkSuQmCC') 0 0 repeat-x;
 }
 
 .ajp-datepicker > .ajp-datepicker-month > tbody > tr > th {
 	background: #fff;
 }
 
-.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-month-name {
-	font-weight: bold;
-}
-
-.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-prev, .ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-next {
-	background: url(images/jquery.ajp.datepicker.prev.png);
-}
-
-.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-next {
-	background: url(images/jquery.ajp.datepicker.next.png);
-}
-
 .ajp-datepicker > .ajp-datepicker-footer {
 	background: #ccc url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAYAAADtlXTHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAfSURBVAiZY/j37/t/pv///zNACAYGBgasXJwStFAHAIlSPPR0066nAAAAAElFTkSuQmCC') 0 0 repeat-x;
-	box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
-	-webkit-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
-	-moz-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
 	height: 30px;
-	position: relative;
-	top: -2px;
 }
 
 .ajp-datepicker > .ajp-datepicker-footer > .ajp-datepicker-clear {
@@ -200,6 +188,26 @@
 	border-width: 1px;
 }
 
+.ajp-datepicker > .ajp-datepicker-header {
+	width: 100%;
+}
+
+.ajp-datepicker > .ajp-datepicker-header td {
+	border: 0;
+	padding: 2px 6px;
+}
+
+.ajp-datepicker > .ajp-datepicker-header .ajp-datepicker-month-name {
+	height: 24px;
+	line-height: 24px;
+}
+
+.ajp-datepicker > .ajp-datepicker-header .ajp-datepicker-prev,
+.ajp-datepicker > .ajp-datepicker-header .ajp-datepicker-next {
+	width: 18px;
+	height: 24px;
+}
+
 .ajp-datepicker > .ajp-datepicker-month > tbody > tr > th, .ajp-datepicker > .ajp-datepicker-month > tbody > tr > td {
 	width: 40px;
 	height: 24px;
@@ -207,24 +215,11 @@
 	padding: 0;
 }
 
-.ajp-datepicker > .ajp-datepicker-header {
-	width: 288px;
-	height: 30px;
-}
-
-.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-month-name {
-	width: 200px;
-	margin: 5px;
-}
-
-.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-prev,
-.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-next,
 .ajp-datepicker > .ajp-datepicker-footer > .ajp-datepicker-clear {
 	width: 20px;
 	height: 20px;
 	margin: 5px;
 }
-
 /* $Id: jquery.ajp.editable.css 54 2011-11-11 12:43:41Z azbitnev@gmail.com $ */
 
 /*
@@ -595,7 +590,7 @@ input:-moz-placeholder {
 	margin-left: 10px;
 }
 
-/* $Id$ */
+/* $Id: jquery.ajp.select.css 61 2011-11-23 07:26:49Z azbitnev@gmail.com $ */
 
 /*
 	ajp-select: common style
@@ -740,6 +735,48 @@ input:-moz-placeholder {
 	margin-top: -11px; /* half of control height */
 }
 
+/*
+	ajp-slider: scrollbars common style
+*/
+
+.ajp-vsb, .ajp-hsb {
+	background: #eee;
+	border: 0px solid transparent;
+}
+
+.ajp-vsb:hover, .ajp-hsb:hover {
+	border-color: #ddd;
+}
+
+.ajp-vsb > .control, .ajp-hsb > .control {
+	background: #ccc;
+}
+
+/*
+	ajp-slider: scrollbars sizes
+*/
+
+.ajp-vsb {
+	width: 0.6em;
+	height: 10em;
+	border-width: 1px;
+}
+
+.ajp-vsb > .control {
+	width: 0.6em;
+	height: 2em;
+}
+
+.ajp-hsb {
+	width: 10em;
+	height: 0.6em;
+	border-width: 1px;
+}
+
+.ajp-hsb > .control {
+	width: 2em;
+	height: 0.6em;
+}
 /* $Id: tooltip.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 /*
@@ -881,6 +918,23 @@ input:-moz-placeholder {
 
 .ajp-wysiwyg-toolbar .align .img { background-image: url(images/jquery.ajp.wysiwyg.toolbar.left.png); }
 
+.ajp-wysiwyg-toolbar .button {
+	border: 0px solid;
+	border-color: #ccc;
+	border-top-color: #eee;
+	border-left-color: #eee;
+	color: #666;
+	text-shadow: #999 0 0 1px;
+	background: #EBEBE4 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAYAAADtlXTHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAfSURBVAiZY/j37/t/pv///zNACAYGBgasXJwStFAHAIlSPPR0066nAAAAAElFTkSuQmCC) 0 0 repeat-x;
+}
+
+.ajp-wysiwyg-toolbar .button:hover {
+	border-color: #bbb;
+	border-top-color: #ddd;
+	border-left-color: #ddd;
+
+}
+
 /*
 	ajp-wysiwyg: common sizes
 */
@@ -890,7 +944,7 @@ input:-moz-placeholder {
 }
 
 .ajp-wysiwyg-toolbar-air {
-	width: 29.6em;
+	width: 29.7em;
 }
 
 .ajp-wysiwyg-toolbar .button {
@@ -979,7 +1033,7 @@ input:-moz-placeholder {
 }
 
 .ajp-wysiwyg-toolbar .styling-1 {
-	width: 4em;
+	width: 3.4em;
 }
 
 .ajp-wysiwyg-toolbar .styling-2 {
@@ -1037,4 +1091,31 @@ input:-moz-placeholder {
 
 .ajp-wysiwyg-toolbar .button .img {
 	margin-top: 0.75em;
+}
+
+.ajp-wysiwyg-toolbar .button {
+	border-width: 1px;
+	font-size: 0.85em;
+	height: 2.6em;
+	padding: 0.07em 0.75em;
+}
+
+.ajp-wysiwyg-toolbar .separator {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.ajp-wysiwyg-toolbar .button span {
+	line-height: 2.2em;
+	position: relative;
+	top: 0.2em;
+}
+
+.ajp-wysiwyg-toolbar .cmd-sub span {
+	top: 0em;
+}
+
+.ajp-wysiwyg-toolbar .cmd-sup span {
+	top: 0em;
 }

@@ -15,3 +15,13 @@
 	left: 0;
 }
 
+/*
+	ajp-slider: scrollbars common logic
+*/
+
+.ajp-vsb > .control, .ajp-hsb > .control {
+	cursor: pointer;
+	position: relative;
+	top: 0;
+	left: 0;
+}

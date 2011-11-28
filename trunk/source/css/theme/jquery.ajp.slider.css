@@ -44,3 +44,45 @@
 	margin-top: -11px; /* half of control height */
 }
 
+/*
+	ajp-slider: scrollbars common style
+*/
+
+.ajp-vsb, .ajp-hsb {
+	background: #eee;
+	border: 0px solid transparent;
+}
+
+.ajp-vsb:hover, .ajp-hsb:hover {
+	border-color: #ddd;
+}
+
+.ajp-vsb > .control, .ajp-hsb > .control {
+	background: #ccc;
+}
+
+/*
+	ajp-slider: scrollbars sizes
+*/
+
+.ajp-vsb {
+	width: 0.6em;
+	height: 10em;
+	border-width: 1px;
+}
+
+.ajp-vsb > .control {
+	width: 0.6em;
+	height: 2em;
+}
+
+.ajp-hsb {
+	width: 10em;
+	height: 0.6em;
+	border-width: 1px;
+}
+
+.ajp-hsb > .control {
+	width: 2em;
+	height: 0.6em;
+}

@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.datepicker = { version: '0.6pa', required: [ 'popup' ] }
+	$.ajp.datepicker = { version: '0.7pa', required: [ 'popup' ] }
 
 	$.fn.extend({
 
@@ -127,11 +127,11 @@
 
 				var $control = $( ''
 					+ '<div class="ajp-datepicker">'
-						+ '<div class="ajp-datepicker-header">'
-							+ '<div class="ajp-datepicker-prev"></div>'
-							+ '<div class="ajp-datepicker-month-name"></div>'
-							+ '<div class="ajp-datepicker-next"></div>'
-						+ '</div>'
+						+ '<table class="ajp-datepicker-header"><tr>'
+							+ '<td class="ajp-datepicker-prev"></td>'
+							+ '<td class="ajp-datepicker-month-name"></td>'
+							+ '<td class="ajp-datepicker-next"></td>'
+						+ '</tr></table>'
 						+ '<table class="ajp-datepicker-month">'
 							+ '<tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>'
 						+ '</table>'
