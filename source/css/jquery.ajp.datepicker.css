@@ -4,6 +4,11 @@
 	ajp-datepicker: common logic
 */
 
+.ajp-datepicker > .ajp-datepicker-header .ajp-datepicker-prev,
+.ajp-datepicker > .ajp-datepicker-header .ajp-datepicker-next {
+	cursor: pointer;
+}
+
 .ajp-datepicker > .ajp-datepicker-month {
 	clear: both;
 }
@@ -12,23 +17,8 @@
 	cursor: pointer;
 }
 
-.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-month-name {
-	float: left;
-}
-
-.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-prev, .ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-next {
-	cursor: pointer;
-	float: left;
-}
-
-.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-next {
-	float: right;
-	clear: right;
-}
-
 .ajp-datepicker > .ajp-datepicker-footer > .ajp-datepicker-clear {
 	cursor: pointer;
 	float: right;
 	clear: right;
 }
-

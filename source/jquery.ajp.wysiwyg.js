@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.wysiwyg = { version: '0.5pa', required: ['editable', 'colorpicker', 'popup'], current: null, installed: false }
+	$.ajp.wysiwyg = { version: '0.6pa', required: ['editable', 'colorpicker', 'popup'], current: null, installed: false }
 
 	$.fn.extend({
 
@@ -56,8 +56,8 @@
 						+ '	<div class="foreground-colorpicker button"><span class="letter">A</span><div class="disclosure-arrow"></div></div>'
 						+ '	<div class="background-colorpicker button"><span class="letter">A</span><div class="disclosure-arrow"></div></div>'
 						+ '	<div class="separator"></div>'
-						+ '	<div class="button" data-cmd="sup">X<sup>2</sup></div>'
-						+ '	<div class="button" data-cmd="sub">X<sub>2</sub></div>'
+						+ '	<div class="button" data-cmd="sup"><span>X<sup>2</sup></span></div>'
+						+ '	<div class="button" data-cmd="sub"><span>X<sub>2</sub></span></div>'
 						+ '	<div class="separator"></div>'
 						+ '	<div class="button image-button" data-cmd="ul"></div>'
 						+ '	<div class="button image-button" data-cmd="ol"></div>'

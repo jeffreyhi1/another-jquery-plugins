@@ -539,7 +539,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.datepicker = { version: '0.6pa', required: [ 'popup' ] }
+	$.ajp.datepicker = { version: '0.7pa', required: [ 'popup' ] }
 
 	$.fn.extend({
 
@@ -658,11 +658,16 @@
 
 				var $control = $( ''
 					+ '<div class="ajp-datepicker">'
-						+ '<div class="ajp-datepicker-header">'
-							+ '<div class="ajp-datepicker-prev"></div>'
-							+ '<div class="ajp-datepicker-month-name"></div>'
-							+ '<div class="ajp-datepicker-next"></div>'
-						+ '</div>'
+						+ '<table class="ajp-datepicker-header"><tr>'
+							+ '<td class="ajp-datepicker-prev"></td>'
+							+ '<td class="ajp-datepicker-month-name"></td>'
+							+ '<td class="ajp-datepicker-next"></td>'
+						+ '</tr></table>'
+//						+ '<div class="ajp-datepicker-header">'
+//							+ '<div class="ajp-datepicker-prev"></div>'
+//							+ '<div class="ajp-datepicker-month-name"></div>'
+//							+ '<div class="ajp-datepicker-next"></div>'
+//						+ '</div>'
 						+ '<table class="ajp-datepicker-month">'
 							+ '<tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>'
 						+ '</table>'
@@ -1648,7 +1653,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.msgbox = { version: '0.5pa', queue: [] }
+	$.ajp.msgbox = { version: '0.6pa', queue: [] }
 
 	$.fn.extend({
 
@@ -1790,12 +1795,12 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 						} else {
 							handler.apply(handler, [ false ])
 						}
+						$tmpl.remove()
 						if ($.ajp.msgbox.queue.length >= 1)
 							opts.show($.ajp.msgbox.queue[$.ajp.msgbox.queue.length - 1], $.ajp.msgbox.shade)
 					} else {
 						opts.notReady($tmpl)
 					}
-					$tmpl.remove()
 				})
 				opts.addButton($tmpl, $btn)
 			})
@@ -3232,7 +3237,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.wysiwyg = { version: '0.5pa', required: ['editable', 'colorpicker', 'popup'], current: null, installed: false }
+	$.ajp.wysiwyg = { version: '0.6pa', required: ['editable', 'colorpicker', 'popup'], current: null, installed: false }
 
 	$.fn.extend({
 
@@ -3280,8 +3285,8 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 						+ '	<div class="foreground-colorpicker button"><span class="letter">A</span><div class="disclosure-arrow"></div></div>'
 						+ '	<div class="background-colorpicker button"><span class="letter">A</span><div class="disclosure-arrow"></div></div>'
 						+ '	<div class="separator"></div>'
-						+ '	<div class="button" data-cmd="sup">X<sup>2</sup></div>'
-						+ '	<div class="button" data-cmd="sub">X<sub>2</sub></div>'
+						+ '	<div class="button" data-cmd="sup"><span>X<sup>2</sup></span></div>'
+						+ '	<div class="button" data-cmd="sub"><span>X<sub>2</sub></span></div>'
 						+ '	<div class="separator"></div>'
 						+ '	<div class="button image-button" data-cmd="ul"></div>'
 						+ '	<div class="button image-button" data-cmd="ol"></div>'

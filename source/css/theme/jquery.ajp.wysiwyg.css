@@ -98,6 +98,23 @@
 
 .ajp-wysiwyg-toolbar .align .img { background-image: url(images/jquery.ajp.wysiwyg.toolbar.left.png); }
 
+.ajp-wysiwyg-toolbar .button {
+	border: 0px solid;
+	border-color: #ccc;
+	border-top-color: #eee;
+	border-left-color: #eee;
+	color: #666;
+	text-shadow: #999 0 0 1px;
+	background: #EBEBE4 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAYAAADtlXTHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAfSURBVAiZY/j37/t/pv///zNACAYGBgasXJwStFAHAIlSPPR0066nAAAAAElFTkSuQmCC) 0 0 repeat-x;
+}
+
+.ajp-wysiwyg-toolbar .button:hover {
+	border-color: #bbb;
+	border-top-color: #ddd;
+	border-left-color: #ddd;
+
+}
+
 /*
 	ajp-wysiwyg: common sizes
 */
@@ -107,7 +124,7 @@
 }
 
 .ajp-wysiwyg-toolbar-air {
-	width: 29.6em;
+	width: 29.7em;
 }
 
 .ajp-wysiwyg-toolbar .button {
@@ -196,7 +213,7 @@
 }
 
 .ajp-wysiwyg-toolbar .styling-1 {
-	width: 4em;
+	width: 3.4em;
 }
 
 .ajp-wysiwyg-toolbar .styling-2 {
@@ -254,4 +271,31 @@
 
 .ajp-wysiwyg-toolbar .button .img {
 	margin-top: 0.75em;
+}
+
+.ajp-wysiwyg-toolbar .button {
+	border-width: 1px;
+	font-size: 0.85em;
+	height: 2.6em;
+	padding: 0.07em 0.75em;
+}
+
+.ajp-wysiwyg-toolbar .separator {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.ajp-wysiwyg-toolbar .button span {
+	line-height: 2.2em;
+	position: relative;
+	top: 0.2em;
+}
+
+.ajp-wysiwyg-toolbar .cmd-sub span {
+	top: 0em;
+}
+
+.ajp-wysiwyg-toolbar .cmd-sup span {
+	top: 0em;
 }

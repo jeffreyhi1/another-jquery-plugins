@@ -52,6 +52,11 @@ input.ajp-customcheckbox { display: none; }
 	ajp-datepicker: common logic
 */
 
+.ajp-datepicker > .ajp-datepicker-header .ajp-datepicker-prev,
+.ajp-datepicker > .ajp-datepicker-header .ajp-datepicker-next {
+	cursor: pointer;
+}
+
 .ajp-datepicker > .ajp-datepicker-month {
 	clear: both;
 }
@@ -60,26 +65,11 @@ input.ajp-customcheckbox { display: none; }
 	cursor: pointer;
 }
 
-.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-month-name {
-	float: left;
-}
-
-.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-prev, .ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-next {
-	cursor: pointer;
-	float: left;
-}
-
-.ajp-datepicker > .ajp-datepicker-header > .ajp-datepicker-next {
-	float: right;
-	clear: right;
-}
-
 .ajp-datepicker > .ajp-datepicker-footer > .ajp-datepicker-clear {
 	cursor: pointer;
 	float: right;
 	clear: right;
 }
-
 /* $Id: menu.css 25 2011-08-04 13:05:23Z azbitnev@gmail.com $ */
 
 /*
@@ -216,7 +206,7 @@ input.ajp-customcheckbox { display: none; }
 	float: left;
 }
 
-/* $Id$ */
+/* $Id: jquery.ajp.select.css 61 2011-11-23 07:26:49Z azbitnev@gmail.com $ */
 
 /*
 	ajp-select: common logic
@@ -280,6 +270,16 @@ input.ajp-customcheckbox { display: none; }
 	left: 0;
 }
 
+/*
+	ajp-slider: scrollbars common logic
+*/
+
+.ajp-vsb > .control, .ajp-hsb > .control {
+	cursor: pointer;
+	position: relative;
+	top: 0;
+	left: 0;
+}
 /* $Id: tooltip.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 /*
@@ -357,4 +357,8 @@ input.ajp-customcheckbox { display: none; }
 	display: inline-block;
 	background-position: 0 0;
 	background-repeat: no-repeat;
+}
+
+.ajp-wysiwyg-toolbar .button {
+	cursor: pointer;
 }
