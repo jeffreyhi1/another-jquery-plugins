@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.scrollable = { version: '0.9pa', serial: 1, contexts: [] }
+	$.ajp.scrollable = { version: '0.9pa', optional: ['mousewheel', 'easing'], serial: 1, contexts: [] }
 
 	$.fn.extend({
 

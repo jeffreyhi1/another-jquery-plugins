@@ -1,3 +1,4 @@
 - add swappable
 - modify "autocomplete"
-- "wysiwyg": icons for buttons in toolbar
+- "wysiwyg": scrollbars
+- "select": keyboard navigation

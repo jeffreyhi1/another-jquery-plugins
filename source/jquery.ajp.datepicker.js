@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.datepicker = { version: '0.7pa', required: [ 'popup' ] }
+	$.ajp.datepicker = { version: '0.8pa', required: [ 'popup' ] }
 
 	$.fn.extend({
 
@@ -84,7 +84,11 @@
 				function pYear(v) { return pInt(v) + 2000 }
 				function pMonthShort(v) { return opts.monthsShort.indexOf(v) + 1 }
 				function pMonth(v) { return opts.monthsFmt.indexOf(v) + 1 }
-				function parser(rx, d, fld, p) { var m = d.src.match(rx); d.src = m[2]; d[fld] = p(m[1]) }
+				function parser(rx, d, fld, p) {
+					var m = (typeof d.src == 'string' ? d.src : '').match(rx)
+					d.src = (m ? m[2] : '')
+					d[fld] = (m ? p(m[1]) : 0)
+				}
 				var dateformat = {
 					'd': function (d) { parser(/^(\d\d?)(.*)/, d, 'day', pInt) },
 					'dd': function (d) { parser(/^(\d\d)(.*)/, d, 'day', pInt) },

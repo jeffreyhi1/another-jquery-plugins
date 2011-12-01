@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.slider = { version: '0.4pa', installed: false, controls: [], serial: 1 }
+	$.ajp.slider = { version: '0.5pa', installed: false, controls: [], serial: 1 }
 
 	$.fn.extend({
 
@@ -34,11 +34,11 @@
 			if (!$.ajp.slider.installed) {
 				var savedVal = $.fn.val
 				$.fn.val = function (value) {
-					if (typeof $(this).data('ajp-slider-value') !== undefined) {
+					if ($(this).data('ajp-slider-id')) {
 						var ctx = $(this).ajp$sliderContext()
-						return (typeof value === undefined ? ctx.get() : ctx.set(value))
+						return (value === undefined ? ctx.get() : ctx.set(value))
 					}
-					return savedVal.call(this, value)
+					return savedVal.apply(this, arguments)
 				}
 				$.ajp.slider.installed = true
 			}

@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.progressbar = { version: '0.1pa', installed: false, controls: [], serial: 1 }
+	$.ajp.progressbar = { version: '0.2pa', installed: false, controls: [], serial: 1 }
 
 	$.fn.extend({
 
@@ -36,11 +36,11 @@
 			if (!$.ajp.progressbar.installed) {
 				var savedVal = $.fn.val
 				$.fn.val = function (value) {
-					if (typeof $(this).data('ajp-progressbar-value') !== undefined) {
+					if ($(this).data('ajp-progressbar-id')) {
 						var ctx = $(this).ajp$progressbarContext()
-						return (typeof value === undefined ? ctx.get() : ctx.set(value))
+						return (value === undefined ? ctx.get() : ctx.set(value))
 					}
-					return savedVal.call(this, value)
+					return savedVal.apply(this, arguments)
 				}
 				$.ajp.progressbar.installed = true
 			}
