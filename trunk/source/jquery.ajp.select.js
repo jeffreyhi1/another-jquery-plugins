@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.select = { version: '0.1pa', required: ['slider', 'popup'], serial: 1, contexts: { } }
+	$.ajp.select = { version: '0.2pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { } }
 
 	$.fn.extend({
 
@@ -21,7 +21,8 @@
 				// show: function ($popup, $el) { ... } // see 'popup'
 				// hide: function ($popup, $el) { ... } // see 'popup'
 				getItemContent: function ($opt) { return $opt.text() },
-				empty: '<div class="ajp-message">list is empty...</div>'
+				empty: '<div class="ajp-message">list is empty...</div>',
+				mousewheel: true
 			}
 
 			var opts = $.extend(defaults, options);
@@ -151,6 +152,22 @@
 					hide: opts.hide,
 					popup: '.ajp-list'
 				})
+
+				if (opts.mousewheel) {
+					$sel.find('.ajp-list').mousewheel(function (evt, delta) {
+						var $vsb = $sel.find('.ajp-list-right > .ajp-vsb')
+						var val = $vsb.val()
+						if (delta < 0) {
+							val += 0.05
+						} else {
+							val -= 0.05
+						}
+						if (val < 0) val = 0
+						if (val > 1) val = 1
+						$vsb.val(val)
+					})
+					
+				}
 
 				var ctx = {
 

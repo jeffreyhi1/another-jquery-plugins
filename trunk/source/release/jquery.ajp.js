@@ -539,7 +539,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.datepicker = { version: '0.7pa', required: [ 'popup' ] }
+	$.ajp.datepicker = { version: '0.8pa', required: [ 'popup' ] }
 
 	$.fn.extend({
 
@@ -615,7 +615,11 @@
 				function pYear(v) { return pInt(v) + 2000 }
 				function pMonthShort(v) { return opts.monthsShort.indexOf(v) + 1 }
 				function pMonth(v) { return opts.monthsFmt.indexOf(v) + 1 }
-				function parser(rx, d, fld, p) { var m = d.src.match(rx); d.src = m[2]; d[fld] = p(m[1]) }
+				function parser(rx, d, fld, p) {
+					var m = (typeof d.src == 'string' ? d.src : '').match(rx)
+					d.src = (m ? m[2] : '')
+					d[fld] = (m ? p(m[1]) : 0)
+				}
 				var dateformat = {
 					'd': function (d) { parser(/^(\d\d?)(.*)/, d, 'day', pInt) },
 					'dd': function (d) { parser(/^(\d\d)(.*)/, d, 'day', pInt) },
@@ -663,11 +667,6 @@
 							+ '<td class="ajp-datepicker-month-name"></td>'
 							+ '<td class="ajp-datepicker-next"></td>'
 						+ '</tr></table>'
-//						+ '<div class="ajp-datepicker-header">'
-//							+ '<div class="ajp-datepicker-prev"></div>'
-//							+ '<div class="ajp-datepicker-month-name"></div>'
-//							+ '<div class="ajp-datepicker-next"></div>'
-//						+ '</div>'
 						+ '<table class="ajp-datepicker-month">'
 							+ '<tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>'
 						+ '</table>'
@@ -1888,7 +1887,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.placeholder = { version: '0.6pa', installed: false }
+	$.ajp.placeholder = { version: '0.7pa', installed: false }
 
 	$.fn.extend({
 
@@ -1902,11 +1901,11 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 			if (!$.ajp.placeholder.installed) {
 				var savedVal = $.fn.val
 				$.fn.val = function (value) {
-					if (typeof value === undefined)
-						return ($(this).hasClass('ajp-placeholder') ? '' : savedVal.apply(this))
+					if (value === undefined)
+						return ($(this).hasClass('ajp-placeholder') ? '' : savedVal.apply(this, arguments))
 					if ($(this).hasClass('ajp-placeholder') && value != $(this).data('ajp-placeholder'))
 						$(this).removeClass('ajp-placeholder')
-					return savedVal.call(this, value)
+					return savedVal.apply(this, arguments)
 				}
 				$.ajp.placeholder.installed = true
 			}
@@ -2087,7 +2086,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.progressbar = { version: '0.1pa', installed: false, controls: [], serial: 1 }
+	$.ajp.progressbar = { version: '0.2pa', installed: false, controls: [], serial: 1 }
 
 	$.fn.extend({
 
@@ -2115,11 +2114,11 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 			if (!$.ajp.progressbar.installed) {
 				var savedVal = $.fn.val
 				$.fn.val = function (value) {
-					if (typeof $(this).data('ajp-progressbar-value') !== undefined) {
+					if ($(this).data('ajp-progressbar-id')) {
 						var ctx = $(this).ajp$progressbarContext()
-						return (typeof value === undefined ? ctx.get() : ctx.set(value))
+						return (value === undefined ? ctx.get() : ctx.set(value))
 					}
-					return savedVal.call(this, value)
+					return savedVal.apply(this, arguments)
 				}
 				$.ajp.progressbar.installed = true
 			}
@@ -2367,7 +2366,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.scrollable = { version: '0.9pa', serial: 1, contexts: [] }
+	$.ajp.scrollable = { version: '0.9pa', optional: ['mousewheel', 'easing'], serial: 1, contexts: [] }
 
 	$.fn.extend({
 
@@ -2623,7 +2622,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.select = { version: '0.1pa', required: ['slider', 'popup'], serial: 1, contexts: { } }
+	$.ajp.select = { version: '0.2pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { } }
 
 	$.fn.extend({
 
@@ -2636,7 +2635,8 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 				// show: function ($popup, $el) { ... } // see 'popup'
 				// hide: function ($popup, $el) { ... } // see 'popup'
 				getItemContent: function ($opt) { return $opt.text() },
-				empty: '<div class="ajp-message">list is empty...</div>'
+				empty: '<div class="ajp-message">list is empty...</div>',
+				mousewheel: true
 			}
 
 			var opts = $.extend(defaults, options);
@@ -2767,6 +2767,22 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 					popup: '.ajp-list'
 				})
 
+				if (opts.mousewheel) {
+					$sel.find('.ajp-list').mousewheel(function (evt, delta) {
+						var $vsb = $sel.find('.ajp-list-right > .ajp-vsb')
+						var val = $vsb.val()
+						if (delta < 0) {
+							val += 0.05
+						} else {
+							val -= 0.05
+						}
+						if (val < 0) val = 0
+						if (val > 1) val = 1
+						$vsb.val(val)
+					})
+					
+				}
+
 				var ctx = {
 
 					sync: function () {
@@ -2846,7 +2862,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.slider = { version: '0.4pa', installed: false, controls: [], serial: 1 }
+	$.ajp.slider = { version: '0.5pa', installed: false, controls: [], serial: 1 }
 
 	$.fn.extend({
 
@@ -2872,11 +2888,11 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 			if (!$.ajp.slider.installed) {
 				var savedVal = $.fn.val
 				$.fn.val = function (value) {
-					if (typeof $(this).data('ajp-slider-value') !== undefined) {
+					if ($(this).data('ajp-slider-id')) {
 						var ctx = $(this).ajp$sliderContext()
-						return (typeof value === undefined ? ctx.get() : ctx.set(value))
+						return (value === undefined ? ctx.get() : ctx.set(value))
 					}
-					return savedVal.call(this, value)
+					return savedVal.apply(this, arguments)
 				}
 				$.ajp.slider.installed = true
 			}
@@ -3001,7 +3017,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.starating = { version: '0.5pa', installed: false, opts: [], serial: 1 }
+	$.ajp.starating = { version: '0.6pa', installed: false, opts: [], serial: 1 }
 
 	$.fn.extend({
 
@@ -3023,11 +3039,11 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 			if (!$.ajp.starating.installed) {
 				var savedVal = $.fn.val
 				$.fn.val = function (value) {
-					if (typeof $(this).data('ajp-starating-value') !== undefined) {
+					if ($(this).data('ajp-starating-id')) {
 						var ctx = $(this).ajp$staratingContext()
-						return (typeof value === undefined ? ctx.get() : ctx.set(value))
+						return (value === undefined ? ctx.get() : ctx.set(value))
 					}
-					return savedVal.call(this, value)
+					return savedVal.apply(this, arguments)
 				}
 				$.ajp.starating.installed = true
 			}

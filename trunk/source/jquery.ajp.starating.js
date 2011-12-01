@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.starating = { version: '0.5pa', installed: false, opts: [], serial: 1 }
+	$.ajp.starating = { version: '0.6pa', installed: false, opts: [], serial: 1 }
 
 	$.fn.extend({
 
@@ -30,11 +30,11 @@
 			if (!$.ajp.starating.installed) {
 				var savedVal = $.fn.val
 				$.fn.val = function (value) {
-					if (typeof $(this).data('ajp-starating-value') !== undefined) {
+					if ($(this).data('ajp-starating-id')) {
 						var ctx = $(this).ajp$staratingContext()
-						return (typeof value === undefined ? ctx.get() : ctx.set(value))
+						return (value === undefined ? ctx.get() : ctx.set(value))
 					}
-					return savedVal.call(this, value)
+					return savedVal.apply(this, arguments)
 				}
 				$.ajp.starating.installed = true
 			}
