@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.progressbar = { version: '0.2pa', installed: false, controls: [], serial: 1 }
+	$.ajp.progressbar = { version: '0.3pa', installed: false, controls: [], serial: 1 }
 
 	$.fn.extend({
 
@@ -53,7 +53,7 @@
 					height: '' + $el.outerHeight() + 'px'
 				})
 
-				$el.append($fill)
+				$el.prepend($fill)
 
 				function setValue(value, raiseEvent) {
 					var w = $el.outerWidth()
