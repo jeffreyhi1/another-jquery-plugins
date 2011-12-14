@@ -46,6 +46,10 @@
 	display: block;
 }
 
+.ajp-menu li.disabled > a {
+	cursor: default;
+}
+
 /*
 	ajp-menu-noscript: common logic
 */
@@ -54,3 +58,6 @@
 	display: block;
 }
 
+.ajp-menu-noscript li.disabled:hover > ul {
+	display: none;
+}

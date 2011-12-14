@@ -61,6 +61,11 @@
 	background: #eee;
 }
 
+.ajp-menu li.disabled > a {
+	color: #ccc;
+}
+
+
 /*
 	ajp-menu-noscript: common style
 */
@@ -68,9 +73,14 @@
 .ajp-menu-noscript li:hover {
 	background: url(images/jquery.ajp.menu.selected.png) 0 0 repeat-x !important;
 }
+
 .ajp-menu-noscript li:hover > a {
 	color: #fff;
 	text-shadow: #666 1px 2px 2px;
+}
+
+.ajp-menu-noscript li.disabled:hover > a {
+	color: #ccc;
 }
 
 /*
