@@ -2,3 +2,4 @@
 - modify "autocomplete"
 - "wysiwyg": scrollbars
 - "select": keyboard navigation
+- "menu": auto orientation

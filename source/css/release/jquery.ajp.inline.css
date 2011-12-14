@@ -4,7 +4,7 @@
 
 	Project home: http://code.google.com/p/another-jquery-plugins/
 
-	Version: 0.7.3
+	Version: 0.7.3.1
 */
 
 
@@ -126,6 +126,10 @@ cursor: pointer;
 display: block;
 }
 
+.ajp-menu li.disabled > a {
+cursor: default;
+}
+
 /*
 ajp-menu-noscript: common logic
 */
@@ -134,6 +138,9 @@ ajp-menu-noscript: common logic
 display: block;
 }
 
+.ajp-menu-noscript li.disabled:hover > ul {
+display: none;
+}
 
 
 /*
@@ -664,6 +671,11 @@ border-left-color: #eee;
 background: #eee;
 }
 
+.ajp-menu li.disabled > a {
+color: #ccc;
+}
+
+
 /*
 ajp-menu-noscript: common style
 */
@@ -671,9 +683,14 @@ ajp-menu-noscript: common style
 .ajp-menu-noscript li:hover {
 background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAoCAYAAAA/tpB3AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAA4SURBVAiZY4iNjvvP9O/fPwYo8R/OwkL8xyuLpvfPnz9Q4u/fv8hcqFH/GZgYGBigLEoIBgYGBgBJGXCZ7PgTAwAAAABJRU5ErkJggg==) 0 0 repeat-x !important;
 }
+
 .ajp-menu-noscript li:hover > a {
 color: #fff;
 text-shadow: #666 1px 2px 2px;
+}
+
+.ajp-menu-noscript li.disabled:hover > a {
+color: #ccc;
 }
 
 /*

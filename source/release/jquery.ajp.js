@@ -1453,7 +1453,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.menu = { version: '0.7pa', current: null }
+	$.ajp.menu = { version: '0.8pa', current: null }
 
 	$.fn.extend({
 
@@ -1496,6 +1496,13 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 				var $ul = $li.children('ul:eq(0)')
 				var hasSubmenu = ($ul.length ? true : false)
 					
+
+				if ($li.hasClass('disabled'))
+					$a.removeAttr('href').mousedown(function (evt) {
+						evt.preventDefault()
+						return false
+					})
+
 				if (hasSubmenu) {
 
 					function closeSubmenu() {
@@ -1514,6 +1521,8 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 						$a.append('<span class="arrow">&raquo;</span>')
 
 					$li.bind('click', function (evt) {
+						if ($(this).hasClass('disabled'))
+							return
 						var vis = ($ul.css('display') == 'none' ? true : false)
 						$li.parent().children('li').children('ul').each(function () {
 							if ($(this).css('display') != 'none')
