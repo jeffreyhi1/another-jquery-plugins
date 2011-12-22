@@ -122,6 +122,11 @@ $(document).ready(function () {
 		$(this).children('option[value=1]').attr('selected', 'selected')
 	})
 
+
+	$('#ex1').change(function () {
+		if (window.console && window.console.log)
+			window.console.log('#ex1 changed to', $(this).val())
+	})
 })
 
 </script>
