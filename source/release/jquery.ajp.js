@@ -2231,7 +2231,11 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 						$.ajp.resizable.current.width = $.ajp.resizable.current.target.outerWidth()
 						$.ajp.resizable.current.height = $.ajp.resizable.current.target.outerHeight()
 						$.ajp.resizable.mouse.sel = root.onselectstart
-						root.onselectstart = function () { return false }
+						try {
+							root.onselectstart = function () { return false }
+						} catch (ex) {
+							// msie: do nothing
+						}
 					}
 				}).mouseup(function (evt) {
 					$.ajp.resizable.mouse.down = false;
@@ -2631,7 +2635,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.select = { version: '0.2pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { } }
+	$.ajp.select = { version: '0.3pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { } }
 
 	$.fn.extend({
 
@@ -2755,7 +2759,8 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 							var $src = $(this)
 							if ($src.attr('value') == val)
 								$src.attr('selected', true)
-						}).change()
+						})
+						$el.change()
 					}
 				}
 
@@ -2871,7 +2876,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.slider = { version: '0.5pa', installed: false, controls: [], serial: 1 }
+	$.ajp.slider = { version: '0.6pa', installed: false, controls: [], serial: 1 }
 
 	$.fn.extend({
 
@@ -2950,14 +2955,22 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 					mouse.down = true
 					mouse.x = evt.clientX
 					mouse.y = evt.clientY
-					mouse.sel = root.onselectstart
-					root.onselectstart = function () { return false }
+					try {
+						mouse.sel = root.onselectstart
+						root.onselectstart = function () { return false }
+					} catch (ex) {
+						// msie: do nothing
+					}
 				})
 				$(document).mouseup(function (evt) {
 					mouse.down = false
 					mouse.x = evt.clientX
 					mouse.y = evt.clientY
-					root.onselectstart = mouse.sel
+					try {
+						root.onselectstart = mouse.sel
+					} catch (ex) {
+						// msie: do nothing
+					}
 				}).mousemove(function (evt) {
 					if (mouse.down) {
 						var dx = evt.clientX - mouse.x 

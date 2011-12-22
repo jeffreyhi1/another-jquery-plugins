@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.slider = { version: '0.5pa', installed: false, controls: [], serial: 1 }
+	$.ajp.slider = { version: '0.6pa', installed: false, controls: [], serial: 1 }
 
 	$.fn.extend({
 
@@ -87,14 +87,22 @@
 					mouse.down = true
 					mouse.x = evt.clientX
 					mouse.y = evt.clientY
-					mouse.sel = root.onselectstart
-					root.onselectstart = function () { return false }
+					try {
+						mouse.sel = root.onselectstart
+						root.onselectstart = function () { return false }
+					} catch (ex) {
+						// msie: do nothing
+					}
 				})
 				$(document).mouseup(function (evt) {
 					mouse.down = false
 					mouse.x = evt.clientX
 					mouse.y = evt.clientY
-					root.onselectstart = mouse.sel
+					try {
+						root.onselectstart = mouse.sel
+					} catch (ex) {
+						// msie: do nothing
+					}
 				}).mousemove(function (evt) {
 					if (mouse.down) {
 						var dx = evt.clientX - mouse.x 

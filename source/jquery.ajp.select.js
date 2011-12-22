@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.select = { version: '0.2pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { } }
+	$.ajp.select = { version: '0.3pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { } }
 
 	$.fn.extend({
 
@@ -132,7 +132,8 @@
 							var $src = $(this)
 							if ($src.attr('value') == val)
 								$src.attr('selected', true)
-						}).change()
+						})
+						$el.change()
 					}
 				}
 

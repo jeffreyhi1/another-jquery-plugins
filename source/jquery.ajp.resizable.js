@@ -50,7 +50,11 @@
 						$.ajp.resizable.current.width = $.ajp.resizable.current.target.outerWidth()
 						$.ajp.resizable.current.height = $.ajp.resizable.current.target.outerHeight()
 						$.ajp.resizable.mouse.sel = root.onselectstart
-						root.onselectstart = function () { return false }
+						try {
+							root.onselectstart = function () { return false }
+						} catch (ex) {
+							// msie: do nothing
+						}
 					}
 				}).mouseup(function (evt) {
 					$.ajp.resizable.mouse.down = false;
