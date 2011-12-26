@@ -41,6 +41,33 @@
 
 .ajp-autocomplete-list { margin-top: 0.6em\9 }
 
+/* $Id: checkbox.css 24 2011-08-04 07:07:51Z azbitnev@gmail.com $ */
+
+/*
+	ajp-checkbox: common style
+*/
+
+.ajp-checkbox-checkbox, .ajp-checkbox-radio {
+	background: url(images/jquery.ajp.checkbox.checkbox.png) no-repeat;
+}
+
+.ajp-checkbox-radio {
+	background: url(images/jquery.ajp.checkbox.radio.png) no-repeat;
+}
+
+.ajp-checkbox-disabled { opacity: 0.4; filter: alpha(opacity=40); }
+
+/*
+	ajp-checkbox: common sizes
+*/
+
+.ajp-checkbox-checkbox, .ajp-checkbox-radio {
+	width: 13px;
+	height: 13px;
+	margin: 0 5px 0 0;
+	top: 2px;
+}
+
 /* $Id: jquery.ajp.colorpicker.css 54 2011-11-11 12:43:41Z azbitnev@gmail.com $ */
 
 /*
@@ -88,33 +115,6 @@
 
 .ajp-colorpicker > .pallete > .delimiter {
 	height: 8px;
-}
-
-/* $Id: customcheckbox.css 24 2011-08-04 07:07:51Z azbitnev@gmail.com $ */
-
-/*
-	ajp-customcheckbox: common style
-*/
-
-.ajp-customcheckbox-checkbox, .ajp-customcheckbox-radio {
-	background: url(images/jquery.ajp.customcheckbox.checkbox.png) no-repeat;
-}
-
-.ajp-customcheckbox-radio {
-	background: url(images/jquery.ajp.customcheckbox.radio.png) no-repeat;
-}
-
-.ajp-customcheckbox-disabled { opacity: 0.4; filter: alpha(opacity=40); }
-
-/*
-	ajp-customcheckbox: common sizes
-*/
-
-.ajp-customcheckbox-checkbox, .ajp-customcheckbox-radio {
-	width: 13px;
-	height: 13px;
-	margin: 0 5px 0 0;
-	top: 2px;
 }
 
 /* $Id: datepicker.css 14 2011-06-24 11:48:30Z azbitnev@gmail.com $ */

@@ -3,3 +3,4 @@
 - "wysiwyg": scrollbars
 - "select": keyboard navigation
 - "menu": auto orientation
+- "tooltip": change css

@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.select = { version: '0.3pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { } }
+	$.ajp.select = { version: '0.4pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { } }
 
 	$.fn.extend({
 
@@ -155,10 +155,10 @@
 				})
 
 				if (opts.mousewheel) {
-					$sel.find('.ajp-list').mousewheel(function (evt, delta) {
+					$sel.find('.ajp-list').mousewheel(function (evt, delta, deltaX, deltaY) {
 						var $vsb = $sel.find('.ajp-list-right > .ajp-vsb')
 						var val = $vsb.val()
-						if (delta < 0) {
+						if (deltaY < 0) {
 							val += 0.05
 						} else {
 							val -= 0.05
