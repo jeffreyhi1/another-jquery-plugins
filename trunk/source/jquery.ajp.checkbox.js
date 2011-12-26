@@ -8,11 +8,11 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.customCheckbox = { version: '0.6pa' }
+	$.ajp.checkbox = { version: '0.7pa' }
 
 	$.fn.extend({
 
-		ajp$customCheckbox: function (options) {
+		ajp$checkbox: function (options) {
 
 			var defaults = {
 				checkboxHeight: 13,
@@ -24,15 +24,15 @@
 			return this.each(function(i, el) {
 				if (el.type == 'checkbox' || el.type == 'radio') {
 					var height = (el.type == 'radio' ? opts.radioHeight : opts.checkboxHeight)
-					var $span = $('<span class="ajp-customcheckbox-' + el.type + '"></span>')
+					var $span = $('<span class="ajp-checkbox-' + el.type + '"></span>')
 					$(el).css('display', 'none')
-						.addClass('ajp-customcheckbox')
+						.addClass('ajp-checkbox')
 						.before($span)
 						.change(function () {
-							if (el.disabled && !$span.hasClass('ajp-customcheckbox-disabled'))
-								$span.addClass('ajp-customcheckbox-disabled')
-							if (!el.disabled && $span.hasClass('ajp-customcheckbox-disabled'))
-								$span.removeClass('ajp-customcheckbox-disabled')
+							if (el.disabled && !$span.hasClass('ajp-checkbox-disabled'))
+								$span.addClass('ajp-checkbox-disabled')
+							if (!el.disabled && $span.hasClass('ajp-checkbox-disabled'))
+								$span.removeClass('ajp-checkbox-disabled')
 							if (el.type == 'radio' && el.name)
 								$('input[name=' + el.name + ']').each(function () {
 									$(this).prev().css('background-position', '0 ' + (this.checked ? -height * 2 : 0) + 'px')

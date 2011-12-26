@@ -14,7 +14,7 @@
 (function($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.mousewheel = { version: '0.1a' }
+	$.ajp.mousewheel = { version: '0.2a' }
 
 	function handler(event) {
 
@@ -25,25 +25,23 @@
 			deltaY = 0;
 
 		event = $.event.fix(orgEvent)
-		event.type = "mousewheel"
-    
-		// Old school scrollwheel delta
-		if ( event.wheelDelta ) { delta = event.wheelDelta/120 }
-		if ( event.detail     ) { delta = -event.detail/3 }
-    
-		// New school multidimensional scroll (touchpads) deltas
-		deltaY = delta
-    
-		// Gecko
-		if (orgEvent.axis !== undefined && orgEvent.axis === orgEvent.HORIZONTAL_AXIS) {
-			deltaY = 0
-			deltaX = -1 * delta
+		event.type = 'mousewheel'
+
+		if (orgEvent.wheelDelta) {
+			delta = orgEvent.wheelDelta/120
+		} else if (orgEvent.detail) {
+			delta = -orgEvent.detail/3
 		}
-    
-		// Webkit
+
+		deltaY = delta
+
 		if (orgEvent.wheelDeltaY !== undefined) { deltaY = orgEvent.wheelDeltaY / 120 }
 		if (orgEvent.wheelDeltaX !== undefined) { deltaX = -1 * orgEvent.wheelDeltaX / 120 }
-    
+
+		event.delta = delta
+		event.wheelDeltaX = deltaX
+		event.wheelDeltaY = deltaY
+
 		// Add event and delta to the front of the arguments
 		args.unshift(event, delta, deltaX, deltaY);
     

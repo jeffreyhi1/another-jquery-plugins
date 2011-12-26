@@ -420,6 +420,64 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
+	$.ajp.checkbox = { version: '0.7pa' }
+
+	$.fn.extend({
+
+		ajp$checkbox: function (options) {
+
+			var defaults = {
+				checkboxHeight: 13,
+				radioHeight: 13
+			}
+
+			var opts = $.extend(defaults, options);
+
+			return this.each(function(i, el) {
+				if (el.type == 'checkbox' || el.type == 'radio') {
+					var height = (el.type == 'radio' ? opts.radioHeight : opts.checkboxHeight)
+					var $span = $('<span class="ajp-checkbox-' + el.type + '"></span>')
+					$(el).css('display', 'none')
+						.addClass('ajp-checkbox')
+						.before($span)
+						.change(function () {
+							if (el.disabled && !$span.hasClass('ajp-checkbox-disabled'))
+								$span.addClass('ajp-checkbox-disabled')
+							if (!el.disabled && $span.hasClass('ajp-checkbox-disabled'))
+								$span.removeClass('ajp-checkbox-disabled')
+							if (el.type == 'radio' && el.name)
+								$('input[name=' + el.name + ']').each(function () {
+									$(this).prev().css('background-position', '0 ' + (this.checked ? -height * 2 : 0) + 'px')
+								})
+							$span.css('background-position', '0 ' + (el.checked ? -height * 2 : 0) + 'px')
+						})
+						.change()
+					$span.mousedown(function () {
+						if (!el.disabled)
+							$(this).css('background-position', '0 -' + (el.checked ? height * 3 : height) + 'px')
+					})
+					$span.mouseup(function () {
+						if (!el.disabled) {
+							el.checked = !el.checked
+							$(el).change()
+						}
+					})
+				}
+			})
+		}
+	})
+
+})(jQuery);
+/*
+	Copyright (c) 2011 Andrey O. Zbitnev (azbitnev@gmail.com)
+	Licensed under the MIT License (LICENSE.txt).
+
+	$Id$
+*/
+
+(function ($) {
+
+	if (!$.ajp) $.ajp = { }
 	$.ajp.colorpicker = { version: '0.3pa', required: ['popup'], controls: [], serial: 1 }
 
 	$.fn.extend({
@@ -466,64 +524,6 @@
 				$cp.find('.color').click(function (evt) {
 					opts.onchange($(this).attr('title'), $el)
 				})
-			})
-		}
-	})
-
-})(jQuery);
-/*
-	Copyright (c) 2011 Andrey O. Zbitnev (azbitnev@gmail.com)
-	Licensed under the MIT License (LICENSE.txt).
-
-	$Id$
-*/
-
-(function ($) {
-
-	if (!$.ajp) $.ajp = { }
-	$.ajp.customCheckbox = { version: '0.6pa' }
-
-	$.fn.extend({
-
-		ajp$customCheckbox: function (options) {
-
-			var defaults = {
-				checkboxHeight: 13,
-				radioHeight: 13
-			}
-
-			var opts = $.extend(defaults, options);
-
-			return this.each(function(i, el) {
-				if (el.type == 'checkbox' || el.type == 'radio') {
-					var height = (el.type == 'radio' ? opts.radioHeight : opts.checkboxHeight)
-					var $span = $('<span class="ajp-customcheckbox-' + el.type + '"></span>')
-					$(el).css('display', 'none')
-						.addClass('ajp-customcheckbox')
-						.before($span)
-						.change(function () {
-							if (el.disabled && !$span.hasClass('ajp-customcheckbox-disabled'))
-								$span.addClass('ajp-customcheckbox-disabled')
-							if (!el.disabled && $span.hasClass('ajp-customcheckbox-disabled'))
-								$span.removeClass('ajp-customcheckbox-disabled')
-							if (el.type == 'radio' && el.name)
-								$('input[name=' + el.name + ']').each(function () {
-									$(this).prev().css('background-position', '0 ' + (this.checked ? -height * 2 : 0) + 'px')
-								})
-							$span.css('background-position', '0 ' + (el.checked ? -height * 2 : 0) + 'px')
-						})
-						.change()
-					$span.mousedown(function () {
-						if (!el.disabled)
-							$(this).css('background-position', '0 -' + (el.checked ? height * 3 : height) + 'px')
-					})
-					$span.mouseup(function () {
-						if (!el.disabled) {
-							el.checked = !el.checked
-							$(el).change()
-						}
-					})
-				}
 			})
 		}
 	})
@@ -1582,7 +1582,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.mousewheel = { version: '0.1a' }
+	$.ajp.mousewheel = { version: '0.2a' }
 
 	function handler(event) {
 
@@ -1593,25 +1593,23 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 			deltaY = 0;
 
 		event = $.event.fix(orgEvent)
-		event.type = "mousewheel"
-    
-		// Old school scrollwheel delta
-		if ( event.wheelDelta ) { delta = event.wheelDelta/120 }
-		if ( event.detail     ) { delta = -event.detail/3 }
-    
-		// New school multidimensional scroll (touchpads) deltas
-		deltaY = delta
-    
-		// Gecko
-		if (orgEvent.axis !== undefined && orgEvent.axis === orgEvent.HORIZONTAL_AXIS) {
-			deltaY = 0
-			deltaX = -1 * delta
+		event.type = 'mousewheel'
+
+		if (orgEvent.wheelDelta) {
+			delta = orgEvent.wheelDelta/120
+		} else if (orgEvent.detail) {
+			delta = -orgEvent.detail/3
 		}
-    
-		// Webkit
+
+		deltaY = delta
+
 		if (orgEvent.wheelDeltaY !== undefined) { deltaY = orgEvent.wheelDeltaY / 120 }
 		if (orgEvent.wheelDeltaX !== undefined) { deltaX = -1 * orgEvent.wheelDeltaX / 120 }
-    
+
+		event.delta = delta
+		event.wheelDeltaX = deltaX
+		event.wheelDeltaY = deltaY
+
 		// Add event and delta to the front of the arguments
 		args.unshift(event, delta, deltaX, deltaY);
     
@@ -2635,7 +2633,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.select = { version: '0.3pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { } }
+	$.ajp.select = { version: '0.4pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { } }
 
 	$.fn.extend({
 
@@ -2782,10 +2780,10 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 				})
 
 				if (opts.mousewheel) {
-					$sel.find('.ajp-list').mousewheel(function (evt, delta) {
+					$sel.find('.ajp-list').mousewheel(function (evt, delta, deltaX, deltaY) {
 						var $vsb = $sel.find('.ajp-list-right > .ajp-vsb')
 						var val = $vsb.val()
-						if (delta < 0) {
+						if (deltaY < 0) {
 							val += 0.05
 						} else {
 							val -= 0.05

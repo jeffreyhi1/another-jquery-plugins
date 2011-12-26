@@ -11,6 +11,21 @@
 
 .ajp-autocomplete-list > .autocomplete-item { cursor: pointer; }
 
+/* $Id: checkbox.css 24 2011-08-04 07:07:51Z azbitnev@gmail.com $ */
+
+/*
+	ajp-checkbox: common logic
+*/
+
+.ajp-checkbox-checkbox, .ajp-checkbox-radio {
+	display: block;
+	clear: left;
+	float: left;
+	position: relative;
+}
+
+input.ajp-checkbox { display: none; }
+
 /* $Id: jquery.ajp.colorpicker.css 46 2011-10-25 12:58:23Z azbitnev@gmail.com $ */
 
 /*
@@ -30,21 +45,6 @@
 	float: none;
 	clear: both;
 }
-
-/* $Id: customcheckbox.css 24 2011-08-04 07:07:51Z azbitnev@gmail.com $ */
-
-/*
-	ajp-customcheckbox: common logic
-*/
-
-.ajp-customcheckbox-checkbox, .ajp-customcheckbox-radio {
-	display: block;
-	clear: left;
-	float: left;
-	position: relative;
-}
-
-input.ajp-customcheckbox { display: none; }
 
 /* $Id: datepicker.css 14 2011-06-24 11:48:30Z azbitnev@gmail.com $ */
 

@@ -1,0 +1,15 @@
+/* $Id: checkbox.css 24 2011-08-04 07:07:51Z azbitnev@gmail.com $ */
+
+/*
+	ajp-checkbox: common logic
+*/
+
+.ajp-checkbox-checkbox, .ajp-checkbox-radio {
+	display: block;
+	clear: left;
+	float: left;
+	position: relative;
+}
+
+input.ajp-checkbox { display: none; }
+
