@@ -1,0 +1,15 @@
+/*
+	Copyright (c) 2011 Andrey O. Zbitnev (azbitnev@gmail.com)
+	Licensed under the MIT License (LICENSE.txt).
+
+	$Id$
+*/
+
+/*
+----------------------------------------------------------------
+	MSIE fixes
+----------------------------------------------------------------
+*/
+
+.controls input.field { padding-top: 0.5em }
+.controls input.field { height: 1.46em }
