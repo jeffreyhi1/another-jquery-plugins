@@ -13,24 +13,14 @@
 <link href="../css/basics.css" rel="stylesheet" type="text/css"/>
 <link href="../css/960c12.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
-
-<script src="../jquery/1.6.2.js"></script>
-<script>
-
-$(document).ready(function () {
-	$('input,select,button,textarea').dblclick(function () {
-		alert($(this).outerHeight())
-	})
-})
-
-</script>
+<!--[if IE]><link href="../css/ie.css" rel="stylesheet" type="text/css"/><![endif]-->
 
 <style>
 
 body { margin: 1em; margin-top: 0; }
 
 #note { width: 300px; background: #fff6d5; }
-#note div { margin: 1em; }
+#note > div { margin: 1em; }
 #note .avatar { margin-right: 1em; }
 
 </style>
@@ -81,7 +71,7 @@ body { margin: 1em; margin-top: 0; }
 <h6>Последний шестой уровень заголовка</h6>
 
 <p>
-<a class="float right" href="http://flickr.com"><img src="http://farm3.static.flickr.com/2760/4443811321_df67563ee1_m.jpg"/></a>
+<a class="float right" href="http://flickr.com"><img class="interactive" src="https://encrypted-tbn0.google.com/images?q=tbn:ANd9GcSfRNm3uwWN-pc9wcf1qXfIp074ugcfT7-TepfRgKVYjIBEvSBA"/></a>
 На всю адрес откуда уровней, нет выдают процессе небольшой по, во них тест пишете забудем. Лет бы только возникновения,
 во свой продукт так, были улице раннего мои во. Вас ставить представляет проектировать но. Эти исправляя концентрируются их.
 Нет программе страдаете то, бы две пусть окончил. Биг по сети основатель стратегические, пишете разработку осуществлять те они.</p>
@@ -102,14 +92,16 @@ body { margin: 1em; margin-top: 0; }
 не для одного большим применимы. За мешают делаете про, без начать ажиотажа проектами он. Бог на пишете образом преодолеть, ты или сразу усилий
 вероятно. По порулил применимы для. Должно почему постигнет они во, он получаете английском вот.</p>
 
+<p>Короткие цитаты отображаются: <cite>Примерно так!</cite></p>
+
 <h4>Кавычки</h4>
 
 <p>
-Цитата на французском языке: <q lang="fr">Ce que femme veut, Dieu le veut</q>.<br/>
-Цитата на немецком: <q lang="de">Der Mensch, versuche die Gotter nicht</q>.<br/>
-Цитата на английском: <q lang="en">То be or not to be</q>.<br/>
-Цитата на русском языке: <q lang="ru">День начался хорошо, а потом я проснулся</q>.<br/>
-Цитата без указания языка: <q>Едва ли возможно и преклоняться перед авторами и превзойти их</q>.
+Фраза на французском языке: <q lang="fr">Ce que femme veut, Dieu le veut</q>.<br/>
+Фраза на немецком: <q lang="de">Der Mensch, versuche die Gotter nicht</q>.<br/>
+Фраза на английском: <q lang="en">То be or not to be</q>.<br/>
+Фраза на русском языке: <q lang="ru">День начался хорошо, а потом я проснулся</q>.<br/>
+Фраза без указания языка: <q>Едва ли возможно и преклоняться перед авторами и превзойти их</q>.
 </p>
 
 <h4>div.spacer</h4>
@@ -149,8 +141,7 @@ body { margin: 1em; margin-top: 0; }
 
 <h2>Листинги программ</h2>
 
-<p>Только посмотрите на этот CSS:
-<code>
+<p>Только посмотрите на этот CSS:<br/><code>
 * {
 	font-family: "Verdana", "Sans-Serif";
 	font-weight: normal;
@@ -201,7 +192,7 @@ dd { margin: 1em 0; }
 
 <p>
 
-<table>
+<table class="simple">
 
 	<tr>
 		<th>id</th>
@@ -449,6 +440,19 @@ dd { margin: 1em 0; }
 мои, они вообще стратегические от. Так не собой джоэла надгробную. Код джоэл разработки за, его окончил небольшой за.
 </form></p>
 
+<h6>.controls</h6>
+
+<p><form class="controls">
+Поля ввода <input type="text" class="field" value="Поле ввода"/> самое обычное поле ввода...<br/>
+Поля ввода <input type="text" class="field" value="Поле ввода"/> самое обычное поле ввода...<br/>
+Главной использует окончательно фон от, от тем ведь ошибок образование. Поехала покидали бы тем, без
+труда английском безусловно по. Теперь кнопки <button>отправить</button> Во долгий налево чем. <button disabled="disabled">отправить</button> Что себе участки решение от,
+запускали несчастье ну что. Взяться медицинское чем во. Свою языке то что, их вещь меня проектом мог, кто пока стиле он.
+Процессе метеорного проектировщик но шеф, <select><option>option 1</option><option>option 2</option><option>option 3</option></select> во лет ваших делаете отключаются, оно можно байтах главное до. Вы очень стимул писать
+мои, они вообще стратегические от. Так не собой джоэла надгробную. Код джоэл разработки за, его окончил небольшой за.
+</form></p>
+
+
 <h2>table.layout.form</h2>
 
 <p>
@@ -462,15 +466,130 @@ dd { margin: 1em 0; }
 			<td><input type="password" class="field" value="Пароль"/></td>
 		</tr>
 		<tr>
+			<th>Кому:</th>
+			<td><input type="text" class="field error" value="test@net"/></td>
+		</tr>
+		<tr>
+			<th>Опции:</th>
+			<td><select><option>option 1</option><option>option 2</option><option>option 3</option></select></td>
+		</tr>
+		<tr>
 			<th>Сообщение:</th>
 			<td><textarea>Текст сообщения...</textarea></td>
 		</tr>
 		<tr>
 			<th></th>
-			<td><button>Отправить</button></td>
+			<td>
+				<button>OK</button>
+				<button>Отмена</button>
+			</td>
 		</tr>
 	</table>
 </p>
+
+<h2>table.layout.form.shaded-controls</h2>
+
+<p>
+	<table class="layout form shaded-controls">
+		<tr>
+			<th>Логин:</th>
+			<td><input type="text" class="field" value="Логин"/></td>
+		</tr>
+		<tr>
+			<th>Пароль:</th>
+			<td><input type="password" class="field" value="Пароль"/></td>
+		</tr>
+		<tr>
+			<th>Кому:</th>
+			<td><input type="text" class="field error" value="test@net"/></td>
+		</tr>
+		<tr>
+			<th>Опции:</th>
+			<td><select><option>option 1</option><option>option 2</option><option>option 3</option></select></td>
+		</tr>
+		<tr>
+			<th>Сообщение:</th>
+			<td><textarea>Текст сообщения...</textarea></td>
+		</tr>
+		<tr>
+			<th></th>
+			<td>
+				<button>OK</button>
+				<button>Отмена</button>
+			</td>
+		</tr>
+	</table>
+</p>
+
+<h2>table.layout.form.controls</h2>
+
+<p>
+	<table class="layout form controls">
+		<tr>
+			<th>Логин:</th>
+			<td><input type="text" class="field" value="Логин"/></td>
+		</tr>
+		<tr>
+			<th>Пароль:</th>
+			<td><input type="password" class="field" value="Пароль"/></td>
+		</tr>
+		<tr>
+			<th>Кому:</th>
+			<td><input type="text" class="field error" value="test@net"/></td>
+		</tr>
+		<tr>
+			<th>Опции:</th>
+			<td><select><option>option 1</option><option>option 2</option><option>option 3</option></select></td>
+		</tr>
+		<tr>
+			<th>Сообщение:</th>
+			<td><textarea>Текст сообщения...</textarea></td>
+		</tr>
+		<tr>
+			<th></th>
+			<td>
+				<button>OK</button>
+				<button>Отмена</button>
+			</td>
+		</tr>
+	</table>
+</p>
+
+<h2>table.layout.form.controls.shaded-controls</h2>
+
+<p>
+	<table class="layout form controls shaded-controls">
+		<tr>
+			<th>Логин:</th>
+			<td><input type="text" class="field" value="Логин"/></td>
+		</tr>
+		<tr>
+			<th>Пароль:</th>
+			<td><input type="password" class="field" value="Пароль"/></td>
+		</tr>
+		<tr>
+			<th>Кому:</th>
+			<td><input type="text" class="field error" value="test@net"/></td>
+		</tr>
+		<tr>
+			<th>Опции:</th>
+			<td><select><option>option 1</option><option>option 2</option><option>option 3</option></select></td>
+		</tr>
+		<tr>
+			<th>Сообщение:</th>
+			<td><textarea>Текст сообщения...</textarea></td>
+		</tr>
+		<tr>
+			<th></th>
+			<td>
+				<button class="default">OK</button>
+				<button>Очистить</button>
+				<button>Отмена</button>
+			</td>
+		</tr>
+	</table>
+</p>
+
 
 </body>
 
