@@ -1,6 +1,5 @@
 - add swappable
 - modify "autocomplete"
 - "wysiwyg": scrollbars
-- "select": keyboard navigation
-- "menu": auto orientation
+- "select": search box
 - "tooltip": change css

@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.menu = { version: '0.8pa', current: null }
+	$.ajp.menu = { version: '0.9pa', current: null }
 
 	$.fn.extend({
 
@@ -25,6 +25,9 @@
 					}
 					if (!$ul.data('initial-width'))
 						$ul.data('initial-width', $ul.width())
+					var $root = $ul.parents('.ajp-menu')
+					if ($ul.offset().left + $ul.outerWidth()  >  $root.offset().left + $root.outerWidth())
+						$ul.css('margin-left', '-' + $ul.css('margin-left'))
 					if (!$.browser.msie) {
 						$ul.css({ width: 0 }).animate({ opacity: 1, width: $ul.data('initial-width') }, 'fast', 'swing', function () {
 							$ul.find('.arrow').css({ opacity: 0, display: 'block' }).animate({ opacity: 1 }, 'fast', 'swing')
@@ -85,6 +88,7 @@
 						})
 						$ul.find('ul').css('display', 'none')
 						if (level && vis) {
+
 							$ul.css({
 								'margin-top': '-' + ($li.outerHeight() - parseInt($li.css('padding-top'))) + 'px',
 								'margin-left': '' + ($li.outerWidth() - parseInt($li.css('padding-left'))) + 'px'

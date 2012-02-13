@@ -26,7 +26,7 @@
 
 input.ajp-checkbox { display: none; }
 
-/* $Id: jquery.ajp.colorpicker.css 46 2011-10-25 12:58:23Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.colorpicker.css 68 2012-02-09 07:09:50Z azbitnev@gmail.com $ */
 
 /*
 	ajp-colorpicker: common logic
@@ -172,7 +172,7 @@ input.ajp-checkbox { display: none; }
 	position: relative;
 }
 
-/* $Id: jquery.ajp.progressbar.css 44 2011-10-12 12:22:00Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.progressbar.css 68 2012-02-09 07:09:50Z azbitnev@gmail.com $ */
 
 /*
 	ajp-progressbar: common logic
@@ -213,7 +213,7 @@ input.ajp-checkbox { display: none; }
 	float: left;
 }
 
-/* $Id: jquery.ajp.select.css 61 2011-11-23 07:26:49Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.select.css 68 2012-02-09 07:09:50Z azbitnev@gmail.com $ */
 
 /*
 	ajp-select: common logic
@@ -297,7 +297,7 @@ input.ajp-checkbox { display: none; }
 	z-index: 2;
 }
 
-/* $Id: jquery.ajp.wysiwyg.css 62 2011-11-28 11:51:13Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.wysiwyg.css 68 2012-02-09 07:09:50Z azbitnev@gmail.com $ */
 
 /*
 	ajp-wysiwyg: common logic
