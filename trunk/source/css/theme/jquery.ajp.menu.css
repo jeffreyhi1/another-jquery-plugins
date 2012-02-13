@@ -45,8 +45,8 @@
 }
 
 .ajp-menu > li {
-	border-right-color: #ccc;
-	border-right-style: solid;
+	border-left-color: #ccc;
+	border-left-style: solid;
 }
 
 .ajp-menu {
@@ -89,6 +89,7 @@
 
 .ajp-menu {
 	border-width: 1px;
+	border-left-width: 0;
 }
 
 .ajp-menu li {
@@ -98,7 +99,7 @@
 
 .ajp-menu > li {
 	margin-left: 0; /* remove margin of root items */
-	border-right-width: 1px;
+	border-left-width: 1px;
 }
 
 .ajp-menu ul {

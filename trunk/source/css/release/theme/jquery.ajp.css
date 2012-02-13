@@ -68,7 +68,7 @@
 	top: 2px;
 }
 
-/* $Id: jquery.ajp.colorpicker.css 54 2011-11-11 12:43:41Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.colorpicker.css 68 2012-02-09 07:09:50Z azbitnev@gmail.com $ */
 
 /*
 	ajp-colorpicker: common style
@@ -220,7 +220,7 @@
 	height: 20px;
 	margin: 5px;
 }
-/* $Id: jquery.ajp.editable.css 54 2011-11-11 12:43:41Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.editable.css 68 2012-02-09 07:09:50Z azbitnev@gmail.com $ */
 
 /*
 	ajp-editable: common style
@@ -276,8 +276,8 @@
 }
 
 .ajp-menu > li {
-	border-right-color: #ccc;
-	border-right-style: solid;
+	border-left-color: #ccc;
+	border-left-style: solid;
 }
 
 .ajp-menu {
@@ -320,6 +320,7 @@
 
 .ajp-menu {
 	border-width: 1px;
+	border-left-width: 0;
 }
 
 .ajp-menu li {
@@ -329,7 +330,7 @@
 
 .ajp-menu > li {
 	margin-left: 0; /* remove margin of root items */
-	border-right-width: 1px;
+	border-left-width: 1px;
 }
 
 .ajp-menu ul {
@@ -504,7 +505,7 @@ input:-moz-placeholder {
 	color: #ccc !important;
 }
 
-/* $Id: jquery.ajp.progressbar.css 44 2011-10-12 12:22:00Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.progressbar.css 68 2012-02-09 07:09:50Z azbitnev@gmail.com $ */
 
 /*
 	ajp-progressbar: common sizes
@@ -600,7 +601,7 @@ input:-moz-placeholder {
 	margin-left: 10px;
 }
 
-/* $Id: jquery.ajp.select.css 61 2011-11-23 07:26:49Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.select.css 68 2012-02-09 07:09:50Z azbitnev@gmail.com $ */
 
 /*
 	ajp-select: common style
@@ -828,7 +829,7 @@ input:-moz-placeholder {
 }
 
 
-/* $Id: jquery.ajp.wysiwyg.css 62 2011-11-28 11:51:13Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.wysiwyg.css 68 2012-02-09 07:09:50Z azbitnev@gmail.com $ */
 
 /*
 	ajp-wysiwyg: common style

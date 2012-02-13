@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.select = { version: '0.4pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { } }
+	$.ajp.select = { version: '0.5pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { }, installed: false }
 
 	$.fn.extend({
 
@@ -33,7 +33,7 @@
 
 				var html = '';
 				html += '<div class="ajp-select">'
-					html += '<div class="ajp-current">testing...</div>'
+					html += '<div class="ajp-current">...</div>'
 					html += '<div class="ajp-disclosure-arrow"></div>'
 					html += '<div class="ajp-list">'
 						html += '<div class="ajp-list-top"></div>'
@@ -220,6 +220,20 @@
 				$.ajp.select.contexts[id] = ctx
 				$el.data('ajp-select-id', id)
 				$sel.data('ajp-select-id', id)
+
+				$(document).keydown(function (evt) {
+					if ($sel.find('.ajp-list').css('visibility') == 'visible') {
+						if (evt.keyCode == 38) {
+							var p = $sel.find('.ajp-selected').prev()
+							if (p.length > 0)
+								selectItem(p, true)
+						} else if (evt.keyCode == 40) {
+							var n = $sel.find('.ajp-selected').next()
+							if (n.length > 0)
+								selectItem(n, true)
+						}
+					}
+				})
 
 				ctx.sync()
 

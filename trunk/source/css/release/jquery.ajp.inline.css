@@ -4,7 +4,7 @@
 
 	Project home: http://code.google.com/p/another-jquery-plugins/
 
-	Version: 0.7.3.3
+	Version: 0.7.3.4
 */
 
 
@@ -655,8 +655,8 @@ font-size: 1em;
 }
 
 .ajp-menu > li {
-border-right-color: #ccc;
-border-right-style: solid;
+border-left-color: #ccc;
+border-left-style: solid;
 }
 
 .ajp-menu {
@@ -699,6 +699,7 @@ ajp-menu: sizes
 
 .ajp-menu {
 border-width: 1px;
+border-left-width: 0;
 }
 
 .ajp-menu li {
@@ -708,7 +709,7 @@ line-height: 20px;
 
 .ajp-menu > li {
 margin-left: 0; 
-border-right-width: 1px;
+border-left-width: 1px;
 }
 
 .ajp-menu ul {
