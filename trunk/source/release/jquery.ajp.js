@@ -2854,12 +2854,22 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 					if ($sel.find('.ajp-list').css('visibility') == 'visible') {
 						if (evt.keyCode == 38) {
 							var p = $sel.find('.ajp-selected').prev()
-							if (p.length > 0)
-								selectItem(p, true)
+							while (p.length > 0) {
+								if (!p.hasClass('ajp-disabled')) {
+									selectItem(p, true)
+									break
+								}
+								p = p.prev()
+							}
 						} else if (evt.keyCode == 40) {
 							var n = $sel.find('.ajp-selected').next()
-							if (n.length > 0)
-								selectItem(n, true)
+							while (n.length > 0) {
+								if (!n.hasClass('ajp-disabled')) {
+									selectItem(n, true)
+									break
+								}
+								n = n.next()
+							}
 						}
 					}
 				})
