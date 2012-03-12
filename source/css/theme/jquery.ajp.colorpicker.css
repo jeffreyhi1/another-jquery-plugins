@@ -8,9 +8,10 @@
 	border-style: solid;
 	border-color: #ddd;
 	border-top-color: #eee;
-	box-shadow: 0 3px 6px rgba(0,0,0,.1);
 	background: #fff;
-
+	box-shadow: 0 3px 6px #dddddd;
+	-mox-box-shadow: 0 3px 6px #dddddd;
+	-webkit-box-shadow: 0 3px 6px #dddddd;
 }
 
 .ajp-colorpicker > .pallete > .color {

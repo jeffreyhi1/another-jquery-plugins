@@ -384,12 +384,12 @@ ajp-autocomplete: common style
 */
 
 .ajp-autocomplete-list {
-border-style: outset;
+border-style: solid;
 border-color: #eee;
 
-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
--webkit-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
--moz-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+box-shadow: 0px 8px 14px #aaaaaa;
+-webkit-box-shadow: 0px 8px 14px #aaaaaa;
+-moz-box-shadow: 0px 8px 14px #aaaaaa;
 }
 
 .ajp-autocomplete-list > .autocomplete-item { cursor: pointer; background: #fff; }
@@ -407,7 +407,7 @@ margin: 0;
 padding: 0;
 }
 
-.ajp-autocomplete-list > .autocomplete-item { 
+.ajp-autocomplete-list > .autocomplete-item {
 height: 1.82em;
 line-height: 1.82em;
 font-size: 1em;
@@ -457,9 +457,10 @@ ajp-colorpicker: common style
 border-style: solid;
 border-color: #ddd;
 border-top-color: #eee;
-box-shadow: 0 3px 6px rgba(0,0,0,.1);
 background: #fff;
-
+box-shadow: 0 3px 6px #dddddd;
+-mox-box-shadow: 0 3px 6px #dddddd;
+-webkit-box-shadow: 0 3px 6px #dddddd;
 }
 
 .ajp-colorpicker > .pallete > .color {
@@ -505,9 +506,9 @@ ajp-datepicker: common style
 .ajp-datepicker {
 border-style: solid;
 border-color: #eee;
-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
--webkit-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
--moz-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+box-shadow: 0px 8px 14px #aaaaaa;
+-webkit-box-shadow: 0px 8px 14px #aaaaaa;
+-moz-box-shadow: 0px 8px 14px #aaaaaa;
 }
 
 .ajp-datepicker > .ajp-datepicker-header .ajp-datepicker-month-name {
@@ -641,9 +642,9 @@ text-shadow: #666 1px 2px 2px;
 
 .ajp-menu ul {
 border: 1px solid #ccc;
-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
--webkit-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
--moz-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+box-shadow: 0px 8px 14px #aaaaaa;
+-webkit-box-shadow: 0px 8px 14px #aaaaaa;
+-moz-box-shadow: 0px 8px 14px #aaaaaa;
 }
 
 .ajp-menu li > a {
@@ -1007,9 +1008,9 @@ background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR
 .ajp-select > .ajp-list {
 background: #fff;
 border: 0 solid #eee;
-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
--webkit-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
--moz-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+box-shadow: 0px 8px 14px #aaaaaa;
+-webkit-box-shadow: 0px 8px 14px #aaaaaa;
+-moz-box-shadow: 0px 8px 14px #aaaaaa;
 }
 
 .ajp-select > .ajp-list > .ajp-list-items > .ajp-item {

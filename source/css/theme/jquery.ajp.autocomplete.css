@@ -5,12 +5,12 @@
 */
 
 .ajp-autocomplete-list {
-	border-style: outset;
+	border-style: solid;
 	border-color: #eee;
 
-	box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
-	-webkit-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
-	-moz-box-shadow: 0px 8px 14px rgba(0,0,0,0.3);
+	box-shadow: 0px 8px 14px #aaaaaa;
+	-webkit-box-shadow: 0px 8px 14px #aaaaaa;
+	-moz-box-shadow: 0px 8px 14px #aaaaaa;
 }
 
 .ajp-autocomplete-list > .autocomplete-item { cursor: pointer; background: #fff; }
@@ -28,7 +28,7 @@
 	padding: 0;
 }
 
-.ajp-autocomplete-list > .autocomplete-item { /*padding: 2px 4px;*/
+.ajp-autocomplete-list > .autocomplete-item {
 	height: 1.82em;
 	line-height: 1.82em;
 	font-size: 1em;

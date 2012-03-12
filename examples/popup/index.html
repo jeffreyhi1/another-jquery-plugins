@@ -13,6 +13,7 @@
 <link href="../../css/basics.css" rel="stylesheet" type="text/css"/><!-- .left -->
 <link href="../../css/960c12.css" rel="stylesheet" type="text/css"/>
 <link href="../../css/style.css" rel="stylesheet" type="text/css"/>
+<!--[if lt IE 10]><link href="../../css/ie.css" rel="stylesheet" type="text/css"/><![endif]-->
 
 <script type="text/javascript" charset="utf-8" src="../../jquery/1.7.1.js"></script> 
 
@@ -46,13 +47,21 @@ body { margin: 1em; font-size: 14px; }
 	background: #fff;
 	border: 1px solid #ddd;
 	border-top-color: #eee;
-	box-shadow: 0 3px 6px rgba(0,0,0,.1);
+	box-shadow: 0 3px 6px #dddddd;
 	position: relative;
 	z-index: 5;
 	visibility: hidden;
 }
 
 </style>
+
+<!--[if lt IE 10]>
+<style>
+.popup {
+	behavior: url(http://localhost/another-jquery-plugins/css/css3pie.htc);
+}
+</style>
+<![endif]-->
 
 <script>
 

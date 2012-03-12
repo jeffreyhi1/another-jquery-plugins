@@ -11,26 +11,20 @@
 ----------------------------------------------------------------
 */
 
-button {
-	-pie-background: linear-gradient(#f9f9f9, #ebebeb);
-	behavior: url(css3pie.htc);
-}
-
 .controls input.field {
 	padding-top: 0.5em;
 	height: 1.46em;
 }
 
-.shaded {
-	behavior: url(css3pie.htc);
+button {
+	-pie-background: linear-gradient(#f9f9f9, #ebebeb);
 }
 
-.interactive {
-	behavior: url(css3pie.htc);
-}
-
+button,
+.shaded,
+.interactive,
 .shaded-controls input.field,
 .shaded-controls textarea,
 .shaded-controls select {
-	behavior: url(css3pie.htc);
+	behavior: url(http://localhost/another-jquery-plugins/css/css3pie.htc);
 }
