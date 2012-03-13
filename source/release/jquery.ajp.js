@@ -2670,10 +2670,9 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 					html += '<div class="ajp-current">...</div>'
 					html += '<div class="ajp-disclosure-arrow"></div>'
 					html += '<div class="ajp-list">'
-						if (opts.searchbox) {
-							html += '<input type="text" class="field"/>'
-						}
 						html += '<div class="ajp-list-top"></div>'
+						if (opts.searchbox)
+							html += '<input type="text" class="field"/>'
 						html += '<div class="ajp-list-items"></div>'
 						html += '<div class="ajp-list-right"></div>'
 						html += '<div class="ajp-list-bottom"></div>'
