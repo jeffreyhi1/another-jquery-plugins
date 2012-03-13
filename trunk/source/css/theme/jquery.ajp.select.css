@@ -98,7 +98,8 @@
 	margin: 0.6em 0;
 }
 
-.ajp-select > .ajp-list > input.field {
+.ajp-select > .ajp-list > .field {
+	float: left;
 	margin: 0.6em;
 	height: 1.82em;
 	width: 18.8em;
@@ -110,10 +111,10 @@
 	ajp-select: MSIE fixes
 */
 
-.ajp-select > .ajp-list > input.field {
+.ajp-select > .ajp-list > .field {
 	padding-top: 0.5em\9
 }
 
-.ajp-select > .ajp-list > input.field {
+.ajp-select > .ajp-list > .field {
 	height: 1.46em\9
 }

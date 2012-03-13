@@ -602,7 +602,7 @@ input:-moz-placeholder {
 	margin-left: 10px;
 }
 
-/* $Id: jquery.ajp.select.css 73 2012-03-12 13:08:27Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.select.css 74 2012-03-13 07:29:02Z azbitnev@gmail.com $ */
 
 /*
 	ajp-select: common style
@@ -702,7 +702,8 @@ input:-moz-placeholder {
 	margin: 0.6em 0;
 }
 
-.ajp-select > .ajp-list > input.field {
+.ajp-select > .ajp-list > .field {
+	float: left;
 	margin: 0.6em;
 	height: 1.82em;
 	width: 18.8em;
@@ -714,11 +715,11 @@ input:-moz-placeholder {
 	ajp-select: MSIE fixes
 */
 
-.ajp-select > .ajp-list > input.field {
+.ajp-select > .ajp-list > .field {
 	padding-top: 0.5em\9
 }
 
-.ajp-select > .ajp-list > input.field {
+.ajp-select > .ajp-list > .field {
 	height: 1.46em\9
 }
 /* $Id: slider.css 28 2011-08-10 10:33:17Z azbitnev@gmail.com $ */
