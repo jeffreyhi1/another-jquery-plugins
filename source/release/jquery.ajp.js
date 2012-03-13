@@ -2799,7 +2799,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 						evt.preventDefault()
 						evt.stopPropagation()
 						return false
-					}).bind('input', function (evt) {
+					}).bind(($.browser.msie ? 'propertychange' : 'input'), function (evt) {
 						var filterText = $(this).val()
 						$sel.find('.ajp-item').each(function () {
 							var $item = $(this)
