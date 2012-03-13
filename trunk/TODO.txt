@@ -1,6 +1,4 @@
 - add swappable
 - modify "autocomplete"
 - "wysiwyg": scrollbars
-- "select": search box
 - "tooltip": change css
-- "menu": highlight current root element

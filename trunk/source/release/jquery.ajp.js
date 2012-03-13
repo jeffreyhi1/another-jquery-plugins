@@ -1453,7 +1453,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.menu = { version: '0.9pa', current: null }
+	$.ajp.menu = { version: '0.10pa', current: null }
 
 	$.fn.extend({
 
@@ -1495,11 +1495,11 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 			var opts = $.extend(defaults, options);
 
 			function makeMenu($li, level) {
+
 				var $a = $li.children('a:eq(0)')
 				var $ul = $li.children('ul:eq(0)')
 				var hasSubmenu = ($ul.length ? true : false)
-					
-
+				
 				if ($li.hasClass('disabled'))
 					$a.removeAttr('href').mousedown(function (evt) {
 						evt.preventDefault()
@@ -1553,6 +1553,9 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 					})
 
 				} else {
+
+					if ($a.length > 0 && $a[0].href == window.location.href && !$li.hasClass('selected'))
+						$li.addClass('selected')					
 
 					if (!$a.hasClass('final-node'))
 						$a.addClass('final-node')
@@ -2637,7 +2640,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.select = { version: '0.5pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { }, installed: false }
+	$.ajp.select = { version: '0.6pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { }, installed: false }
 
 	$.fn.extend({
 
@@ -2651,7 +2654,9 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 				// hide: function ($popup, $el) { ... } // see 'popup'
 				getItemContent: function ($opt) { return $opt.text() },
 				empty: '<div class="ajp-message">list is empty...</div>',
-				mousewheel: true
+				mousewheel: true,
+				searchbox: false,
+				searchboxMatcher: function (filterText, itemText) { return itemText.toLowerCase().indexOf(filterText.toLowerCase()) == 0 }
 			}
 
 			var opts = $.extend(defaults, options);
@@ -2665,6 +2670,9 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 					html += '<div class="ajp-current">...</div>'
 					html += '<div class="ajp-disclosure-arrow"></div>'
 					html += '<div class="ajp-list">'
+						if (opts.searchbox) {
+							html += '<input type="text" class="field"/>'
+						}
 						html += '<div class="ajp-list-top"></div>'
 						html += '<div class="ajp-list-items"></div>'
 						html += '<div class="ajp-list-right"></div>'
@@ -2683,7 +2691,13 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 					$r.append($vsb)
 					$vsb.ajp$slider({ orientation: 'vertical', onchange: function (val) {
 						var items = $i.children('.ajp-item')
-						$i.scrollTop((items.outerHeight() * items.length - $i.innerHeight()) * val)
+						var totalHeight = 0
+						items.each(function () {
+							var $ci = $(this)
+							if ($ci.css('display') != 'none')
+								totalHeight += $ci.outerHeight()
+						})
+						$i.scrollTop((totalHeight - $i.innerHeight()) * val)
 					}})
 					if (opts.action == 'click') {
 						$vsb.mouseup(function (evt) {
@@ -2720,7 +2734,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 						do {
 							item = item.prev()
 							if (item.length > 0)
-								top += item.outerHeight()
+								top += (item.css('display') == 'none' ? 0 : item.outerHeight())
 						} while (item.length > 0)
 						$i.scrollTop(top)
 						top = $i.scrollTop()
@@ -2730,14 +2744,19 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 					if ($vsb.length > 0) {
 						var items = $i.children('.ajp-item')
 						var visibleHeight = $i.innerHeight()
-						var totalHeight = (items.outerHeight() * items.length) 
+						var totalHeight = 0
+						items.each(function () {
+							var $ci = $(this)
+							if ($ci.css('display') != 'none')
+								totalHeight += $ci.outerHeight()
+						})
 						var $control = $vsb.children('.control')
 						if (!$control.data('ajp-min-height'))
 							$control.data('ajp-min-height', $control.height())
 						var minHeight = $control.data('ajp-min-height')
 						var h = (visibleHeight * $vsb.innerHeight()) / totalHeight
 						$control.height(h < minHeight ? minHeight : h)
-						$vsb.val(top / (totalHeight - $i.innerHeight()))
+						$vsb.val(top / (totalHeight - visibleHeight))
 						if (visibleHeight < totalHeight) {
 							$vsb.css({ display: 'block' })
 							$i.removeClass('ajp-no-vsb')
@@ -2774,6 +2793,21 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 							$opt = $item
 					})
 					return $opt
+				}
+
+				if (opts.searchbox) {
+					$sel.find('input').click(function (evt) {
+						evt.preventDefault()
+						evt.stopPropagation()
+						return false
+					}).bind('keyup', function (evt) {
+						var filterText = $(this).val()
+						$sel.find('.ajp-item').each(function () {
+							var $item = $(this)
+							$item.css({ display: (opts.searchboxMatcher(filterText, $item.text()) ? 'block' : 'none') })
+						})
+						invalidate()
+					})
 				}
 
 				$sel.ajp$popup({
