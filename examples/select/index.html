@@ -113,7 +113,7 @@ $(document).ready(function () {
 		return (html ? html : $opt.text())
 	}	
 
-	$('#ex1').ajp$select({ action: 'click', scrollbars: 'vertical' })
+	$('#ex1').ajp$select({ action: 'click', scrollbars: 'vertical', searchbox: true })
 
 	$('#ex2').ajp$select({ scrollbars: 'vertical' })
 
@@ -141,10 +141,30 @@ $(document).ready(function () {
 
 </head>
 
-<body>
+<body class="controls shaded-controls">
 
 	<select class="ex1-class" id="ex1">
 		<option value="101">Opt 101</option>
+
+		<option value="111">Opt 111</option>
+		<option value="112">Opt 112</option>
+		<option value="113">Opt 113</option>
+		<option value="114">Opt 114</option>
+		<option value="115">Opt 115</option>
+		<option value="116">Opt 116</option>
+		<option value="117">Opt 117</option>
+		<option value="118">Opt 118</option>
+		<option value="119">Opt 119</option>
+		<option value="111.11">Opt 111.11</option>
+		<option value="112.11">Opt 112.11</option>
+		<option value="113.11" disabled="yes">Opt 113.11</option>
+		<option value="114.11">Opt 114.11</option>
+		<option value="115.11">Opt 115.11</option>
+		<option value="116.11">Opt 116.11</option>
+		<option value="117.11">Opt 117.11</option>
+		<option value="118.11">Opt 118.11</option>
+		<option value="119.11">Opt 119.11</option>
+
 		<option value="202">Opt 202</option>
 		<option value="303">Opt 303</option>
 		<option value="404">Opt 404</option>
@@ -153,7 +173,6 @@ $(document).ready(function () {
 		<option value="707">Opt 707</option>
 		<option value="808">Opt 808</option>
 		<option value="909">Opt 909</option>
-		<option value="111" disabled="yes">Opt 111</option>
 		<option value="212" disabled="yes">Opt 212</option>
 		<option value="313" disabled="yes">Opt 313</option>
 		<option value="414">Opt 414</option>
@@ -218,3 +237,4 @@ $(document).ready(function () {
 
 
 </body>
+

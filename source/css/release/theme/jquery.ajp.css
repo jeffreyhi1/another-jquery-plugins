@@ -68,7 +68,7 @@
 	top: 2px;
 }
 
-/* $Id: jquery.ajp.colorpicker.css 68 2012-02-09 07:09:50Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.colorpicker.css 73 2012-03-12 13:08:27Z azbitnev@gmail.com $ */
 
 /*
 	ajp-colorpicker: common style
@@ -602,7 +602,7 @@ input:-moz-placeholder {
 	margin-left: 10px;
 }
 
-/* $Id: jquery.ajp.select.css 68 2012-02-09 07:09:50Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.select.css 73 2012-03-12 13:08:27Z azbitnev@gmail.com $ */
 
 /*
 	ajp-select: common style
@@ -700,6 +700,26 @@ input:-moz-placeholder {
 .ajp-select > .ajp-list > .ajp-list-right > .ajp-vsb {
 	height: 14.5em;
 	margin: 0.6em 0;
+}
+
+.ajp-select > .ajp-list > input.field {
+	margin: 0.6em;
+	height: 1.82em;
+	width: 18.8em;
+	font-size: 1em;
+	padding: 0.18em 0.6em;
+}
+
+/*
+	ajp-select: MSIE fixes
+*/
+
+.ajp-select > .ajp-list > input.field {
+	padding-top: 0.5em\9
+}
+
+.ajp-select > .ajp-list > input.field {
+	height: 1.46em\9
 }
 /* $Id: slider.css 28 2011-08-10 10:33:17Z azbitnev@gmail.com $ */
 

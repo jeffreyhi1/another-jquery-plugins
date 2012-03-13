@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.select = { version: '0.5pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { }, installed: false }
+	$.ajp.select = { version: '0.6pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { }, installed: false }
 
 	$.fn.extend({
 
@@ -22,7 +22,9 @@
 				// hide: function ($popup, $el) { ... } // see 'popup'
 				getItemContent: function ($opt) { return $opt.text() },
 				empty: '<div class="ajp-message">list is empty...</div>',
-				mousewheel: true
+				mousewheel: true,
+				searchbox: false,
+				searchboxMatcher: function (filterText, itemText) { return itemText.toLowerCase().indexOf(filterText.toLowerCase()) == 0 }
 			}
 
 			var opts = $.extend(defaults, options);
@@ -36,6 +38,9 @@
 					html += '<div class="ajp-current">...</div>'
 					html += '<div class="ajp-disclosure-arrow"></div>'
 					html += '<div class="ajp-list">'
+						if (opts.searchbox) {
+							html += '<input type="text" class="field"/>'
+						}
 						html += '<div class="ajp-list-top"></div>'
 						html += '<div class="ajp-list-items"></div>'
 						html += '<div class="ajp-list-right"></div>'
@@ -54,7 +59,13 @@
 					$r.append($vsb)
 					$vsb.ajp$slider({ orientation: 'vertical', onchange: function (val) {
 						var items = $i.children('.ajp-item')
-						$i.scrollTop((items.outerHeight() * items.length - $i.innerHeight()) * val)
+						var totalHeight = 0
+						items.each(function () {
+							var $ci = $(this)
+							if ($ci.css('display') != 'none')
+								totalHeight += $ci.outerHeight()
+						})
+						$i.scrollTop((totalHeight - $i.innerHeight()) * val)
 					}})
 					if (opts.action == 'click') {
 						$vsb.mouseup(function (evt) {
@@ -91,7 +102,7 @@
 						do {
 							item = item.prev()
 							if (item.length > 0)
-								top += item.outerHeight()
+								top += (item.css('display') == 'none' ? 0 : item.outerHeight())
 						} while (item.length > 0)
 						$i.scrollTop(top)
 						top = $i.scrollTop()
@@ -101,14 +112,19 @@
 					if ($vsb.length > 0) {
 						var items = $i.children('.ajp-item')
 						var visibleHeight = $i.innerHeight()
-						var totalHeight = (items.outerHeight() * items.length) 
+						var totalHeight = 0
+						items.each(function () {
+							var $ci = $(this)
+							if ($ci.css('display') != 'none')
+								totalHeight += $ci.outerHeight()
+						})
 						var $control = $vsb.children('.control')
 						if (!$control.data('ajp-min-height'))
 							$control.data('ajp-min-height', $control.height())
 						var minHeight = $control.data('ajp-min-height')
 						var h = (visibleHeight * $vsb.innerHeight()) / totalHeight
 						$control.height(h < minHeight ? minHeight : h)
-						$vsb.val(top / (totalHeight - $i.innerHeight()))
+						$vsb.val(top / (totalHeight - visibleHeight))
 						if (visibleHeight < totalHeight) {
 							$vsb.css({ display: 'block' })
 							$i.removeClass('ajp-no-vsb')
@@ -145,6 +161,21 @@
 							$opt = $item
 					})
 					return $opt
+				}
+
+				if (opts.searchbox) {
+					$sel.find('input').click(function (evt) {
+						evt.preventDefault()
+						evt.stopPropagation()
+						return false
+					}).bind('keyup', function (evt) {
+						var filterText = $(this).val()
+						$sel.find('.ajp-item').each(function () {
+							var $item = $(this)
+							$item.css({ display: (opts.searchboxMatcher(filterText, $item.text()) ? 'block' : 'none') })
+						})
+						invalidate()
+					})
 				}
 
 				$sel.ajp$popup({

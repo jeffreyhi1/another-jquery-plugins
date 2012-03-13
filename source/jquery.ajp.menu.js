@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.menu = { version: '0.9pa', current: null }
+	$.ajp.menu = { version: '0.10pa', current: null }
 
 	$.fn.extend({
 
@@ -50,11 +50,11 @@
 			var opts = $.extend(defaults, options);
 
 			function makeMenu($li, level) {
+
 				var $a = $li.children('a:eq(0)')
 				var $ul = $li.children('ul:eq(0)')
 				var hasSubmenu = ($ul.length ? true : false)
-					
-
+				
 				if ($li.hasClass('disabled'))
 					$a.removeAttr('href').mousedown(function (evt) {
 						evt.preventDefault()
@@ -108,6 +108,9 @@
 					})
 
 				} else {
+
+					if ($a.length > 0 && $a[0].href == window.location.href && !$li.hasClass('selected'))
+						$li.addClass('selected')					
 
 					if (!$a.hasClass('final-node'))
 						$a.addClass('final-node')
