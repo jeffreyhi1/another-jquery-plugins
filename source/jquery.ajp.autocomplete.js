@@ -8,7 +8,7 @@
 (function($){
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.autocomplete = { version: '0.13pa', forms: {}, last: false }
+	$.ajp.autocomplete = { version: '0.14pa', forms: {}, last: false }
 
 	$.fn.extend({
 
@@ -64,6 +64,9 @@
 						var objList = $(this.list)
 						objList.css('display', 'none').addClass('ajp-autocomplete-list')
 						document.body.appendChild(this.list)
+
+						if ($.browser.msie)
+							objList.addClass('ajp-autocomplete-list-msie')
 
 						var ctx = this
 						var form = $($(this.target).attr('form'))

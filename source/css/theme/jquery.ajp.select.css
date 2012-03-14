@@ -108,13 +108,24 @@
 }
 
 /*
-	ajp-select: MSIE fixes
+	ajp-select: msie fixes
 */
 
-.ajp-select > .ajp-list > .field {
-	padding-top: 0.5em\9
+.ajp-select-msie > .ajp-list > .field {
+	padding-top: 0.5em;
 }
 
-.ajp-select > .ajp-list > .field {
-	height: 1.46em\9
+.ajp-select-msie > .ajp-list > .field {
+	height: 1.46em;
+}
+
+.ajp-select-msie > .ajp-list {
+	position: relative;
+	top: -1px;
+	left: -1px;
+	filter: progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=0, Direction=0),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=4, Direction=90),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=6, Direction=180),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=1, Direction=270)
+	;
 }

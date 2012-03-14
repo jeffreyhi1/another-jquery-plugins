@@ -39,8 +39,15 @@
 	ajp-autocomplete: MSIE fixes
 */
 
-.ajp-autocomplete-list { margin-top: 0.6em\9 }
+.ajp-autocomplete-list-msie {
+	margin-top: 0.6em;
+	filter: progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=0, Direction=0),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=4, Direction=90),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=6, Direction=180),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=1, Direction=270)
+	;
 
+}
 /* $Id: checkbox.css 24 2011-08-04 07:07:51Z azbitnev@gmail.com $ */
 
 /*
@@ -67,7 +74,6 @@
 	margin: 0 5px 0 0;
 	top: 2px;
 }
-
 /* $Id: jquery.ajp.colorpicker.css 73 2012-03-12 13:08:27Z azbitnev@gmail.com $ */
 
 /*
@@ -118,6 +124,20 @@
 	height: 8px;
 }
 
+/*
+	ajp-colorpicker: msie fixes
+*/
+
+.ajp-colorpicker-msie {
+	position: relative;
+	top: -1px;
+	left: -1px;
+	filter: progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=0, Direction=0),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=4, Direction=90),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=6, Direction=180),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=1, Direction=270)
+	;
+}
 /* $Id: datepicker.css 14 2011-06-24 11:48:30Z azbitnev@gmail.com $ */
 
 /*
@@ -220,6 +240,21 @@
 	width: 20px;
 	height: 20px;
 	margin: 5px;
+}
+
+/*
+	ajp-datepicker: msie fixes
+*/
+
+.ajp-datepicker-msie {
+	position: relative;
+	top: -1px;
+	left: -1px;
+	filter: progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=0, Direction=0),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=4, Direction=90),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=6, Direction=180),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=1, Direction=270)
+	;
 }
 /* $Id: jquery.ajp.editable.css 68 2012-02-09 07:09:50Z azbitnev@gmail.com $ */
 
@@ -423,7 +458,6 @@
 .ajp-msgbox-wide { width: 800px; }
 .ajp-msgbox-wide > .middle > .text { width: 635px; margin-top: 20px; margin-left: 15px; margin-bottom: 15px; }
 .ajp-msgbox-wide > .middle > .text > .input > input { width: 625px; }
-
 /* $Id: paginator.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 /*
@@ -488,7 +522,6 @@
 .ajp-paginator ul li {
 	left: -40px; /* reset default margin of list item */
 }
-
 /* $Id: placeholder.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 .ajp-placeholder {
@@ -505,7 +538,6 @@ input:-moz-placeholder {
 	font-style: italic;
 	color: #ccc !important;
 }
-
 /* $Id: jquery.ajp.progressbar.css 68 2012-02-09 07:09:50Z azbitnev@gmail.com $ */
 
 /*
@@ -529,7 +561,6 @@ input:-moz-placeholder {
 .ajp-progressbar > .fill {
 	background: #0c0 url(images/jquery.ajp.progressbar.fill.png);
 }
-
 /* $Id: resizable.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 /*
@@ -557,8 +588,6 @@ input:-moz-placeholder {
 .ajp-resizable-active {
 	outline-width: 1px;
 }
-
-
 /* $Id: scrollable.css 26 2011-08-05 10:43:14Z azbitnev@gmail.com $ */
 
 /*
@@ -601,8 +630,7 @@ input:-moz-placeholder {
 .ajp-scrollable-prev {
 	margin-left: 10px;
 }
-
-/* $Id: jquery.ajp.select.css 74 2012-03-13 07:29:02Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.select.css 75 2012-03-13 07:42:08Z azbitnev@gmail.com $ */
 
 /*
 	ajp-select: common style
@@ -712,15 +740,26 @@ input:-moz-placeholder {
 }
 
 /*
-	ajp-select: MSIE fixes
+	ajp-select: msie fixes
 */
 
-.ajp-select > .ajp-list > .field {
-	padding-top: 0.5em\9
+.ajp-select-msie > .ajp-list > .field {
+	padding-top: 0.5em;
 }
 
-.ajp-select > .ajp-list > .field {
-	height: 1.46em\9
+.ajp-select-msie > .ajp-list > .field {
+	height: 1.46em;
+}
+
+.ajp-select-msie > .ajp-list {
+	position: relative;
+	top: -1px;
+	left: -1px;
+	filter: progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=0, Direction=0),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=4, Direction=90),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=6, Direction=180),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=1, Direction=270)
+	;
 }
 /* $Id: slider.css 28 2011-08-10 10:33:17Z azbitnev@gmail.com $ */
 
@@ -849,8 +888,6 @@ input:-moz-placeholder {
 .ajp-tooltip > .bottom {
 	height: 18px;
 }
-
-
 /* $Id: jquery.ajp.wysiwyg.css 68 2012-02-09 07:09:50Z azbitnev@gmail.com $ */
 
 /*

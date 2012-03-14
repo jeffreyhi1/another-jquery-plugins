@@ -16,15 +16,51 @@
 	height: 1.46em;
 }
 
-button {
-	-pie-background: linear-gradient(#f9f9f9, #ebebeb);
+.shaded {
+	position: relative;
+	left: -3px;
+	top: -3px;
+	filter: progid:DXImageTransform.Microsoft.Shadow(Color=#dddddd, Strength=3, Direction=0),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#dddddd, Strength=3, Direction=90),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#dddddd, Strength=3, Direction=180),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#dddddd, Strength=3, Direction=270)
+	;
 }
 
-button,
-.shaded,
-.interactive,
-.shaded-controls input.field,
-.shaded-controls textarea,
-.shaded-controls select {
-	behavior: url(http://localhost/another-jquery-plugins/css/css3pie.htc);
+.interactive {
+	position: relative;
+}
+
+.interactive:hover {
+	top: -3px;
+	left: -3px;
+	filter: progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=3, Direction=0),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=3, Direction=90),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=3, Direction=180),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=3, Direction=270)
+	;
+}
+
+.shaded-controls select, .shaded-controls input.field, .shaded-controls input.error, .shaded-controls textarea, .shaded-controls textarea.error {
+	position: relative;
+}
+
+.shaded-controls input.error, .shaded-controls textarea.error {
+	top: -1px;
+	left: -1px;
+	filter: progid:DXImageTransform.Microsoft.Shadow(Color=#eeaaaa, Strength=1, Direction=0),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#eeaaaa, Strength=1, Direction=90),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#eeaaaa, Strength=1, Direction=180),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#eeaaaa, Strength=1, Direction=270)
+	;
+}
+
+.shaded-controls select:focus, .shaded-controls input.field:focus, .shaded-controls textarea:focus {
+	top: 0px;
+	left: -1px;
+	filter: progid:DXImageTransform.Microsoft.Shadow(Color=#eeaa00, Strength=1, Direction=0),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#eeaa00, Strength=1, Direction=90),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#eeaa00, Strength=1, Direction=180),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#eeaa00, Strength=1, Direction=270)
+	;
 }

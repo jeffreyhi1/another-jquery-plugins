@@ -8,7 +8,7 @@
 (function($){
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.autocomplete = { version: '0.13pa', forms: {}, last: false }
+	$.ajp.autocomplete = { version: '0.14pa', forms: {}, last: false }
 
 	$.fn.extend({
 
@@ -64,6 +64,9 @@
 						var objList = $(this.list)
 						objList.css('display', 'none').addClass('ajp-autocomplete-list')
 						document.body.appendChild(this.list)
+
+						if ($.browser.msie)
+							objList.addClass('ajp-autocomplete-list-msie')
 
 						var ctx = this
 						var form = $($(this.target).attr('form'))
@@ -478,7 +481,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.colorpicker = { version: '0.3pa', required: ['popup'], controls: [], serial: 1 }
+	$.ajp.colorpicker = { version: '0.4pa', required: ['popup'], controls: [], serial: 1 }
 
 	$.fn.extend({
 
@@ -502,6 +505,9 @@
 
 				var $el = $(el)
 				var $cp = $('<div class="ajp-colorpicker"></div>')
+
+				if ($.browser.msie)
+					$cp.addClass('ajp-colorpicker-msie')
 
 				for (var i = 0; i < opts.pallete.length; i ++) {
 					var $p = $('<div class="pallete"></div>')
@@ -539,7 +545,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.datepicker = { version: '0.8pa', required: [ 'popup' ] }
+	$.ajp.datepicker = { version: '0.9pa', required: [ 'popup' ] }
 
 	$.fn.extend({
 
@@ -678,6 +684,9 @@
 					visibility: 'hidden',
 					position: 'absolute'
 				})
+
+				if ($.browser.msie)
+					$control.addClass('ajp-datepicker-msie')
 
 				$control.find('.ajp-datepicker-month > tbody > tr > th').each(function (day) {
 					$(this).text(opts.days[day])
@@ -2640,7 +2649,7 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.select = { version: '0.6pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { }, installed: false }
+	$.ajp.select = { version: '0.7pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { }, installed: false }
 
 	$.fn.extend({
 
@@ -2681,6 +2690,9 @@ $.easing['ajp-bounce'] = function(x, t, b, c, d) {
 
 				var $sel = $(html).insertAfter($el)
 				$sel.attr('class', $sel.attr('class') + ' ' + $el.attr('class'))
+
+				if ($.browser.msie)
+					$sel.addClass('ajp-select-msie')
 
 				var $r = $sel.find('.ajp-list-right:eq(0)')
 				var $i = $sel.find('.ajp-list-items:eq(0)')

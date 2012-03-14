@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.colorpicker = { version: '0.3pa', required: ['popup'], controls: [], serial: 1 }
+	$.ajp.colorpicker = { version: '0.4pa', required: ['popup'], controls: [], serial: 1 }
 
 	$.fn.extend({
 
@@ -32,6 +32,9 @@
 
 				var $el = $(el)
 				var $cp = $('<div class="ajp-colorpicker"></div>')
+
+				if ($.browser.msie)
+					$cp.addClass('ajp-colorpicker-msie')
 
 				for (var i = 0; i < opts.pallete.length; i ++) {
 					var $p = $('<div class="pallete"></div>')

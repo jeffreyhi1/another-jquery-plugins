@@ -58,7 +58,14 @@ body { margin: 1em; font-size: 14px; }
 <!--[if lt IE 10]>
 <style>
 .popup {
-	behavior: url(http://localhost/another-jquery-plugins/css/css3pie.htc);
+	position: relative;
+	top: -1px;
+	left: -1px;
+	filter: progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=0, Direction=0),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=4, Direction=90),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=6, Direction=180),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=1, Direction=270)
+	;
 }
 </style>
 <![endif]-->
