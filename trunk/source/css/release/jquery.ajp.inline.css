@@ -4,7 +4,7 @@
 
 	Project home: http://code.google.com/p/another-jquery-plugins/
 
-	Version: 0.7.3.5
+	Version: 0.7.3.6
 */
 
 
@@ -418,8 +418,15 @@ padding: 0.18em 0.6em;
 ajp-autocomplete: MSIE fixes
 */
 
-.ajp-autocomplete-list { margin-top: 0.6em\9 }
+.ajp-autocomplete-list-msie {
+margin-top: 0.6em;
+filter: progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=0, Direction=0),
+progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=4, Direction=90),
+progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=6, Direction=180),
+progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=1, Direction=270)
+;
 
+}
 
 
 /*
@@ -446,7 +453,6 @@ height: 13px;
 margin: 0 5px 0 0;
 top: 2px;
 }
-
 
 
 /*
@@ -497,6 +503,20 @@ outline-width: 1px;
 height: 8px;
 }
 
+/*
+ajp-colorpicker: msie fixes
+*/
+
+.ajp-colorpicker-msie {
+position: relative;
+top: -1px;
+left: -1px;
+filter: progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=0, Direction=0),
+progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=4, Direction=90),
+progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=6, Direction=180),
+progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=1, Direction=270)
+;
+}
 
 
 /*
@@ -599,6 +619,21 @@ padding: 0;
 width: 20px;
 height: 20px;
 margin: 5px;
+}
+
+/*
+ajp-datepicker: msie fixes
+*/
+
+.ajp-datepicker-msie {
+position: relative;
+top: -1px;
+left: -1px;
+filter: progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=0, Direction=0),
+progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=4, Direction=90),
+progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=6, Direction=180),
+progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=1, Direction=270)
+;
 }
 
 
@@ -804,7 +839,6 @@ ajp-msgbox: wide version
 .ajp-msgbox-wide > .middle > .text > .input > input { width: 625px; }
 
 
-
 /*
 ajp.paginator: common style
 */
@@ -869,7 +903,6 @@ left: -40px;
 }
 
 
-
 .ajp-placeholder {
 font-style: italic;
 color: #ccc !important;
@@ -884,7 +917,6 @@ input:-moz-placeholder {
 font-style: italic;
 color: #ccc !important;
 }
-
 
 
 /*
@@ -908,7 +940,6 @@ border-radius: 6px;
 .ajp-progressbar > .fill {
 background: #0c0 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAYAAADtlXTHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABJSURBVAiZncrBCcAgFATRzfw+0n9piq6IeP8ehBSQy8DAU2YKSQ+S+PJ7bUOtNVhrQSklmHOC7WDvDb33oLXGJbYvicx8GWNwAESeKsvXpLVwAAAAAElFTkSuQmCC);
 }
-
 
 
 /*
@@ -936,8 +967,6 @@ height: 16px;
 .ajp-resizable-active {
 outline-width: 1px;
 }
-
-
 
 
 /*
@@ -980,7 +1009,6 @@ margin-top: 80px;
 .ajp-scrollable-prev {
 margin-left: 10px;
 }
-
 
 
 /*
@@ -1091,15 +1119,26 @@ padding: 0.18em 0.6em;
 }
 
 /*
-ajp-select: MSIE fixes
+ajp-select: msie fixes
 */
 
-.ajp-select > .ajp-list > .field {
-padding-top: 0.5em\9
+.ajp-select-msie > .ajp-list > .field {
+padding-top: 0.5em;
 }
 
-.ajp-select > .ajp-list > .field {
-height: 1.46em\9
+.ajp-select-msie > .ajp-list > .field {
+height: 1.46em;
+}
+
+.ajp-select-msie > .ajp-list {
+position: relative;
+top: -1px;
+left: -1px;
+filter: progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=0, Direction=0),
+progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=4, Direction=90),
+progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=6, Direction=180),
+progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=1, Direction=270)
+;
 }
 
 
@@ -1228,8 +1267,6 @@ padding-right: 10px;
 .ajp-tooltip > .bottom {
 height: 18px;
 }
-
-
 
 
 /*

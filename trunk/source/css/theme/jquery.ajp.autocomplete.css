@@ -39,5 +39,12 @@
 	ajp-autocomplete: MSIE fixes
 */
 
-.ajp-autocomplete-list { margin-top: 0.6em\9 }
+.ajp-autocomplete-list-msie {
+	margin-top: 0.6em;
+	filter: progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=0, Direction=0),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=4, Direction=90),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=6, Direction=180),
+		progid:DXImageTransform.Microsoft.Shadow(Color=#bbbbbb, Strength=1, Direction=270)
+	;
 
+}

@@ -216,15 +216,10 @@ table.form > tbody > tr > td, table.form > tbody > tr > th { padding-top: 0.25em
 	box-shadow: 0 0 6px #9d9d9d;
 }
 
-.interactive {
-	outline: 1px solid #e0e0e0;
-}
-
 .interactive:hover, .interactive-lo:focus {
 	-webkit-box-shadow: 0 0 6px #9d9d9d;
 	-moz-box-shadow: 0 0 6px #9d9d9d;
 	box-shadow: 0 0 6px #9d9d9d;
-	outline: 1px solid silver;
 }
 
 .wfull { width: 100%; }

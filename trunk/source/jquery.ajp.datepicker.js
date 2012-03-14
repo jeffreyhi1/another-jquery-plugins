@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.datepicker = { version: '0.8pa', required: [ 'popup' ] }
+	$.ajp.datepicker = { version: '0.9pa', required: [ 'popup' ] }
 
 	$.fn.extend({
 
@@ -147,6 +147,9 @@
 					visibility: 'hidden',
 					position: 'absolute'
 				})
+
+				if ($.browser.msie)
+					$control.addClass('ajp-datepicker-msie')
 
 				$control.find('.ajp-datepicker-month > tbody > tr > th').each(function (day) {
 					$(this).text(opts.days[day])

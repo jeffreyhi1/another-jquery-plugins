@@ -8,7 +8,7 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.select = { version: '0.6pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { }, installed: false }
+	$.ajp.select = { version: '0.7pa', required: ['slider', 'popup'], optional: ['mousewheel'], serial: 1, contexts: { }, installed: false }
 
 	$.fn.extend({
 
@@ -49,6 +49,9 @@
 
 				var $sel = $(html).insertAfter($el)
 				$sel.attr('class', $sel.attr('class') + ' ' + $el.attr('class'))
+
+				if ($.browser.msie)
+					$sel.addClass('ajp-select-msie')
 
 				var $r = $sel.find('.ajp-list-right:eq(0)')
 				var $i = $sel.find('.ajp-list-items:eq(0)')
