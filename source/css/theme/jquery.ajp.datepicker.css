@@ -25,6 +25,10 @@
 	background: url(images/jquery.ajp.datepicker.next.png) 6px 4px no-repeat;
 }
 
+.ajp-datepicker > .ajp-datepicker-month {
+	background: #fff;
+}
+
 .ajp-datepicker > .ajp-datepicker-month > tbody > tr > th, .ajp-datepicker > .ajp-datepicker-month > tbody > tr > td {
 	text-align: center;
 	vertical-align: middle;

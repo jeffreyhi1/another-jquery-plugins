@@ -544,6 +544,10 @@ background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR
 background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGgSURBVDiNrZXPSgJRFIe/exttTMUWtVDKXiBaB75LQYKb2rRrE656gRY9QLRoFfQKQs9goEFB2M40qNHUe1rMHZwZzT/ggQNn5p7znfObYc4oEUEppQANrDE2xWyTUDwCjIiIsoUJwAXSNtYLAg0wAL6BHjBwbLEL5IEdYNNCFwEOgA7wDnwAIwdfZhrYbbXeblMpN+fD5F+SbwpAPK/XLRT2joAvoOfY0ySw6brruWw2szGHFB1TBKsqCeDYVhpwRIyyCUsAjbIcDSgd1mCMIeyvr288PDwSvx93Qs9bR7tJxIfDEXd391xf39Dv9yfOAw/bTGDwYmq1J6rVK9rtz+WAxsg0OQA0my9cXFzSaLzEcpaYMN690+lSrz/PzHHCF/Gpwt0zmQynpxUODvZjOSaMiAInO/pxsbjL+fkZ29tbExPNnDAOFBFKpUPK5WMSicRE8TygiEQlFwp5KpWTqdLGRWYsxQKDrTH0oeOOWuupU8WZttYAEkz4C3R+fryulT1v0wCglBLP63XxN84v+J9MsG1Wsb6+V75g1ap/AX+baFkZyJucAgAAAABJRU5ErkJggg==) 6px 4px no-repeat;
 }
 
+.ajp-datepicker > .ajp-datepicker-month {
+background: #fff;
+}
+
 .ajp-datepicker > .ajp-datepicker-month > tbody > tr > th, .ajp-datepicker > .ajp-datepicker-month > tbody > tr > td {
 text-align: center;
 vertical-align: middle;

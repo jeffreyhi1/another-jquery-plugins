@@ -74,7 +74,7 @@
 	margin: 0 5px 0 0;
 	top: 2px;
 }
-/* $Id: jquery.ajp.colorpicker.css 73 2012-03-12 13:08:27Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.colorpicker.css 79 2012-03-14 12:55:47Z azbitnev@gmail.com $ */
 
 /*
 	ajp-colorpicker: common style
@@ -163,6 +163,10 @@
 
 .ajp-datepicker > .ajp-datepicker-header .ajp-datepicker-next {
 	background: url(images/jquery.ajp.datepicker.next.png) 6px 4px no-repeat;
+}
+
+.ajp-datepicker > .ajp-datepicker-month {
+	background: #fff;
 }
 
 .ajp-datepicker > .ajp-datepicker-month > tbody > tr > th, .ajp-datepicker > .ajp-datepicker-month > tbody > tr > td {
@@ -538,7 +542,7 @@ input:-moz-placeholder {
 	font-style: italic;
 	color: #ccc !important;
 }
-/* $Id: jquery.ajp.progressbar.css 68 2012-02-09 07:09:50Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.progressbar.css 79 2012-03-14 12:55:47Z azbitnev@gmail.com $ */
 
 /*
 	ajp-progressbar: common sizes
@@ -630,7 +634,7 @@ input:-moz-placeholder {
 .ajp-scrollable-prev {
 	margin-left: 10px;
 }
-/* $Id: jquery.ajp.select.css 75 2012-03-13 07:42:08Z azbitnev@gmail.com $ */
+/* $Id: jquery.ajp.select.css 79 2012-03-14 12:55:47Z azbitnev@gmail.com $ */
 
 /*
 	ajp-select: common style
