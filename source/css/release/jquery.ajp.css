@@ -369,3 +369,19 @@ input.ajp-checkbox { display: none; }
 .ajp-wysiwyg-toolbar .button {
 	cursor: pointer;
 }
+/* $Id$ */
+
+/*
+	ajp-zippy: common logic
+*/
+
+.ajp-zippy-collapsed, .ajp-zippy-expanded {
+	display: block;
+	cursor: pointer;
+}
+
+.ajp-zippy-content {
+	display: block;
+	visibility: hidden;
+	overflow: hidden;
+}
