@@ -8,19 +8,22 @@
 (function ($) {
 
 	if (!$.ajp) $.ajp = { }
-	$.ajp.autoheight = { version: '0.2pa' }
+	$.ajp.autoheight = { version: '0.3pa' }
 
 	$.fn.extend({
 
 		ajp$autoheight: function (options) {
 
-			var defaults = {
+			var opts, defaults = {
 				effect: function ($el, newHeight, oldHeight) {
-					$el.animate({ height: newHeight + 'px' }, 'slow', 'linear')
-				}
+					$el.animate({ height: newHeight + 'px' }, opts.duration, opts.easing, opts.oncomplete($el))
+				},
+				duration: 'slow',
+				easing: 'linear',
+				oncomplete: function ($el) { }
 			}
 
-			var opts = $.extend(defaults, options);
+			opts = $.extend(defaults, options);
 
 			function reviewHeight() {
 				return this.each(function(i, el) {
