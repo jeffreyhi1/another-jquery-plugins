@@ -2,3 +2,8 @@
 - modify "autocomplete"
 - "wysiwyg": scrollbars
 - "tooltip": change css
+- update css framework, use RED SPARKLE:
+	.wfull -> .wide
+	.float -> .margin
+	.avatar -> .border
+	.button -> REMOVED

@@ -369,7 +369,7 @@ input.ajp-checkbox { display: none; }
 .ajp-wysiwyg-toolbar .button {
 	cursor: pointer;
 }
-/* $Id$ */
+/* $Id: jquery.ajp.zippy.css 81 2012-03-20 11:43:51Z azbitnev@gmail.com $ */
 
 /*
 	ajp-zippy: common logic
@@ -382,6 +382,7 @@ input.ajp-checkbox { display: none; }
 
 .ajp-zippy-content {
 	display: block;
+	height: 0;
 	visibility: hidden;
 	overflow: hidden;
 }
