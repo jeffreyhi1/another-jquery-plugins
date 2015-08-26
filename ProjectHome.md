@@ -1,0 +1,1 @@
+My plugins collections for jQuery.
